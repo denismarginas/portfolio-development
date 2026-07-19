@@ -1,0 +1,10 @@
+{
+    "name": "element_hero",
+    "description": "Hero element with background image, animations (squares/waves) and layout variants",
+    "assets": {
+        "php": ["assets/php/element_hero.php"],
+        "scss": ["assets/scss/style.scss"],
+        "js": ["assets/js/element_hero.js"]
+    },
+    "dependencies": ["svg", "hero"]
+}

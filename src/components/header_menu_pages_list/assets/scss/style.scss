@@ -1,0 +1,25 @@
+#header .dm-menu > ul {
+  display: flex;
+  gap: var(--dm-spacing-secondary);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#header .dm-menu > ul > li > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#header .dm-menu .dm-submenu {
+  position: absolute;
+  background-color: var(--dm-color-secondary);
+  list-style: none;
+  margin: 0;
+  padding: var(--dm-spacing-primary);
+  display: none;
+}
+
+#header .dm-menu > ul > li:hover > .dm-submenu {
+  display: block;
+}

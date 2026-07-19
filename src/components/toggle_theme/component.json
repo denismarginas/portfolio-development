@@ -1,0 +1,10 @@
+{
+  "name": "toggle_theme",
+  "description": "Theme toggle switch component.",
+  "assets": {
+    "php": ["assets/php/toggle_theme.php"],
+    "css": ["assets/scss/style.scss"],
+    "html": ["assets/html/template.html"]
+  },
+  "dependencies": []
+}

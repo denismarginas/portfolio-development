@@ -1,0 +1,12 @@
+{
+  "name": "google_analytics",
+  "title": "Google Analytics",
+  "description": "Google Analytics tracking code injection with gtag.js.",
+  "assets": {
+    "php": ["assets/php/google_analytics.php"],
+    "css": [],
+    "scss": [],
+    "js": []
+  },
+  "dependencies": []
+}

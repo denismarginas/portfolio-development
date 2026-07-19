@@ -1,0 +1,7 @@
+{
+  "name": "section_portfolio_showcase",
+  "description": "Portfolio showcase section displaying video items with embedded videos, titles, dates, descriptions, YouTube links and timeline lists",
+  "dependencies": ["image", "svg"],
+  "version": "1.0.0",
+  "author": ""
+}

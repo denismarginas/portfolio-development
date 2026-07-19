@@ -1,0 +1,12 @@
+{
+  "name": "devices_post_item_media",
+  "title": "Devices Post Item Media",
+  "description": "Displays a single post's photo or video media inside a tablet device frame.",
+  "assets": {
+    "php": ["assets/php/devices_post_item_media.php"],
+    "css": [],
+    "scss": ["assets/scss/style.scss"],
+    "js": ["assets/js/devices_post_item_media.js"]
+  },
+  "dependencies": ["image", "svg"]
+}

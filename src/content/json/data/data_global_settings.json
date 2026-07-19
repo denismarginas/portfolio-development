@@ -1,0 +1,57 @@
+{
+  "site_identity": "Denis Marginas",
+  "site_description": "My personal portfolio where are my work projects.",
+  "logo": {"img": "logo.webp", "path": "/logo/", "primary_title": "Denis", "secondary_title": "Marginas"},
+  "favicon": "/favicon/favicon.ico",
+  "url": "https://denismarginas.github.io/portfolio/",
+  "front_page": {"name": "Home", "slug": "home"},
+  "search_page": {"name": "Search", "slug": "search"},
+  "search_fields": {"title": "Search", "button_text": "Search", "button_placeholder": "Search keywords.."},
+  "page_slug_extension": ".html",
+  "language": { "default": "Enlgish", "list": [ {"text": "Enlgish", "iso": "en"} ] },
+  "themes_path": "src/theme",
+  "theme_active": {
+    "dir_name": "",
+    "url_path": "",
+    "html_render_path": "dist",
+    "header"          : {"block_1": "logo", "block_2": "menu"},
+    "footer"          : {
+      "block_1": {
+        "class": "dm-footer-contact",
+        "title": "Contact Data",
+        "list" : [
+          {"text": "CV English",   "url": "content/pdf/cv/cv-3/dm-cv-3-english-public-compressed.pdf",                                           "icon": "resume"},
+          {"text": "CV Romanian",  "url": "content/pdf/cv/cv-3/dm-cv-3-romana-public-compressed.pdf",                                            "icon": "resume"},
+          {"text": "Contact Form", "url": "https://docs.google.com/forms/d/e/1FAIpQLSdkMKYQyLa4H7yxU7RMUK97urwK5LMvbk-dFs9-wKpCRCO_Ng/viewform", "icon": "form"  }
+        ]
+      },
+      "block_2": {"class": "dm-footer-catalog", "title": "Project Types", "list": "projects"},
+      "block_3": {
+        "class": "dm-socials-footer",
+        "title": "Socials",
+        "list" : [
+          {"text": "Web Development Projects", "url": "https://www.youtube.com/channel/UCZGb7hnkyawMgnSO9T-rnnQ", "icon": "socials-youtube" },
+          {                                    "url": "https://www.facebook.com/denismarginas09",                 "icon": "socials-facebook"},
+          {                                    "url": "https://www.linkedin.com/in/denismarginas09/",             "icon": "socials-linkedin"},
+          {                                    "url": "https://x.com/DenisMarginas",                              "icon": "socials-x"       },
+          {                                    "url": "https://github.com/denismarginas",                         "icon": "socials-github"  }
+        ]
+      },
+      "block_4": {
+        "class": "dm-footer-copyrights",
+        "title": "Copyrights",
+        "list" : ["Beginning of the website: 04.06.2023", "Last update of website: {{last_update_date}}", "\u00a9All copyrights reserved by Denis Marginas"]
+      }
+    },
+    "preloader"       : "true"
+  },
+  "google_analytics": {"id": "G-GFKNYRN476"},
+  "google_site_verification": "pT_WebXTJxdIjN7BD7iEkRbbz0QLTUAGryLVW3EjIsk",
+  "cookie_notice": {
+    "display"         : "true",
+    "description_text": "By continuing to use this site, you consent to cookies that enhance your experience and analyze traffic.",
+    "page_text": "For more details, please read our %s.",
+    "button_text": "Accept Cookies",
+    "page"            : {"title": "Privacy Policy", "slug": "privacy-policy"}
+  }
+}

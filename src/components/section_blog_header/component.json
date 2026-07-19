@@ -1,0 +1,10 @@
+{
+    "name": "section_blog_header",
+    "description": "Blog profile header with wallpaper, avatar, username and description",
+    "assets": {
+        "php": ["assets/php/section_blog_header.php"],
+        "css": ["assets/scss/style.scss"],
+        "js": ["assets/js/section_blog_header.js"]
+    },
+    "dependencies": ["svg"]
+}

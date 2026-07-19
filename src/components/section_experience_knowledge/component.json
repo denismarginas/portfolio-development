@@ -1,0 +1,7 @@
+{
+  "name": "section_experience_knowledge",
+  "description": "Experience and knowledge section with portrait image, text lists, knowledge categories, knowledge icons and action buttons",
+  "dependencies": ["image", "svg"],
+  "version": "1.0.0",
+  "author": ""
+}

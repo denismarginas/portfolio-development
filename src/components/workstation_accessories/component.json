@@ -1,0 +1,12 @@
+{
+  "name": "workstation_accessories",
+  "title": "Workstation Accessories",
+  "description": "Displays a workstation's accessories with product cards, image slider, and item list.",
+  "assets": {
+    "php": ["assets/php/workstation_accessories.php"],
+    "css": [],
+    "scss": ["assets/scss/style.scss"],
+    "js": ["assets/js/workstation_accessories.js"]
+  },
+  "dependencies": ["image", "svg", "slider"]
+}

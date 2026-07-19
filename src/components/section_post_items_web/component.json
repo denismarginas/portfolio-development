@@ -1,0 +1,13 @@
+{
+    "name": "section_post_items_web",
+    "description": "Web development projects list section",
+    "post_types": ["page"],
+    "assets": {
+        "php": ["assets/php/section_post_items_web.php"],
+        "css": [],
+        "js": [],
+        "html": [],
+        "scss": ["assets/scss/style.scss"]
+    },
+    "dependencies": ["image", "svg"]
+}

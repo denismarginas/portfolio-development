@@ -1,0 +1,25 @@
+﻿{
+    "name": "feature_hero",
+    "description":  "Feature hero section for post/project pages",
+    "assets":  {
+                   "php":  [
+                               "assets/php/feature_hero.php"
+                           ],
+                   "css":  [
+
+                           ],
+                   "js":  [
+
+                          ],
+                   "html":  [
+
+                            ],
+                   "scss":  [
+
+                            ]
+               },
+    "dependencies":  [
+                         "device_layout",
+                         "svg"
+                     ]
+}

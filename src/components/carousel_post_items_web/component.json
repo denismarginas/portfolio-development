@@ -1,0 +1,12 @@
+{
+  "name": "carousel_post_items_web",
+  "title": "Carousel Post Items Web",
+  "description": "Carousel displaying web development project items with logos and thumbnails.",
+  "assets": {
+    "php": ["assets/php/carousel_post_items_web.php"],
+    "css": [],
+    "scss": ["assets/scss/style.scss"],
+    "js": ["assets/js/carousel_post_items_web.js"]
+  },
+  "dependencies": ["image", "svg"]
+}

@@ -1,0 +1,34 @@
+{
+    "menu_name": "Header Menu",
+    "menu_list": [
+        {
+            "name": "Home",
+            "slug": "home"
+        },
+        {
+            "name": "Experience",
+            "slug": "experience",
+            "submenu": [
+                {
+                    "name": "Experience as an employee",
+                    "slug": "employee-experience"
+                },
+                {
+                    "name": "Educational experience path",
+                    "slug": "education-experience"
+                }
+            ]
+        },
+        {
+            "name": "Projects",
+            "slug": "projects",
+            "submenu": [
+
+            ]
+        },
+        {
+            "name": "Contact",
+            "slug": "contact"
+        }
+    ]
+}

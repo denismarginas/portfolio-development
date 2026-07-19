@@ -1,0 +1,12 @@
+{
+  "name": "carousel_post_items_web_device_layouts",
+  "title": "Carousel Post Items Web Device Layouts",
+  "description": "Carousel displaying web development project items inside laptop and phone device frames.",
+  "assets": {
+    "php": ["assets/php/carousel_post_items_web_device_layouts.php"],
+    "css": [],
+    "scss": ["assets/scss/style.scss"],
+    "js": ["assets/js/carousel_post_items_web_device_layouts.js"]
+  },
+  "dependencies": ["image", "svg", "device_layout"]
+}

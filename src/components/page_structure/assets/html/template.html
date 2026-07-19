@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+{{ seo_fields }}
+{{ google_analytics }}
+<link rel="stylesheet" href="{{ theme_css_path }}">
+<link rel="stylesheet" href="{{ components_css_path }}">
+{{ component_asset_tags }}
+<script src="{{ theme_js_path }}"></script>
+<script src="{{ components_js_path }}"></script>
+</head>
+<html lang="{{ lang_iso }}">
+<body id="body">
+    {{ header_content }}
+    {{ page_heading }}
+    {{ cookie_notice }}
+    <div id="page-content">
+        {{ preloader }}
+        {{ body_content }}
+    </div>
+    {{ debug_section }}
+    {{ footer_content }}
+</body>
+</html>

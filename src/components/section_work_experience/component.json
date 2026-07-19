@@ -1,0 +1,13 @@
+{
+    "name": "section_work_experience",
+    "description": "Work experience section with projects preview",
+    "post_types": ["page"],
+    "assets": {
+        "php": ["assets/php/section_work_experience.php"],
+        "css": [],
+        "js": [],
+        "html": [],
+        "scss": ["assets/scss/style.scss"]
+    },
+    "dependencies": ["image", "svg"]
+}

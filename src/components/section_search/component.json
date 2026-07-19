@@ -1,0 +1,13 @@
+{
+    "name": "section_search",
+    "description": "Search section with index pages",
+    "post_types": ["page"],
+    "assets": {
+        "php": ["assets/php/section_search.php"],
+        "css": [],
+        "js": [],
+        "html": [],
+        "scss": ["assets/scss/style.scss"]
+    },
+    "dependencies": ["svg"]
+}

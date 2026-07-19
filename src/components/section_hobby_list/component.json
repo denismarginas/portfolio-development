@@ -1,0 +1,7 @@
+{
+  "name": "section_hobby_list",
+  "description": "Hobby list section displaying hobby items with background images, names and SVG icons in a grid layout",
+  "dependencies": ["image", "svg"],
+  "version": "1.0.0",
+  "author": ""
+}

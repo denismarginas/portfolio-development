@@ -1,0 +1,1 @@
+// workstation-product-card component

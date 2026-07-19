@@ -1,0 +1,13 @@
+{
+    "name": "section_summary_experience",
+    "description": "Summary experience section with hero and cards",
+    "post_types": ["page"],
+    "assets": {
+        "php": ["assets/php/section_summary_experience.php"],
+        "css": [],
+        "js": [],
+        "html": [],
+        "scss": ["assets/scss/style.scss"]
+    },
+    "dependencies": ["image", "svg"]
+}

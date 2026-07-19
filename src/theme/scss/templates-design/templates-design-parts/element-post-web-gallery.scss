@@ -1,0 +1,262 @@
+@import "../../functions/mixins.scss";
+@import "../../functions/functions.scss";
+
+.dm-gallery-web-content {
+  @include border-radius( var( --dm-border-radius-primary ));
+  @include flex-column();
+  gap: var( --dm-spacing-secondary );
+  padding: var( --dm-spacing-secondary );
+  position: relative;
+  overflow: hidden;
+
+  &:has(.dm-web-gallery) .dm-web-home-banner {
+    display: none;
+  }
+
+  > .dm-web-home-banner {
+    @include flex-row();
+    @include border-radius( var( --dm-border-radius-primary ));
+    background-color: var( --post_color_primary );
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+
+    > img {
+      cursor: pointer;
+      width: 100%;
+      height: auto;
+    }
+  }
+  > .dm-web-gallery {
+    @include reset-list();
+    @include flex-center();
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var( --dm-spacing-secondary );
+
+    > .dm-web-gallery-item {
+      @include fix-height(200px);
+      @include flex-center();
+      @include border-radius( var( --dm-border-radius-primary ));
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      background-color: var( --post_color_primary );
+      padding: var( --dm-spacing-primary );
+      background-image: linear-gradient(
+              180deg,
+              rgba(0, 0, 0, 0) 60%,
+              var(--post_color_secondary) 200%
+      );
+
+      > .layout {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        @include flex-center();
+
+        > img {
+          cursor: pointer;
+          z-index: 1;
+          width: 100%;
+          height: auto;
+          max-height: 100%;
+          object-fit: cover;
+          object-position: top;
+          transition: width 0.4s, max-width 0.4s;
+        }
+      }
+
+      &.gallery-item-web {
+        > .layout {
+          > .screen {
+            > img {
+              ilter: blur(0.5px);
+            }
+          }
+        }
+      }
+      &.gallery-item-phone, &.gallery-item-web {
+        > .layout {
+          position: relative;
+          width: auto;
+          height: auto;
+          max-height: 100%;
+          max-width: 100%;
+          filter: drop-shadow(4px 4px 4px rgba( var( --dm-color-black-rgb ), 0.3));
+
+          > .overlay {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 3;
+          }
+
+          > .device {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+          }
+
+          > .screen {
+            overflow: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            &:after {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-image: linear-gradient(180deg,
+                      rgba(0,0,0, 0) 60%,
+                      var( --post_color_primary ) 150%
+              );
+            }
+
+            > img {
+                width: 100%;
+                height: auto;
+                z-index: 0;
+            }
+
+            &[layout*="top"] {
+              justify-content: flex-start;
+            }
+
+            &[layout*="center"] {
+              justify-content: center;
+            }
+
+            &[layout*="bottom"] {
+              justify-content: flex-end;
+            }
+            &[layout*="fade-under"] {
+              > img {
+                mask: linear-gradient(0deg, transparent, var( --dm-color-white ) 30%, var( --dm-color-white ) 100%, transparent);
+              }
+            }
+            &[layout*="bg-primary"] {
+              background-color: var( --post_color_primary );
+            }
+            &[layout*="bg-white"] {
+              background-color: var( --dm-color-white );
+            }
+            &[layout*="cover"] {
+              > img {
+                object-fit: cover;
+                object-position: top;
+                width: 100%;
+                height: 100%;
+              }
+            }
+            &.desktop-model-01 {
+              top: 1.6%;
+              left: 1%;
+              right: 1%;
+              bottom: 15%;
+              max-width: 98%;
+              max-height: 77%;
+            }
+          &.desktop-model-02 {
+            top: 5%;
+            left: 11.5%;
+            right: 11.5%;
+            bottom: 15%;
+            max-width: 77.5%;
+            max-height: 86%;
+          }
+            &.desktop-model-03 {
+              top: 3%;
+              left: 2%;
+              right: 2%;
+              bottom: 15%;
+              max-width: 96%;
+              max-height: 79%;
+          }
+          &.phone-model-01 {
+              top: 8%;
+              left: 3%;
+              right: 3%;
+              bottom: 12%;
+              max-width: 93%;
+              max-height: 84%;
+            }
+
+            &.phone-model-02 {
+              top: 13%;
+              left: 7%;
+              right: 7%;
+              bottom: 45%;
+              max-width: 87%;
+              max-height: 74%;
+            }
+
+            &.phone-model-03 {
+              top: 8.5%;
+              left: 5%;
+              right: 5%;
+              bottom: 13%;
+              max-width: 90%;
+              max-height: 83%;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: $screen-tablet-large) {
+    > .dm-web-gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media only screen and (max-width: $screen-tablet-medium) {
+    > .dm-web-gallery {
+      grid-template-columns: repeat(2, 1fr);
+
+      > .dm-web-gallery-item {
+        @include fix-height(120px);
+      }
+    }
+  }
+  @media only screen and (max-width: $screen-phone-large) {
+    > .dm-web-gallery {
+      gap: var( --dm-spacing-primary );
+    }
+  }
+  @media only screen and (max-width: $screen-phone-medium) {
+
+    > .dm-web-gallery {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+body, body.theme-light {
+  .dm-gallery-web-content {
+    border: 1px solid rgba(var(--dm-color-gray-rgb), 0.2);
+    background-color: rgba(var( --dm-color-white-rgb), 0.3 );
+  }
+}
+
+body.theme-dark {
+  .dm-gallery-web-content {
+    background-color: rgba(var(--dm-color-gray-lighten-rgb), 0.1);
+    border: 1px solid rgba(var(--dm-color-white-rgb), 0.2);
+  }
+}
+
+

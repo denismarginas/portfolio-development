@@ -1,0 +1,13 @@
+{
+    "name": "section_post",
+    "description": "Single post view section (projects)",
+    "post_types": ["page"],
+    "assets": {
+        "php": ["assets/php/section_post.php"],
+        "css": [],
+        "js": [],
+        "html": [],
+        "scss": ["assets/scss/style.scss"]
+    },
+    "dependencies": ["image", "svg"]
+}

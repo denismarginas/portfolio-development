@@ -1,0 +1,12 @@
+{
+  "name": "devices_post_item_web",
+  "title": "Devices Post Item Web",
+  "description": "Displays a single post's web screenshots inside laptop and phone device frames.",
+  "assets": {
+    "php": ["assets/php/devices_post_item_web.php"],
+    "css": [],
+    "scss": ["assets/scss/style.scss"],
+    "js": ["assets/js/devices_post_item_web.js"]
+  },
+  "dependencies": ["image", "svg"]
+}

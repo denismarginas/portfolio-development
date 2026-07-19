@@ -1,0 +1,7 @@
+{
+  "name": "section_hero",
+  "description": "Hero section with title, background image and layout variations (standard, compress, squares, waves)",
+  "dependencies": ["svg"],
+  "version": "1.0.0",
+  "author": ""
+}

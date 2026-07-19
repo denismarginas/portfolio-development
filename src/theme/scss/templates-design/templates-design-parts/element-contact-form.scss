@@ -1,0 +1,318 @@
+@import "../../functions/mixins.scss";
+@import "../../functions/functions.scss";
+
+.dm-contact-form {
+  @include flex-column();
+  gap: var( --dm-spacing-secondary );
+  overflow: hidden;
+
+  > h3 {
+    @include dm-font-heading3();
+    --dm-text-heading3-font-family: var( --dm-font-family-secondary );
+  }
+  > form {
+    @include border-radius( var( --dm-border-radius-primary ) );
+    @include flex-column();
+    @include flex-center();
+    gap: var( --dm-spacing-secondary );
+    padding: var( --dm-spacing-tertiary ) var( --dm-spacing-secondary );
+    max-width: 800px;
+
+    > div {
+      @include flex-column();
+      gap: var( --dm-spacing-primary );
+
+      #dm-send-status {
+        @include dm-font-default();
+      }
+    }
+    .step {
+      flex-direction: row;
+      display: none;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: var( --dm-spacing-secondary );
+
+      > input, textarea {
+        width: 100%;
+      }
+      .content {
+        width: 100%;
+      }
+    }
+    input, textarea {
+      @include border-radius( var( --dm-border-radius-primary ) );
+      @include dm-font-default();
+      padding: calc(var( --dm-spacing-primary ) / 2) var( --dm-spacing-primary );
+      border: 2px solid var( --dm-border-color-primary );
+      background-color: rgba( var(--dm-color-gray-rgb) , 0.1 );
+      box-sizing: border-box;
+
+      &::placeholder {
+        @include dm-font-default();
+        opacity: 0.8;
+      }
+      &:focus {
+        outline: none;
+        background-color: rgba( var(--dm-color-primary-rgb) , 0.2 );
+      }
+    }
+    textarea {
+      width: auto;
+      max-width: 100%;
+      min-height: 100px;
+      max-height: 400px;
+      resize: none;
+    }
+    label  {
+      @include dm-font-default();
+    }
+    img {
+      @include border-radius( var( --dm-border-radius-primary ) );
+      width: auto;
+      height: auto;
+      max-width: 100%;
+    }
+    .radio {
+      @include flex-row();
+      width: 100%;
+      max-width: 100%;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+
+      label {
+        max-width: calc(100% - 40px);
+      }
+      .option-preview {
+        > svg {
+          @include flex-center();
+          @include svg-color( var( --dm-color-white ));
+          @include border-radius( var( --dm-border-radius-primary ) );
+          background-color: var( --dm-color-primary );
+          padding: var( --dm-spacing-primary ) var( --dm-spacing-tertiary );
+          width: 30px;
+          height: 20px;
+          object-fit: contain;
+          object-position: center;
+          margin-right: var( --dm-spacing-primary );
+        }
+        > img {
+          width: 100%;
+          height: 60px;
+          object-position: center;
+          object-fit: cover;
+        }
+        &.full-width {
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+      input {
+        z-index: 2;
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+      .checkmark {
+        display: block;
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: rgba( var(--dm-color-gray-lighten-rgb), 0.2 );
+        border-color: rgba( var(--dm-color-white-rgb), 1 );
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 2px;
+        outline: 2px solid rgba( var(--dm-color-primary-rgb), 1 );
+        margin: 4px;
+      }
+      input:checked + .checkmark {
+        background-color: rgba( var(--dm-color-primary-rgb), 1 );
+      }
+    }
+    .banner-svg {
+      @include flex-center();
+      @include border-radius( var( --dm-border-radius-primary ) );
+      background-color: var( --dm-color-primary );
+      background-image: linear-gradient(
+              var( --dm-color-secondary ) 20%,
+              var( --dm-color-primary ) 200%
+      );
+      padding: var( --dm-spacing-primary ) var( --dm-spacing-tertiary );
+      gap: calc(var(  --dm-spacing-primary ) / 2);
+
+      > svg {
+        @include flex-center();
+        @include svg-color( var( --dm-color-white ));
+        width: 30px;
+        height: 20px;
+        object-fit: contain;
+        object-position: center;
+      }
+      > label {
+        @include dm-font-big();
+        --dm-text-big-color: var( --dm-color-white );
+        margin-bottom: 0px;
+      }
+    }
+    button {
+      &[type="button"] {
+        border-radius:  var( --dm-border-radius-primary ) !important;
+      }
+    }
+  }
+  @media only screen and (max-width: $screen-tablet-large) {
+    > form {
+      .radio {
+        .option-preview {
+          width: 100%;
+          max-width: 100%;
+
+          > svg {
+            margin-right: 0;
+          }
+        }
+      }
+      .step {
+        gap: var( --dm-spacing-primary );
+
+        button {
+          @include dm-font-medium();
+        }
+      }
+      input, textarea, .radio {
+        margin-bottom: calc(var( --dm-spacing-primary ) / 2);
+      }
+    }
+  }
+  @media only screen and (max-width: $screen-tablet-medium) {
+    > form {
+      .radio {
+        .checkmark {
+          width: 14px;
+          height: 14px;
+        }
+      }
+    }
+  }
+}
+
+body, body.theme-light {
+  .dm-contact-form {
+    > h3 {
+      --dm-text-heading3-color: var( --dm-color-gray-darken );
+    }
+    > form {
+      background-color: rgba(var(--dm-color-gray-rgb), 0.1);
+
+      input, textarea {
+        --dm-text-default-color: var( --dm-color-gray-darken );
+
+        &::placeholder {
+          --dm-text-default-color: var( --dm-color-gray );
+        }
+      }
+      label {
+        --dm-text-default-color: var( --dm-color-gray-darken );
+      }
+      > div {
+        #dm-send-status {
+          --dm-text-default-color: var( --dm-color-gray-darken );
+        }
+      }
+      button {
+        &[data-action="prev-step"] {
+          --dm-color-primary: var( --dm-color-gray );
+        }
+      }
+    }
+  }
+}
+
+body.theme-dark {
+  .dm-contact-form {
+    > h3 {
+      --dm-text-heading3-color: var( --dm-color-white );
+    }
+    > form {
+      background-color: rgba(var(--dm-color-gray-lighten-rgb), 0.1);
+
+      input, textarea {
+        --dm-text-default-color: var( --dm-color-white );
+
+        &::placeholder {
+          --dm-text-default-color: var( --dm-color-white );
+        }
+      }
+      label {
+        --dm-text-default-color: var( --dm-color-white );
+      }
+      > div {
+        #dm-send-status {
+          --dm-text-default-color: var( --dm-color-white );
+        }
+      }
+      button {
+        &[data-action="prev-step"] {
+          --dm-color-primary: var( --dm-color-secondary );
+        }
+      }
+    }
+  }
+}
+
+body {
+  .dm-contact-form {
+    > form {
+      .form-submit {
+        display: none;
+      }
+      .external-form-submit {
+        display: flex;
+      }
+      &[data-form-type="steps"] {
+        .step {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+body[java-script="true"] {
+  .dm-contact-form {
+    > form {
+      .form-submit {
+        display: flex;
+      }
+      .external-form-submit {
+        display: none;
+      }
+      &[data-form-type="steps"] {
+        > * {
+          display: none;
+        }
+        .step {
+          display: flex;
+
+          &[data-display="hide"] {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,12 @@
+{
+  "name": "carousel_post_items_media",
+  "title": "Carousel Post Items Media",
+  "description": "Carousel displaying visual media project items with logos and thumbnails.",
+  "assets": {
+    "php": ["assets/php/carousel_post_items_media.php"],
+    "css": [],
+    "scss": ["assets/scss/style.scss"],
+    "js": ["assets/js/carousel_post_items_media.js"]
+  },
+  "dependencies": ["image", "svg"]
+}

@@ -1,0 +1,13 @@
+{
+    "name": "section_workstation_post",
+    "description": "Workstation post section rendering post content elements",
+    "post_types": ["page"],
+    "assets": {
+        "php": ["assets/php/section_workstation_post.php"],
+        "css": [],
+        "js": [],
+        "html": [],
+        "scss": ["assets/scss/style.scss"]
+    },
+    "dependencies": ["image", "svg"]
+}

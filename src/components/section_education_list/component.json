@@ -1,0 +1,7 @@
+{
+  "name": "section_education_list",
+  "description": "Education list section with compact and detailed views, logos, dates, professions, descriptions, external links and project references",
+  "dependencies": ["image", "svg"],
+  "version": "1.0.0",
+  "author": ""
+}

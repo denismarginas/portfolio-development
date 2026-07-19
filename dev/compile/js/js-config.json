@@ -1,0 +1,16 @@
+{
+    "clean_output": true,
+    "minify": false,
+    "minify_output_suffix": false,
+    "entries": [
+        {
+            "key": "components",
+            "label": "Component JS",
+            "type": "__components__",
+            "output": "components",
+            "enabled": true,
+            "minify": false,
+            "minify_output_suffix": false
+        }
+    ]
+}
