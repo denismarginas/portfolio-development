@@ -57,11 +57,6 @@ class simplelink_constructor
 
     protected static function dist_relative_link(string $target): string
     {
-        $current = $GLOBALS['dist_rel_path'] ?? '';
-        $dir = $current !== '' ? dirname($current) : '.';
-        if ($dir === '.' || $dir === '') {
-            return $target;
-        }
-        return str_repeat('../', substr_count($dir, '/') + 1) . $target;
+        return get_asset_relative_prefix() . $target;
     }
 }

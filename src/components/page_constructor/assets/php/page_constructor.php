@@ -28,7 +28,7 @@ class page_constructor
 
         $compileAssets = $data['compile_assets'] ?? false;
         if ($compileAssets) {
-            $urlPath = engine_config::getUrlPath();
+            $urlPath = get_asset_relative_prefix();
             $assetTags = '<link rel="stylesheet" href="' . $urlPath . 'src/components/theme/assets_compiled/css/bundle.css">'
                        . '<script src="' . $urlPath . 'src/components/theme/assets_compiled/js/bundle.js"></script>';
         } else {

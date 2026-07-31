@@ -6,6 +6,20 @@
  * camelCase = aliases for backward compatibility (will be removed after migration)
  */
 
+function get_asset_relative_prefix(): string
+{
+    if (($GLOBALS['render_target'] ?? '') === 'dist') {
+        $current = $GLOBALS['dist_rel_path'] ?? '';
+        $dir = $current !== '' ? dirname($current) : '.';
+        if ($dir === '.' || $dir === '') {
+            return '';
+        }
+        return str_repeat('../', substr_count($dir, '/') + 1);
+    }
+    return engine_config::getUrlPath();
+}
+
+
 // ─── Canonical snake_case ───
 
 function get_data_json(string $name, string $sub_dir = 'data'): ?array
@@ -31,10 +45,13 @@ function seo_implicit_fields(): array
     $site_name = $global['site_identity'] ?? '';
     $description = $global['site_description'] ?? '';
     $favicon = $global['favicon'] ?? '';
-    $url_path = engine_config::getUrlPath();
 
     if (!empty($favicon)) {
-        $favicon_url = (str_starts_with($favicon, 'http') || str_starts_with($favicon, '/')) ? $favicon : $url_path . ltrim($favicon, '/');
+        if (str_starts_with($favicon, 'http')) {
+            $favicon_url = $favicon;
+        } else {
+            $favicon_url = get_asset_relative_prefix() . ltrim($favicon, '/');
+        }
         $fields[] = '<link rel="icon" type="image/x-icon" href="' . htmlspecialchars($favicon_url) . '">';
     }
     if (!empty($site_name)) {

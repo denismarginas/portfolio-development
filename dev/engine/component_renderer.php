@@ -94,7 +94,7 @@ class component_renderer
     {
         $html = '';
         $components_dir = engine_config::get('components_dir');
-        $url_path = engine_config::getUrlPath();
+        $url_path = get_asset_relative_prefix();
 
         $names = !empty(self::$used_components) ? self::$used_components : data_service::get_all_component_names();
 
