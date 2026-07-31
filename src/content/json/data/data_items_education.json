@@ -4,7 +4,7 @@
     "display": "true",
     "type": "University",
     "img_bg": "light",
-    "img": "content/img/education/logo-technical-university-of-cluj-napoca-from-baia-mare-utcnbm.webp",
+    "img": "src/content/img/education/logo-technical-university-of-cluj-napoca-from-baia-mare-utcnbm.webp",
     "external_links" : [
       {
         "name": "website",
@@ -45,7 +45,7 @@
     "display": "true",
     "type": "High School",
     "img_bg": "light",
-    "img": "content/img/education/logo-high-school-emil-racovita.webp",
+    "img": "src/content/img/education/logo-high-school-emil-racovita.webp",
     "external_links" : [
       {
         "name": "website",

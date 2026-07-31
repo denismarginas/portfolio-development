@@ -6,23 +6,23 @@ ini_set('display_errors', '1');
 define('ENGINE_ROOT', dirname(__DIR__));
 define('ENGINE_DIR', __DIR__);
 
-require_once __DIR__ . '/Config.php';
-require_once __DIR__ . '/DataService.php';
-require_once __DIR__ . '/UrlService.php';
-require_once __DIR__ . '/ImageRenderer.php';
-require_once __DIR__ . '/Helpers.php';
-require_once __DIR__ . '/ComponentRenderer.php';
-require_once __DIR__ . '/Functions.php';
-require_once __DIR__ . '/ScssCompiler.php';
-require_once __DIR__ . '/ScssMinifier.php';
-require_once __DIR__ . '/Renderer.php';
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/data_service.php';
+require_once __DIR__ . '/url_service.php';
+require_once __DIR__ . '/image_renderer.php';
+require_once __DIR__ . '/helpers.php';
+require_once __DIR__ . '/component_renderer.php';
+require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/scss_compiler.php';
+require_once __DIR__ . '/scss_minifier.php';
+require_once __DIR__ . '/renderer.php';
 
-EngineConfig::init();
-DataService::init();
+engine_config::init();
+data_service::init();
 
 $GLOBALS['url_path'] = '';
 
-$global_settings = DataService::get_global_settings();
+$global_settings = data_service::get_global_settings();
 if ($global_settings && !empty($global_settings['url'])) {
     $parsed = parse_url($global_settings['url']);
     $path = $parsed['path'] ?? '';

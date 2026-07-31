@@ -1,40 +1,59 @@
 <?php
 
-class Header
+class header
 {
     public static function render(array $data = []): string
     {
-        $jsonMenuData = get_data_json('data_menu', 'data');
         $jsonGlobalData = get_data_json('data_global_settings', 'data');
-        $jsonCategoriesData = get_data_json('data_post_projects_terms', 'data');
+        $jsonMenuData = get_data_json('data_menu', 'data');
 
-        $headerBlocks = $jsonGlobalData['theme_active']['header'] ?? [];
-        $logoHtml = '';
+        $siteIdentity = $jsonGlobalData['site_identity'] ?? '';
+        $logoHtml = '<div class="dm-header-identity">' . htmlspecialchars($siteIdentity) . '</div>';
+
         $menuHtml = '';
-
-        if (isset($headerBlocks['block_1']) && $headerBlocks['block_1'] === 'logo') {
-            $logoHtml = HeaderLogo::render([
-                'frontPageSlug' => $jsonGlobalData['front_page']['slug'] . $jsonGlobalData['page_slug_extension'],
-                'logoPath' => $GLOBALS['urlPath'] . 'content/img' . $jsonGlobalData['logo']['path'] . $jsonGlobalData['logo']['img'],
-                'siteIdentity' => $jsonGlobalData['site_identity'],
-                'primaryTitle' => $jsonGlobalData['logo']['primary_title'],
-                'secondaryTitle' => $jsonGlobalData['logo']['secondary_title'],
-            ]);
+        foreach (($jsonMenuData['menu_list'] ?? []) as $item) {
+            $name = $item['name'] ?? '';
+            $slug = $item['slug'] ?? '';
+            if ($name === '' || $slug === '') continue;
+            $menuHtml .= '<li><a href="' . self::link_url($slug) . '">' . htmlspecialchars($name) . '</a></li>';
         }
-
-        if (isset($headerBlocks['block_2']) && $headerBlocks['block_2'] === 'menu') {
-            $menuHtml = HeaderMenu::render([
-                'menuData' => $jsonMenuData,
-                'categoriesData' => $jsonCategoriesData,
-                'globalData' => $jsonGlobalData,
-            ]);
-        }
+        $menuHtml = $menuHtml !== '' ? '<nav class="dm-header-menu"><ul>' . $menuHtml . '</ul></nav>' : '';
 
         return self::render_template([
             'logo_html' => $logoHtml,
             'menu_html' => $menuHtml,
-            'page_heading' => $data['page_heading'] ?? '',
+            'page_heading' => !empty($data['page_heading']) ? '<h1 class="page-heading">' . htmlspecialchars($data['page_heading']) . '</h1>' : '',
         ]);
+    }
+
+    protected static function link_url(string $slug): string
+    {
+        if (($GLOBALS['render_target'] ?? '') === 'dist') {
+            $globalData = get_data_json('data_global_settings', 'data');
+            $extension = $globalData['page_slug_extension'] ?? '.html';
+            return self::dist_relative_link(ltrim($slug, '/') . $extension);
+        }
+
+        $requestUri = $_SERVER['REQUEST_URI'] ?? '';
+        if (str_contains($requestUri, '/dev/platform/preview/')) {
+            $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+            $host = $_SERVER['HTTP_HOST'] ?? '127.0.0.1';
+            return $scheme . '://' . $host . '/dev/platform/preview/?post_id=' . urlencode($slug);
+        }
+        $jsonGlobalData = get_data_json('data_global_settings', 'data');
+        $baseUrl = rtrim($jsonGlobalData['url'] ?? '', '/');
+        $extension = $jsonGlobalData['page_slug_extension'] ?? '.html';
+        return $baseUrl . '/' . ltrim($slug, '/') . $extension;
+    }
+
+    protected static function dist_relative_link(string $target): string
+    {
+        $current = $GLOBALS['dist_rel_path'] ?? '';
+        $dir = $current !== '' ? dirname($current) : '.';
+        if ($dir === '.' || $dir === '') {
+            return $target;
+        }
+        return str_repeat('../', substr_count($dir, '/') + 1) . $target;
     }
 
     protected static function render_template(array $data): string

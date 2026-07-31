@@ -1,0 +1,462 @@
+{
+    "cards": [
+        {
+            "id": "card-db",
+            "title": "DataBase",
+            "type": "database",
+            "action": "loadJsonFile",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "data",
+                    "label": "Data"
+                },
+                {
+                    "name": "count",
+                    "label": "Count"
+                }
+            ],
+            "variables": [
+                {
+                    "name": "source",
+                    "value": "src/content/json/data/"
+                }
+            ],
+            "x": -601.2947768561446,
+            "y": -12.095398146639738,
+            "note": ""
+        },
+        {
+            "id": "card-sf-projects",
+            "title": "Post: Projects",
+            "type": "selectfile",
+            "action": "filterByFile",
+            "inputs": [
+                {
+                    "name": "data",
+                    "label": "Data"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "items",
+                    "label": "Items"
+                }
+            ],
+            "variables": [
+                {
+                    "name": "file",
+                    "value": "data_post_projects.json"
+                },
+                {
+                    "name": "post_type",
+                    "value": "project"
+                },
+                {
+                    "name": "global_content_path",
+                    "value": "{global_path}src/content/"
+                },
+                {
+                    "name": "global_img_path",
+                    "value": "{global_path}src/content/img/projects"
+                },
+                {
+                    "name": "global_vid_path",
+                    "value": "{global_path}src/content/vid/projects"
+                }
+            ],
+            "x": 402.236,
+            "y": -467.402,
+            "note": ""
+        },
+        {
+            "id": "card-sf-pages",
+            "title": "Post: Pages",
+            "type": "selectfile",
+            "action": "filterByFile",
+            "inputs": [
+                {
+                    "name": "data",
+                    "label": "Data"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "items",
+                    "label": "Items"
+                }
+            ],
+            "variables": [
+                {
+                    "name": "file",
+                    "value": "data_post_pages.json"
+                },
+                {
+                    "name": "post_type",
+                    "value": "page"
+                },
+                {
+                    "name": "global_content_path",
+                    "value": "{global_path}src/content/"
+                },
+                {
+                    "name": "global_img_path",
+                    "value": "{global_path}src/content/img/pages"
+                },
+                {
+                    "name": "global_vid_path",
+                    "value": "{global_path}src/content/vid/pages"
+                }
+            ],
+            "x": 368.13,
+            "y": 320.388,
+            "note": ""
+        },
+        {
+            "id": "card-pr-structure",
+            "title": "Project Structure",
+            "type": "project_structure",
+            "action": "",
+            "inputs": [
+                {
+                    "name": "items",
+                    "label": "Items"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "config",
+                    "label": "Config"
+                }
+            ],
+            "variables": [
+                {
+                    "name": "header",
+                    "value": "header"
+                },
+                {
+                    "name": "footer",
+                    "value": "footer"
+                },
+                {
+                    "name": "page_structure",
+                    "value": "page_constructor"
+                },
+                {
+                    "name": "body_wrapper",
+                    "value": ""
+                }
+            ],
+            "x": 868.0384885955282,
+            "y": -460.08190876422555,
+            "note": ""
+        },
+        {
+            "id": "card-pg-structure",
+            "title": "Page Structure",
+            "type": "page_structure",
+            "action": "",
+            "inputs": [
+                {
+                    "name": "items",
+                    "label": "Items"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "config",
+                    "label": "Config"
+                }
+            ],
+            "variables": [
+                {
+                    "name": "header",
+                    "value": "header"
+                },
+                {
+                    "name": "footer",
+                    "value": "footer"
+                },
+                {
+                    "name": "page_structure",
+                    "value": "page_constructor"
+                }
+            ],
+            "x": 860.3833248889481,
+            "y": 383.3449593888815,
+            "note": ""
+        },
+        {
+            "id": "card-seo-project",
+            "title": "Seo Projects",
+            "type": "seo_project",
+            "action": "",
+            "inputs": [
+                {
+                    "name": "data",
+                    "label": "Data"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "seo",
+                    "label": "SEO"
+                }
+            ],
+            "variables": [
+                {
+                    "name": "title_max",
+                    "value": "50"
+                },
+                {
+                    "name": "description_max",
+                    "value": "140"
+                },
+                {
+                    "name": "index",
+                    "value": "index"
+                },
+                {
+                    "name": "keywords_source",
+                    "value": "post_id"
+                }
+            ],
+            "x": 1288.8832328932922,
+            "y": -438.10030612397935,
+            "note": ""
+        },
+        {
+            "id": "card-seo-page",
+            "title": "Seo Page",
+            "type": "seo_page",
+            "action": "",
+            "inputs": [
+                {
+                    "name": "data",
+                    "label": "Data"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "seo",
+                    "label": "SEO"
+                }
+            ],
+            "variables": [
+                {
+                    "name": "index",
+                    "value": "index"
+                }
+            ],
+            "x": 1251.669864629605,
+            "y": 449.19026899986665,
+            "note": ""
+        },
+        {
+            "id": "card-pr",
+            "title": "Preview Render",
+            "type": "render",
+            "action": "renderPage",
+            "inputs": [
+                {
+                    "name": "items",
+                    "label": "Items"
+                },
+                {
+                    "name": "config",
+                    "label": "Config"
+                },
+                {
+                    "name": "seo",
+                    "label": "SEO"
+                }
+            ],
+            "outputs": [],
+            "variables": [
+                {
+                    "name": "debug_post_data",
+                    "value": "false"
+                },
+                {
+                    "name": "compile_assets",
+                    "value": "false"
+                },
+                {
+                    "name": "html_compile",
+                    "value": "true"
+                },
+                {
+                    "name": "html_compile_folder",
+                    "value": "true"
+                }
+            ],
+            "x": 1355.83,
+            "y": -29.8833,
+            "note": ""
+        }
+    ],
+    "links": [
+        {
+            "id": "link-db-sf-pr",
+            "from": {
+                "cardId": "card-db",
+                "kind": "output",
+                "name": "data"
+            },
+            "to": {
+                "cardId": "card-sf-projects",
+                "kind": "input",
+                "name": "data"
+            }
+        },
+        {
+            "id": "link-db-sf-pg",
+            "from": {
+                "cardId": "card-db",
+                "kind": "output",
+                "name": "data"
+            },
+            "to": {
+                "cardId": "card-sf-pages",
+                "kind": "input",
+                "name": "data"
+            }
+        },
+        {
+            "id": "link-sf-pr-str",
+            "from": {
+                "cardId": "card-sf-projects",
+                "kind": "output",
+                "name": "items"
+            },
+            "to": {
+                "cardId": "card-pr-structure",
+                "kind": "input",
+                "name": "items"
+            }
+        },
+        {
+            "id": "link-sf-pg-str",
+            "from": {
+                "cardId": "card-sf-pages",
+                "kind": "output",
+                "name": "items"
+            },
+            "to": {
+                "cardId": "card-pg-structure",
+                "kind": "input",
+                "name": "items"
+            }
+        },
+        {
+            "id": "link-str-seo-pr",
+            "from": {
+                "cardId": "card-pr-structure",
+                "kind": "output",
+                "name": "config"
+            },
+            "to": {
+                "cardId": "card-seo-project",
+                "kind": "input",
+                "name": "data"
+            }
+        },
+        {
+            "id": "link-str-seo-pg",
+            "from": {
+                "cardId": "card-pg-structure",
+                "kind": "output",
+                "name": "config"
+            },
+            "to": {
+                "cardId": "card-seo-page",
+                "kind": "input",
+                "name": "data"
+            }
+        },
+        {
+            "id": "link-seo-pr-rnd",
+            "from": {
+                "cardId": "card-seo-project",
+                "kind": "output",
+                "name": "seo"
+            },
+            "to": {
+                "cardId": "card-pr",
+                "kind": "input",
+                "name": "seo"
+            }
+        },
+        {
+            "id": "link-seo-pg-rnd",
+            "from": {
+                "cardId": "card-seo-page",
+                "kind": "output",
+                "name": "seo"
+            },
+            "to": {
+                "cardId": "card-pr",
+                "kind": "input",
+                "name": "seo"
+            }
+        },
+        {
+            "id": "link-sf-pr-rnd",
+            "from": {
+                "cardId": "card-sf-projects",
+                "kind": "output",
+                "name": "items"
+            },
+            "to": {
+                "cardId": "card-pr",
+                "kind": "input",
+                "name": "items"
+            }
+        },
+        {
+            "id": "link-sf-pg-rnd",
+            "from": {
+                "cardId": "card-sf-pages",
+                "kind": "output",
+                "name": "items"
+            },
+            "to": {
+                "cardId": "card-pr",
+                "kind": "input",
+                "name": "items"
+            }
+        },
+        {
+            "id": "link-str-pr-rnd",
+            "from": {
+                "cardId": "card-pr-structure",
+                "kind": "output",
+                "name": "config"
+            },
+            "to": {
+                "cardId": "card-pr",
+                "kind": "input",
+                "name": "config"
+            }
+        },
+        {
+            "id": "link-str-pg-rnd",
+            "from": {
+                "cardId": "card-pg-structure",
+                "kind": "output",
+                "name": "config"
+            },
+            "to": {
+                "cardId": "card-pr",
+                "kind": "input",
+                "name": "config"
+            }
+        }
+    ],
+    "variables": [
+        {
+            "name": "global_path",
+            "value": ""
+        }
+    ]
+}

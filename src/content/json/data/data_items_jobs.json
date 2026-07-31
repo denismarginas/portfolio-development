@@ -2,7 +2,7 @@
   {
     "name": "Pia Soft Product",
     "display": "true",
-    "img": "content/img/projects/piasoftproduct/logo/logo.png",
+    "img": "src/content/img/projects/piasoftproduct/logo/logo.png",
     "img_bg": "dark",
     "url_web": "https://www.piasoftproduct.com",
     "url_facebook": "https://www.facebook.com/pia.pop.31/photos",
@@ -36,7 +36,7 @@
   {
     "name": "Netex Romania",
     "display": "true",
-    "img": "content/img/projects/netexromania/logo/logo.png",
+    "img": "src/content/img/projects/netexromania/logo/logo.png",
     "img_bg": "light",
     "url_web": "https://www.netex.ro",
     "url_facebook": "https://www.facebook.com/netex.ro",
@@ -66,7 +66,7 @@
   {
     "name": "Enlivy",
     "display": "true",
-    "img": "content/img/projects/enlivy/logo/logo.png",
+    "img": "src/content/img/projects/enlivy/logo/logo.png",
     "img_bg": "dark",
     "url_web": "https://enlivy.ro",
     "url_facebook": "https://www.facebook.com/enlivy",
@@ -93,7 +93,7 @@
   {
     "name": "Yes Agency",
     "display": "false",
-    "img": "content/img/projects/yesagency/logo/logo.png",
+    "img": "src/content/img/projects/yesagency/logo/logo.png",
     "img_bg": "light",
     "url_web": "https://yesagency.ro/",
     "url_facebook": "https://www.facebook.com/yesagency.ro",
@@ -118,7 +118,7 @@
   {
     "name": "Mentor Marketing Experts",
     "display": "true",
-    "img": "content/img/projects/mentormarketingexperts/logo/logo-icon.webp",
+    "img": "src/content/img/projects/mentormarketingexperts/logo/logo-icon.webp",
     "img_bg": "light",
     "url_web": "https://mentor-marketing.com/",
     "url_linkedin": "https://www.linkedin.com/company/mentor-marketing-experts/",
@@ -143,7 +143,7 @@
   {
     "name": "Gi Group",
     "display": "false",
-    "img": "content/img/projects/gigroup/logo/logo-icon.webp",
+    "img": "src/content/img/projects/gigroup/logo/logo-icon.webp",
     "img_bg": "light",
     "url_web": "https://ro.gigroup.com/",
     "url_linkedin": "https://www.linkedin.com/company/gi-group/",

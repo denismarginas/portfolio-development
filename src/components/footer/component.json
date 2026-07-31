@@ -1,11 +1,10 @@
 {
   "name": "footer",
-  "description": "Footer wrapper component.",
+  "description": "Page footer wrapper component.",
   "assets": {
     "php": ["assets/php/footer.php"],
-    "css": ["assets/scss/style.scss"],
-    "js": ["assets/js/footer.js"],
-    "html": ["assets/html/template.html"]
+    "html": ["assets/html/template.html"],
+    "css": ["assets/css/footer.css"]
   },
-  "dependencies": ["footer_linklist", "socials_buttons", "copyrights"]
+  "dependencies": []
 }

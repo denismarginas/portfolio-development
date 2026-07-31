@@ -2,14 +2,14 @@
   "site_identity": "Denis Marginas",
   "site_description": "My personal portfolio where are my work projects.",
   "logo": {"img": "logo.webp", "path": "/logo/", "primary_title": "Denis", "secondary_title": "Marginas"},
-  "favicon": "/favicon/favicon.ico",
+  "favicon": "/src/content/img/favicon/favicon.ico",
   "url": "https://denismarginas.github.io/portfolio/",
   "front_page": {"name": "Home", "slug": "home"},
   "search_page": {"name": "Search", "slug": "search"},
   "search_fields": {"title": "Search", "button_text": "Search", "button_placeholder": "Search keywords.."},
   "page_slug_extension": ".html",
   "language": { "default": "Enlgish", "list": [ {"text": "Enlgish", "iso": "en"} ] },
-  "themes_path": "src/theme",
+  "themes_path": "src/components/theme/assets",
   "theme_active": {
     "dir_name": "",
     "url_path": "",
@@ -20,8 +20,8 @@
         "class": "dm-footer-contact",
         "title": "Contact Data",
         "list" : [
-          {"text": "CV English",   "url": "content/pdf/cv/cv-3/dm-cv-3-english-public-compressed.pdf",                                           "icon": "resume"},
-          {"text": "CV Romanian",  "url": "content/pdf/cv/cv-3/dm-cv-3-romana-public-compressed.pdf",                                            "icon": "resume"},
+          {"text": "CV English",   "url": "src/content/pdf/cv/cv-3/dm-cv-3-english-public-compressed.pdf",                                           "icon": "resume"},
+          {"text": "CV Romanian",  "url": "src/content/pdf/cv/cv-3/dm-cv-3-romana-public-compressed.pdf",                                            "icon": "resume"},
           {"text": "Contact Form", "url": "https://docs.google.com/forms/d/e/1FAIpQLSdkMKYQyLa4H7yxU7RMUK97urwK5LMvbk-dFs9-wKpCRCO_Ng/viewform", "icon": "form"  }
         ]
       },

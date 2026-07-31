@@ -1,7 +1,0 @@
-{
-  "name": "section_job_list",
-  "description": "Job list section with company logos, work details, time calculation, social links and job graph",
-  "dependencies": ["image", "svg"],
-  "version": "1.0.0",
-  "author": ""
-}

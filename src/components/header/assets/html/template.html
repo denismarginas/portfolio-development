@@ -1,10 +1,8 @@
 <header id="header">
-  <section>
+  <div class="container-sm">
     {{ logo_html }}
     {{ menu_html }}
-  </section>
+  </div>
 </header>
 
-<?php if (!empty('{{ page_heading }}')): ?>
-  <h1 class="page-heading">{{ page_heading }}</h1>
-<?php endif; ?>
+{{ page_heading }}

@@ -1,1 +1,0 @@
-// element-hero component

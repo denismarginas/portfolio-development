@@ -6,12 +6,12 @@
         "buttons": [
           {
             "text": "CV English",
-            "link": "content/pdf/cv/cv-1/dm-cv-1-english-public-compressed.pdf",
+            "link": "src/content/pdf/cv/cv-1/dm-cv-1-english-public-compressed.pdf",
             "icon": "pdf"
           },
           {
             "text": "CV Romanian",
-            "link": "content/pdf/cv/cv-1/dm-cv-1-romana-public-compressed.pdf",
+            "link": "src/content/pdf/cv/cv-1/dm-cv-1-romana-public-compressed.pdf",
             "icon": "pdf"
           }
         ]
@@ -22,7 +22,7 @@
     "media": [
       {
         "type": "photo",
-        "path": "content/img/projects/denismarginas/media/banners-1-1/banner-004.webp"
+        "path": "src/content/img/projects/denismarginas/media/banners-1-1/banner-004.webp"
       }
     ]
   },
@@ -44,7 +44,7 @@
     "media": [
       {
         "type": "photo",
-        "path": "content/img/projects/denismarginas/media/banners-ultra-wide/wallpaper-contact-02.webp"
+        "path": "src/content/img/projects/denismarginas/media/banners-ultra-wide/wallpaper-contact-02.webp"
       }
     ]
   },
@@ -71,7 +71,7 @@
     "media": [
       {
         "type": "photo",
-        "path": "content/img/projects/denismarginas/media/bannners-facebook/banner-facebook-01.webp"
+        "path": "src/content/img/projects/denismarginas/media/bannners-facebook/banner-facebook-01.webp"
       }
     ]
   },
@@ -82,12 +82,12 @@
         "buttons": [
           {
             "text": "CV English",
-            "link": "content/pdf/cv/cv-1/dm-cv-1-english-public-compressed.pdf",
+            "link": "src/content/pdf/cv/cv-1/dm-cv-1-english-public-compressed.pdf",
             "icon": "pdf"
           },
           {
             "text": "CV Romanian",
-            "link": "content/pdf/cv/cv-1/dm-cv-1-romana-public-compressed.pdf",
+            "link": "src/content/pdf/cv/cv-1/dm-cv-1-romana-public-compressed.pdf",
             "icon": "pdf"
           }
         ]
@@ -98,7 +98,7 @@
     "media": [
       {
         "type": "photo",
-        "path": "content/img/projects/denismarginas/media/banners-1-1/banner-003.webp"
+        "path": "src/content/img/projects/denismarginas/media/banners-1-1/banner-003.webp"
       }
     ]
   },
@@ -109,15 +109,15 @@
     "media": [
       {
         "type": "photo",
-        "path": "content/img/projects/denismarginas/media/workstation-01/PC0_1.webp"
+        "path": "src/content/img/projects/denismarginas/media/workstation-01/PC0_1.webp"
       },
       {
         "type": "photo",
-        "path": "content/img/projects/denismarginas/media/workstation-01/PC0_2.webp"
+        "path": "src/content/img/projects/denismarginas/media/workstation-01/PC0_2.webp"
       },
       {
         "type": "photo",
-        "path": "content/img/projects/denismarginas/media/workstation-01/PC0_3.webp"
+        "path": "src/content/img/projects/denismarginas/media/workstation-01/PC0_3.webp"
       }
     ]
   },
@@ -139,19 +139,19 @@
     "media": [
       {
         "type": "photo",
-        "path": "content/img/projects/denismarginas/media/workstation-02/PC1_1.webp"
+        "path": "src/content/img/projects/denismarginas/media/workstation-02/PC1_1.webp"
       },
       {
         "type": "photo",
-        "path": "content/img/projects/denismarginas/media/workstation-02/PC1_2.webp"
+        "path": "src/content/img/projects/denismarginas/media/workstation-02/PC1_2.webp"
       },
       {
         "type": "photo",
-        "path": "content/img/projects/denismarginas/media/workstation-02/PC1_3.webp"
+        "path": "src/content/img/projects/denismarginas/media/workstation-02/PC1_3.webp"
       },
       {
         "type": "photo",
-        "path": "content/img/projects/denismarginas/media/workstation-02/PC1_4.webp"
+        "path": "src/content/img/projects/denismarginas/media/workstation-02/PC1_4.webp"
       }
     ]
   },
@@ -167,12 +167,12 @@
           },
           {
             "text": "CV English",
-            "link": "content/pdf/cv/cv-2/dm-cv-2-english-public-compressed.pdf",
+            "link": "src/content/pdf/cv/cv-2/dm-cv-2-english-public-compressed.pdf",
             "icon": "pdf"
           },
           {
             "text": "CV Romanian",
-            "link": "content/pdf/cv/cv-2/dm-cv-2-romana-public-compressed.pdf",
+            "link": "src/content/pdf/cv/cv-2/dm-cv-2-romana-public-compressed.pdf",
             "icon": "pdf"
           }
         ]
@@ -183,8 +183,8 @@
     "media": [
       {
         "type": "video",
-        "path": "content/vid/projects/denismarginas/personal-portfolio/personal-portfolio-1.webm",
-        "thumbnail": "content/img/thumbnails/personal-portfolio-1.webp"
+        "path": "src/content/vid/projects/denismarginas/personal-portfolio/personal-portfolio-1.webm",
+        "thumbnail": "src/content/img/thumbnails/personal-portfolio-1.webp"
       }
     ]
   },
@@ -195,12 +195,12 @@
         "buttons": [
           {
             "text": "CV English",
-            "link": "content/pdf/cv/cv-1/dm-cv-1-english-public-compressed.pdf",
+            "link": "src/content/pdf/cv/cv-1/dm-cv-1-english-public-compressed.pdf",
             "icon": "pdf"
           },
           {
             "text": "CV Romanian",
-            "link": "content/pdf/cv/cv-1/dm-cv-1-romana-public-compressed.pdf",
+            "link": "src/content/pdf/cv/cv-1/dm-cv-1-romana-public-compressed.pdf",
             "icon": "pdf"
           }
         ]
@@ -211,7 +211,7 @@
     "media": [
       {
         "type": "photo",
-        "path": "content/pdf/cv/cv-1/dm-cv-1-english-public-compressed.webp"
+        "path": "src/content/pdf/cv/cv-1/dm-cv-1-english-public-compressed.webp"
       }
     ]
   },
@@ -238,8 +238,8 @@
     "media": [
       {
         "type": "video",
-        "path": "content/vid/projects/denismarginas/personal-workstation/personal-workstation-build-1.webm",
-        "thumbnail": "content/img/thumbnails/personal-workstation-build-1.webp"
+        "path": "src/content/vid/projects/denismarginas/personal-workstation/personal-workstation-build-1.webm",
+        "thumbnail": "src/content/img/thumbnails/personal-workstation-build-1.webp"
       }
     ]
   },
@@ -271,7 +271,7 @@
     "media": [
       {
         "type": "photo",
-        "path": "content/img/projects/denismarginas/media/banners-1-1/banner-001.webp"
+        "path": "src/content/img/projects/denismarginas/media/banners-1-1/banner-001.webp"
       }
     ]
   },
@@ -298,7 +298,7 @@
     "media": [
       {
         "type": "photo",
-        "path": "content/img/projects/denismarginas/media/banners-1-1/banner-002.webp\""
+        "path": "src/content/img/projects/denismarginas/media/banners-1-1/banner-002.webp\""
       }
     ]
   },
@@ -310,12 +310,12 @@
         "buttons": [
           {
             "text": "CV English",
-            "link": "content/pdf/cv/cv-2/dm-cv-2-english-public-compressed.pdf",
+            "link": "src/content/pdf/cv/cv-2/dm-cv-2-english-public-compressed.pdf",
             "icon": "pdf"
           },
           {
             "text": "CV Romanian",
-            "link": "content/pdf/cv/cv-2/dm-cv-2-romana-public-compressed.pdf",
+            "link": "src/content/pdf/cv/cv-2/dm-cv-2-romana-public-compressed.pdf",
             "icon": "pdf"
           }
         ]
@@ -326,7 +326,7 @@
     "media": [
       {
         "type": "photo",
-        "path": "content/pdf/cv/cv-2/dm-cv-2-english-public-compressed.webp"
+        "path": "src/content/pdf/cv/cv-2/dm-cv-2-english-public-compressed.webp"
       }
     ]
   },
@@ -349,7 +349,7 @@
     "media": [
       {
         "type": "photo",
-        "path": "content/img/projects/denismarginas/media/banners-1-1/banner-005.webp"
+        "path": "src/content/img/projects/denismarginas/media/banners-1-1/banner-005.webp"
       }
     ]
   },
@@ -376,8 +376,8 @@
     "media": [
       {
         "type": "video",
-        "path": "content/vid/projects/denismarginas/personal-portfolio/experience-highlights-1.webm",
-        "thumbnail": "content/img/thumbnails/experience-highlights-1.webp"
+        "path": "src/content/vid/projects/denismarginas/personal-portfolio/experience-highlights-1.webm",
+        "thumbnail": "src/content/img/thumbnails/experience-highlights-1.webp"
       }
     ]
   },
@@ -409,8 +409,8 @@
     "media": [
       {
         "type": "video",
-        "path": "content/vid/projects/denismarginas/github-portfolio/github-portfolio.webm",
-        "thumbnail": "content/img/thumbnails/github-portfolio.webp"
+        "path": "src/content/vid/projects/denismarginas/github-portfolio/github-portfolio.webm",
+        "thumbnail": "src/content/img/thumbnails/github-portfolio.webp"
       }
     ]
   }

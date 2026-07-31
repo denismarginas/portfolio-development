@@ -3,9 +3,8 @@
   "description": "Page header wrapper component.",
   "assets": {
     "php": ["assets/php/header.php"],
-    "css": ["assets/scss/style.scss"],
-    "js": ["assets/js/header.js"],
-    "html": ["assets/html/template.html"]
+    "html": ["assets/html/template.html"],
+    "css": ["assets/css/header.css"]
   },
-  "dependencies": ["header_logo", "header_menu"]
+  "dependencies": []
 }

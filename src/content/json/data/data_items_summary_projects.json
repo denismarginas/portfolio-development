@@ -12,19 +12,19 @@
                 "data": {
                     "slides": [
                         {
-                            "image": "content/img/projects/promotiimars/web/promotional-campaign-registration-form/promotions-contact-form-0.webp",
+                            "image": "src/content/img/projects/promotiimars/web/promotional-campaign-registration-form/promotions-contact-form-0.webp",
                             "alt": "Slide 1"
                         },
                         {
-                            "image": "content/img/projects/promotiimars/web/promotional-campaign-registration-form/promotions-contact-form-1.webp",
+                            "image": "src/content/img/projects/promotiimars/web/promotional-campaign-registration-form/promotions-contact-form-1.webp",
                             "alt": "Slide 2"
                         },
                         {
-                            "image": "content/img/projects/promotiimars/web/promotional-campaign-registration-form/promotions-contact-form-2.webp",
+                            "image": "src/content/img/projects/promotiimars/web/promotional-campaign-registration-form/promotions-contact-form-2.webp",
                             "alt": "Slide 3"
                         },
                         {
-                            "image": "content/img/projects/promotiimars/web/promotional-campaign-registration-form/promotions-contact-form-3.webp",
+                            "image": "src/content/img/projects/promotiimars/web/promotional-campaign-registration-form/promotions-contact-form-3.webp",
                             "alt": "Slide 4"
                         }
                     ],
@@ -42,7 +42,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/resurseeducationale/web/paid-article-upload-system/upload-paid-articles-1.webp",
+                    "src": "src/content/img/projects/resurseeducationale/web/paid-article-upload-system/upload-paid-articles-1.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -52,7 +52,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/resurseeducationale/web/paid-article-upload-system/upload-paid-articles-2.webp",
+                    "src": "src/content/img/projects/resurseeducationale/web/paid-article-upload-system/upload-paid-articles-2.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -60,7 +60,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/resurseeducationale/web/paid-article-upload-system/upload-paid-articles-3.webp",
+                    "src": "src/content/img/projects/resurseeducationale/web/paid-article-upload-system/upload-paid-articles-3.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -78,7 +78,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/agromir/web/auto-filled-request-form/prestashop-ctf7-autocomplet-data.webp",
+                    "src": "src/content/img/projects/agromir/web/auto-filled-request-form/prestashop-ctf7-autocomplet-data.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -95,7 +95,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/reifendirekt/web/web-design/webdesign-html-and-scss-1.webp",
+                    "src": "src/content/img/projects/reifendirekt/web/web-design/webdesign-html-and-scss-1.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -115,11 +115,11 @@
                 "data": {
                     "slides": [
                         {
-                            "image": "content/img/projects/agromir/web/seo-optimization/seo-optimization-0.webp",
+                            "image": "src/content/img/projects/agromir/web/seo-optimization/seo-optimization-0.webp",
                             "alt": "Slide 1"
                         },
                         {
-                            "image": "content/img/projects/agromir/web/seo-optimization/seo-optimization-1.webp",
+                            "image": "src/content/img/projects/agromir/web/seo-optimization/seo-optimization-1.webp",
                             "alt": "Slide 2"
                         }
                     ],
@@ -138,7 +138,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/agromir/web/prestashop-feed-export/prestashop-feed-export-1.webp",
+                    "src": "src/content/img/projects/agromir/web/prestashop-feed-export/prestashop-feed-export-1.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -156,7 +156,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/lavmag/web/prestashop-custom-import-feed-php-script/prestashop-custom-import-feed-php-script.webp",
+                    "src": "src/content/img/projects/lavmag/web/prestashop-custom-import-feed-php-script/prestashop-custom-import-feed-php-script.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -173,23 +173,23 @@
             {
                 "component": "video",
                 "data": {
-                    "src": "content/vid/projects/agromir/videos_1/agromir_7.webm",
-                    "thumbnail": "content/img/projects/agromir/logo/logo.png",
-                    "thumbnail_bg": "content/img/thumbnails/workpreview-summary-thumbnail.webp"
+                    "src": "src/content/vid/projects/agromir/videos_1/agromir_7.webm",
+                    "thumbnail": "src/content/img/projects/agromir/logo/logo.png",
+                    "thumbnail_bg": "src/content/img/thumbnails/workpreview-summary-thumbnail.webp"
                 }
             },
             {
                 "component": "video",
                 "data": {
-                    "src": "content/vid/projects/casadarius-shop/videos_1/casadarius_3.webm",
-                    "thumbnail": "content/img/projects/casadarius-presentation/logo/logo.png",
-                    "thumbnail_bg": "content/img/thumbnails/workpreview-summary-thumbnail.webp"
+                    "src": "src/content/vid/projects/casadarius-shop/videos_1/casadarius_3.webm",
+                    "thumbnail": "src/content/img/projects/casadarius-presentation/logo/logo.png",
+                    "thumbnail_bg": "src/content/img/thumbnails/workpreview-summary-thumbnail.webp"
                 }
             },
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/agromir/media-video-editing/video-editing-agromir-0.webp",
+                    "src": "src/content/img/projects/agromir/media-video-editing/video-editing-agromir-0.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -197,7 +197,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/agromir/media-video-editing/video-editing-agromir-1.webp",
+                    "src": "src/content/img/projects/agromir/media-video-editing/video-editing-agromir-1.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -215,7 +215,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/busvip/media-video-editing-map-animation/video-editing-busvip-0.webp",
+                    "src": "src/content/img/projects/busvip/media-video-editing-map-animation/video-editing-busvip-0.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -223,7 +223,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/busvip/media-video-editing-map-animation/video-editing-busvip-1.webp",
+                    "src": "src/content/img/projects/busvip/media-video-editing-map-animation/video-editing-busvip-1.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -231,7 +231,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/busvip/media-video-editing-map-animation/video-editing-busvip-2.webp",
+                    "src": "src/content/img/projects/busvip/media-video-editing-map-animation/video-editing-busvip-2.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -239,9 +239,9 @@
             {
                 "component": "video",
                 "data": {
-                    "src": "content/vid/projects/busvip/videos_3/busvip_2.webm",
-                    "thumbnail": "content/img/projects/busvip/logo/logo.png",
-                    "thumbnail_bg": "content/img/thumbnails/workpreview-summary-thumbnail.webp"
+                    "src": "src/content/vid/projects/busvip/videos_3/busvip_2.webm",
+                    "thumbnail": "src/content/img/projects/busvip/logo/logo.png",
+                    "thumbnail_bg": "src/content/img/thumbnails/workpreview-summary-thumbnail.webp"
                 }
             }
         ]
@@ -257,7 +257,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/busvip/media-video-editing-car-animation/video-editing-busvip-0.webp",
+                    "src": "src/content/img/projects/busvip/media-video-editing-car-animation/video-editing-busvip-0.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -265,7 +265,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/busvip/media-video-editing-car-animation/video-editing-busvip-1.webp",
+                    "src": "src/content/img/projects/busvip/media-video-editing-car-animation/video-editing-busvip-1.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -273,7 +273,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/busvip/media-video-editing-car-animation/video-editing-busvip-2.webp",
+                    "src": "src/content/img/projects/busvip/media-video-editing-car-animation/video-editing-busvip-2.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -281,9 +281,9 @@
             {
                 "component": "video",
                 "data": {
-                    "src": "content/vid/projects/busvip/videos_2/busvip_3.webm",
-                    "thumbnail": "content/img/projects/busvip/logo/logo.png",
-                    "thumbnail_bg": "content/img/thumbnails/workpreview-summary-thumbnail.webp"
+                    "src": "src/content/vid/projects/busvip/videos_2/busvip_3.webm",
+                    "thumbnail": "src/content/img/projects/busvip/logo/logo.png",
+                    "thumbnail_bg": "src/content/img/thumbnails/workpreview-summary-thumbnail.webp"
                 }
             }
         ]
@@ -299,7 +299,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/dsautocenter/media-video-editing-ad/video-editing-ad-dsautocenter-0.webp",
+                    "src": "src/content/img/projects/dsautocenter/media-video-editing-ad/video-editing-ad-dsautocenter-0.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -307,25 +307,25 @@
             {
                 "component": "video",
                 "data": {
-                    "src": "content/vid/projects/dsautocenter/dsautocenter_1.webm",
-                    "thumbnail": "content/img/projects/dsautocenter/logo/logo.png",
-                    "thumbnail_bg": "content/img/thumbnails/workpreview-summary-thumbnail.webp"
+                    "src": "src/content/vid/projects/dsautocenter/dsautocenter_1.webm",
+                    "thumbnail": "src/content/img/projects/dsautocenter/logo/logo.png",
+                    "thumbnail_bg": "src/content/img/thumbnails/workpreview-summary-thumbnail.webp"
                 }
             },
             {
                 "component": "video",
                 "data": {
-                    "src": "content/vid/projects/revelnail-avadores/videos_2/avadores_4.webm",
-                    "thumbnail": "content/img/projects/revelnail-avadores/logo/logo.png",
-                    "thumbnail_bg": "content/img/thumbnails/workpreview-summary-thumbnail.webp"
+                    "src": "src/content/vid/projects/revelnail-avadores/videos_2/avadores_4.webm",
+                    "thumbnail": "src/content/img/projects/revelnail-avadores/logo/logo.png",
+                    "thumbnail_bg": "src/content/img/thumbnails/workpreview-summary-thumbnail.webp"
                 }
             },
             {
                 "component": "video",
                 "data": {
-                    "src": "content/vid/projects/agromir/videos_3/agromir_4.webm",
-                    "thumbnail": "content/img/projects/agromir/logo/logo.png",
-                    "thumbnail_bg": "content/img/thumbnails/workpreview-summary-thumbnail.webp"
+                    "src": "src/content/vid/projects/agromir/videos_3/agromir_4.webm",
+                    "thumbnail": "src/content/img/projects/agromir/logo/logo.png",
+                    "thumbnail_bg": "src/content/img/thumbnails/workpreview-summary-thumbnail.webp"
                 }
             }
         ]
@@ -340,7 +340,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/revelnail-avadores/media-photo-editing-banner/photo-editing-revelnail-0.webp",
+                    "src": "src/content/img/projects/revelnail-avadores/media-photo-editing-banner/photo-editing-revelnail-0.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -348,7 +348,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/revelnail-avadores/media-photo-editing-banner/photo-editing-revelnail-1.webp",
+                    "src": "src/content/img/projects/revelnail-avadores/media-photo-editing-banner/photo-editing-revelnail-1.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -356,7 +356,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/revelnail-avadores/media-photo-editing-banner/photo-editing-revelnail-2.webp",
+                    "src": "src/content/img/projects/revelnail-avadores/media-photo-editing-banner/photo-editing-revelnail-2.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -364,7 +364,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/agromir/media/banners_gallery_1/banner_1-1_83.webp",
+                    "src": "src/content/img/projects/agromir/media/banners_gallery_1/banner_1-1_83.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -372,7 +372,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/agromir/media/banners_gallery_1/banner_1-1_52.webp",
+                    "src": "src/content/img/projects/agromir/media/banners_gallery_1/banner_1-1_52.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -380,7 +380,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/agromir/media/banners_gallery_1/banner_1-1_17.webp",
+                    "src": "src/content/img/projects/agromir/media/banners_gallery_1/banner_1-1_17.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -388,7 +388,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/agromir/media/banners_gallery_1/banner_1-1_29.webp",
+                    "src": "src/content/img/projects/agromir/media/banners_gallery_1/banner_1-1_29.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -396,7 +396,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/vseconstruct/media/banners-1-1/banner-1-1-25.webp",
+                    "src": "src/content/img/projects/vseconstruct/media/banners-1-1/banner-1-1-25.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -404,7 +404,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/vseconstruct/media/banners-16-9/banner-16-9-27.webp",
+                    "src": "src/content/img/projects/vseconstruct/media/banners-16-9/banner-16-9-27.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -412,7 +412,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/dsautocenter/media/banners/banner-3.webp",
+                    "src": "src/content/img/projects/dsautocenter/media/banners/banner-3.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -420,7 +420,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/dsautocenter/media/banners/banner-2.webp",
+                    "src": "src/content/img/projects/dsautocenter/media/banners/banner-2.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -428,7 +428,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/casadarius-shop/media/banner-1-1/banner-1-1-57.webp",
+                    "src": "src/content/img/projects/casadarius-shop/media/banner-1-1/banner-1-1-57.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -436,7 +436,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/agramix/media/banners-1-1/media-21.webp",
+                    "src": "src/content/img/projects/agramix/media/banners-1-1/media-21.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -444,7 +444,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/busvip/media/banners-1-1/banner-1-1-52.web",
+                    "src": "src/content/img/projects/busvip/media/banners-1-1/banner-1-1-52.web",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -452,7 +452,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/busvip/media/banners-1-1/banner-1-1-64.webp",
+                    "src": "src/content/img/projects/busvip/media/banners-1-1/banner-1-1-64.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -460,7 +460,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/revelnail-avadores/media/banners_1-1/banner-1-1-45.webp",
+                    "src": "src/content/img/projects/revelnail-avadores/media/banners_1-1/banner-1-1-45.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -468,7 +468,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/revelnail-avadores/media/banners_1-promotion/banner-1-1-prom-013.webp",
+                    "src": "src/content/img/projects/revelnail-avadores/media/banners_1-promotion/banner-1-1-prom-013.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -476,7 +476,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/piasoftproduct/media/media-new/media-0-7.webp",
+                    "src": "src/content/img/projects/piasoftproduct/media/media-new/media-0-7.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -493,7 +493,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/piasoftproduct/media/media-redesign-logo/media-logo-1.webp",
+                    "src": "src/content/img/projects/piasoftproduct/media/media-redesign-logo/media-logo-1.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -501,7 +501,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/strikerproduction/media/media-logo/logo-14.webp",
+                    "src": "src/content/img/projects/strikerproduction/media/media-logo/logo-14.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -509,7 +509,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/copiatoarealbaiulia/web/media-website/logo-designs/logo-w-4.webp",
+                    "src": "src/content/img/projects/copiatoarealbaiulia/web/media-website/logo-designs/logo-w-4.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -517,7 +517,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/prismanord/web/media-website/social-facebook/prisma_nord_social_logo.webp",
+                    "src": "src/content/img/projects/prismanord/web/media-website/social-facebook/prisma_nord_social_logo.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -535,7 +535,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/agromir/media-3d-tire-animation/3d-editing-blender-agromir-0.webp",
+                    "src": "src/content/img/projects/agromir/media-3d-tire-animation/3d-editing-blender-agromir-0.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -543,7 +543,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/agromir/media-3d-tire-animation/3d-editing-blender-agromir-1.webp",
+                    "src": "src/content/img/projects/agromir/media-3d-tire-animation/3d-editing-blender-agromir-1.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -551,7 +551,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/agromir/media-3d-tire-animation/3d-editing-blender-agromir-2.webp",
+                    "src": "src/content/img/projects/agromir/media-3d-tire-animation/3d-editing-blender-agromir-2.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -559,7 +559,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/agromir/media-3d-tire-animation/3d-editing-blender-agromir-3.webp",
+                    "src": "src/content/img/projects/agromir/media-3d-tire-animation/3d-editing-blender-agromir-3.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -567,9 +567,9 @@
             {
                 "component": "video",
                 "data": {
-                    "src": "content/vid/projects/agromir/videos_2/agromir_5.webm",
-                    "thumbnail": "content/img/projects/agromir/logo/logo.png",
-                    "thumbnail_bg": "content/img/thumbnails/workpreview-summary-thumbnail.webp"
+                    "src": "src/content/vid/projects/agromir/videos_2/agromir_5.webm",
+                    "thumbnail": "src/content/img/projects/agromir/logo/logo.png",
+                    "thumbnail_bg": "src/content/img/thumbnails/workpreview-summary-thumbnail.webp"
                 }
             }
         ]
@@ -585,7 +585,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/strikerproduction/media-video-editing-games/video-editing-strikerproduction-0.webp",
+                    "src": "src/content/img/projects/strikerproduction/media-video-editing-games/video-editing-strikerproduction-0.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -593,7 +593,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/strikerproduction/media-video-editing-games/video-editing-strikerproduction-1.webp",
+                    "src": "src/content/img/projects/strikerproduction/media-video-editing-games/video-editing-strikerproduction-1.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
@@ -601,25 +601,25 @@
             {
                 "component": "video",
                 "data": {
-                    "src": "content/vid/projects/strikerproduction/csgo/NoMercy_CSGO.webm",
-                    "thumbnail": "content/img/projects/strikerproduction/logo/logo.png",
-                    "thumbnail_bg": "content/img/thumbnails/workpreview-summary-thumbnail.webp"
+                    "src": "src/content/vid/projects/strikerproduction/csgo/NoMercy_CSGO.webm",
+                    "thumbnail": "src/content/img/projects/strikerproduction/logo/logo.png",
+                    "thumbnail_bg": "src/content/img/thumbnails/workpreview-summary-thumbnail.webp"
                 }
             },
             {
                 "component": "video",
                 "data": {
-                    "src": "content/vid/projects/strikerproduction/pubg/SleeplessNight_PUBG.webm",
-                    "thumbnail": "content/img/projects/strikerproduction/logo/logo.png",
-                    "thumbnail_bg": "content/img/thumbnails/workpreview-summary-thumbnail.webp"
+                    "src": "src/content/vid/projects/strikerproduction/pubg/SleeplessNight_PUBG.webm",
+                    "thumbnail": "src/content/img/projects/strikerproduction/logo/logo.png",
+                    "thumbnail_bg": "src/content/img/thumbnails/workpreview-summary-thumbnail.webp"
                 }
             },
             {
                 "component": "video",
                 "data": {
-                    "src": "content/vid/projects/strikerproduction/rust/CoverYourEyes_Rust.webm",
-                    "thumbnail": "content/img/projects/strikerproduction/logo/logo.png",
-                    "thumbnail_bg": "content/img/thumbnails/workpreview-summary-thumbnail.webp"
+                    "src": "src/content/vid/projects/strikerproduction/rust/CoverYourEyes_Rust.webm",
+                    "thumbnail": "src/content/img/projects/strikerproduction/logo/logo.png",
+                    "thumbnail_bg": "src/content/img/thumbnails/workpreview-summary-thumbnail.webp"
                 }
             }
         ]
@@ -635,7 +635,7 @@
             {
                 "component": "image",
                 "data": {
-                    "src": "content/img/projects/strikerproduction/media-3d-blender-renders/3d-editing-blender-0.webp",
+                    "src": "src/content/img/projects/strikerproduction/media-3d-blender-renders/3d-editing-blender-0.webp",
                     "class": "responsive-image",
                     "lazy": true
                 }
