@@ -1,0 +1,20 @@
+:root {
+  --dm-color-primary          : #5e6875;
+  --dm-color-secondary        : #313c4a;
+
+  --dm-color-accent-1         : #47cbe3;
+  --dm-color-accent-2         : #55758d;
+  --dm-color-accent-3         : #dcc85e;
+
+  --dm-color-success          : #399017;
+  --dm-color-warning          : #eaaa07;
+  --dm-color-error            : #b23620;
+
+  --dm-color-black            : #000000;
+  --dm-color-white            : #ffffff;
+  --dm-color-gray             : #222222;
+  --dm-color-gray-light       : #7e7e7e;
+  --dm-color-gray-dark        : #141414;
+
+  --dm-link                   : var(--dm-color-primary );
+}

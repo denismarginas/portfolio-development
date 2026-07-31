@@ -1,0 +1,24 @@
+:root {
+  --header-height: 90px;
+}
+#page-content {
+  display: flex;
+  flex-direction: column;
+  padding-top: var( --header-height );
+}
+
+.d-none {
+  display: none;
+}
+.d-block {
+  display: none;
+}
+.d-flex {
+  display: flex;
+}
+.d-grid {
+  display: flex;
+}
+.page-heading {
+  display: none;
+}

@@ -1,0 +1,32 @@
+{
+    "name": "theme",
+    "title": "Site Theme",
+    "description": "Core theme: CSS and font assets",
+    "minify": false,
+    "assets": {
+        "php": [
+            "assets/php/compile_css.php",
+            "assets/php/compile_bundle.php"
+        ],
+        "css": [
+            "assets/css/interface/colors.css",
+            "assets/css/interface/fonts.css",
+            "assets/css/interface/screens.css",
+            "assets/css/interface/spacing.css",
+            "assets/css/interface/text.css",
+            "assets/css/interface/transitions.css",
+            "assets/css/elements/buttons.css",
+            "assets/css/structure/body.css",
+            "assets/css/structure/reset.css",
+            "assets/css/structure/headings.css",
+            "assets/css/structure/text.css",
+            "assets/css/structure/layout.css",
+            "assets/css/structure/containers.css",
+            "assets/css/structure/theme-modes.css"
+        ],
+        "fonts": [
+            "assets/fonts/**"
+        ]
+    },
+    "dependencies": []
+}

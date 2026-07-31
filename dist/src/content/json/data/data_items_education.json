@@ -1,0 +1,77 @@
+[
+  {
+    "name": "Technical University of Cluj-Napoca UTCNBM",
+    "display": "true",
+    "type": "University",
+    "img_bg": "light",
+    "img": "src/content/img/education/logo-technical-university-of-cluj-napoca-from-baia-mare-utcnbm.webp",
+    "external_links" : [
+      {
+        "name": "website",
+        "link": "https://www.utcluj.ro",
+        "icon": "web"
+      }
+    ],
+    "dates": {
+      "date_start": "01.10.2016",
+      "date_end": "14.07.2019"
+    },
+    "location": "Baia Mare",
+    "profession": [
+      "Mathematics-Informatics"
+    ],
+    "description": {
+      "text": "Studied disciplines:",
+      "list": [
+        "Assembly language programming",
+        "Computational logic",
+        "Python programming",
+        "C programming",
+        "Computer networking",
+        "Databases",
+        "Advanced database management systems",
+        "Mathematics"
+      ]
+    },
+    "projects": [
+      {
+        "title": "Student Courses - Bachelor's thesis",
+        "icon": "folder-open"
+      }
+    ]
+  },
+  {
+    "name": "Emil Racoviță High School",
+    "display": "true",
+    "type": "High School",
+    "img_bg": "light",
+    "img": "src/content/img/education/logo-high-school-emil-racovita.webp",
+    "external_links" : [
+      {
+        "name": "website",
+        "link": "https://www.liceulracovita.ro",
+        "icon": "web"
+      }
+    ],
+    "dates": {
+      "date_start": "14.09.2012",
+      "date_end": "18.07.2016"
+    },
+    "location": "Baia Mare",
+    "profession": [
+      "Mathematics-Informatics"
+    ],
+    "description": {
+      "text": "Studied disciplines:",
+      "list": [
+        "Mathematics",
+        "ICT",
+        "Computer science",
+        "C++",
+        "HTML",
+        "CSS",
+        "Visual Fox"
+      ]
+    }
+  }
+]

@@ -207,6 +207,42 @@ $pageData = array_merge($structureData, [
 $GLOBALS['render_target'] = 'preview';
 echo render_component($pageStructureName, $pageData);
 
+if (!function_exists('build_sync_tree')) {
+    function build_sync_tree(string $src, string $dst): void
+    {
+        if (!is_dir($src)) {
+            return;
+        }
+        if (!is_dir($dst)) {
+            mkdir($dst, 0777, true);
+        }
+        foreach (scandir($src) as $item) {
+            if ($item === '.' || $item === '..') {
+                continue;
+            }
+            $s = $src . '/' . $item;
+            $d = $dst . '/' . $item;
+            if (is_dir($s)) {
+                build_sync_tree($s, $d);
+            } elseif (!file_exists($d) || filemtime($s) > filemtime($d) || filesize($s) !== filesize($d)) {
+                copy($s, $d);
+            }
+        }
+    }
+
+    /**
+     * Copies the public asset tree (component css/js, content images/favicons)
+     * into dist/src/ so the uploaded site is self-contained and every relative
+     * reference in the compiled HTML resolves on any host or base path.
+     */
+    function build_sync_public_assets(): void
+    {
+        $root = ENGINE_PROJECT_ROOT;
+        build_sync_tree($root . '/src/components', $root . '/dist/src/components');
+        build_sync_tree($root . '/src/content', $root . '/dist/src/content');
+    }
+}
+
 if ($htmlCompile) {
     $globalSettings = get_data_json('data_global_settings', 'data');
     $extension = $globalSettings['page_slug_extension'] ?? '.html';
@@ -222,4 +258,6 @@ if ($htmlCompile) {
         mkdir(dirname($distAbsPath), 0777, true);
     }
     file_put_contents($distAbsPath, $distHtml);
+
+    build_sync_public_assets();
 }
