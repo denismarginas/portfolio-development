@@ -6,11 +6,11 @@ class theme_compile_css
 {
     public static function compile(?string $filterComponent = null): array
     {
-        $themeDir = engine_config::get('theme_dir');
-        $themeAssetsDir = $themeDir . '/assets';
-        $scssDir = engine_config::get('theme_scss_dir');
-        $cssDir = engine_config::get('theme_css_dir');
-        $componentsDir = engine_config::get('components_dir');
+        $themeDir = PlatformConfig::get('theme_dir');
+        $themeAssetsDir = PlatformConfig::get('theme_assets_dir');
+        $scssDir = PlatformConfig::get('theme_scss_dir');
+        $cssDir = PlatformConfig::get('theme_css_dir');
+        $componentsDir = PlatformConfig::get('components_dir');
 
         $configPath = $themeDir . '/component.json';
         $themeConfig = json_decode(file_get_contents($configPath), true);
@@ -34,17 +34,13 @@ class theme_compile_css
         $styleFile = $scssDir . '/style.scss';
         if (file_exists($styleFile)) {
             try {
-                $compiler = new scss_compiler();
-                foreach ($loadPaths as $lp) {
-                    $compiler->add_load_path($lp);
-                }
-                $cssOutput .= $compiler->compile_file($styleFile) . "\n";
-            } catch (\Exception $e) {
+                $cssOutput .= PlatformScssService::compile_file($styleFile, $loadPaths) . "\n";
+            } catch (\Throwable $e) {
                 $cssOutput .= '/* Error compiling theme: ' . $e->getMessage() . ' */' . "\n";
             }
         }
 
-        $components = data_service::get_all_component_names();
+        $components = PlatformDataService::get_all_component_names();
         foreach ($components as $componentName) {
             if ($componentName === 'theme') continue;
             if ($filterComponent !== null && $filterComponent !== $componentName) continue;
@@ -52,14 +48,12 @@ class theme_compile_css
             $scssFile = $componentsDir . '/' . $componentName . '/assets/scss/style.scss';
             if (!file_exists($scssFile)) continue;
 
+            $fileLoadPaths = $loadPaths;
+            $fileLoadPaths[] = dirname($scssFile);
+
             try {
-                $compiler = new scss_compiler();
-                foreach ($loadPaths as $lp) {
-                    $compiler->add_load_path($lp);
-                }
-                $compiler->add_load_path(dirname($scssFile));
-                $cssOutput .= $compiler->compile_file($scssFile) . "\n";
-            } catch (\Exception $e) {
+                $cssOutput .= PlatformScssService::compile_file($scssFile, $fileLoadPaths) . "\n";
+            } catch (\Throwable $e) {
                 $cssOutput .= '/* Error compiling ' . $componentName . ': ' . $e->getMessage() . ' */' . "\n";
             }
         }
@@ -73,8 +67,7 @@ class theme_compile_css
         $result = ['output' => $outputPath, 'size' => strlen($cssOutput), 'status' => 'compiled'];
 
         if ($minify) {
-            $compiler = new scss_compiler();
-            $minified = $compiler->minify($cssOutput);
+            $minified = PlatformScssService::minify($cssOutput);
             $minPath = $cssDir . '/' . preg_replace('/\.css$/', '.min.css', $outputFile);
             file_put_contents($minPath, $minified);
             $result['min_size'] = strlen($minified);

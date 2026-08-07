@@ -7,22 +7,37 @@ define('ENGINE_ROOT', dirname(__DIR__));
 define('ENGINE_DIR', __DIR__);
 
 require_once __DIR__ . '/config.php';
-require_once __DIR__ . '/data_service.php';
-require_once __DIR__ . '/url_service.php';
-require_once __DIR__ . '/image_renderer.php';
-require_once __DIR__ . '/helpers.php';
-require_once __DIR__ . '/component_renderer.php';
-require_once __DIR__ . '/functions.php';
-require_once __DIR__ . '/scss_compiler.php';
-require_once __DIR__ . '/scss_minifier.php';
-require_once __DIR__ . '/renderer.php';
+require_once __DIR__ . '/PlatformDataService/PlatformDataServiceCore.php';
+require_once __DIR__ . '/PlatformDataService/PlatformDataServicePosts.php';
+require_once __DIR__ . '/PlatformDataService/PlatformDataServiceItems.php';
+require_once __DIR__ . '/PlatformDataService/PlatformDataServiceComponents.php';
+require_once __DIR__ . '/PlatformDataService/PlatformDataService.php';
+require_once __DIR__ . '/PlatformUrlService.php';
+require_once __DIR__ . '/PlatformImageRenderer.php';
+require_once __DIR__ . '/PlatformComponentRenderer/PlatformComponentRendererLoader.php';
+require_once __DIR__ . '/PlatformComponentRenderer/PlatformComponentRendererConfig.php';
+require_once __DIR__ . '/PlatformComponentRenderer/PlatformComponentRendererAssets.php';
+require_once __DIR__ . '/PlatformComponentRenderer/PlatformComponentRendererClass.php';
+require_once __DIR__ . '/PlatformComponentRenderer/PlatformComponentRenderer.php';
+require_once __DIR__ . '/PlatformPathService.php';
+require_once __DIR__ . '/PlatformTemplateRenderer.php';
+require_once __DIR__ . '/PlatformTextService.php';
+require_once __DIR__ . '/PlatformScssService.php';
+require_once __DIR__ . '/PlatformScssBuilder.php';
+require_once __DIR__ . '/PlatformBundleBuilder.php';
+require_once __DIR__ . '/PlatformTranslationService.php';
+require_once __DIR__ . '/PlatformTranslationBuilder.php';
 
-engine_config::init();
-data_service::init();
+PlatformConfig::init();
+PlatformDataService::init();
+
+if (isset($_GET['lang']) && is_string($_GET['lang'])) {
+    PlatformDataService::set_language(trim($_GET['lang']));
+}
 
 $GLOBALS['url_path'] = '';
 
-$global_settings = data_service::get_global_settings();
+$global_settings = PlatformDataService::get_global_settings();
 if ($global_settings && !empty($global_settings['url'])) {
     $parsed = parse_url($global_settings['url']);
     $path = $parsed['path'] ?? '';

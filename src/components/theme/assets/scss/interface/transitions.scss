@@ -1,0 +1,5 @@
+@import "../variables/_transitions";
+
+:root {
+  --dm-transition: #{$dm-transition};
+}

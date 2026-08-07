@@ -1,32 +1,19 @@
 {
-    "name": "theme",
-    "title": "Site Theme",
-    "description": "Core theme: CSS and font assets",
-    "minify": false,
-    "assets": {
-        "php": [
-            "assets/php/compile_css.php",
-            "assets/php/compile_bundle.php"
+    "name"        : "theme",
+    "title"       : "Site Theme",
+    "description" : "Core theme: CSS and font assets",
+    "minify"      : false,
+    "assets"      : {
+        "php"  : ["assets/php/compile_css.php", "assets/php/compile_bundle.php"],
+        "css"  : [
+            "assets/css/interface/colors.css",      "assets/css/interface/fonts.css",       "assets/css/interface/radius.css",      "assets/css/interface/screens.css",     "assets/css/interface/spacing.css",
+            "assets/css/interface/text.css",        "assets/css/interface/transitions.css", "assets/css/elements/buttons.css",      "assets/css/elements/cards.css",
+            "assets/css/elements/scrollbar.css",    "assets/css/elements/listing.css",      "assets/css/structure/body.css",        "assets/css/structure/reset.css",
+            "assets/css/structure/headings.css",    "assets/css/structure/text.css",        "assets/css/structure/layout.css",      "assets/css/structure/containers.css",
+            "assets/css/structure/sections.css",    "assets/css/structure/theme-modes.css", "assets/css/utilities/display.css",     "assets/css/utilities/flex.css",
+            "assets/css/utilities/gap.css",         "assets/css/utilities/spacing.css",     "assets/css/utilities/sizing.css",      "assets/css/utilities/text.css"
         ],
-        "css": [
-            "assets/css/interface/colors.css",
-            "assets/css/interface/fonts.css",
-            "assets/css/interface/screens.css",
-            "assets/css/interface/spacing.css",
-            "assets/css/interface/text.css",
-            "assets/css/interface/transitions.css",
-            "assets/css/elements/buttons.css",
-            "assets/css/structure/body.css",
-            "assets/css/structure/reset.css",
-            "assets/css/structure/headings.css",
-            "assets/css/structure/text.css",
-            "assets/css/structure/layout.css",
-            "assets/css/structure/containers.css",
-            "assets/css/structure/theme-modes.css"
-        ],
-        "fonts": [
-            "assets/fonts/**"
-        ]
+        "fonts": ["assets/fonts/**"]
     },
     "dependencies": []
 }

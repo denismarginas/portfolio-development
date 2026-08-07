@@ -1,10 +1,18 @@
 {
-  "name": "header",
-  "description": "Page header wrapper component.",
-  "assets": {
-    "php": ["assets/php/header.php"],
-    "html": ["assets/html/template.html"],
-    "css": ["assets/css/header.css"]
+  "name"        : "header",
+  "description" : "Page header wrapper component.",
+  "assets"      : {
+    "php" : ["assets/php/header.php"],
+    "html": [
+      "assets/html/template.html",                    "assets/html/template_logo.html",               "assets/html/template_menu.html",
+      "assets/html/template_menu_item.html",          "assets/html/template_menu_navbar_toggle.html", "assets/html/template_search_button.html",
+      "assets/html/template_theme_toggle.html",       "assets/html/template_page_heading.html"
+    ],
+    "css" : [
+      "assets/css/header.css",                    "assets/css/header-logo.css",               "assets/css/header-menu.css",
+      "assets/css/header-search-button.css",      "assets/css/header-menu-navbar-toggle.css", "assets/css/header-theme-mode-toggle.css",  "assets/css/header-scrolled.css"
+    ],
+    "js"  : ["assets/js/header-scroll.js", "assets/js/header-menu-navbar-toggle.js", "assets/js/header-theme-mode-toggle.js"]
   },
-  "dependencies": []
+  "dependencies": ["svg"]
 }

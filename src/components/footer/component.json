@@ -3,7 +3,10 @@
   "description": "Page footer wrapper component.",
   "assets": {
     "php": ["assets/php/footer.php"],
-    "html": ["assets/html/template.html"],
+    "html": [
+      "assets/html/template.html",
+      "assets/html/template_copyrights.html"
+    ],
     "css": ["assets/css/footer.css"]
   },
   "dependencies": []

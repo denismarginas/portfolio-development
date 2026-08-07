@@ -1,0 +1,25 @@
+.theme-dark {
+  --dm-link: var(--dm-color-accent-1);
+  background-color: var(--dm-color-gray-dark);
+
+  &[java-script=true] > * ::selection {
+    background-color: var(--dm-color-white) !important;
+    color: var(--dm-color-gray-dark) !important;
+    -webkit-text-fill-color: var(--dm-color-gray-dark) !important;
+    text-shadow: unset !important;
+  }
+}
+
+body,
+.theme-light {
+  --dm-link: var(--dm-color-primary);
+  background-color: var(--dm-color-white);
+}
+
+body ::selection,
+.theme-light[java-script=true] > * ::selection {
+  background-color: var(--dm-color-gray-dark) !important;
+  color: var(--dm-color-white) !important;
+  -webkit-text-fill-color: var(--dm-color-white) !important;
+  text-shadow: unset !important;
+}

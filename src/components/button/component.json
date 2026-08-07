@@ -1,0 +1,9 @@
+{
+  "name": "button",
+  "description": "Renders a link-button with optional svg icon. Dependencies: svg.",
+  "assets": {
+    "php": ["assets/php/button.php"],
+    "html": ["assets/html/template.html"]
+  },
+  "dependencies": ["svg"]
+}

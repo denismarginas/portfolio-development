@@ -1,0 +1,10 @@
+{
+  "name"        : "utility_text",
+  "title"       : "Utility Text",
+  "description" : "Text processor. Resolves an input string and applies transforms (strip html, truncate, suffix).",
+  "type"        : "utility",
+  "assets"      : {
+    "php" : ["assets/php/utility_text.php"]
+  },
+  "dependencies": []
+}

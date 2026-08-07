@@ -1,0 +1,13 @@
+@mixin svg-color($color) {
+  &[type="fill"] {
+    path {
+      fill: $color;
+    }
+  }
+
+  &[type="stroke"] {
+    path {
+      stroke: $color;
+    }
+  }
+}

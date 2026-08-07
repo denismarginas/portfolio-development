@@ -19,7 +19,7 @@ if (!file_exists($dataFile)) {
     );
 }
 
-function read_state(string $dataFile): array
+function platform_read_state(string $dataFile): array
 {
     $raw = file_get_contents($dataFile);
     $decoded = json_decode($raw ?: '', true);
@@ -61,4 +61,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-echo json_encode(read_state($dataFile), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+echo json_encode(platform_read_state($dataFile), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);

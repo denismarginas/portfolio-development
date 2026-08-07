@@ -1,9 +1,0 @@
-{
-    "name": "page_constructor",
-    "description": "Full HTML page structure: head, header, main content, footer.",
-    "assets": {
-        "php": ["assets/php/page_constructor.php"],
-        "html": ["assets/html/template.html"]
-    },
-    "dependencies": ["header", "footer", "page_content"]
-}

@@ -14,6 +14,5 @@ if (!file_exists($engineBootstrap)) {
 
 require_once $engineBootstrap;
 
-// Local dev: no URL subdirectory prefix
 $GLOBALS['url_path'] = '/';
 $GLOBALS['urlPath'] = '/';

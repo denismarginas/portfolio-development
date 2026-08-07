@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   const IMG_EXTS = ['webp', 'jpg', 'jpeg', 'png', 'avif'];
 
   function isImageValue(val) {
@@ -41,18 +41,18 @@
   }
 
   function scanInputs(root) {
-    (root || document).querySelectorAll('.platform-input').forEach(renderThumb);
+    (root || document).querySelectorAll('.platform-ep-input').forEach(renderThumb);
   }
 
   const observer = new MutationObserver(function (mutations) {
     for (const m of mutations) {
       for (const node of m.addedNodes) {
         if (node.nodeType === 1) {
-          if (node.matches && node.matches('.platform-input')) {
+          if (node.matches && node.matches('.platform-ep-input')) {
             renderThumb(node);
           }
           if (node.querySelectorAll) {
-            node.querySelectorAll('.platform-input').forEach(renderThumb);
+            node.querySelectorAll('.platform-ep-input').forEach(renderThumb);
           }
         }
       }

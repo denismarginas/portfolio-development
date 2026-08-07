@@ -35,28 +35,6 @@ class simplelink_constructor
             return $link;
         }
 
-        if (($GLOBALS['render_target'] ?? '') === 'dist') {
-            $globalData = get_data_json('data_global_settings', 'data');
-            $extension = $globalData['page_slug_extension'] ?? '.html';
-            $folder = data_service::get_post_by_id('projects', $link) !== null ? 'project/' : '';
-            return self::dist_relative_link($folder . ltrim($link, '/') . $extension);
-        }
-
-        $requestUri = $_SERVER['REQUEST_URI'] ?? '';
-        if (str_contains($requestUri, '/dev/platform/preview/')) {
-            $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-            $host = $_SERVER['HTTP_HOST'] ?? '127.0.0.1';
-            return $scheme . '://' . $host . '/dev/platform/preview/?post_id=' . urlencode($link);
-        }
-
-        $globalData = get_data_json('data_global_settings', 'data');
-        $baseUrl = rtrim($globalData['url'] ?? '', '/');
-        $extension = $globalData['page_slug_extension'] ?? '.html';
-        return $baseUrl . '/' . ltrim($link, '/') . $extension;
-    }
-
-    protected static function dist_relative_link(string $target): string
-    {
-        return get_asset_relative_prefix() . $target;
+        return PlatformPathService::post_link($link);
     }
 }

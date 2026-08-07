@@ -20,34 +20,35 @@ $resolved = substr($fullPath, $prefixLength);
 $resolved = str_replace('\\', '/', $resolved);
 
 $files = [];
+$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fullPath, FilesystemIterator::SKIP_DOTS));
 
-foreach (new DirectoryIterator($fullPath) as $item) {
-    if ($item->isFile() && strtolower($item->getExtension()) === 'json') {
-        $content = file_get_contents($item->getPathname());
-        $valid = true;
-        $error = '';
+foreach ($iterator as $item) {
+    if (!$item->isFile() || strtolower($item->getExtension()) !== 'json') continue;
+    $content = file_get_contents($item->getPathname());
+    $valid = true;
+    $error = '';
 
-        if ($content === false || trim($content) === '') {
-            $valid = false;
-            $error = 'Empty or unreadable';
-        } else {
-            if (strncmp($content, "\xEF\xBB\xBF", 3) === 0) {
-                $content = substr($content, 3);
-            }
-            json_decode($content);
-            if (json_last_error() !== JSON_ERROR_NONE) {
-                $valid = false;
-                $error = json_last_error_msg();
-            }
+    if ($content === false || trim($content) === '') {
+        $valid = false;
+        $error = 'Empty or unreadable';
+    } else {
+        if (strncmp($content, "\xEF\xBB\xBF", 3) === 0) {
+            $content = substr($content, 3);
         }
-
-        $files[] = [
-            'name' => $item->getFilename(),
-            'path' => $resolved . '/' . $item->getFilename(),
-            'valid' => $valid,
-            'error' => $valid ? '' : $error,
-        ];
+        json_decode($content);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            $valid = false;
+            $error = json_last_error_msg();
+        }
     }
+
+    $relative = str_replace('\\', '/', substr($item->getPathname(), strlen($fullPath) + 1));
+    $files[] = [
+        'name' => $relative,
+        'path' => $resolved . '/' . $relative,
+        'valid' => $valid,
+        'error' => $valid ? '' : $error,
+    ];
 }
 
 usort($files, function ($a, $b) {

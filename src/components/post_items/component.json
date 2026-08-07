@@ -1,0 +1,13 @@
+{
+  "name": "post_items",
+  "description": "Renders a list of post cards with a feature image and a title link.",
+  "assets": {
+    "php": ["assets/php/post_items.php"],
+    "html": [
+      "assets/html/template.html",
+      "assets/html/template_item.html",
+      "assets/html/template_item_image.html"
+    ]
+  },
+  "dependencies": ["image"]
+}

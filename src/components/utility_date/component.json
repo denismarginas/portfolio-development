@@ -1,0 +1,10 @@
+{
+  "name"        : "utility_date",
+  "title"       : "Utility Date",
+  "description" : "Date formatter. Resolves an input date and produces formatted outputs (e.g. display and datetime attribute).",
+  "type"        : "utility",
+  "assets"      : {
+    "php" : ["assets/php/utility_date.php"]
+  },
+  "dependencies": []
+}

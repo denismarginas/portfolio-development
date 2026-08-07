@@ -1,0 +1,42 @@
+[
+    {
+        "type": "page",
+        "page": "social-activity",
+        "name": "Social Activity",
+        "svg": "projects",
+        "background_img": "overlay-texture-textile.webp",
+        "background_img_path": "/design-elements/"
+    },
+    {
+        "type": "page",
+        "page": "personal-workstation-build-1",
+        "name": "Personal Workstation",
+        "svg": "workstation",
+        "background_img": "overlay-texture-textile.webp",
+        "background_img_path": "/design-elements/"
+    },
+    {
+        "type": "page",
+        "page": "employee-experience",
+        "name": "Employee Experience",
+        "svg": "employ",
+        "background_img": "overlay-texture-textile.webp",
+        "background_img_path": "/design-elements/"
+    },
+    {
+        "type": "page",
+        "page": "education-experience",
+        "name": "Education Experience",
+        "svg": "resume",
+        "background_img": "overlay-texture-textile.webp",
+        "background_img_path": "/design-elements/"
+    },
+    {
+        "type": "page",
+        "page": "projects",
+        "name": "Projects Experience",
+        "svg": "about-me",
+        "background_img": "overlay-texture-textile.webp",
+        "background_img_path": "/design-elements/"
+    }
+]

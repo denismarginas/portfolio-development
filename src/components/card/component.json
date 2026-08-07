@@ -1,0 +1,25 @@
+{
+  "name"        : "card",
+  "title"       : "Card",
+  "description" : "Card with image, title, description, button, link, date and taxonomy. Post, minimal and education templates.",
+  "assets"      : {
+    "php" : ["assets/php/card.php"                                          ],
+    "html": ["assets/html/template_card_post.html", "assets/html/template_card_minimal.html",
+                     "assets/html/template_card_education.html",
+                     "assets/html/template_card_minimal_badge_round.html",
+                     "assets/html/parts/meta.html", "assets/html/parts/description.html",
+                     "assets/html/parts/media_link.html", "assets/html/parts/media_plain.html",
+                     "assets/html/parts/title_link.html", "assets/html/parts/title_plain.html",
+                     "assets/html/parts/date.html", "assets/html/parts/date_container.html",
+                     "assets/html/parts/taxonomy_group.html", "assets/html/parts/taxonomy_item_link.html",
+                     "assets/html/parts/taxonomy_item_span.html", "assets/html/parts/button.html",
+                     "assets/html/parts/education/logo.html",       "assets/html/parts/education/meta.html",
+                     "assets/html/parts/education/type.html",       "assets/html/parts/education/profession.html",
+                     "assets/html/parts/education/disciplines.html","assets/html/parts/education/discipline_item.html",
+                     "assets/html/parts/education/links.html",      "assets/html/parts/education/links_container.html",
+                     "assets/html/parts/education/projects.html",   "assets/html/parts/education/project_plain.html"],
+    "scss": ["assets/scss/card.scss"                                        ],
+    "css" : ["assets/css/card.css"                                          ]
+  },
+  "dependencies": ["image", "theme"]
+}

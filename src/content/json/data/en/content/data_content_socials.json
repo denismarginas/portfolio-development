@@ -1,0 +1,67 @@
+{
+    "title": "Socials",
+    "visual-list": [
+        {
+            "title": "YouTube",
+            "link": "https://www.youtube.com/channel/UCZGb7hnkyawMgnSO9T-rnnQ",
+            "icon_svg": "youtube"
+        },
+        {
+            "title": "Facebook",
+            "link": "https://www.facebook.com/denismarginas09",
+            "icon_svg": "facebook"
+        },
+        {
+            "title": "Linkedin",
+            "link": "https://www.linkedin.com/in/denismarginas09/",
+            "icon_svg": "linkedin"
+        },
+        {
+            "title": "X",
+            "link": "https://x.com/DenisMarginas",
+            "icon_svg": "x"
+        },
+        {
+            "title": "Google Site",
+            "link": "https://sites.google.com/view/denis-marginas",
+            "icon_svg": "google-site"
+        },
+        {
+            "title": "Github",
+            "link": "https://github.com/denismarginas",
+            "icon_svg": "github"
+        }
+    ],
+    "text-list": [
+        {
+            "title": "Google Site:",
+            "text": "sites.google.com/view/denis-marginas",
+            "link": "https://sites.google.com/view/denis-marginas/portfolio"
+        },
+        {
+            "title": "Google Form:",
+            "text": "forms.gle/vTHeLVkc1TwXCxBJA",
+            "link": "https://forms.gle/vTHeLVkc1TwXCxBJA"
+        },
+        {
+            "title": "Facebook Page:",
+            "text": "facebook.com/denismarginas09",
+            "link": "https://www.facebook.com/denismarginas09"
+        },
+        {
+            "title": "Linkedin:",
+            "text": "linkedin.com/in/denismarginas09",
+            "link": "https://www.linkedin.com/in/denismarginas09/"
+        },
+        {
+            "title": "Github:",
+            "text": "github.com/denismarginas",
+            "link": "https://github.com/denismarginas"
+        },
+        {
+            "title": "GitHub Pages",
+            "text": "denismarginas.github.io",
+            "link": "https://denismarginas.github.io/portfolio/"
+        }
+    ]
+}

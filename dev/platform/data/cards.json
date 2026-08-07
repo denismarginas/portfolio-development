@@ -19,11 +19,11 @@
             "variables": [
                 {
                     "name": "source",
-                    "value": "src/content/json/data/"
+                    "value": "src/content/json/data/en/"
                 }
             ],
-            "x": -601.2947768561446,
-            "y": -12.095398146639738,
+            "x": -543.6814956600474,
+            "y": -417.37660294311416,
             "note": ""
         },
         {
@@ -108,8 +108,8 @@
                     "value": "{global_path}src/content/vid/pages"
                 }
             ],
-            "x": 368.13,
-            "y": 320.388,
+            "x": 397.0017090940744,
+            "y": 216.44781927779962,
             "note": ""
         },
         {
@@ -147,8 +147,8 @@
                     "value": ""
                 }
             ],
-            "x": 868.0384885955282,
-            "y": -460.08190876422555,
+            "x": 868.038,
+            "y": -460.082,
             "note": ""
         },
         {
@@ -182,8 +182,8 @@
                     "value": "page_constructor"
                 }
             ],
-            "x": 860.3833248889481,
-            "y": 383.3449593888815,
+            "x": 837.605028336967,
+            "y": 436.94022744243046,
             "note": ""
         },
         {
@@ -221,8 +221,8 @@
                     "value": "post_id"
                 }
             ],
-            "x": 1288.8832328932922,
-            "y": -438.10030612397935,
+            "x": 1312.635984419975,
+            "y": -445.4095336676846,
             "note": ""
         },
         {
@@ -248,9 +248,99 @@
                     "value": "index"
                 }
             ],
-            "x": 1251.669864629605,
-            "y": 449.19026899986665,
+            "x": 1349.4582933052582,
+            "y": 447.88615608926324,
             "note": ""
+        },
+        {
+            "id": "card-css",
+            "title": "Compile SCSS",
+            "type": "compile_scss",
+            "action": "compileScss",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "config",
+                    "label": "Config"
+                }
+            ],
+            "variables": [
+                {
+                    "name": "compile_scss_platform_components",
+                    "value": "true"
+                },
+                {
+                    "name": "compile_scss_platform_assets",
+                    "value": "true"
+                },
+                {
+                    "name": "compile_scss_src_components",
+                    "value": "true"
+                },
+                {
+                    "name": "compile_scss_assets",
+                    "value": "false"
+                },
+                {
+                    "name": "compile_scss_everytime",
+                    "value": "true"
+                }
+            ],
+            "x": 2196.447634103033,
+            "y": -175.15,
+            "note": "Compile SCSS components and assets. Linked to Preview Render which triggers compilation when compile_scss_everytime is true."
+        },
+        {
+            "id": "card-live",
+            "title": "Live Preview",
+            "type": "live_preview",
+            "action": "viewPreview",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "config",
+                    "label": "Config"
+                }
+            ],
+            "variables": [
+                {
+                    "name": "post_type",
+                    "value": "page"
+                },
+                {
+                    "name": "post_id",
+                    "value": "home"
+                }
+            ],
+            "x": 1834.0017161686146,
+            "y": 227.6961374059333,
+            "note": "Open the rendered page in a new window using the preview."
+        },
+        {
+            "id": "card-tr",
+            "title": "Translation",
+            "type": "translation",
+            "action": "translateData",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "config",
+                    "label": "Config"
+                }
+            ],
+            "variables": [
+                {
+                    "name": "default_lang",
+                    "value": "en"
+                },
+                {
+                    "name": "target_langs",
+                    "value": "ro"
+                }
+            ],
+            "x": -531.135831015831,
+            "y": -28.42973765807453,
+            "note": "Generate translated data JSONs into language folders from data_global_settings languages list."
         },
         {
             "id": "card-pr",
@@ -269,6 +359,14 @@
                 {
                     "name": "seo",
                     "label": "SEO"
+                },
+                {
+                    "name": "compile_scss",
+                    "label": "SCSS Config"
+                },
+                {
+                    "name": "live_preview",
+                    "label": "Live Preview"
                 }
             ],
             "outputs": [],
@@ -279,7 +377,7 @@
                 },
                 {
                     "name": "compile_assets",
-                    "value": "false"
+                    "value": "true"
                 },
                 {
                     "name": "html_compile",
@@ -290,8 +388,8 @@
                     "value": "true"
                 }
             ],
-            "x": 1355.83,
-            "y": -29.8833,
+            "x": 1852.2574138545908,
+            "y": -175.35395062185302,
             "note": ""
         }
     ],
@@ -450,6 +548,32 @@
                 "cardId": "card-pr",
                 "kind": "input",
                 "name": "config"
+            }
+        },
+        {
+            "id": "link-css-rnd",
+            "from": {
+                "cardId": "card-css",
+                "kind": "output",
+                "name": "config"
+            },
+            "to": {
+                "cardId": "card-pr",
+                "kind": "input",
+                "name": "compile_scss"
+            }
+        },
+        {
+            "id": "link-live-rnd",
+            "from": {
+                "cardId": "card-live",
+                "kind": "output",
+                "name": "config"
+            },
+            "to": {
+                "cardId": "card-pr",
+                "kind": "input",
+                "name": "live_preview"
             }
         }
     ],

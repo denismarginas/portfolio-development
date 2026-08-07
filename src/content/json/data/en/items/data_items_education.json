@@ -1,0 +1,61 @@
+[
+  {
+    "item_id" : "education_technical_university_cluj_napoca_baia_mare",
+    "settings": {
+      "item_type" : "education",
+      "render"    : true,
+      "appearance": { "layout": "wrapper-layout", "colors": {"primary": "#5e606c", "secondary": "#fff", "canvas_primary": "#5e606c", "canvas_secondary": "#fff"} }
+    },
+    "data"    : {
+      "seo"           : {
+        "title"      : "Technical University of Cluj-Napoca (UTCN - Baia Mare)",
+        "description": "Studied Mathematics-Informatics, covering programming languages, algorithms, databases, and computer networking.",
+        "slug"       : "education-technical-university-cluj-napoca-baia-mare"
+      },
+      "date"          : {"start": "2016-10-01", "end": "2019-07-14", "publish": "2019-07-14"},
+      "education"     : {
+        "type"       : "University",
+        "location"   : "Baia Mare",
+        "profession" : ["Mathematics-Informatics"],
+        "heading"    : "Studied disciplines",
+        "disciplines": {
+          "list": [
+            "Assembly language programming",        "Computational logic",                  "Python programming",                   "C programming",
+            "Computer networking",                  "Databases",                            "Advanced database management systems", "Mathematics"
+          ],
+          "svg" : "chevron-right"
+        },
+        "projects"   : [ {"text": "Student Courses - Bachelor's thesis", "post_id": "project-student-courses-bachelor-s-thesis", "svg": "folder-open"} ]
+      },
+      "media"         : { "path": "education", "logo": {"img": "src/content/img/education/logo-technical-university-of-cluj-napoca-from-baia-mare-utcnbm.webp", "bg": "light"} },
+      "external_links": [ {"text": "Website", "link": "https://www.utcluj.ro", "svg": "web"} ],
+      "taxonomy"      : { "tags": ["university", "mathematics-informatics"], "categories": ["Education"] }
+    }
+  },
+  {
+    "item_id" : "education_emil_racovita_high_school",
+    "settings": {
+      "item_type" : "education",
+      "render"    : true,
+      "appearance": { "layout": "wrapper-layout", "colors": {"primary": "#5e606c", "secondary": "#fff", "canvas_primary": "#5e606c", "canvas_secondary": "#fff"} }
+    },
+    "data"    : {
+      "seo"           : {
+        "title"      : "Emil Racoviță High School",
+        "description": "Completed high school studies specialized in Mathematics-Informatics, focusing on programming and computer science foundations.",
+        "slug"       : "education-emil-racovita-high-school"
+      },
+      "date"          : {"start": "2012-09-14", "end": "2016-07-18", "publish": "2016-07-18"},
+      "education"     : {
+        "type"       : "High School",
+        "location"   : "Baia Mare",
+        "profession" : ["Mathematics-Informatics"],
+        "heading"    : "Studied disciplines",
+        "disciplines": { "list": ["Mathematics", "ICT", "Computer science", "C++", "HTML", "CSS", "Visual FoxPro"], "svg": "chevron-right" }
+      },
+      "media"         : { "path": "education", "logo": {"img": "src/content/img/education/logo-high-school-emil-racovita.webp", "bg": "light"} },
+      "external_links": [ {"text": "Website", "link": "https://www.liceulracovita.ro", "svg": "web"} ],
+      "taxonomy"      : { "tags": ["high-school", "mathematics-informatics"], "categories": ["Education"] }
+    }
+  }
+]

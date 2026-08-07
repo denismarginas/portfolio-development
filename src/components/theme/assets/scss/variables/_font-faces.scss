@@ -1,0 +1,75 @@
+$dm-fonts: (
+  (
+    name: "Averox",
+    root: (
+      src: "Averox",
+      files: (
+        ttf: "averox.ttf"
+      )
+    )
+  ),
+  (
+    name: "Bearetta",
+    root: (
+      src: "Bearetta",
+      files: (
+        ttf: "bearetta.ttf"
+      )
+    )
+  ),
+  (
+    name: "Gerth",
+    root: (
+      src: "Gerth",
+      files: (
+        ttf: "Gerth.ttf"
+      )
+    )
+  ),
+  (
+    name: "Matricode",
+    root: (
+      src: "Matricode",
+      files: (
+        ttf: "Matricode.ttf"
+      )
+    )
+  ),
+  (
+    name: "Rink",
+    root: (
+      src: "Rink",
+      files: (
+        ttf: "Rink.ttf"
+      )
+    )
+  ),
+  (
+    name: "Roboto",
+    root: (
+      src: "Roboto",
+      files: (
+        ttf: "Roboto.ttf"
+      )
+    )
+  ),
+  (
+    name: "SpaceNation",
+    root: (
+      src: "SpaceNation",
+      files: (
+        ttf: "SpaceNation.ttf"
+      )
+    )
+  ),
+  (
+    name: "Rink-Thin",
+    root: (
+      src: "Rink",
+      files: (
+        ttf: "Rink-Thin.ttf",
+        otf: "Rink-Thin.otf"
+      )
+    )
+  )
+);

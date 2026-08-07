@@ -1,0 +1,4 @@
+{
+  "default": "en",
+  "list": [ {"text": "English", "iso": "en"}, {"text": "Română", "iso": "ro"} ]
+}

@@ -18,7 +18,6 @@ $baseDir = $type === 'vid'
     ? (ENGINE_PROJECT_ROOT . '/src/content/vid/')
     : (ENGINE_PROJECT_ROOT . '/src/content/img/');
 
-// Security: prevent directory traversal
 $clean = str_replace(['..', '\\'], '', $path);
 $fullPath = realpath($baseDir . $clean);
 

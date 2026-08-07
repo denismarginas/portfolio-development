@@ -1,0 +1,325 @@
+{
+    "data": {
+        "title": "Contact Data",
+        "text": [
+            "You can reach me by phone on WhatsApp or through my personal email address.",
+            "Contact details are provided in the section below."
+        ],
+        "contacts": [
+            {
+                "label": "Email:",
+                "value": "denismarginas09@gmail.com",
+                "link": "mailto:denismarginas09@gmail.com"
+            },
+            {
+                "label": "Address:",
+                "value": "Romania, Baia Mare",
+                "warning_text": "For security reasons, the address is not displayed. However, you can request the contact address by sending an email to the provided email address."
+            },
+            {
+                "label": "Phone:",
+                "value": "+40-74*******",
+                "warning_text": "For security reasons, the phone number is not displayed. However, you can request the contact phone number by sending a mail to the provided email address."
+            }
+        ],
+        "img": "dm-personal-image-0.webp",
+        "img_path": "/personal-images/"
+    },
+    "resume": {
+        "text-list": [
+            "I am a skilled professional with expertise in web development and programming. With a strong foundation in various web platforms and programming languages, I possess the ability to create dynamic and user-friendly websites. My proficiency extends to page builders and web development programs, enabling me to design and customize web pages effectively.",
+            "I have experience working with a range of software and tools, including photo editing and video editing programs. My knowledge extends to streaming programs and other widely used applications, such as Microsoft Office and Google Suite.",
+            "With a strong technical aptitude and adaptability, I am confident in my ability to contribute to innovative projects and deliver exceptional results. I am eager to leverage my skills and experiences to make a meaningful impact."
+        ],
+        "img": "dm-desktop-working.webp",
+        "img_path": "/personal-images/",
+        "download-button-text": "Download",
+        "cv-list-ref": {
+            "post_type": "cv",
+            "version_filter": null
+        }
+    },
+    "form": {
+        "title": "Contact Form",
+        "fields": [
+            {
+                "name": "name",
+                "type": "text",
+                "placeholder": "Name",
+                "field_name_extern": "entry.372576771"
+            },
+            {
+                "name": "email",
+                "type": "text",
+                "placeholder": "Email",
+                "field_name_extern": "entry.1216480420"
+            },
+            {
+                "name": "phone",
+                "type": "text",
+                "placeholder": "Phone Number",
+                "field_name_extern": "entry.839463599"
+            },
+            {
+                "name": "message",
+                "type": "textarea",
+                "placeholder": "Message",
+                "field_name_extern": "entry.401433199"
+            },
+            {
+                "name": "dm-form-button",
+                "type": "submit",
+                "value": "Submit",
+                "redirect": "Proceed to the form"
+            }
+        ],
+        "step-fields": [
+            [
+                {
+                    "name": "step-html-banner",
+                    "type": "code",
+                    "content": "<?php echo renderImage($GLOBALS['urlPath'].'src/content/img/projects/denismarginas/media/banners-ultra-wide/wallpaper-contact-02.webp', false, 'banner'); ?>"
+                },
+                {
+                    "name": "step-name",
+                    "type": "text",
+                    "placeholder": "Name",
+                    "field-name-step": "name"
+                },
+                {
+                    "name": "step-email",
+                    "type": "text",
+                    "placeholder": "Email",
+                    "field-name-step": "email"
+                },
+                {
+                    "name": "dm-next-step",
+                    "type": "next",
+                    "value": "Next Step",
+                    "step": "2"
+                }
+            ],
+            [
+                {
+                    "name": "step-html-image",
+                    "type": "code",
+                    "content": "<div class='banner-svg'><?php SVG::render('faq'); ?><label>Subject</label></div>"
+                },
+                {
+                    "name": "subject",
+                    "type": "radio",
+                    "placeholder": "Subject",
+                    "values": [
+                        {
+                            "name": "send-a-message",
+                            "value": "Send a Message",
+                            "step": "3",
+                            "content": "<div class='option-preview'><?php SVG::render('envelope'); ?></div>"
+                        },
+                        {
+                            "name": "hire-me-for-a-freelance-project",
+                            "value": "Hire me for a freelance project",
+                            "step": "4",
+                            "content": "<div class='option-preview'><?php SVG::render( 'folder-open'); ?></div>"
+                        },
+                        {
+                            "name": "offer-me-a-position-at-your-company",
+                            "value": "Offer me a position at your company",
+                            "step": "5",
+                            "content": "<div class='option-preview'><?php SVG::render( 'employ'); ?></div>"
+                        }
+                    ],
+                    "field-name-step": "message"
+                },
+                {
+                    "name": "dm-prev-step",
+                    "type": "prev",
+                    "value": "Previous Step",
+                    "step": "1"
+                },
+                {
+                    "name": "dm-next-step",
+                    "type": "next",
+                    "value": "Next Step",
+                    "step": "subject"
+                }
+            ],
+            [
+                {
+                    "name": "step-html-image",
+                    "type": "code",
+                    "content": "<div class='banner-svg'><?php SVG::render('envelope'); ?><label>Send a Message</label></div>"
+                },
+                {
+                    "name": "step-message",
+                    "type": "textarea",
+                    "placeholder": "Message",
+                    "field-name-step": "message"
+                },
+                {
+                    "name": "dm-prev-step",
+                    "type": "prev",
+                    "value": "Previous Step",
+                    "step": "2"
+                },
+                {
+                    "name": "dm-form-button",
+                    "type": "submit",
+                    "value": "Submit",
+                    "redirect": "Proceed to the form"
+                }
+            ],
+            [
+                {
+                    "name": "step-html-image",
+                    "type": "code",
+                    "content": "<div class='banner-svg'><?php SVG::render('folder-open'); ?><label>Project Request</label></div>"
+                },
+                {
+                    "name": "step-project-type",
+                    "type": "radio",
+                    "placeholder": "Project Type",
+                    "values": [
+                        {
+                            "name": "web-development",
+                            "value": "Web Development",
+                            "content": "<div class='option-preview'><?php SVG::render( 'hobby-web-design'); ?></div>"
+                        },
+                        {
+                            "name": "video-editing",
+                            "value": "Video Editing",
+                            "content": "<div class='option-preview'><?php SVG::render( 'hobby-video-editing'); ?></div>"
+                        },
+                        {
+                            "name": "photo-editing",
+                            "value": "Photo Editing",
+                            "content": "<div class='option-preview'><?php SVG::render( 'hobby-photo-editing'); ?></div>"
+                        },
+                        {
+                            "name": "other",
+                            "value": "Other",
+                            "content": "<div class='option-preview'><?php SVG::render( 'hobby-unknown'); ?></div>"
+                        }
+                    ],
+                    "field-name-step": "message"
+                },
+                {
+                    "name": "step-budget",
+                    "type": "text",
+                    "placeholder": "Project Budget",
+                    "field-name-step": "message"
+                },
+                {
+                    "name": "step-project-details",
+                    "type": "textarea",
+                    "placeholder": "Project Details",
+                    "field-name-step": "message"
+                },
+                {
+                    "name": "dm-prev-step",
+                    "type": "prev",
+                    "value": "Previous Step",
+                    "step": "2"
+                },
+                {
+                    "name": "dm-next-step",
+                    "type": "next",
+                    "value": "Next",
+                    "step": "6"
+                }
+            ],
+            [
+                {
+                    "name": "step-html-image",
+                    "type": "code",
+                    "content": "<div class='banner-svg'><?php SVG::render('employ'); ?><label>Job Offer</label></div>"
+                },
+                {
+                    "name": "step-job-title",
+                    "type": "text",
+                    "placeholder": "Job Title",
+                    "field-name-step": "message"
+                },
+                {
+                    "name": "step-salary",
+                    "type": "text",
+                    "placeholder": "Salary Offer",
+                    "field-name-step": "message"
+                },
+                {
+                    "name": "step-offer-details",
+                    "type": "textarea",
+                    "placeholder": "Details Offer",
+                    "field-name-step": "message"
+                },
+                {
+                    "name": "dm-prev-step",
+                    "type": "prev",
+                    "value": "Previous Step",
+                    "step": "2"
+                },
+                {
+                    "name": "dm-next-step",
+                    "type": "next",
+                    "value": "Next",
+                    "step": "6"
+                }
+            ],
+            [
+                {
+                    "name": "step-phone-number",
+                    "type": "text",
+                    "placeholder": "Your Phone Number (Optional)",
+                    "field-name-step": "phone"
+                },
+                {
+                    "name": "step-your-contact",
+                    "type": "text",
+                    "placeholder": "Your Contact (Optional)",
+                    "field-name-step": "message"
+                },
+                {
+                    "name": "step-your-company",
+                    "type": "text",
+                    "placeholder": "Your Company (Optional)",
+                    "field-name-step": "message"
+                },
+                {
+                    "name": "dm-prev-step",
+                    "type": "prev",
+                    "value": "Go Back",
+                    "step": "2"
+                },
+                {
+                    "name": "dm-form-button",
+                    "type": "submit",
+                    "value": "Submit",
+                    "redirect": "Proceed to the form"
+                }
+            ]
+        ],
+        "type": "steps",
+        "external_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSdkMKYQyLa4H7yxU7RMUK97urwK5LMvbk-dFs9-wKpCRCO_Ng/viewform",
+        "external-form-type": "google-forms"
+    },
+    "menu": {
+        "title": "Contact",
+        "list": [
+            {
+                "text": "CV English",
+                "icon_svg": "resume",
+                "link": "src/content/pdf/cv/cv-2/dm-cv-2-english-public-compressed.pdf"
+            },
+            {
+                "text": "CV Romanian",
+                "icon_svg": "resume",
+                "link": "src/content/pdf/cv/cv-2/dm-cv-2-romana-public-compressed.pdf"
+            },
+            {
+                "text": "Contact Form",
+                "icon_svg": "form",
+                "link": "https://docs.google.com/forms/d/e/1FAIpQLSdkMKYQyLa4H7yxU7RMUK97urwK5LMvbk-dFs9-wKpCRCO_Ng/viewform"
+            }
+        ]
+    }
+}

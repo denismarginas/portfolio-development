@@ -1,8 +1,8 @@
 <?php
 
-class error_renderer
+class PlatformErrorRenderer
 {
-    private const STYLE = 'color:#c3122e;border:1px solid #c3122e;background:rgba(228, 209, 167, 0.3);padding:14px 8px;border-radius:4px;font-size:12px;margin:10px;text-align:center;';
+    private const STYLE = 'color: #fff;border:1px solid #b53836;background:rgba(181, 56, 54, 0.3);padding:14px 8px;border-radius:4px;font-size:12px;margin:10px;text-align:center;';
 
     private const FALLBACKS = [
         'component_not_found' => 'Component not found: {name}',
@@ -14,7 +14,7 @@ class error_renderer
 
     public static function render(string $key, array $params = []): string
     {
-        $message = platform_data::getString('errors.' . $key, self::FALLBACKS[$key] ?? 'Error: ' . $key);
+        $message = PlatformData::getString('errors.' . $key, self::FALLBACKS[$key] ?? 'Error: ' . $key);
 
         foreach ($params as $name => $value) {
             $message = str_replace('{' . $name . '}', htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8'), $message);

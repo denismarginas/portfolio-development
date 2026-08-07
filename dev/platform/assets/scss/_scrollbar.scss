@@ -1,0 +1,19 @@
+.platform-body::-webkit-scrollbar,
+.platform-body *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.platform-body::-webkit-scrollbar-track,
+.platform-body *::-webkit-scrollbar-track {
+  background: var(--platform-color-bg-surface-sunken);
+}
+
+.platform-body::-webkit-scrollbar-thumb,
+.platform-body *::-webkit-scrollbar-thumb {
+  background: var(--platform-color-border-base);
+
+  &:hover {
+    background: var(--platform-color-primary);
+  }
+}

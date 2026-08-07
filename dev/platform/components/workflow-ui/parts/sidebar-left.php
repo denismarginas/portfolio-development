@@ -11,6 +11,9 @@
             <button class="platform-button platform-button-small" type="button" data-template="seo_project">Seo Projects</button>
             <button class="platform-button platform-button-small" type="button" data-template="seo_page">Seo Page</button>
             <button class="platform-button platform-button-small" type="button" data-template="render">Preview Render</button>
+            <button class="platform-button platform-button-small" type="button" data-template="compile_scss">Compile SCSS</button>
+            <button class="platform-button platform-button-small" type="button" data-template="live_preview">Live Preview</button>
+            <button class="platform-button platform-button-small" type="button" data-template="translation">Translation</button>
             <button class="platform-button platform-button-small platform-button-ghost" type="button" data-template="custom">Custom</button>
         </div>
         <form class="platform-form" data-platform-card-form>
@@ -38,7 +41,7 @@
                 <span class="platform-field-label"><?php echo htmlspecialchars($get('fields.variables'), ENT_QUOTES, 'UTF-8'); ?></span>
                 <input class="platform-input" name="variables" type="text" placeholder="<?php echo htmlspecialchars($get('placeholders.variables'), ENT_QUOTES, 'UTF-8'); ?>">
             </label>
-            <button class="platform-button platform-button-wide" type="submit"><?php echo htmlspecialchars($get('actions.addCard'), ENT_QUOTES, 'UTF-8'); ?></button>
+            <button class="platform-button platform-button-wide" type="submit"><?php echo PlatformSvg::render(['name' => 'add', 'size' => 16]); ?><?php echo htmlspecialchars($get('actions.addCard'), ENT_QUOTES, 'UTF-8'); ?></button>
         </form>
     </section>
 
@@ -55,7 +58,7 @@
                 <span class="platform-field-label"><?php echo htmlspecialchars($get('fields.value'), ENT_QUOTES, 'UTF-8'); ?></span>
                 <input class="platform-input" name="value" type="text" placeholder="<?php echo htmlspecialchars($get('placeholders.value'), ENT_QUOTES, 'UTF-8'); ?>" required>
             </label>
-            <button class="platform-button platform-button-wide" type="submit"><?php echo htmlspecialchars($get('actions.saveVariable'), ENT_QUOTES, 'UTF-8'); ?></button>
+            <button class="platform-button platform-button-wide" type="submit"><?php echo PlatformSvg::render(['name' => 'save', 'size' => 16]); ?><?php echo htmlspecialchars($get('actions.saveVariable'), ENT_QUOTES, 'UTF-8'); ?></button>
         </form>
         <div class="platform-list" data-platform-variable-list></div>
     </section>

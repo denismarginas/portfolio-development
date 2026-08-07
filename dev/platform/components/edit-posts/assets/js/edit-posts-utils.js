@@ -41,7 +41,6 @@ async function loadEditPostStrings() {
       el.setAttribute('placeholder', t(path, fallback));
     });
   } catch (e) {
-    // strings not available, fallbacks will be used
   }
 }
 

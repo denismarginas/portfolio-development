@@ -1,0 +1,13 @@
+{
+  "name"        : "hero",
+  "title"       : "Hero",
+  "description" : "Hero section with background image, title, description and layout variants.",
+  "assets"      : {
+    "php" : ["assets/php/hero.php"                                       ],
+    "html": ["assets/html/template.html", "assets/html/text_content.html"],
+    "scss": ["assets/scss/hero.scss"                                     ],
+    "css" : ["assets/css/hero.css"                                       ],
+    "js"  : ["assets/js/hero.js"                                         ]
+  },
+  "dependencies": ["animation_waves"]
+}

@@ -2,21 +2,21 @@
 setlocal
 
 set "SCRIPT_DIR=%~dp0"
-set "PHP_ROOT=C:\php"
+for %%I in ("%SCRIPT_DIR%..\..\..") do set "ROOT_DIR=%%~fI"
+set "DEP_DIR=%ROOT_DIR%\dev\dependencies"
 set "PHP_VERSION=8.5"
+set "PHP_DIR=%DEP_DIR%\php-v-%PHP_VERSION%"
 
-if exist "%PHP_ROOT%\current\php.exe" (
-    echo PHP %PHP_VERSION% is already installed in %PHP_ROOT%!
+call "%SCRIPT_DIR%path-instal.bat" auto
+
+if exist "%PHP_DIR%\current\php.exe" (
+    echo PHP %PHP_VERSION% is already installed in %PHP_DIR%!
     goto END
 )
 
-if not exist "%PHP_ROOT%" (
-    mkdir "%PHP_ROOT%"
-)
-
-echo Installing PHP %PHP_VERSION% into %PHP_ROOT%...
-powershell -NoProfile -ExecutionPolicy Bypass -Command "& ([ScriptBlock]::Create((irm 'https://www.php.net/include/download-instructions/windows.ps1'))) -Version %PHP_VERSION% -Scope Custom -CustomPath '%PHP_ROOT%'"
+echo Installing PHP %PHP_VERSION% into %PHP_DIR%...
+powershell -NoProfile -ExecutionPolicy Bypass -Command "& ([ScriptBlock]::Create((irm 'https://www.php.net/include/download-instructions/windows.ps1'))) -Version %PHP_VERSION% -Scope Custom -CustomPath '%PHP_DIR%'"
 
 :END
-pause
+if "%~1" neq "auto" pause
 endlocal

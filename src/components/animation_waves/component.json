@@ -1,0 +1,12 @@
+{
+  "name": "animation_waves",
+  "title": "Animation Waves",
+  "description": "Animated ocean wave effect positioned at the bottom of sections.",
+  "assets": {
+    "php": ["assets/php/animation_waves.php"],
+    "css": ["assets/css/style.css"],
+    "scss": ["assets/scss/style.scss"],
+    "js": ["assets/js/animation_waves.js"]
+  },
+  "dependencies": []
+}

@@ -1,54 +1,55 @@
 <?php
 
+require_once __DIR__ . '/page_constructor_seo.php';
+
 class page_constructor
 {
+    use page_constructor_seo;
+
     public static function render(array $data = []): string
     {
         $bodyContent = $data['body_content'] ?? $data['content'] ?? $data['children_html'] ?? '';
         $seo = $data['seo'] ?? [];
 
-        $globalData = get_data_json('data_global_settings', 'data');
+        $globalData = PlatformDataService::get_data('settings_languages');
 
-        $langIso = '';
-        $defaultLang = $globalData['language']['default'] ?? '';
-        foreach (($globalData['language']['list'] ?? []) as $lang) {
-            if (($lang['text'] ?? '') === $defaultLang) {
-                $langIso = $lang['iso'] ?? '';
-                break;
-            }
-        }
+        $langIso = $globalData['default'] ?? '';
+
+        $defaultMode = $data['mode'] ?? PlatformConfig::get('theme_default_mode', 'light');
 
         $seoFields = '';
-        foreach (seo_implicit_fields() as $field) {
+        foreach (self::implicit_seo_fields() as $field) {
             $seoFields .= $field;
         }
         if (!empty($seo)) {
-            $seoFields = seo_add_in_content($seo, $seoFields);
+            $seoFields = self::add_seo_to_html($seo, $seoFields);
         }
 
         $compileAssets = $data['compile_assets'] ?? false;
         if ($compileAssets) {
-            $urlPath = get_asset_relative_prefix();
-            $assetTags = '<link rel="stylesheet" href="' . $urlPath . 'src/components/theme/assets_compiled/css/bundle.css">'
-                       . '<script src="' . $urlPath . 'src/components/theme/assets_compiled/js/bundle.js"></script>';
+            $urlPath = PlatformPathService::asset_relative_prefix();
+            $compiledPath = PlatformConfig::get('theme_compiled_path');
+            $assetTags = '<link rel="stylesheet" href="' . $urlPath . $compiledPath . '/css/bundle.css">'
+                       . '<script src="' . $urlPath . $compiledPath . '/js/bundle.js"></script>';
         } else {
-            component_renderer::mark_used('theme');
-            $assetTags = get_component_asset_tags();
+            PlatformComponentRenderer::mark_used('theme');
+            $assetTags = PlatformComponentRenderer::get_component_asset_tags();
         }
 
-        $headerContent = render_component('header', $data);
+        $headerContent = PlatformComponentRenderer::render('header', $data);
 
-        $mainContent = render_component('page_content', [
+        $mainContent = PlatformComponentRenderer::render('page_content', [
             'body_content' => $bodyContent,
             'post_current_data' => $data['post_current_data'] ?? null,
         ]);
 
-        $footerContent = render_component('footer');
+        $footerContent = PlatformComponentRenderer::render('footer');
 
         $template = file_get_contents(__DIR__ . '/../html/template.html');
         return str_replace(
             [
                 '{{ lang_iso }}',
+                '{{ body_mode }}',
                 '{{ seo_fields }}', '{{ component_asset_tags }}',
                 '{{ header_content }}',
                 '{{ main_content }}',
@@ -56,6 +57,7 @@ class page_constructor
             ],
             [
                 $langIso,
+                $defaultMode,
                 $seoFields, $assetTags,
                 $headerContent,
                 $mainContent,

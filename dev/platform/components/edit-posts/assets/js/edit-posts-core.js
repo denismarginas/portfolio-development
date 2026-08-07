@@ -1,5 +1,3 @@
-// Post Types
-
 async function loadPostTypes() {
   try {
     setStatus(tr('editPosts.loadingPostTypes', 'Loading post types...'));
@@ -21,9 +19,9 @@ function renderPostTypes() {
   }
   postTypes.forEach(t => {
     const item = document.createElement('div');
-    item.className = 'platform-list-item ep-post-type-item' + (t.post_type === currentPostType ? ' is-active' : '');
+    item.className = 'platform-list-item platform-ep-post-type-item' + (t.post_type === currentPostType ? ' is-active' : '');
     item.dataset.epPostType = t.post_type;
-    item.innerHTML = `<span>${escapeHtml(t.title || t.post_type)}</span><span class="ep-post-type-count">${t.count}</span>`;
+    item.innerHTML = `<span>${escapeHtml(t.title || t.post_type)}</span><span class="platform-ep-post-type-count">${t.count}</span>`;
     item.addEventListener('click', () => selectPostType(t.post_type));
     postTypesEl.appendChild(item);
   });
@@ -64,64 +62,9 @@ function renderPostList() {
   }
   filtered.forEach(p => {
     const item = document.createElement('div');
-    item.className = 'platform-list-item ep-post-item' + (currentPost && currentPost.post_id === p.post_id ? ' is-active' : '');
-    item.innerHTML = `<div class="ep-post-item-title">${escapeHtml(p.title || '(no title)')}</div><div class="ep-post-item-id">${escapeHtml(p.post_id)}</div>`;
+    item.className = 'platform-list-item platform-ep-post-item' + (currentPost && currentPost.post_id === p.post_id ? ' is-active' : '');
+    item.innerHTML = `<div class="platform-ep-post-item-title">${escapeHtml(p.title || '(no title)')}</div><div class="platform-ep-post-item-id">${escapeHtml(p.post_id)}</div>`;
     item.addEventListener('click', () => loadPost(p.post_id));
     postListEl.appendChild(item);
   });
-}
-
-// Components
-
-async function loadComponents() {
-  try {
-    const data = await apiFetch(componentsApiUrl);
-    components = data.components || [];
-  } catch (e) {
-    components = [];
-  }
-}
-
-// Persistence
-
-function markDirty() {
-}
-
-async function savePost() {
-  if (!currentPost || !currentFile) {
-    setStatus('No post to save');
-    return;
-  }
-  setStatus(tr('editPosts.saving', 'Saving...'));
-  try {
-    const data = await apiFetch(apiUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ post_id: currentPost.post_id, file: currentFile, data: currentPost, original_post_id: originalPostId }),
-    });
-    setStatus(tr('editPosts.saved', 'Post saved'));
-  } catch (e) {
-    setStatus(tr('editPosts.saveFailed', 'Save failed: {message}', { message: e.message }));
-  }
-}
-
-async function deletePost() {
-  if (!currentPost || !currentFile) return;
-  if (!confirm(tr('editPosts.confirmDelete', 'Delete this post permanently?'))) return;
-  const postId = currentPost.post_id;
-  try {
-    await apiFetch(apiUrl, {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ post_id: postId, file: currentFile }),
-    });
-    setStatus(tr('editPosts.deleted', 'Post deleted'));
-    currentPost = null;
-    editorEl.style.display = 'none';
-    const idx = posts.findIndex(p => p.post_id === postId);
-    if (idx !== -1) posts.splice(idx, 1);
-    await loadPostTypes();
-  } catch (e) {
-    setStatus(tr('editPosts.deleteFailed', 'Delete failed: {message}', { message: e.message }));
-  }
 }

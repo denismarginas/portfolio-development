@@ -1,0 +1,14 @@
+{
+    "name": "svg",
+    "title": "SVG",
+    "description": "Renders a stroke-style SVG icon from the platform svg assets",
+    "type": "util",
+    "assets": {
+        "php": [
+            "assets/php/svg.php"
+        ],
+        "css": [
+            "assets/css/svg.css"
+        ]
+    }
+}
