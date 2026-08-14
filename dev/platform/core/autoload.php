@@ -7,3 +7,4 @@ require_once __DIR__ . '/../components/vars/index.php';
 require_once __DIR__ . '/../components/topbar/index.php';
 require_once __DIR__ . '/../components/error-renderer/index.php';
 require_once __DIR__ . '/../components/workflow-ui/index.php';
+require_once __DIR__ . '/../api/posts_helpers.php';

@@ -38,8 +38,8 @@ $types = platform_get_post_types();
 
 foreach ($types as $t) {
     $postType = $t['post_type'];
-    $structureKey = $postType === 'project' ? 'project_structure' : 'page_structure';
-    $seoKey = $postType === 'project' ? 'seo_project' : 'seo_page';
+    $structureKey = $t['structure'] ?? ($postType === 'project' ? 'project_structure' : 'page_structure');
+    $seoKey = $t['seo'] ?? ($postType === 'project' ? 'seo_project' : 'seo_page');
 
     $headerComponent = $state['structure_vars'][$structureKey]['header'] ?? null;
     $footerComponent = $state['structure_vars'][$structureKey]['footer'] ?? null;
@@ -51,13 +51,13 @@ foreach ($types as $t) {
     if (!$posts) continue;
 
     foreach ($posts as $post) {
-        $postId = $post['post_id'] ?? '';
-        if (!$postId) continue;
+        $id = $post['_id'] ?? '';
+        if (!$id) continue;
 
         try {
             $postData = platform_normalize_preview_post($post);
             if ($postType === 'project') {
-                $postData = platform_generate_project_seo($postData, $seoConfig, $postId);
+                $postData = platform_generate_project_seo($postData, $seoConfig, $id);
             }
 
             $postGlobalPaths = $state['global_paths'][$postType] ?? [];
@@ -88,11 +88,62 @@ foreach ($types as $t) {
                 'post_current_data' => $postData,
             ]);
 
-            platform_write_dist_html($pageData, $pageStructureName, $postId, $postType, $state['html_compile_folder']);
-            $results[] = ['post_id' => $postId, 'post_type' => $postType, 'success' => true];
+            platform_write_dist_html($pageData, $pageStructureName, $id, $postType, $state['html_compile_folder'], $t['root'] ?? '');
+            $results[] = ['_id' => $id, 'post_type' => $postType, 'success' => true];
             $count++;
         } catch (Throwable $e) {
-            $results[] = ['post_id' => $postId, 'post_type' => $postType, 'success' => false, 'error' => $e->getMessage()];
+            $results[] = ['_id' => $id, 'post_type' => $postType, 'success' => false, 'error' => $e->getMessage()];
+        }
+    }
+}
+
+foreach (platform_get_taxonomy_types() as $t) {
+    $taxonomy = $t['taxonomy'];
+    $structureKey = 'page_structure';
+
+    $headerComponent = $state['structure_vars'][$structureKey]['header'] ?? null;
+    $footerComponent = $state['structure_vars'][$structureKey]['footer'] ?? null;
+    $pageStructureComponent = $state['structure_vars'][$structureKey]['page_structure'] ?? null;
+    $bodyWrapper = $state['structure_vars'][$structureKey]['body_wrapper'] ?? null;
+
+    $terms = platform_read_data_file($t['file']);
+    if (!$terms) continue;
+
+    foreach ($terms as $term) {
+        $id = $term['_id'] ?? '';
+        if (!$id) continue;
+
+        try {
+            $postData = platform_normalize_preview_post($term);
+
+            $structureData = [
+                'header_component' => $headerComponent,
+                'footer_component' => $footerComponent,
+                'global_content_path' => '',
+                'global_img_path' => '',
+                'global_vid_path' => '',
+                'compile_assets' => $state['compile_assets'],
+            ];
+            $pageStructureName = $pageStructureComponent ?: 'page_constructor';
+            $seo = $postData['seo'] ?? [];
+
+            $bodyHtml = platform_render_body_sections($postData, '', '', '');
+            $bodyHtml = platform_wrap_body_if_needed($bodyHtml, $postData, $bodyWrapper);
+
+            $pageData = array_merge($structureData, [
+                'body_content' => $bodyHtml,
+                'global_content_path' => '',
+                'global_img_path' => '',
+                'global_vid_path' => '',
+                'seo' => $seo,
+                'post_current_data' => $postData,
+            ]);
+
+            platform_write_dist_html($pageData, $pageStructureName, $id, 'taxonomy:' . $taxonomy, $state['html_compile_folder'], $t['root'] ?? '');
+            $results[] = ['_id' => $id, 'post_type' => 'taxonomy:' . $taxonomy, 'success' => true];
+            $count++;
+        } catch (Throwable $e) {
+            $results[] = ['_id' => $id, 'post_type' => 'taxonomy:' . $taxonomy, 'success' => false, 'error' => $e->getMessage()];
         }
     }
 }

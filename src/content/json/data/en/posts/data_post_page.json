@@ -1,0 +1,471 @@
+﻿[
+  {
+    "_id": "index",
+    "data": {
+      "seo": {
+        "title": "Denis Marginas",
+        "description": "My name is Denis Ionut Marginas, I\u0027m 25-year-old, and I\u0027ve been working as a full-stack web developer and photo-video editor since 2019. Before entering the web development field, I worked as a freelance video editor, specializing in editing videos for video games.",
+        "keywords": "denis marginas portfolio",
+        "slug": "index",
+        "index": "true"
+      }
+    },
+    "content": [
+      {
+        "component": "about",
+        "data": {
+          "variant": "compress"
+        }
+      },
+      {
+        "component": "categories",
+        "data": []
+      },
+      {
+        "component": "work-experience",
+        "data": []
+      }
+    ]
+  },
+  {
+    "_id": "404",
+    "data": {
+      "seo": {
+        "title": "404",
+        "description": "Page not found.",
+        "keywords": "404",
+        "slug": "404",
+        "index": "false"
+      }
+    },
+    "content": [
+      {
+        "component": "404",
+        "data": []
+      }
+    ]
+  },
+  {
+    "_id": "home",
+    "data": {
+      "seo": {
+        "title": "Home",
+        "description": "My name is Denis Ionut Marginas, I\u0027m 25-year-old, and I\u0027ve been working as a full-stack web developer and photo-video editor since 2019. Before entering the web development field, I worked as a freelance video editor, specializing in editing videos for video games.",
+        "keywords": "denis marginas home",
+        "slug": "home",
+        "index": "true"
+      }
+    },
+    "content": [
+      {
+        "component": "about",
+        "data": {
+          "variant": "compress"
+        }
+      },
+      {
+        "component": "categories",
+        "data": []
+      },
+      {
+        "component": "work-experience",
+        "data": []
+      }
+    ]
+  },
+  {
+    "_id": "about",
+    "data": {
+      "seo": {
+        "title": "About",
+        "description": "My name is Denis Ionut Marginas, I\u0027m 25-year-old, and I\u0027ve been working as a full-stack web developer and photo-video editor since 2019. Before entering the web development field, I worked as a freelance video editor, specializing in editing videos for video games.",
+        "keywords": "denis marginas about",
+        "slug": "about",
+        "index": "false"
+      }
+    },
+    "content": [
+      {
+        "component": "about",
+        "data": {
+          "variant": "standard"
+        }
+      },
+      {
+        "component": "hobby-list",
+        "data": []
+      },
+      {
+        "component": "carousel-post-items",
+        "data": {
+          "variant": "compress"
+        }
+      }
+    ]
+  },
+  {
+    "_id": "contact",
+    "data": {
+      "seo": {
+        "title": "Contact",
+        "description": "You can reach me by phone on WhatsApp or through my personal email address. Contact details are provided in the section below.",
+        "keywords": "denis marginas contact",
+        "slug": "contact",
+        "index": "false"
+      }
+    },
+    "content": [
+      {
+        "component": "contact-data",
+        "data": []
+      },
+      {
+        "component": "resume-data",
+        "data": []
+      },
+      {
+        "component": "contact-details",
+        "data": []
+      }
+    ]
+  },
+  {
+    "_id": "experience",
+    "data": {
+      "seo": {
+        "title": "Experience",
+        "description": "Experience a captivating journey through my professional work from 2019 to 2023 in this short video. From a captivating intro to web development, photo editing, and video editing, witness my diverse expertise in just under two minutes.",
+        "keywords": "denis marginas experience",
+        "slug": "experience",
+        "index": "true"
+      }
+    },
+    "content": [
+      {
+        "component": "hero",
+        "children": [
+          {
+            "component": "animation_waves",
+            "data": {}
+          }
+        ],
+        "data": {
+          "variant": "xs",
+          "img": "backgrounds/bg-home.webp",
+          "title": "@data.seo.title",
+          "description": "@data.seo.description"
+        }
+      },
+      {
+        "component": "experience-knowledge",
+        "data": {
+          "variant": "standard"
+        }
+      },
+      {
+        "component": "categories",
+        "data": []
+      },
+      {
+        "component": "portfolio-showcase",
+        "data": []
+      },
+      {
+        "component": "carousel-post-items",
+        "data": {
+          "variant": "standard"
+        }
+      }
+    ]
+  },
+  {
+    "_id": "employee-experience",
+    "data": {
+      "seo": {
+        "title": "Employee Experience",
+        "description": "Explore my professional journey through my employ experience, where I showcase a chronological record of my employment history. Discover insights into my roles, responsibilities, and significant contributions at various companies, along with dates and key attributes.",
+        "keywords": "denis marginas employee experience",
+        "slug": "employee-experience",
+        "index": "false"
+      }
+    },
+    "content": [
+      {
+        "component": "hero",
+        "children": [
+          {
+            "component": "animation_waves",
+            "data": {}
+          }
+        ],
+        "data": {
+          "variant": "xs",
+          "img": "backgrounds/bg-employee.webp",
+          "title": "@data.seo.title",
+          "description": "@data.seo.description"
+        }
+      },
+      {
+        "component": "job-list",
+        "data": []
+      }
+    ]
+  },
+  {
+    "_id": "education-experience",
+    "data": {
+      "seo": {
+        "title": "Education Experience",
+        "description": "Discover my educational journey from high school to university, including courses and diplomas attained along the way.",
+        "keywords": "denis marginas education experience",
+        "slug": "education-experience",
+        "index": "false"
+      }
+    },
+    "content": [
+      {
+        "component": "hero",
+        "children": [
+          {
+            "component": "animation_waves",
+            "data": {}
+          }
+        ],
+        "data": {
+          "variant": "xs",
+          "img": "backgrounds/bg-education.webp",
+          "title": "@data.seo.title",
+          "description": "@data.seo.description"
+        }
+      },
+      {
+        "component": "tab_items_listing",
+        "data": {
+          "type": "education"
+        }
+      }
+    ]
+  },
+  {
+    "_id": "search",
+    "data": {
+      "seo": {
+        "title": "Search",
+        "description": "Search items in the website.",
+        "keywords": "denis marginas search",
+        "slug": "search",
+        "index": "false"
+      }
+    },
+    "content": [
+      {
+        "component": "search",
+        "data": []
+      }
+    ]
+  },
+  {
+    "_id": "workstations",
+    "data": {
+      "seo": {
+        "title": "Workstations",
+        "description": "Here you can check my list with workstations setups.",
+        "keywords": "denis marginas workstations",
+        "slug": "workstations",
+        "index": "false"
+      }
+    },
+    "content": [
+      {
+        "component": "hero",
+        "data": {
+          "variant": "compress-squares",
+          "filename": "workstations",
+          "title": "@data.seo.title",
+          "description": "@data.seo.description"
+        }
+      },
+      {
+        "component": "workstation-list",
+        "data": []
+      }
+    ]
+  },
+  {
+    "_id": "video-games",
+    "data": {
+      "seo": {
+        "title": "Video Games",
+        "description": "Here you can explore my personal list of top video games.",
+        "keywords": "denis marginas video-games",
+        "slug": "video-games",
+        "index": "false"
+      }
+    },
+    "content": [
+      {
+        "component": "hero",
+        "data": {
+          "variant": "compress-squares",
+          "filename": "video-games",
+          "title": "@data.seo.title",
+          "description": "@data.seo.description"
+        }
+      },
+      {
+        "component": "video-games-list",
+        "data": []
+      }
+    ]
+  },
+  {
+    "_id": "projects",
+    "data": {
+      "seo": {
+        "title": "Projects",
+        "description": "Showcase of projects I have created or I was involved, featuring designs and functionality of websites and media content.",
+        "keywords": "denis marginas projects",
+        "slug": "projects",
+        "index": "false"
+      }
+    },
+    "content": [
+      {
+        "component": "hero",
+        "children": [
+          {
+            "component": "animation_waves",
+            "data": {}
+          }
+        ],
+        "data": {
+          "variant": "sm",
+          "img": "backgrounds/bg-projects.webp",
+          "title": "@data.seo.title",
+          "description": "@data.seo.description"
+        }
+      },
+      {
+        "component": "post-items",
+        "data": {
+          "post_type": "project",
+          "global_img_path": "src/content/img",
+          "exclude_by": [
+            {
+              "path": "@settings.exclude_from_categories",
+              "value": true
+            },
+            {
+              "path": "@settings.render",
+              "value": false
+            }
+          ],
+          "template": {
+            "component": "card",
+            "params": {
+              "variant": "post",
+              "image": {
+                "component": "utility_post_get_img",
+                "params": {
+                  "root": "@img_base/@data.media.path",
+                  "cases": [
+                    {
+                      "path": "/web/overview/",
+                      "img": "web_desktop_overview.webp"
+                    },
+                    {
+                      "path": "/media/overview/",
+                      "img": "web_media_overview.webp"
+                    },
+                    {
+                      "path": "/media/",
+                      "img": "any",
+                      "exclude_path_with_string": "logo",
+                      "exclude_img_with_string": "logo"
+                    }
+                  ]
+                }
+              },
+              "title": "@data.seo.title",
+              "description": {
+                "component": "utility_text",
+                "params": {
+                  "input": "@data.seo.description",
+                  "outputs": {
+                    "limit_chars": 45,
+                    "suffix": "..."
+                  }
+                }
+              },
+              "date": {
+                "component": "utility_date",
+                "params": {
+                  "input": "@data.date.publish",
+                  "format": "dd-mm-yyyy",
+                  "outputs": {
+                    "display": "d M yyyy",
+                    "datetime": "Y-m-d"
+                  }
+                }
+              },
+              "taxonomy": {
+                "categories": "@data.taxonomy.categories",
+                "tags": "@data.taxonomy.tags"
+              },
+              "button": {
+                "component": "button",
+                "params": {
+                  "text": "View",
+                  "svg": "web",
+                  "link": {
+                    "_id": "@_id"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "_id": "social-activity",
+    "data": {
+      "seo": {
+        "title": "Social Activity",
+        "description": "Dive into the world of a full-stack web developer and skilled photo-video editor. Explore the intersection of web development and visual storytelling on Denis Ionut Marginas\u0027s insightful blog.",
+        "keywords": "denis marginas social activity",
+        "slug": "social-activity",
+        "index": "false"
+      }
+    },
+    "content": [
+      {
+        "component": "blog-header",
+        "data": []
+      },
+      {
+        "component": "blog-posts",
+        "data": []
+      }
+    ]
+  },
+  {
+    "_id": "privacy-policy",
+    "data": {
+      "seo": {
+        "title": "Privacy Policy",
+        "description": "Learn how we collect, use, and protect your personal data. Our Privacy Policy explains our use of cookies, Google Analytics, and your rights regarding your data.",
+        "keywords": "denis marginas privacy-policy",
+        "slug": "privacy-policy",
+        "index": "false"
+      }
+    },
+    "content": [
+      {
+        "component": "gdpr",
+        "data": []
+      }
+    ]
+  }
+]

@@ -31,13 +31,13 @@ trait PlatformDataServiceItems
         return self::get_data('items_' . $item_name, 'data');
     }
 
-    public static function get_item_by_id(string $item_name, string $item_id): ?array
+    public static function get_item_by_id(string $item_name, string $id): ?array
     {
         $items = self::get_all_items_from_file($item_name);
         if (empty($items)) return null;
 
         foreach ($items as $item) {
-            if (($item['item_id'] ?? '') === $item_id) {
+            if (($item['_id'] ?? '') === $id) {
                 return $item;
             }
         }

@@ -11,14 +11,8 @@ class PlatformScssBuilder
             'compile_scss_assets' => false,
             'compile_scss_everytime' => true,
         ];
-        $path = PlatformConfig::get('dev_dir') . '/platform/data/cards.json';
-        if (!file_exists($path)) return $flags;
-        foreach ((json_decode(file_get_contents($path), true)['cards'] ?? []) as $card) {
-            if (($card['type'] ?? '') !== 'compile_scss') continue;
-            foreach ($card['variables'] ?? [] as $var) {
-                if (array_key_exists($var['name'], $flags)) $flags[$var['name']] = ($var['value'] ?? '') === 'true';
-            }
-            break;
+        foreach (PlatformWorkflowService::section('compile_scss') as $name => $value) {
+            if (array_key_exists($name, $flags)) $flags[$name] = $value === true || (string) $value === 'true';
         }
         return $flags;
     }

@@ -19,6 +19,15 @@
     "view"        : "View",
     "translate"   : "Generate Translations"
   },
+  "structureTypes"  : {
+    "label"        : "Structure Types",
+    "posts"        : "Posts",
+    "taxonomies"   : "Taxonomies",
+    "items"        : "Items",
+    "postsDesc"    : "Manage pages, projects and workstations.",
+    "taxonomiesDesc": "Manage categories and taxonomies.",
+    "itemsDesc"    : "Manage data items (jobs, education, games, socials)."
+  },
   "sections"        : {"createCard": "Create card", "setVariable": "Set variable", "inspector": "Inspector", "links": "Links"},
   "templates"       : {
     "database"         : "DataBase",
@@ -69,6 +78,7 @@
     "save"             : "Save Post",
     "postTypes"        : "Post Types",
     "loadingPostTypes" : "Loading post types...",
+    "routable"         : "Routable",
     "posts"            : "Posts",
     "searchPosts"      : "Search posts...",
     "post"             : "Post",
@@ -101,6 +111,26 @@
     "loading"          : "Loading...",
     "errorLoading"     : "Error loading data: {message}",
     "error"            : "Error: {message}"
+  },
+  "editTaxonomies"  : {
+    "types"      : "Taxonomy Types",
+    "terms"      : "Terms",
+    "new"        : "New",
+    "delete"     : "Delete",
+    "save"       : "Save",
+    "searchTerms": "Search terms...",
+    "noTypes"    : "No taxonomy types found",
+    "noTerms"    : "No terms match your search."
+  },
+  "editItems"       : {
+    "types"      : "Item Types",
+    "items"      : "Items",
+    "new"        : "New",
+    "delete"     : "Delete",
+    "save"       : "Save",
+    "searchItems": "Search items...",
+    "noTypes"    : "No item types found",
+    "noItems"    : "No items match your search."
   },
   "home"            : {
     "title"          : "Dashboard",

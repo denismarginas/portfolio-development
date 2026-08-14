@@ -7,7 +7,7 @@ $pages = platform_pages();
 $menu = platform_menu();
 
 $page = $_GET['page'] ?? 'home';
-$tab = $_GET['tab'] ?? '';
+$tab = $_GET['tab'] ?? $_GET['type'] ?? '';
 
 $pageUnknown = !isset($pages[$page]);
 if ($pageUnknown) {

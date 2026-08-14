@@ -78,9 +78,9 @@ function platform_render_render_fragment(string $tab = ''): string
                 <div class="platform-render-toolbar">
                     <select class="platform-input" data-render-post-type style="max-width:260px"></select>
                     <select class="platform-input" data-render-post style="max-width:260px"></select>
-                    <a class="platform-button" data-render-open href="preview/?post_id=home" target="_blank"><?php echo $icon('view'); ?>Open preview</a>
+                    <a class="platform-button" data-render-open href="preview/?_id=home" target="_blank"><?php echo $icon('view'); ?>Open preview</a>
                 </div>
-                <iframe class="platform-render-preview-iframe" data-render-preview src="preview/?post_id=home" title="Live preview"></iframe>
+                <iframe class="platform-render-preview-iframe" data-render-preview src="preview/?_id=home" title="Live preview"></iframe>
                 <?php echo platform_render_vars('live_preview', 'preview'); ?>
             </div>
         </section>

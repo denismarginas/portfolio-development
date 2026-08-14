@@ -1,0 +1,37 @@
+{
+    "img": {
+        "background": {
+            "overlay_texture": "src/content/img/design-elements/overlay-texture-noise.webp",
+            "overlay_shape_1": "hexagon-3d",
+            "overlay_shape_2": "distortion-plane-3d"
+        },
+        "devices": {
+            "post_laptop": "src/content/img/design-elements/device-layout-laptop.webp",
+            "post_phone": "src/content/img/design-elements/device-layout-phone.webp",
+            "tablet-landscape": "src/content/img/design-elements/device-layout-tablet-landscape.webp",
+            "tablet": "src/content/img/design-elements/device-layout-tablet.webp",
+            "phone-model-01": "src/content/img/design-elements/device-layout-phone-model-001.webp",
+            "phone-model-02": "src/content/img/design-elements/device-layout-phone-model-002.webp",
+            "phone-model-03": "src/content/img/design-elements/device-layout-phone-model-003.webp",
+            "desktop-model-01": "src/content/img/design-elements/device-layout-desktop-model-001.webp",
+            "desktop-model-02": "src/content/img/design-elements/device-layout-desktop-model-002.webp",
+            "desktop-model-03": "src/content/img/design-elements/device-layout-desktop-model-003.webp"
+        }
+    },
+    "fields": {
+        "web_url": "Website: ",
+        "web_platform": "Platform: ",
+        "web_technology": "Technology: ",
+        "web_plugins": "Modules: ",
+        "project_collaboration": "Project Collaboration: ",
+        "web_project_status": "Web Project Status:",
+        "media_facebook_url": "Facebook: ",
+        "media_instagram_url": "Instagram: ",
+        "media_youtube_url": "YouTube: ",
+        "media_platforms": "Media Platforms: ",
+        "employer_type": "Worked as:",
+        "employer_location": "Worked at:",
+        "date": "Date:"
+    },
+    "index": "false"
+}

@@ -103,7 +103,7 @@ trait post_items_value
 
     protected static function resolve_ref(string $ref, array $context): mixed
     {
-        if ($ref === 'post_id') {
+        if ($ref === 'post_id' || $ref === '_id') {
             return (string) ($context['post_id'] ?? '');
         }
         if ($ref === 'post_link') {

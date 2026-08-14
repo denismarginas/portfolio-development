@@ -33,6 +33,23 @@ function platform_handle_get_post(string $postId): void
             return;
         }
     }
+    // Also check taxonomies
+    $taxTypes = platform_get_taxonomy_types();
+    foreach ($taxTypes as $t) {
+        $found = platform_find_taxonomy_term($t['file'], $postId);
+        if ($found) {
+            platform_send_json([
+                'ok' => true,
+                'post' => $found['data'],
+                'file' => $found['file'],
+                'post_type' => 'taxonomy:' . $t['taxonomy'],
+                'global_content_path' => '',
+                'global_img_path' => '',
+                'global_vid_path' => '',
+            ]);
+            return;
+        }
+    }
     platform_send_json(['ok' => false, 'message' => 'Post not found'], 404);
 }
 
@@ -68,7 +85,7 @@ function platform_handle_list_posts(string $postType): void
         elseif (isset($item['title'])) $title = $item['title'];
         elseif (isset($item['data']['seo']['title'])) $title = $item['data']['seo']['title'];
         elseif (isset($item['seo']['title'])) $title = $item['seo']['title'];
-        $list[] = ['post_id' => $item['post_id'] ?? '', 'title' => $title];
+        $list[] = ['_id' => $item['_id'] ?? '', 'title' => $title, 'post_id' => $item['_id'] ?? ''];
     }
     platform_send_json(['ok' => true, 'posts' => $list, 'post_type' => $postType, 'file' => $file, 'global_content_path' => $globalContentPath, 'global_img_path' => $globalImgPath, 'global_vid_path' => $globalVidPath]);
 }
@@ -84,6 +101,7 @@ function platform_handle_list_types(): void
             'file' => $t['file'],
             'title' => $t['title'],
             'count' => $items ? count($items) : 0,
+            'routable' => $t['routable'] ?? true,
             'global_content_path' => $t['global_content_path'] ?? '',
             'global_img_path' => $t['global_img_path'] ?? '',
             'global_vid_path' => $t['global_vid_path'] ?? '',

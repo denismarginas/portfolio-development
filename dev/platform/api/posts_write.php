@@ -5,8 +5,8 @@ require_once __DIR__ . '/posts_helpers.php';
 function platform_handle_post_save(): void
 {
     $input = json_decode(file_get_contents('php://input'), true);
-    if (!$input || empty($input['post_id']) || empty($input['file']) || !isset($input['data'])) {
-        platform_send_json(['ok' => false, 'message' => 'Missing post_id, file, or data'], 400);
+    if (!$input || empty($input['_id']) || empty($input['file']) || !isset($input['data'])) {
+        platform_send_json(['ok' => false, 'message' => 'Missing _id, file, or data'], 400);
         return;
     }
 
@@ -16,11 +16,11 @@ function platform_handle_post_save(): void
         return;
     }
 
-    $lookupId = $input['original_post_id'] ?? $input['post_id'];
+    $lookupId = $input['original__id'] ?? $input['_id'];
 
     $found = false;
     foreach ($items as $i => $item) {
-        if (($item['post_id'] ?? '') === $lookupId) {
+        if (($item['_id'] ?? '') === $lookupId) {
             $items[$i] = $input['data'];
             $found = true;
             break;
@@ -42,8 +42,8 @@ function platform_handle_post_save(): void
 function platform_handle_post_delete(): void
 {
     $input = json_decode(file_get_contents('php://input'), true);
-    if (!$input || empty($input['post_id']) || empty($input['file'])) {
-        platform_send_json(['ok' => false, 'message' => 'Missing post_id or file'], 400);
+    if (!$input || empty($input['_id']) || empty($input['file'])) {
+        platform_send_json(['ok' => false, 'message' => 'Missing _id or file'], 400);
         return;
     }
 
@@ -55,7 +55,7 @@ function platform_handle_post_delete(): void
 
     $found = false;
     foreach ($items as $i => $item) {
-        if (($item['post_id'] ?? '') === $input['post_id']) {
+        if (($item['_id'] ?? '') === $input['_id']) {
             array_splice($items, $i, 1);
             $found = true;
             break;

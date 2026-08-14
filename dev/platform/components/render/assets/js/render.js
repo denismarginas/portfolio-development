@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function setPreview() {
     const postId = postSelect.value;
     if (!postId) return;
-    const url = `preview/?post_id=${encodeURIComponent(postId)}`;
+    const url = `preview/?_id=${encodeURIComponent(postId)}`;
     previewFrame.src = resolveUrl(url);
     openLink.href = resolveUrl(url);
   }
@@ -132,15 +132,15 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const data = await apiJson(`api/posts.php?post_type=${encodeURIComponent(postType)}`);
       postSelect.innerHTML = '';
-      let defaultPost = previewDefaults.post_id || '';
+      let defaultPost = previewDefaults._id || '';
       (data.posts || []).forEach((p) => {
         const opt = document.createElement('option');
-        opt.value = p.post_id;
-        opt.textContent = p.title || p.post_id;
-        if (p.post_id === defaultPost) opt.selected = true;
+        opt.value = p._id;
+        opt.textContent = p.title || p._id;
+        if (p._id === defaultPost) opt.selected = true;
         postSelect.appendChild(opt);
       });
-      if (defaultPost && !(data.posts || []).some((p) => p.post_id === defaultPost)) {
+      if (defaultPost && !(data.posts || []).some((p) => p._id === defaultPost)) {
         postSelect.selectedIndex = 0;
       }
       setPreview();

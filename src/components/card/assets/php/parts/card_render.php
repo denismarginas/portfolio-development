@@ -53,22 +53,6 @@ trait card_render
         return self::render_post($data);
     }
 
-    protected static function render_minimal_badge_round(array $data): string
-    {
-        $postData = $data['post_current_data'] ?? [];
-
-        $title = self::resolve_text_field($data, $postData, 'title');
-        $link = self::resolve_link($data);
-
-        $imageHtml = self::render_media($data, $postData, $title, $link);
-        $titleHtml = self::render_title($title, $link);
-
-        return PlatformTemplateRenderer::render(__DIR__ . '/../../html/template_card_minimal_badge_round.html', [
-            'image_html' => $imageHtml,
-            'title_html' => $titleHtml,
-        ]);
-    }
-
     protected static function render_description(string $description): string
     {
         if ($description === '') return '';

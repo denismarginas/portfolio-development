@@ -7,18 +7,18 @@ trait header_menu
         $jsonContent = PlatformDataService::get_data('content_header_menu');
         $menuList = $jsonContent['menu_list'] ?? [];
 
-        $currentPostId = $data['post_current_data']['post_id'] ?? '';
+        $currentPostId = $data['post_current_data']['_id'] ?? '';
 
         $items = '';
 
         foreach ($menuList as $item) {
-            $postId = $item['post_id'] ?? '';
+            $postId = $item['_id'] ?? '';
             $text = $item['text'] ?? '';
             if ($postId === '' || $text === '') continue;
 
             $submenuHtml = '';
             foreach (($item['submenu'] ?? []) as $subItem) {
-                $subId = $subItem['post_id'] ?? '';
+                $subId = $subItem['_id'] ?? '';
                 $subText = $subItem['text'] ?? '';
                 if ($subId === '' || $subText === '') continue;
                 $submenuHtml .= PlatformTemplateRenderer::render(__DIR__ . '/../../html/template_menu_item.html', [

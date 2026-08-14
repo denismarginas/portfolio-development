@@ -19,16 +19,18 @@ trait post_items_render
 
         $template = $data['template'] ?? null;
         $excludeBy = $data['exclude_by'] ?? [];
+        $filterBy = $data['filter_by'] ?? [];
 
         $items = '';
         foreach ($posts as $post) {
             if (($post['settings']['render'] ?? true) === false) continue;
             if (self::is_excluded($post, $excludeBy)) continue;
+            if (!self::passes_filter($post, $filterBy)) continue;
 
             if (is_array($template)) {
                 $items .= self::render_via_template($post, $template);
             } else {
-                $postType = (string) ($post['_post_type'] ?? 'projects');
+                $postType = (string) ($post['_post_type'] ?? 'project');
                 $items .= self::render_item($post, self::build_context($data, $postType));
             }
         }
@@ -76,6 +78,37 @@ trait post_items_render
         return false;
     }
 
+    protected static function passes_filter(array $post, mixed $filterBy): bool
+    {
+        $entries = is_array($filterBy) ? $filterBy : [];
+        if (empty($entries)) return true;
+
+        $context = [
+            'post_id' => (string) ($post['post_id'] ?? ''),
+            'data' => $post['data'] ?? [],
+            'settings' => $post['settings'] ?? [],
+            'img_base' => '',
+        ];
+
+        foreach ($entries as $path => $expected) {
+            if (!is_string($path)) continue;
+
+            $token = (str_starts_with($path, 'data.') || str_starts_with($path, 'settings.'))
+                ? '@' . $path
+                : '@data.' . $path;
+
+            $resolved = self::resolve_token($token, $context);
+
+            if (is_array($resolved)) {
+                if (!in_array((string) $expected, array_map('strval', $resolved), true)) return false;
+            } elseif (!self::values_equal($resolved, $expected)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     protected static function values_equal(mixed $a, mixed $b): bool
     {
         if (is_bool($b)) {
@@ -113,7 +146,7 @@ trait post_items_render
             return array_values($postType);
         }
 
-        return ['projects'];
+        return ['project'];
     }
 
     protected static function render_via_template(array $post, array $template): string
@@ -121,21 +154,21 @@ trait post_items_render
         $component = (string) ($template['component'] ?? 'card');
         $rawParams = (array) ($template['params'] ?? $template['data'] ?? []);
 
-        $postType = (string) ($post['_post_type'] ?? 'projects');
+        $postType = (string) ($post['_post_type'] ?? 'project');
         $contentBase = rtrim((string) ($template['global_content_path'] ?? ''), '/');
         $imgBase = $contentBase !== ''
-            ? $contentBase . '/img'
-            : rtrim((string) ($template['global_img_path'] ?? 'src/content/img'), '/');
+            ? $contentBase . '/img/' . $postType
+            : self::post_type_img_base($postType);
         $imgBase = rtrim($imgBase, '/');
 
         $params = array_merge($rawParams, [
-            'post_id' => (string) ($post['post_id'] ?? ''),
+            'post_id' => (string) ($post['post_id'] ?? $post['_id'] ?? ''),
         ]);
 
         $context = [
-            'post_id' => (string) ($post['post_id'] ?? ''),
+            'post_id' => (string) ($post['post_id'] ?? $post['_id'] ?? ''),
             'data' => $post['data'] ?? [],
-            'img_base' => $imgBase . '/' . $postType,
+            'img_base' => $imgBase,
         ];
         $params = self::resolve_template_value($params, $context);
         if (!is_array($params)) {
@@ -153,7 +186,7 @@ trait post_items_render
     protected static function build_context(array $data, string $postType): array
     {
         $contentBase = rtrim((string)($data['global_content_path'] ?? ''), '/');
-        $globalImgPath = $contentBase !== '' ? $contentBase . '/img/' . $postType : rtrim((string)($data['global_img_path'] ?? 'src/content/img/' . $postType), '/');
+        $globalImgPath = $contentBase !== '' ? $contentBase . '/img/' . $postType : self::post_type_img_base($postType);
 
         return [
             'img_path' => rtrim((string)($data['feature_image_path'] ?? 'web/overview/'), '/') . '/',
@@ -162,5 +195,13 @@ trait post_items_render
             'media_path_param' => $data['media_path'] ?? ['data', 'media', 'path'],
             'global_img_path' => $globalImgPath,
         ];
+    }
+
+    protected static function post_type_img_base(string $postType): string
+    {
+        $types = PlatformDataService::get_data('settings_types');
+        $path = (string)($types['post'][$postType]['global_img_path'] ?? '');
+        if ($path !== '') return rtrim($path, '/');
+        return 'src/content/img/' . $postType;
     }
 }

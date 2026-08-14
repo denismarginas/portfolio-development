@@ -15,6 +15,13 @@ function applyTemplate(templateName) {
     fields["inputs"].value = "data:Data";
     fields["outputs"].value = "items:Items";
     fields["variables"].value = "file:,post_type:";
+  } else if (templateName === "structure") {
+    fields["title"].value = "Structure";
+    fields["type"].value = "structure";
+    fields["action"].value = "";
+    fields["inputs"].value = "data:Data";
+    fields["outputs"].value = "items:Items";
+    fields["variables"].value = "";
   } else if (templateName === "project_structure") {
     fields["title"].value = "Project Structure";
     fields["type"].value = "project_structure";
@@ -35,7 +42,7 @@ function applyTemplate(templateName) {
     fields["action"].value = "";
     fields["inputs"].value = "data:Data";
     fields["outputs"].value = "seo:SEO";
-    fields["variables"].value = "title_max:50, description_max:140, index:index, keywords_source:post_id";
+    fields["variables"].value = "title_max:50, description_max:140, index:index, keywords_source:_id";
   } else if (templateName === "seo_page") {
     fields["title"].value = "Seo Page";
     fields["type"].value = "seo_page";
@@ -63,7 +70,7 @@ function applyTemplate(templateName) {
     fields["action"].value = templateName === "live_preview" ? "viewPreview" : "translateData";
     fields["inputs"].value = "";
     fields["outputs"].value = "config:Config";
-    fields["variables"].value = templateName === "live_preview" ? "post_type:page, post_id:home" : "";
+    fields["variables"].value = templateName === "live_preview" ? "post_type:page, _id:home" : "";
   } else {
     cardForm.reset();
     fields["title"].focus();

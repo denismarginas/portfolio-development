@@ -3,7 +3,7 @@
   const data = await apiFetch(`${apiUrl}?post_id=${encodeURIComponent(postId)}`);
   currentPost = data.post;
   currentFile = data.file;
-  originalPostId = currentPost.post_id;
+  originalPostId = currentPost._id || currentPost.post_id;
   renderEditor();
   editorEl.style.display = 'flex';
   setStatus(tr('editPosts.postLoaded', 'Post loaded'));
@@ -24,9 +24,10 @@ function renderEditor() {
   const idInput = document.createElement('input');
   idInput.className = 'platform-ep-input';
   idInput.style.cssText = 'width:auto;font-size:11px;padding:2px 6px;min-width:180px';
-  idInput.value = currentPost.post_id;
+  idInput.value = currentPost._id || currentPost.post_id;
   idInput.addEventListener('change', () => {
-    currentPost.post_id = idInput.value;
+    currentPost._id = idInput.value;
+    if (!currentPost.post_id) currentPost.post_id = idInput.value;
     updateViewButton();
     markDirty();
   });
@@ -43,6 +44,6 @@ function renderEditor() {
 function updateViewButton() {
   const viewBtn = epRoot.querySelector('[data-ep-action="view"]');
   if (viewBtn && currentPost) {
-    viewBtn.href = resolveApiUrl('/preview/?post_id=' + encodeURIComponent(currentPost.post_id));
+    viewBtn.href = resolveApiUrl('/preview/?_id=' + encodeURIComponent(currentPost._id || currentPost.post_id));
   }
 }

@@ -1,0 +1,15 @@
+{
+    "dates": {
+        "start-date": {
+            "text": "Begining of the webiste:",
+            "date": "04.06.2023"
+        },
+        "end-date": {
+            "text": "Last update of webiste:",
+            "date": "curent-date"
+        }
+    },
+    "copyright": {
+        "text": "©All copyrights reserved by Denis Marginas"
+    }
+}

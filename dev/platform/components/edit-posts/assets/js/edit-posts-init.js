@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   postListWrap = epRoot.querySelector('[data-ep-post-list-wrap]');
   postListEl = epRoot.querySelector('[data-ep-post-list]');
   searchInput = epRoot.querySelector('[data-ep-search]');
+  routableWrap = epRoot.querySelector('[data-ep-routable-wrap]');
+  routableInput = epRoot.querySelector('[data-ep-routable]');
   editorEl = epRoot.querySelector('[data-ep-editor]');
   postTitleEl = epRoot.querySelector('[data-ep-post-title]');
   postIdEl = epRoot.querySelector('[data-ep-post-id]');
@@ -56,6 +58,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   if (searchInput) {
     searchInput.addEventListener('input', () => renderPostList());
+  }
+
+  if (routableInput) {
+    routableInput.addEventListener('change', () => {
+      const typeDef = postTypes.find(t => t.post_type === currentPostType);
+      if (!typeDef) return;
+      updateTypeRoutable('post', currentPostType, routableInput.checked);
+    });
   }
 
   if (paletteSearchInput) {

@@ -2,8 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const rootEl = document.querySelector('[data-home-root]');
   if (!rootEl) return;
 
-  const statusEl = rootEl.querySelector('[data-home-status]');
-
   function resolveUrl(path) {
     const href = window.location.href;
     const qIdx = href.indexOf('?');
@@ -27,13 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const actions = {
     'compile-html': async () => {
-      statusEl.textContent = 'Compiling HTML...';
-      const data = await apiJson('api/compile-html.php', { method: 'POST' });
-      if (data.html_compile === false) {
-        statusEl.textContent = data.message || 'html_compile flag is off.';
-        return;
-      }
-      statusEl.textContent = `HTML: ${data.count} pages written to dist.`;
+      await apiJson('api/compile-html.php', { method: 'POST' });
     },
   };
 
@@ -44,8 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.disabled = true;
       try {
         await run();
-      } catch (e) {
-        statusEl.textContent = 'Error: ' + e.message;
       } finally {
         btn.disabled = false;
       }

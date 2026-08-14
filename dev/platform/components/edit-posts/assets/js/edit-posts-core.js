@@ -42,6 +42,9 @@ async function selectPostType(postType) {
   epRoot.dataset.globalImgDir = imgDir;
   epRoot.dataset.globalVidDir = vidDir;
 
+  if (routableInput) routableInput.checked = !!typeDef?.routable;
+  if (routableWrap) routableWrap.style.display = 'flex';
+
   renderPostTypes();
   setStatus(tr('editPosts.loadingPostTypes', 'Loading...'));
   const data = await apiFetch(`${apiUrl}?post_type=${encodeURIComponent(postType)}`);
@@ -55,16 +58,17 @@ async function selectPostType(postType) {
 function renderPostList() {
   postListEl.innerHTML = '';
   const q = (searchInput.value || '').toLowerCase();
-  const filtered = posts.filter(p => p.title.toLowerCase().includes(q) || p.post_id.toLowerCase().includes(q));
+  const filtered = posts.filter(p => p.title.toLowerCase().includes(q) || (p._id || p.post_id || '').toLowerCase().includes(q));
   if (!filtered.length) {
     postListEl.innerHTML = '<div class="platform-list-item" style="color:var(--platform-color-text-secondary)">' + escapeHtml(tr('editPosts.noPostsMatch', 'No posts match your search.')) + '</div>';
     return;
   }
   filtered.forEach(p => {
+    const postId = p._id || p.post_id;
     const item = document.createElement('div');
-    item.className = 'platform-list-item platform-ep-post-item' + (currentPost && currentPost.post_id === p.post_id ? ' is-active' : '');
-    item.innerHTML = `<div class="platform-ep-post-item-title">${escapeHtml(p.title || '(no title)')}</div><div class="platform-ep-post-item-id">${escapeHtml(p.post_id)}</div>`;
-    item.addEventListener('click', () => loadPost(p.post_id));
+    item.className = 'platform-list-item platform-ep-post-item' + (currentPost && (currentPost._id || currentPost.post_id) === postId ? ' is-active' : '');
+    item.innerHTML = `<div class="platform-ep-post-item-title">${escapeHtml(p.title || '(no title)')}</div><div class="platform-ep-post-item-id">${escapeHtml(postId)}</div>`;
+    item.addEventListener('click', () => loadPost(postId));
     postListEl.appendChild(item);
   });
 }

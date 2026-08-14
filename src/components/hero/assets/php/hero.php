@@ -91,7 +91,12 @@ class hero
             return '';
         }
         if (str_starts_with($raw, '@')) {
-            return PlatformDataService::resolve_path_string($postData, substr($raw, 1)) ?? '';
+            $path = substr($raw, 1);
+            $value = PlatformDataService::resolve_path_string($postData, $path);
+            if ($value === null && str_starts_with($path, 'data.')) {
+                $value = PlatformDataService::resolve_path_string($postData, substr($path, 5));
+            }
+            return $value ?? '';
         }
         return $raw;
     }

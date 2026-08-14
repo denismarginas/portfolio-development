@@ -1,3 +1,5 @@
+@import "mixins/_svg";
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -27,12 +29,12 @@
     height: var(--dm-font-size-base);
     min-height: var(--dm-font-size-base);
 
-    > path {
-      fill: currentColor;
-      stroke: currentColor;
+    path {
       -webkit-transition: var(--dm-transition);
       transition: var(--dm-transition);
     }
+
+    @include svg-color(currentColor);
   }
 
   &:focus-visible {

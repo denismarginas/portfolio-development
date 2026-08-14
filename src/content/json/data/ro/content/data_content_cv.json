@@ -1,0 +1,68 @@
+[
+    {
+        "file": "cv-3-english",
+        "version": 3,
+        "language": "en",
+        "name": "Resume #3 English",
+        "thumbnail": "src/content/img/cv/cv-3/dm-cv-3-english-public-thumbnail.webp",
+        "image": "src/content/img/cv/cv-3/dm-cv-3-english-public-compressed.webp",
+        "pdf": "src/content/pdf/cv/cv-3/dm-cv-3-english-public-compressed.pdf",
+        "date": "Sep 27, 2024",
+        "description": "CV - Model 3"
+    },
+    {
+        "file": "cv-3-romanian",
+        "version": 3,
+        "language": "ro",
+        "name": "Resume #3 Romanian",
+        "thumbnail": "src/content/img/cv/cv-3/dm-cv-3-romana-public-thumbnail.webp",
+        "image": "src/content/img/cv/cv-3/dm-cv-3-romana-public-compressed.webp",
+        "pdf": "src/content/pdf/cv/cv-3/dm-cv-3-romana-public-compressed.pdf",
+        "date": "Sep 27, 2024",
+        "description": "CV - Model 3"
+    },
+    {
+        "file": "cv-2-english",
+        "version": 2,
+        "language": "en",
+        "name": "Resume #2 English",
+        "thumbnail": "src/content/img/cv/cv-2/dm-cv-2-english-public-thumbnail.webp",
+        "image": "src/content/img/cv/cv-2/dm-cv-2-english-public-compressed.webp",
+        "pdf": "src/content/pdf/cv/cv-2/dm-cv-2-english-public-compressed.pdf",
+        "date": "Jun 3, 2023",
+        "description": "CV - Model 2"
+    },
+    {
+        "file": "cv-2-romanian",
+        "version": 2,
+        "language": "ro",
+        "name": "Resume #2 Romanian",
+        "thumbnail": "src/content/img/cv/cv-2/dm-cv-2-romana-public-thumbnail.webp",
+        "image": "src/content/img/cv/cv-2/dm-cv-2-romana-public-compressed.webp",
+        "pdf": "src/content/pdf/cv/cv-2/dm-cv-2-romana-public-compressed.pdf",
+        "date": "Jun 3, 2023",
+        "description": "CV - Model 2"
+    },
+    {
+        "file": "cv-1-english",
+        "version": 1,
+        "language": "en",
+        "name": "Resume #1 English",
+        "thumbnail": "src/content/img/cv/cv-1/dm-cv-1-english-public-thumbnail.webp",
+        "image": "src/content/img/cv/cv-1/dm-cv-1-english-public-compressed.webp",
+        "pdf": "src/content/pdf/cv/cv-1/dm-cv-1-english-public-compressed.pdf",
+        "date": "May 16, 2023",
+        "description": "CV - Model 1"
+    },
+    {
+        "file": "cv-1-romanian",
+        "version": 1,
+        "language": "ro",
+        "name": "Resume #1 Romanian",
+        "thumbnail": "src/content/img/cv/cv-1/dm-cv-1-romana-public-thumbnail.webp",
+        "image": "src/content/img/cv/cv-1/dm-cv-1-romana-public-compressed.webp",
+        "pdf": "src/content/pdf/cv/cv-1/dm-cv-1-romana-public-compressed.pdf",
+        "date": "May 16, 2023",
+        "description": "CV - Model 1"
+    }
+]

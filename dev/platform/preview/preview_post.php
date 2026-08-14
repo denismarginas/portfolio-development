@@ -2,23 +2,34 @@
 
 function platform_find_preview_post(string $postId): array
 {
-    $validPostNames = [
-        'projects' => 'project',
-        'pages' => 'page',
-        'workstations' => 'workstation',
-    ];
+    $types = PlatformDataService::get_data('settings_types');
+    if (!$types) {
+        return ['post' => null, 'type' => '', 'config' => []];
+    }
 
-    foreach ($validPostNames as $name => $type) {
-        $posts = PlatformDataService::get_all_posts_from_file($name);
+    foreach (($types['post'] ?? []) as $typeKey => $config) {
+        $posts = PlatformDataService::get_all_posts_from_file($typeKey);
         if ($posts === null) continue;
         foreach ($posts as $post) {
-            if (($post['post_id'] ?? '') === $postId) {
-                return ['post' => $post, 'type' => $type];
+            $id = $post['_id'] ?? $post['post_id'] ?? '';
+            if ($id === $postId) {
+                return ['post' => $post, 'type' => $typeKey, 'config' => $config];
             }
         }
     }
 
-    return ['post' => null, 'type' => ''];
+    foreach (($types['taxonomy'] ?? []) as $typeKey => $config) {
+        $terms = PlatformDataService::get_data('taxonomy_' . $typeKey);
+        if ($terms === null) continue;
+        foreach ($terms as $term) {
+            $id = $term['_id'] ?? '';
+            if ($id === $postId) {
+                return ['post' => $term, 'type' => 'taxonomy:' . $typeKey, 'config' => $config];
+            }
+        }
+    }
+
+    return ['post' => null, 'type' => '', 'config' => []];
 }
 
 function platform_normalize_preview_post(array $postData): array
@@ -48,7 +59,7 @@ function platform_generate_project_seo(array $postData, array $seoConfig, string
         'description' => strlen($descSrc) > $descMax ? substr($descSrc, 0, $descMax - 3) . '...' : $descSrc,
         'keywords' => $seoConfig['keywords_source'] ?? $postId,
         'index' => ($seoConfig['index'] ?? 'index') === 'index',
-        'slug' => $postData['seo']['slug'] ?? $postData['post_id'] ?? '',
+        'slug' => $postData['seo']['slug'] ?? $postData['_id'] ?? '',
     ];
 
     return $postData;

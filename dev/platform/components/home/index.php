@@ -33,8 +33,6 @@ function platform_render_home_fragment(string $tab = ''): string
         </div>
 
         <?php echo platform_render_cards($cards); ?>
-
-        <div class="platform-status" data-home-status><?php echo htmlspecialchars($get('home.ready', 'Ready'), ENT_QUOTES, 'UTF-8'); ?></div>
     </div>
     <?php
     return ob_get_clean();

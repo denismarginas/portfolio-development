@@ -1,0 +1,137 @@
+[
+    {
+        "_id": "web-development-projects",
+        "type": "category",
+        "name": "Web Development Projects",
+        "description": "Showcase of websites and online shops I have created, featuring engaging designs and seamless functionality.",
+        "seo": {
+            "title": "Web Development Projects",
+            "description": "Showcase of websites and online shops I have created, featuring engaging designs and seamless functionality.",
+            "keywords": "denis marginas web development projects",
+            "slug": "web-development-projects",
+            "index": "false"
+        },
+        "hero": {
+            "img": "categories/category-photo-web-development-photo.webp"
+        },
+        "post_types": [
+            "project"
+        ],
+        "content": [
+            {
+                "component": "hero",
+                "children": [
+                    {
+                        "component": "animation_waves",
+                        "data": []
+                    }
+                ],
+                "data": {
+                    "variant": "xs",
+                    "img": "categories/category-photo-web-development-photo.webp",
+                    "title": "@data.seo.title",
+                    "description": "@data.seo.description"
+                }
+            },
+            {
+                "component": "post-items",
+                "data": {
+                    "post_type": "project",
+                    "filter_by": {
+                        "taxonomy.categories": "Web Development Projects"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "_id": "visual-media-projects",
+        "type": "category",
+        "name": "Visual Media Projects",
+        "description": "Collection of visually captivating projects showcasing my expertise in graphic design, photo editing, and video production.",
+        "seo": {
+            "title": "Visual Media Projects",
+            "description": "Collection of visually captivating projects showcasing my expertise in graphic design, photo editing, and video production.",
+            "keywords": "denis marginas visual media projects",
+            "slug": "visual-media-projects",
+            "index": "false"
+        },
+        "hero": {
+            "img": "categories/category-photo-visual-media.webp"
+        },
+        "post_types": [
+            "project"
+        ],
+        "content": [
+            {
+                "component": "hero",
+                "children": [
+                    {
+                        "component": "animation_waves",
+                        "data": []
+                    }
+                ],
+                "data": {
+                    "variant": "xs",
+                    "img": "categories/category-photo-visual-media.webp",
+                    "title": "@data.seo.title",
+                    "description": "@data.seo.description"
+                }
+            },
+            {
+                "component": "post-items",
+                "data": {
+                    "post_type": "project",
+                    "filter_by": {
+                        "taxonomy.categories": "Visual Media Projects"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "_id": "miscellaneous-projects",
+        "type": "category",
+        "name": "Miscellaneous Projects",
+        "description": "A mix of non-profit initiatives, personal passion projects, and freelancing work, reflecting my diverse creative endeavors.",
+        "seo": {
+            "title": "Miscellaneous Projects",
+            "description": "A mix of non-profit initiatives, personal passion projects, and freelancing work, reflecting my diverse creative endeavors.",
+            "keywords": "denis marginas miscellaneous projects",
+            "slug": "miscellaneous-projects",
+            "index": "false"
+        },
+        "hero": {
+            "img": "categories/category-photo-miscellaneous.webp"
+        },
+        "post_types": [
+            "project"
+        ],
+        "content": [
+            {
+                "component": "hero",
+                "children": [
+                    {
+                        "component": "animation_waves",
+                        "data": []
+                    }
+                ],
+                "data": {
+                    "variant": "xs",
+                    "img": "categories/category-photo-miscellaneous.webp",
+                    "title": "@data.seo.title",
+                    "description": "@data.seo.description"
+                }
+            },
+            {
+                "component": "post-items",
+                "data": {
+                    "post_type": "project",
+                    "filter_by": {
+                        "taxonomy.categories": "Miscellaneous Projects"
+                    }
+                }
+            }
+        ]
+    }
+]

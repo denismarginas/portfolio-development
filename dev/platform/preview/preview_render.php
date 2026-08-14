@@ -51,12 +51,13 @@ function platform_wrap_body_if_needed(string $bodyHtml, array $postData, ?string
     return $bodyHtml;
 }
 
-function platform_write_dist_html(array $pageData, string $pageStructureName, string $postId, string $postType, bool $htmlCompileFolder): void
+function platform_write_dist_html(array $pageData, string $pageStructureName, string $postId, string $postType, bool $htmlCompileFolder, string $root = ''): void
 {
     $globalSettings = PlatformDataService::get_data('settings_routing');
     $extension = $globalSettings['routing']['extension'] ?? $globalSettings['page_slug_extension'] ?? '.html';
 
-    $relPath = ($htmlCompileFolder && $postType !== 'page' ? $postType . '/' : '') . $postId . $extension;
+    $folder = $root !== '' ? trim($root, '/') : '';
+    $relPath = ($htmlCompileFolder && $folder !== '' && $postType !== 'page' ? $folder . '/' : '') . $postId . $extension;
 
     $GLOBALS['render_target'] = 'dist';
     $GLOBALS['dist_rel_path'] = $relPath;

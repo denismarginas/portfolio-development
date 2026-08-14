@@ -43,20 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
       statusEl.textContent = 'Saving...';
       saveBtn.disabled = true;
       try {
-        const state = await apiJson('api/cards.php');
         const newVars = readVars(container);
-        const card = (state.cards || []).find((c) => c.type === cardType);
-        if (card) {
-          card.variables = (card.variables || []).map((v) => {
-            const found = newVars.find((n) => n.name === v.name);
-            return found ? { name: v.name, value: found.value } : v;
-          });
-          const present = new Set((card.variables || []).map((v) => v.name));
-          newVars.forEach((v) => {
-            if (!present.has(v.name)) card.variables.push({ name: v.name, value: v.value });
-          });
-        }
-        await apiJson('api/cards.php', { method: 'POST', body: JSON.stringify(state) });
+        await apiJson('api/workflow.php', {
+          method: 'POST',
+          body: JSON.stringify({ section: cardType, variables: newVars }),
+        });
         statusEl.textContent = 'Saved';
       } catch (e) {
         statusEl.textContent = 'Save failed: ' + e.message;

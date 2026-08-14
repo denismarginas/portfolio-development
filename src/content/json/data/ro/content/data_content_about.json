@@ -1,0 +1,26 @@
+{
+    "title": "About Me",
+    "birth_date": "09/09/1997",
+    "text": [
+        "My name is Denis Ionuț Mărginaș, I'm {{age}} years old, and I have experience as a full-stack web developer. I am passionate about technology and creativity, always seeking to expand my skills and expertise in web development, staying curious about the latest innovations.",
+        "Before entering the web development industry, I focused on video editing, specifically for video games. My interest in cinematic executions and angles led to freelance opportunities where I honed my skills. With a strong background in Mathematics and Informatics, I eventually shifted my focus to web development, which has since become my main area of expertise. In my free time, I enjoy building computer hardware, playing video games, cycling, and playing tennis.",
+        "Looking ahead, I aim to continue growing as a developer, stay updated with the latest technologies, and make a significant impact in the tech industry. When I’m not coding, I enjoy gaming and exploring new technologies that inspire my work."
+    ],
+    "buttons": [
+        {
+            "button_text": "More Details",
+            "button_page_redirect": "About",
+            "button_page_redirect_slug": "about"
+        }
+    ],
+    "images": {
+        "compress": {
+            "img": "dm-personal-image-2.webp",
+            "img_path": "/personal-images/"
+        },
+        "standard": {
+            "img": "dm-personal-image-1.webp",
+            "img_path": "/personal-images/"
+        }
+    }
+}

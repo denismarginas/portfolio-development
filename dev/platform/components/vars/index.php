@@ -2,18 +2,13 @@
 
 function platform_card_vars(string $cardType): array
 {
-    $cardsPath = __DIR__ . '/../../data/cards.json';
-    if (!file_exists($cardsPath)) return [];
-    $graph = json_decode(file_get_contents($cardsPath), true);
-    foreach (($graph['cards'] ?? []) as $card) {
-        if (($card['type'] ?? '') !== $cardType) continue;
-        $out = [];
-        foreach (($card['variables'] ?? []) as $var) {
-            $out[] = ['name' => $var['name'] ?? '', 'value' => (string) ($var['value'] ?? '')];
+    if (!class_exists('PlatformWorkflowService')) {
+        if (file_exists(__DIR__ . '/../../../engine/bootstrap.php')) {
+            require_once __DIR__ . '/../../../engine/bootstrap.php';
         }
-        return $out;
     }
-    return [];
+    if (!class_exists('PlatformWorkflowService')) return [];
+    return PlatformWorkflowService::vars($cardType);
 }
 
 function platform_render_vars(string $cardType, string $action = ''): string

@@ -26,10 +26,19 @@ function platform_resolve_json_file(string $rawPath, string $settingsDir, string
     }
     if (str_starts_with($rawPath, 'settings/')) {
         $candidate = $settingsDir . '/' . substr($rawPath, strlen('settings/'));
-    } else {
-        $candidate = $dataDir . '/' . $rawPath;
+        return is_file($candidate) ? $candidate : null;
     }
-    return is_file($candidate) ? $candidate : null;
+    $candidate = $dataDir . '/' . $rawPath;
+    if (is_file($candidate)) {
+        return $candidate;
+    }
+    foreach (glob($dataDir . '/*', GLOB_ONLYDIR) as $subDir) {
+        $nested = $subDir . '/' . $rawPath;
+        if (is_file($nested)) {
+            return $nested;
+        }
+    }
+    return null;
 }
 
 $method = $_SERVER['REQUEST_METHOD'];

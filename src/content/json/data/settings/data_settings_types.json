@@ -1,0 +1,79 @@
+{
+    "post": {
+        "page": {
+            "label": "Pages",
+            "file": "data_post_page.json",
+            "root": "/",
+            "structure": "page_structure",
+            "seo": "seo_page",
+            "routable": true,
+            "global_content_path": "src/content/",
+            "global_img_path": "src/content/img/pages",
+            "global_vid_path": "src/content/vid/pages"
+        },
+        "project": {
+            "label": "Projects",
+            "file": "data_post_project.json",
+            "root": "/project/",
+            "structure": "project_structure",
+            "seo": "seo_project",
+            "routable": true,
+            "global_content_path": "src/content/",
+            "global_img_path": "src/content/img/projects",
+            "global_vid_path": "src/content/vid/projects"
+        },
+        "workstation": {
+            "label": "Workstations",
+            "file": "data_post_workstation.json",
+            "root": "/workstation/",
+            "structure": "page_structure",
+            "seo": "seo_page",
+            "routable": true,
+            "global_content_path": "src/content/",
+            "global_img_path": "src/content/img/workstations",
+            "global_vid_path": "src/content/vid/workstations"
+        }
+    },
+    "taxonomy": {
+        "categories": {
+            "label": "Categories",
+            "file": "data_taxonomy_categories.json",
+            "root": "/category/",
+            "routable": true,
+            "post_types": [
+                "project"
+            ]
+        },
+        "tags": {
+            "label": "Tags",
+            "file": "data_taxonomy_tags.json",
+            "root": "/tag/",
+            "routable": true,
+            "post_types": [
+                "project"
+            ]
+        }
+    },
+    "item": {
+        "jobs": {
+            "label": "Jobs",
+            "file": "data_items_jobs.json",
+            "routable": false
+        },
+        "education": {
+            "label": "Education",
+            "file": "data_items_education.json",
+            "routable": false
+        },
+        "games": {
+            "label": "Games",
+            "file": "data_items_games.json",
+            "routable": false
+        },
+        "socials": {
+            "label": "Socials",
+            "file": "data_items_socials.json",
+            "routable": false
+        }
+    }
+}

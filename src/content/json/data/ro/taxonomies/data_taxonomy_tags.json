@@ -1,0 +1,227 @@
+[
+    {
+        "_id": "web",
+        "type": "tag",
+        "name": "Web",
+        "description": "Websites, online shops and front-end interfaces I have designed and built for clients and personal projects.",
+        "seo": {
+            "title": "Web",
+            "description": "Websites, online shops and front-end interfaces I have designed and built for clients and personal projects.",
+            "keywords": "denis marginas web projects",
+            "slug": "web",
+            "index": "false"
+        },
+        "hero": {
+            "img": "design-elements/website-responsive-laptop.webp"
+        },
+        "post_types": [
+            "project"
+        ],
+        "content": [
+            {
+                "component": "hero",
+                "children": [
+                    {
+                        "component": "animation_waves",
+                        "data": []
+                    }
+                ],
+                "data": {
+                    "variant": "xs",
+                    "img": "design-elements/website-responsive-laptop.webp",
+                    "title": "@seo.title",
+                    "description": "@seo.description"
+                }
+            },
+            {
+                "component": "post-items",
+                "data": {
+                    "post_type": "project",
+                    "filter_by": {
+                        "taxonomy.tags": "web"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "_id": "content-web",
+        "type": "tag",
+        "name": "Content Web",
+        "description": "Content-focused web projects, from editorial sites to resource hubs built around structured, accessible information.",
+        "seo": {
+            "title": "Content Web",
+            "description": "Content-focused web projects, from editorial sites to resource hubs built around structured, accessible information.",
+            "keywords": "denis marginas content web projects",
+            "slug": "content-web",
+            "index": "false"
+        },
+        "hero": {
+            "img": "design-elements/website-responsive-phone.webp"
+        },
+        "post_types": [
+            "project"
+        ],
+        "content": [
+            {
+                "component": "hero",
+                "children": [
+                    {
+                        "component": "animation_waves",
+                        "data": []
+                    }
+                ],
+                "data": {
+                    "variant": "xs",
+                    "img": "design-elements/website-responsive-phone.webp",
+                    "title": "@seo.title",
+                    "description": "@seo.description"
+                }
+            },
+            {
+                "component": "post-items",
+                "data": {
+                    "post_type": "project",
+                    "filter_by": {
+                        "taxonomy.tags": "content-web"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "_id": "media-web",
+        "type": "tag",
+        "name": "Media Web",
+        "description": "Media-heavy web projects featuring embedded photo and video content, galleries and rich visual storytelling.",
+        "seo": {
+            "title": "Media Web",
+            "description": "Media-heavy web projects featuring embedded photo and video content, galleries and rich visual storytelling.",
+            "keywords": "denis marginas media web projects",
+            "slug": "media-web",
+            "index": "false"
+        },
+        "hero": {
+            "img": "design-elements/monitor-with-project.webp"
+        },
+        "post_types": [
+            "project"
+        ],
+        "content": [
+            {
+                "component": "hero",
+                "children": [
+                    {
+                        "component": "animation_waves",
+                        "data": []
+                    }
+                ],
+                "data": {
+                    "variant": "xs",
+                    "img": "design-elements/monitor-with-project.webp",
+                    "title": "@seo.title",
+                    "description": "@seo.description"
+                }
+            },
+            {
+                "component": "post-items",
+                "data": {
+                    "post_type": "project",
+                    "filter_by": {
+                        "taxonomy.tags": "media-web"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "_id": "photo",
+        "type": "tag",
+        "name": "Photo",
+        "description": "Photography-driven projects, covering photo galleries, image-focused portfolios and visual media showcases.",
+        "seo": {
+            "title": "Photo",
+            "description": "Photography-driven projects, covering photo galleries, image-focused portfolios and visual media showcases.",
+            "keywords": "denis marginas photo projects",
+            "slug": "photo",
+            "index": "false"
+        },
+        "hero": {
+            "img": "design-elements/device-layout-phone.webp"
+        },
+        "post_types": [
+            "project"
+        ],
+        "content": [
+            {
+                "component": "hero",
+                "children": [
+                    {
+                        "component": "animation_waves",
+                        "data": []
+                    }
+                ],
+                "data": {
+                    "variant": "xs",
+                    "img": "design-elements/device-layout-phone.webp",
+                    "title": "@seo.title",
+                    "description": "@seo.description"
+                }
+            },
+            {
+                "component": "post-items",
+                "data": {
+                    "post_type": "project",
+                    "filter_by": {
+                        "taxonomy.tags": "photo"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "_id": "video",
+        "type": "tag",
+        "name": "Video",
+        "description": "Video-centric projects, from motion showcases and video editing work to embedded media experiences.",
+        "seo": {
+            "title": "Video",
+            "description": "Video-centric projects, from motion showcases and video editing work to embedded media experiences.",
+            "keywords": "denis marginas video projects",
+            "slug": "video",
+            "index": "false"
+        },
+        "hero": {
+            "img": "design-elements/device-layout-laptop.webp"
+        },
+        "post_types": [
+            "project"
+        ],
+        "content": [
+            {
+                "component": "hero",
+                "children": [
+                    {
+                        "component": "animation_waves",
+                        "data": []
+                    }
+                ],
+                "data": {
+                    "variant": "xs",
+                    "img": "design-elements/device-layout-laptop.webp",
+                    "title": "@seo.title",
+                    "description": "@seo.description"
+                }
+            },
+            {
+                "component": "post-items",
+                "data": {
+                    "post_type": "project",
+                    "filter_by": {
+                        "taxonomy.tags": "video"
+                    }
+                }
+            }
+        ]
+    }
+]

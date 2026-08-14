@@ -2,7 +2,7 @@
 
 class PlatformTranslationBuilder
 {
-    private static array $skipKeys = ['post_id','slug','id','img','src','url','path','file','component','variant','filename','iso','post_type','extension','index','keywords','icon','menu_name'];
+    private static array $skipKeys = ['_id','slug','id','img','src','url','path','file','component','variant','filename','iso','post_type','extension','index','keywords','icon','menu_name'];
 
     public static function language_config(): array
     {
@@ -11,20 +11,12 @@ class PlatformTranslationBuilder
         $default = $languages['default'] ?? ($list[0]['iso'] ?? 'en');
         $targets = [];
 
-        $cardsPath = PlatformConfig::get('dev_dir') . '/platform/data/cards.json';
-        if (file_exists($cardsPath)) {
-            $graph = json_decode(file_get_contents($cardsPath), true);
-            foreach (($graph['cards'] ?? []) as $card) {
-                if (($card['type'] ?? '') !== 'translation') continue;
-                foreach (($card['variables'] ?? []) as $var) {
-                    $value = (string) ($var['value'] ?? '');
-                    if (($var['name'] ?? '') === 'default_lang' && $value !== '') $default = $value;
-                    if (($var['name'] ?? '') === 'target_langs' && $value !== '') {
-                        $targets = array_values(array_filter(array_map('trim', explode(',', $value))));
-                    }
-                }
-                break;
-            }
+        $translation = PlatformWorkflowService::section('translation');
+        $defaultValue = (string) ($translation['default_lang'] ?? '');
+        if ($defaultValue !== '') $default = $defaultValue;
+        $targetValue = (string) ($translation['target_langs'] ?? '');
+        if ($targetValue !== '') {
+            $targets = array_values(array_filter(array_map('trim', explode(',', $targetValue))));
         }
 
         if ($targets !== []) {

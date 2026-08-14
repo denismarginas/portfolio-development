@@ -36,8 +36,6 @@ function platform_render_edit_posts_fragment(string $tab = ''): string
             <?php require __DIR__ . '/parts/sidebar.php'; ?>
             <?php require __DIR__ . '/parts/editor.php'; ?>
         </div>
-
-        <div class="platform-status" data-platform-status data-ep-i18n="editPosts.ready">Ready</div>
     </div>
     <?php
     return ob_get_clean();

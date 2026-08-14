@@ -1,0 +1,30 @@
+{
+    "title": "Projects",
+    "img_path": "categories",
+    "overlay-img": "overlay-particles.webp",
+    "overlay-img-path": "design-elements",
+    "categories": [
+        {
+            "name": "Web Development Projects",
+            "short_description": "Showcase of websites and online shops I have created, featuring engaging designs and seamless functionality.",
+            "img": "category-photo-web-development-photo.webp",
+            "svg-icon": "category-web-development",
+            "_id": "web-development-projects"
+        },
+        {
+            "name": "Visual Media Projects",
+            "short_description": "Collection of visually captivating projects showcasing my expertise in graphic design, photo editing, and video production.",
+            "img": "category-photo-visual-media.webp",
+            "svg-icon": "category-visual-media",
+            "_id": "visual-media-projects"
+        },
+        {
+            "name": "Miscellaneous Projects",
+            "short_description": "A mix of non-profit initiatives, personal passion projects, and freelancing work, reflecting my diverse creative endeavors.",
+            "img": "category-photo-miscellaneous.webp",
+            "svg-icon": "category-miscellaneous",
+            "_id": "miscellaneous-projects"
+        }
+    ],
+    "_id": "projects"
+}

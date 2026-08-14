@@ -4,7 +4,7 @@ trait post_items_item
 {
     protected static function render_item(array $post, array $context): string
     {
-        $postId = (string)($post['post_id'] ?? '');
+        $postId = (string)($post['post_id'] ?? $post['_id'] ?? '');
         if ($postId === '') return '';
 
         $titleParam = $context['title_param'];

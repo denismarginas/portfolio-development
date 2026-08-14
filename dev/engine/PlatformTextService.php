@@ -15,6 +15,17 @@ class PlatformTextService
         return mb_substr($text, 0, $max) . $suffix;
     }
 
+    public static function truncate(string $text, int $maxVisible = 25, string $suffix = '..'): string
+    {
+        $text = trim(strip_tags($text));
+        $len = mb_strlen($text);
+        if ($len <= $maxVisible) return $text;
+
+        $cut = $maxVisible - mb_strlen($suffix);
+        if ($cut < 1) return $suffix;
+        return mb_substr($text, 0, $cut) . $suffix;
+    }
+
     public static function strip_html(string $text): string
     {
         $text = html_entity_decode($text, ENT_QUOTES | ENT_HTML5, 'UTF-8');

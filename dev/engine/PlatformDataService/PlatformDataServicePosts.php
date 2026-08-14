@@ -41,13 +41,13 @@ trait PlatformDataServicePosts
         return self::get_data('post_' . $post_name);
     }
 
-    public static function get_post_by_id(string $post_name, string $post_id): ?array
+    public static function get_post_by_id(string $post_name, string $id): ?array
     {
         $posts = self::get_all_posts_from_file($post_name);
         if (empty($posts)) return null;
 
         foreach ($posts as $post) {
-            if (($post['post_id'] ?? '') === $post_id) {
+            if (($post['_id'] ?? '') === $id) {
                 return $post;
             }
         }

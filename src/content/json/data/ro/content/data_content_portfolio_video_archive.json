@@ -1,0 +1,50 @@
+[
+    {
+        "video": "experience-highlights-1.webm",
+        "video_path": "projects/denismarginas/personal-portfolio/",
+        "video_thumbnail": "experience-highlights-1.webp",
+        "video_thumbnail_path": "/thumbnails/",
+        "video_data": {
+            "title": "Experience Highlights",
+            "short_description": "This is a summary of my most impactful projects and tasks from 2019 to 2025. In just a few seconds, you'll see a presentation of some of the most unique and defining examples from my professional experience.</br></br>Editing Software: Adobe After Effects 2023, Sony Vegas Pro 20, Photopea, Topaz Video Enhance AI</br>Sondtrack: Lorn - Yo2_Rustlin",
+            "date": "Apr 14, 2025",
+            "youtube_button_text": "Watch on YouTube",
+            "youtube_button_link": "https://www.youtube.com/watch?v=HxGdZ_embL8",
+            "youtube_button_icon_svg": "socials-youtube",
+            "timeline": {
+                "text": "Video Timeline:",
+                "list": [
+                    "00:00 - 00:08 - Intro",
+                    "00:08 - 00:22 - Experience Highlights",
+                    "00:22 - 00:28 - Contact"
+                ]
+            },
+            "video_color_primary": "#5d6977"
+        }
+    },
+    {
+        "video": "personal-portfolio-1.webm",
+        "video_path": "projects/denismarginas/personal-portfolio/",
+        "video_thumbnail": "personal-portfolio-1.webp",
+        "video_thumbnail_path": "/thumbnails/",
+        "video_data": {
+            "title": "Portfolio Showcase",
+            "short_description": "Experience a captivating journey through my professional work from 2019 to 2023 in this short video. From a captivating intro to web development, photo editing, and video editing, witness my diverse expertise in just under two minutes.</br></br>Editing Software: Sony Vegas Pro 20, Photopea, Topaz Video Enhance AI</br>Sondtrack: Skeler - Tel Aviv (Hijacked Remix)",
+            "date": "Apr 20, 2023",
+            "youtube_button_text": "Watch on YouTube",
+            "youtube_button_link": "https://www.youtube.com/watch?v=ilz2avyGG_U",
+            "youtube_button_icon_svg": "socials-youtube",
+            "timeline": {
+                "text": "Video Timeline:",
+                "list": [
+                    "00:00 - 00:04 - Intro",
+                    "00:04 - 00:55 - Web Development",
+                    "00:55 - 01:14 - Photo Editing",
+                    "01:14 - 01:52 - Video Editing",
+                    "01:52 - 01:56 - Outro"
+                ]
+            },
+            "video_color_primary": "#5d6977"
+        }
+    }
+]

@@ -5,7 +5,7 @@ require_once __DIR__ . '/../core/autoload.php';
 
 function platform_load_preview_state(): array
 {
-    $cardsPath = ENGINE_PROJECT_ROOT . '/dev/platform/data/cards.json';
+    $typesPath = ENGINE_PROJECT_ROOT . '/src/content/json/data/settings/data_settings_types.json';
     $debugMode = false;
     $compileAssets = false;
     $htmlCompile = false;
@@ -21,46 +21,36 @@ function platform_load_preview_state(): array
         'compile_scss_everytime' => true,
     ];
 
-    if (file_exists($cardsPath)) {
-        $graph = json_decode(file_get_contents($cardsPath), true);
-        if ($graph && !empty($graph['cards'])) {
-            foreach ($graph['cards'] as $card) {
-                $type = $card['type'] ?? '';
-                $resolvedVars = PlatformData::resolveCardVariables($card['variables'] ?? []);
-                foreach ($resolvedVars as $var) {
-                    if ($type === 'project_structure' || $type === 'page_structure') {
-                        $structureVars[$type][$var['name']] = $var['value'];
-                    } elseif ($type === 'seo_project' || $type === 'seo_page') {
-                        $seoVars[$type][$var['name']] = $var['value'];
-                    } elseif ($type === 'render') {
-                        if ($var['name'] === 'debug_post_data' && $var['value'] === 'true') {
-                            $debugMode = true;
-                        }
-                        if ($var['name'] === 'compile_assets') {
-                            $compileAssets = $var['value'] === 'true';
-                        }
-                        if ($var['name'] === 'html_compile') {
-                            $htmlCompile = $var['value'] === 'true';
-                        }
-                        if ($var['name'] === 'html_compile_folder') {
-                            $htmlCompileFolder = $var['value'] === 'true';
-                        }
-                    } elseif ($type === 'compile_scss') {
-                        if (array_key_exists($var['name'], $compileScssFlags)) {
-                            $compileScssFlags[$var['name']] = $var['value'] === 'true';
-                        }
-                    } elseif ($type === 'selectfile') {
-                        $postTypeVar = '';
-                        $globalVars = [];
-                        foreach ($resolvedVars as $cv) {
-                            if ($cv['name'] === 'post_type') { $postTypeVar = $cv['value']; }
-                            elseif (str_starts_with($cv['name'], 'global_')) { $globalVars[$cv['name']] = $cv['value']; }
-                        }
-                        if ($postTypeVar) {
-                            $globalPaths[$postTypeVar] = $globalVars;
-                        }
-                    }
-                }
+    $workflow = PlatformWorkflowService::read();
+
+    $renderSection = is_array($workflow['render'] ?? null) ? $workflow['render'] : [];
+    $debugMode = (($renderSection['debug_post_data'] ?? false) === true) || ((string) ($renderSection['debug_post_data'] ?? '') === 'true');
+    $compileAssets = (($renderSection['compile_assets'] ?? false) === true) || ((string) ($renderSection['compile_assets'] ?? '') === 'true');
+    $htmlCompile = (($renderSection['html_compile'] ?? false) === true) || ((string) ($renderSection['html_compile'] ?? '') === 'true');
+    $htmlCompileFolder = (($renderSection['html_compile_folder'] ?? false) === true) || ((string) ($renderSection['html_compile_folder'] ?? '') === 'true');
+
+    foreach (PlatformWorkflowService::section('compile_scss') as $name => $value) {
+        if (array_key_exists($name, $compileScssFlags)) $compileScssFlags[$name] = $value === true || (string) $value === 'true';
+    }
+
+    foreach (['project_structure', 'page_structure'] as $structureKey) {
+        $structureVars[$structureKey] = PlatformWorkflowService::section($structureKey);
+    }
+    foreach (['seo_project', 'seo_page'] as $seoKey) {
+        $seoVars[$seoKey] = PlatformWorkflowService::section($seoKey);
+    }
+
+    // Read global paths from types registry
+    $typesPath = ENGINE_PROJECT_ROOT . '/src/content/json/data/settings/data_settings_types.json';
+    if (file_exists($typesPath)) {
+        $types = json_decode(file_get_contents($typesPath), true);
+        if ($types && !empty($types['post'])) {
+            foreach ($types['post'] as $typeKey => $config) {
+                $globalPaths[$typeKey] = [
+                    'global_content_path' => $config['global_content_path'] ?? '',
+                    'global_img_path' => $config['global_img_path'] ?? '',
+                    'global_vid_path' => $config['global_vid_path'] ?? '',
+                ];
             }
         }
     }

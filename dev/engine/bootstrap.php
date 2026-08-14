@@ -25,6 +25,7 @@ require_once __DIR__ . '/PlatformTextService.php';
 require_once __DIR__ . '/PlatformScssService.php';
 require_once __DIR__ . '/PlatformScssBuilder.php';
 require_once __DIR__ . '/PlatformBundleBuilder.php';
+require_once __DIR__ . '/PlatformWorkflowService.php';
 require_once __DIR__ . '/PlatformTranslationService.php';
 require_once __DIR__ . '/PlatformTranslationBuilder.php';
 

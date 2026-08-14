@@ -1,0 +1,43 @@
+{
+  "render": {
+    "debug_post_data": false,
+    "compile_assets": false,
+    "html_compile": true,
+    "html_compile_folder": true
+  },
+  "compile_scss": {
+    "compile_scss_platform_components": true,
+    "compile_scss_platform_assets": true,
+    "compile_scss_src_components": true,
+    "compile_scss_assets": false,
+    "compile_scss_everytime": true
+  },
+  "live_preview": {
+    "post_type": "page",
+    "_id": "home"
+  },
+  "project_structure": {
+    "header": "header",
+    "footer": "footer",
+    "page_structure": "page_constructor",
+    "body_wrapper": ""
+  },
+  "page_structure": {
+    "header": "header",
+    "footer": "footer",
+    "page_structure": "page_constructor"
+  },
+  "seo_project": {
+    "title_max": "50",
+    "description_max": "140",
+    "index": "index",
+    "keywords_source": "_id"
+  },
+  "seo_page": {
+    "index": "index"
+  },
+  "translation": {
+    "default_lang": "en",
+    "target_langs": "ro"
+  }
+}

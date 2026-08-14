@@ -47,7 +47,7 @@ class button
         }
 
         if (is_array($link)) {
-            $postId = (string) ($link['post_id'] ?? $link['slug'] ?? '');
+            $postId = (string) ($link['post_id'] ?? $link['_id'] ?? $link['slug'] ?? '');
             if ($postId !== '') {
                 return PlatformPathService::post_link($postId);
             }

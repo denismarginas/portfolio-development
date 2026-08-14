@@ -1,0 +1,29 @@
+{
+  "post": {
+    "singular": "Post",
+    "plural": "Posts",
+    "types": {
+      "page": { "singular": "Page", "plural": "Pages" },
+      "project": { "singular": "Project", "plural": "Projects" },
+      "workstation": { "singular": "Workstation", "plural": "Workstations" }
+    }
+  },
+  "taxonomy": {
+    "singular": "Taxonomy",
+    "plural": "Taxonomies",
+    "types": {
+      "categories": { "singular": "Category", "plural": "Categories" },
+      "tags": { "singular": "Tag", "plural": "Tags" }
+    }
+  },
+  "item": {
+    "singular": "Item",
+    "plural": "Items",
+    "types": {
+      "jobs": { "singular": "Job", "plural": "Jobs" },
+      "education": { "singular": "Education", "plural": "Education" },
+      "games": { "singular": "Game", "plural": "Games" },
+      "socials": { "singular": "Social", "plural": "Socials" }
+    }
+  }
+}

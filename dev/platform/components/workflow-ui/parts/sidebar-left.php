@@ -6,6 +6,7 @@
         <div class="platform-templates" data-platform-templates>
             <button class="platform-button platform-button-small" type="button" data-template="database">DataBase</button>
             <button class="platform-button platform-button-small" type="button" data-template="selectfile">Select File</button>
+            <button class="platform-button platform-button-small" type="button" data-template="structure">Structure</button>
             <button class="platform-button platform-button-small" type="button" data-template="project_structure">Project Structure</button>
             <button class="platform-button platform-button-small" type="button" data-template="page_structure">Page Structure</button>
             <button class="platform-button platform-button-small" type="button" data-template="seo_project">Seo Projects</button>
