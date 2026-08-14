@@ -1,0 +1,18 @@
+﻿{
+    "name": "hero",
+    "description":  "Hero section component with layout and dynamic background.",
+    "assets":  {
+                   "css":  [
+
+                           ],
+                   "js":  [
+                              "assets/js/hero.js"
+                          ],
+                   "php":  [
+                               "assets/php/hero.php"
+                           ]
+               },
+    "dependencies":  [
+
+                     ]
+}

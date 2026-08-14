@@ -1,0 +1,29 @@
+﻿{
+    "name": "gallery_web",
+    "description":  "Web project gallery with desktop/phone device layouts",
+    "post_types":  [
+                       "project"
+                   ],
+    "assets":  {
+                   "php":  [
+                               "assets/php/gallery_web.php"
+                           ],
+                   "css":  [
+
+                           ],
+                   "js":  [
+
+                          ],
+                   "html":  [
+
+                            ],
+                   "scss":  [
+
+                            ]
+               },
+    "dependencies":  [
+                         "image",
+                         "device_layout",
+                         "slider"
+                     ]
+}

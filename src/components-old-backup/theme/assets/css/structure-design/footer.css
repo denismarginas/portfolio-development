@@ -1,0 +1,152 @@
+#footer {
+  background-color: var( --dm-color-gray-darken );
+  background-image: linear-gradient(to bottom,;
+  var(--dm-color-gray-darken) 25%);
+  padding: var( --dm-spacing-large ) 0;
+  padding-left: var( --dm-spacing-secondary );
+  padding-right: var( --dm-spacing-secondary );
+}
+#footer > section {
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+  max-width: 1600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: var( --dm-spacing-tertiary );
+}
+#footer > section > .dm-footer-catalog, #footer > section .dm-footer-contact {
+  display        : flex;
+  flex-direction : column;
+  gap: var( --dm-spacing-primary );
+}
+#footer > section > .dm-footer-catalog > h5, #footer > section .dm-footer-contact > h5 {
+  font-family: var(--dm-font-family);
+  font-size: var(--dm-text-medium-font-size);
+  font-style: var(--dm-text-medium-font-style);
+  font-weight: var(--dm-text-medium-font-weight);
+  line-height: var(--dm-text-medium-line-height);
+  color: var(--dm-text-medium-color);
+  --dm-text-medium-color: var( --dm-color-white );
+  --dm-text-medium-font-weight: 600;
+}
+#footer > section > .dm-footer-catalog > ul, #footer > section .dm-footer-contact > ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+#footer > section > .dm-footer-catalog > ul > li, #footer > section .dm-footer-contact > ul > li {
+  display: flex;
+  flex-shrink: 0;
+  color: var( --dm-color-white );
+}
+#footer > section > .dm-footer-catalog > ul > li > a, #footer > section .dm-footer-contact > ul > li > a {
+  display        : flex;
+  flex-direction : row;
+  align-items: center;
+  gap: calc( var( --dm-spacing-primary ) / 3 );
+}
+#footer > section > .dm-footer-catalog > ul > li > a > span, #footer > section .dm-footer-contact > ul > li > a:hover > span {
+  --dm-text-small-color: var( --dm-color-highlight-primary );
+}
+#footer > section > .dm-footer-catalog > ul > li > a > svg > path, #footer > section .dm-footer-contact > ul > li > a:hover > svg[data-svg-type="fill"] > path {
+  fill: var( --dm-color-highlight-primary );
+}
+#footer > section > .dm-footer-catalog > ul > li > a > svg > path, #footer > section .dm-footer-contact > ul > li > a:hover > svg[data-svg-type="stroke"] > path {
+  stroke: var( --dm-color-highlight-primary );
+}
+#footer > section > .dm-footer-catalog > ul > li > a > span, #footer > section .dm-footer-contact > ul > li > a > span {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: var(--dm-font-family);
+  font-size: var(--dm-text-small-font-size);
+  font-style: var(--dm-text-small-font-style);
+  font-weight: var(--dm-text-small-font-weight);
+  line-height: var(--dm-text-small-line-height);
+  color: var(--dm-text-small-color);
+  --dm-text-small-color: var( --dm-color-white );
+}
+#footer > section > .dm-footer-catalog > ul > li > a > svg, #footer > section .dm-footer-contact > ul > li > a > svg {
+  width     : 10px;
+  height    : 10px;
+  min-width : 10px;
+  min-height: 10px;
+  max-width : 10px;
+  max-height: 10px;
+}
+#footer > section > .dm-footer-catalog > ul > li > a > svg > path, #footer > section .dm-footer-contact > ul > li > a > svg[data-svg-type="fill"] > path {
+  fill: var( --dm-color-white );
+}
+#footer > section > .dm-footer-catalog > ul > li > a > svg > path, #footer > section .dm-footer-contact > ul > li > a > svg[data-svg-type="stroke"] > path {
+  stroke: var( --dm-color-white );
+}
+#footer > section .dm-footer-contact > ul > li > a > svg:last-of-type {
+  width    : auto;
+  min-width: auto;
+  max-width: auto;
+  height    : 14px;
+  min-height: 14px;
+  max-height: 14px;
+  padding: 2px;
+}
+#footer > section > .dm-socials-footer {
+  display        : flex;
+  flex-direction : column;
+  gap: var( --dm-spacing-primary );
+}
+#footer > section > .dm-socials-footer .dm-socials-list > a {
+  padding: calc( var( --dm-spacing-primary ) / 2 );
+}
+#footer > section > .dm-socials-footer .dm-socials-list > a > svg {
+  width     : 15px;
+  height    : 15px;
+  min-width : 15px;
+  min-height: 15px;
+  max-width : 15px;
+  max-height: 15px;
+}
+#footer > section > .dm-socials-footer > h5 {
+  font-family: var(--dm-font-family);
+  font-size: var(--dm-text-medium-font-size);
+  font-style: var(--dm-text-medium-font-style);
+  font-weight: var(--dm-text-medium-font-weight);
+  line-height: var(--dm-text-medium-line-height);
+  color: var(--dm-text-medium-color);
+  --dm-text-medium-color: var( --dm-color-white );
+  --dm-text-medium-font-weight: 600;
+}
+#footer > section > .dm-footer-copyrights {
+  display        : flex;
+  flex-direction : column;
+}
+#footer > section > .dm-footer-copyrights > span {
+  font-family: var(--dm-font-family);
+  font-size: var(--dm-text-small-font-size);
+  font-style: var(--dm-text-small-font-style);
+  font-weight: var(--dm-text-small-font-weight);
+  line-height: var(--dm-text-small-line-height);
+  color: var(--dm-text-small-color);
+  --dm-text-small-color: var( --dm-color-white );
+}
+#footer > section {
+  padding-top: calc( 0  / 2 + var( --dm-spacing-secondary ) );
+  padding-bottom: calc(  0  / 2 + var( --dm-spacing-secondary ) );
+}
+#footer > section {
+  padding-top: calc( 0  / 2 );
+  padding-bottom: calc(  0  / 2 );
+}
+#footer {
+  padding-left: var( --dm-spacing-primary );
+  padding-right: var( --dm-spacing-primary );
+}
+#footer > section {
+  grid-template-columns: repeat(2, 1fr);
+}
+#footer > section {
+  grid-template-columns: repeat(1, 1fr);
+}

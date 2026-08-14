@@ -1,0 +1,21 @@
+﻿{
+    "name": "svg",
+    "description":  "SVG icon helper component",
+    "assets":  {
+                   "css":  [
+
+                           ],
+                   "js":  [
+                              "assets/js/svg.js"
+                          ],
+                   "data":  [
+                                "content/json/data/data_icons.json"
+                            ],
+                   "php":  [
+                               "assets/php/svg.php"
+                           ]
+               },
+    "dependencies":  [
+
+                     ]
+}

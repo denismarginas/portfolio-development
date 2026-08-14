@@ -1,0 +1,10 @@
+{
+  "name": "section_debug",
+  "description": "Debug section that displays render/log buttons and log data when DEBUG constant is true",
+  "dependencies": [],
+  "assets": {
+    "php": ["assets/php/section_debug.php"]
+  },
+  "version": "1.0.0",
+  "author": ""
+}

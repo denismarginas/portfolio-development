@@ -1,0 +1,13 @@
+{
+    "name": "section_resume_data",
+    "description": "Resume data section with CV list and image",
+    "post_types": ["page"],
+    "assets": {
+        "php": ["assets/php/section_resume_data.php"],
+        "css": [],
+        "js": [],
+        "html": [],
+        "scss": ["assets/scss/style.scss"]
+    },
+    "dependencies": ["image", "svg"]
+}

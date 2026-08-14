@@ -1,0 +1,16 @@
+#footer .dm-socials-list {
+  display: flex;
+  gap: var(--dm-spacing-primary);
+  flex-wrap: wrap;
+}
+
+#footer .dm-socials-list a {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--dm-color-white);
+  color: inherit;
+}

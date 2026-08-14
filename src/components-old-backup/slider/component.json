@@ -1,0 +1,19 @@
+﻿{
+    "name": "slider",
+    "description":  "Slider/carousel component",
+    "assets":  {
+                   "css":  [
+                               "assets/css/styles.css"
+                           ],
+                   "js":  [
+                              "assets/js/render.js",
+                              "assets/js/slider-init.js"
+                          ],
+                   "php":  [
+                               "assets/php/slider.php"
+                           ]
+               },
+    "dependencies":  [
+                         "image"
+                     ]
+}

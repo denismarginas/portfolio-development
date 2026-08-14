@@ -1,0 +1,27 @@
+﻿{
+    "name": "gallery_media",
+    "description":  "Media/photo gallery for project pages",
+    "post_types":  [
+                       "project"
+                   ],
+    "assets":  {
+                   "php":  [
+                               "assets/php/gallery_media.php"
+                           ],
+                   "css":  [
+
+                           ],
+                   "js":  [
+
+                          ],
+                   "html":  [
+
+                            ],
+                   "scss":  [
+
+                            ]
+               },
+    "dependencies":  [
+                         "image"
+                     ]
+}

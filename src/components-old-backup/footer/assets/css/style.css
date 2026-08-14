@@ -1,0 +1,1 @@
+#footer{padding:var(--dm-spacing-primary) 0;background-color:var(--dm-color-secondary)}#footer section{display:grid;grid-template-columns:repeat(3, 1fr);gap:var(--dm-spacing-primary)}@media only screen and (max-width: 1024px){#footer section{grid-template-columns:1fr}}

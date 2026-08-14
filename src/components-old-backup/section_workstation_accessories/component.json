@@ -1,0 +1,13 @@
+{
+    "name": "section_workstation_accessories",
+    "description": "Workstation accessories section with slider and product list",
+    "post_types": ["page"],
+    "assets": {
+        "php": ["assets/php/section_workstation_accessories.php"],
+        "css": [],
+        "js": [],
+        "html": [],
+        "scss": ["assets/scss/style.scss"]
+    },
+    "dependencies": ["image", "svg"]
+}

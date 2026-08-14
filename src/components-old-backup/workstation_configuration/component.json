@@ -1,0 +1,12 @@
+{
+  "name": "workstation_configuration",
+  "title": "Workstation Configuration",
+  "description": "Displays a workstation's configuration with product cards, image slider, and item list.",
+  "assets": {
+    "php": ["assets/php/workstation_configuration.php"],
+    "css": [],
+    "scss": ["assets/scss/style.scss"],
+    "js": ["assets/js/workstation_configuration.js"]
+  },
+  "dependencies": ["image", "svg", "slider"]
+}

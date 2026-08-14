@@ -1,0 +1,25 @@
+{
+    "name": "slider_directory_images",
+    "description":  "Slider that renders images from a directory path",
+    "assets":  {
+                   "php":  [
+                               "assets/php/slider_directory_images.php"
+                           ],
+                   "css":  [
+
+                           ],
+                   "js":  [
+
+                          ],
+                   "html":  [
+
+                            ],
+                   "scss":  [
+
+                            ]
+               },
+    "dependencies":  [
+                         "image",
+                         "slider"
+                     ]
+}

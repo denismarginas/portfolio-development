@@ -1,0 +1,24 @@
+﻿{
+    "name": "seo",
+    "description":  "SEO meta tag generator",
+    "assets":  {
+                   "php":  [
+                               "assets/php/seo.php"
+                           ],
+                   "css":  [
+
+                           ],
+                   "js":  [
+
+                          ],
+                   "html":  [
+
+                            ],
+                   "scss":  [
+
+                            ]
+               },
+    "dependencies":  [
+
+                     ]
+}

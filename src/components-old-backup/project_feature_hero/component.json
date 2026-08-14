@@ -1,0 +1,26 @@
+﻿{
+    "name": "project_feature_hero",
+    "description":  "Feature hero section for project pages",
+    "assets":  {
+                   "php":  [
+                               "assets/php/project_feature_hero.php"
+                           ],
+                   "css":  [
+
+                           ],
+                   "js":  [
+
+                          ],
+                   "html":  [
+
+                            ],
+                   "scss":  [
+
+                            ]
+               },
+    "dependencies":  [
+                         "devices_post_item_web",
+                         "devices_post_item_media",
+                         "animation_waves"
+                     ]
+}

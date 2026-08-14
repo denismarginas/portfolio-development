@@ -1,0 +1,11 @@
+{
+  "name": "header_menu_pages_list",
+  "description": "Header menu pages list component.",
+  "assets": {
+    "php": ["assets/php/header_menu_pages_list.php"],
+    "css": ["assets/scss/style.scss"],
+    "data": ["content/json/data/data_menu.json"],
+    "html": ["assets/html/template.html"]
+  },
+  "dependencies": []
+}

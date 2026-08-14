@@ -1,0 +1,10 @@
+{
+    "name": "workstation_videos",
+    "description": "Workstation videos section with video list and wave decorations",
+    "assets": {
+        "php": ["assets/php/workstation_videos.php"],
+        "scss": ["assets/scss/style.scss"],
+        "js": ["assets/js/workstation_videos.js"]
+    },
+    "dependencies": ["video", "svg"]
+}

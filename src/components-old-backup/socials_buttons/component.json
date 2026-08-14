@@ -1,0 +1,11 @@
+{
+  "name": "socials_buttons",
+  "description": "Social icon buttons component for footer.",
+  "assets": {
+    "php": ["assets/php/socials_buttons.php"],
+    "css": ["assets/scss/style.scss"],
+    "js": ["assets/js/socials_buttons.js"],
+    "html": ["assets/html/template.html"]
+  },
+  "dependencies": []
+}

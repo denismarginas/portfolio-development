@@ -1,0 +1,13 @@
+{
+    "name": "section_post_items_miscellaneous",
+    "description": "Miscellaneous projects list section",
+    "post_types": ["page"],
+    "assets": {
+        "php": ["assets/php/section_post_items_miscellaneous.php"],
+        "css": [],
+        "js": [],
+        "html": [],
+        "scss": ["assets/scss/style.scss"]
+    },
+    "dependencies": ["image", "svg"]
+}

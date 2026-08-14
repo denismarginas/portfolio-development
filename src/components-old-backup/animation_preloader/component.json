@@ -1,0 +1,12 @@
+{
+  "name": "animation_preloader",
+  "title": "Animation Preloader",
+  "description": "Full_screen preloader animation with roller spinner.",
+  "assets": {
+    "php": ["assets/php/animation_preloader.php"],
+    "css": [],
+    "scss": ["assets/scss/style.scss"],
+    "js": ["assets/js/animation_preloader.js"]
+  },
+  "dependencies": []
+}

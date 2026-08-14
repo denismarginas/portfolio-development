@@ -1,0 +1,10 @@
+{
+    "name": "section_contact_data",
+    "description": "Contact data section with profile image, title, text and contact details list",
+    "assets": {
+        "php": ["assets/php/section_contact_data.php"],
+        "css": ["assets/scss/style.scss"],
+        "js": ["assets/js/section_contact_data.js"]
+    },
+    "dependencies": ["image", "svg"]
+}

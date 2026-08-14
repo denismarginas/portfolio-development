@@ -1,0 +1,11 @@
+:root {
+  --dm-spacing-primary           : 12px;
+  --dm-spacing-secondary         : 24px;
+  --dm-spacing-tertiary          : 36px;
+  --dm-spacing-extra-small       : 40px;
+  --dm-spacing-small             : 60px;
+  --dm-spacing-medium            : 80px;
+  --dm-spacing-large             : 100px;
+  --dm-border-radius-primary     : 6px;
+  --dm-border-radius-secondary   : 12px;
+}

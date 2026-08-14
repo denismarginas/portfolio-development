@@ -1,0 +1,211 @@
+[data-button] {
+  margin          : 0 !important;
+  border          : none;
+  height          : inherit;
+  cursor          : pointer;
+  padding         : 6px var( --dm-spacing-secondary );
+  font-weight     : 800 !important;
+  box-shadow      : none;
+  text-shadow     : none;
+  display         : flex;
+  align-items     : center;
+  align-content   : center;
+  text-decoration : none;
+  justify-content : center;
+  width           : fit-content;
+  text-align      : center;
+  -webkit-box-sizing : border-box;
+  box-sizing         : border-box;
+  -webkit-border-radius : 100px !important;
+  border-radius         : 100px !important;
+  -webkit-box-shadow : none;
+  box-shadow         : none;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  font-family: var(--dm-font-family);
+  font-size: var(--dm-text-default-font-size);
+  font-style: var(--dm-text-default-font-style);
+  font-weight: var(--dm-text-default-font-weight);
+  line-height: var(--dm-text-default-line-height);
+  color: var(--dm-text-default-color);
+  line-height: unset;
+}
+[data-button] > svg > path {
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+[data-button] > svg[data-svg-type="fill"] > path {
+  fill: --dm-color-white;
+}
+[data-button] > svg[data-svg-type="stroke"] > path {
+  stroke: --dm-color-white;
+}
+[data-button][data-button-state="active"] {
+  cursor: default;
+  opacity: 0.9;
+}
+[data-button][data-button-state="highlight"] {
+  opacity: 0.5;
+}
+[data-button][data-button="primary"] {
+  display          : inline-flex;
+  color            : var( --dm-color-white ) !important;
+  background-color : var( --dm-color-primary) !important;
+  border           : 2px solid var( --dm-color-primary );
+}
+[data-button][data-button="primary"]:hover {
+  color            : var( --dm-link-color-primary ) !important;
+  background-color : transparent !important;
+  border           : 2px solid var( --dm-link-color-primary );
+}
+[data-button][data-button="primary"] > svg {
+  margin : 0 0 0 var( --dm-spacing-primary );
+  width: 15px;
+  min-width: 15px;
+}
+[data-button][data-button="primary"] > svg[data-svg-type="fill"] > path {
+  fill: var( --dm-color-white );
+}
+[data-button][data-button="primary"] > svg[data-svg-type="stroke"] > path {
+  stroke: var( --dm-color-white );
+}
+[data-button][data-button="gray"] {
+  background       : var( --dm-color-gray ) !important;
+  border           : 2px solid var( --dm-color-gray-darken ) !important;
+  display          : inline-flex;
+  color            : var( --dm-color-gray-darken ) !important;
+}
+[data-button][data-button="gray"]:hover {
+  background-color : var( --dm-color-gray-darken ) !important;
+  color            : var( --dm-color-gray ) !important;
+}
+[data-button][data-button="gray"]:focus {
+  background-color : var( --dm-color-gray-darken ) !important;
+  color            : var( --dm-color-gray ) !important;
+}
+[data-button][data-button="outline"] {
+  background       : none !important;
+  display          : inline-flex;
+  color            : var( --dm-color-primary ) !important;
+  border           : 2px solid var( --dm-color-primary ) !important;
+}
+[data-button][data-button="outline"] > svg {
+  width: 15px;
+  min-width: 15px;
+  margin : 0 0 0 var( --dm-spacing-primary );
+}
+[data-button][data-button="outline"]:hover, [data-button][data-button="outline"]:focus {
+  color            : var( --dm-color-white ) !important;
+  background-color : var( --dm-color-primary ) !important;
+}
+[data-button][data-button="outline"]:hover > svg > path, [data-button][data-button="outline"]:focus > svg > path {
+  fill: var( --dm-color-white ) !important;
+}
+[data-button][data-button="primary-icon"] {
+  display          : inline-flex;
+  color            : var( --dm-color-white ) !important;
+  background-color : var( --dm-color-primary) !important;
+  border           : 2px solid var( --dm-color-primary );
+  padding          : 6px var( --dm-spacing-primary );
+}
+[data-button][data-button="primary-icon"] > svg {
+  margin : 0 var( --dm-spacing-primary ) 0 0;
+  width: 15px;
+  min-width: 15px;
+}
+[data-button][data-button="primary-icon"] > svg[data-svg-type="fill"] > path {
+  fill: var( --dm-color-white );
+}
+[data-button][data-button="primary-icon"] > svg[data-svg-type="stroke"] > path {
+  stroke: var( --dm-color-white );
+}
+[data-button][data-button="primary-icon"]:hover {
+  color            : var( --dm-color-primary ) !important;
+  background-color : transparent !important;
+  border           : 2px solid var( --dm-color-primary );
+}
+[data-button][data-button="primary-icon"]:hover > svg[data-svg-type="fill"] > path {
+  fill: var( --dm-color-primary );
+}
+[data-button][data-button="primary-icon"]:hover > svg[data-svg-type="stroke"] > path {
+  stroke: var( --dm-color-primary );
+}
+[data-button][data-button="download_file"] {
+  display     : flex;
+  align-items : center;
+}
+[data-button][data-button="download_file"]:hover {
+  --dm-icon-primary-color : var( --dm-color-primary );
+}
+[data-button][data-button="success"] {
+  color: var( --dm-color-status-primary  ) !important;
+  background: var( --dm-color-status-primary ) !important;
+}
+[data-button][data-button="success"]:hover {
+  color: var( --dm-color-white  ) !important;
+  background: var( --dm-color-status-primary ) !important;
+}
+[data-button][data-button="danger"] {
+  color            : var( --dm-color-status-tertiary ) !important;
+  background-color : var( --dm-color-status-tertiary ) !important;
+  border           : 2px solid var( --dm-color-status-tertiary );
+}
+[data-button][data-button="danger"]:hover {
+  color            : var( --dm-color-white ) !important;
+  background-color : var( --dm-color-status-tertiary ) !important;
+}
+[data-button][data-button="danger"]:focus {
+  color            : var( --dm-color-white ) !important;
+  background-color : var( --dm-color-status-tertiary ) !important;
+}
+[data-button][data-button="danger-plain"] {
+  color       : var( --dm-color-status-tertiary ) !important;
+  border      : 2px solid transparent;
+}
+[data-button][data-button="danger-plain"]:hover {
+  background-color : var( --dm-color-status-tertiary  ) !important;
+  color            : var( --dm-color-white ) !important;
+}
+[data-button][data-button="danger-text"] {
+  color       : var( --dm-color-status-tertiary ) !important;
+  background  : none;
+  border      : none;
+  padding     : 0 !important;
+}
+[data-button][data-button="danger-text"]:hover {
+  background : none !important;
+  color      : var( --dm-color-status-tertiary ) !important;
+}
+[data-button][data-button="warning"] {
+  color            : var( --dm-color-status-secondary ) !important;
+  background-color : var( --dm-color-status-secondary ) !important;
+  border           : 2px solid var( --dm-color-status-secondary );
+}
+[data-button][data-button="warning"]:hover {
+  color            : var( --dm-color-white ) !important;
+  background-color : var( --dm-color-status-secondary ) !important;
+}
+[data-button][data-button="warning"]:focus {
+  color            : var( --dm-color-white ) !important;
+  background-color : var( --dm-color-status-secondary ) !important;
+}
+[data-button][data-button="danger-plain"] {
+  color       : var( --dm-color-status-tertiary ) !important;
+  border      : 2px solid transparent;
+}
+[data-button][data-button="danger-plain"]:hover {
+  background-color : var( --dm-color-status-tertiary  ) !important;
+  color            : var( --dm-color-white ) !important;
+}
+[data-button][data-button="plain"] {
+  background: transparent !important;
+  color: var( --dm-color-primary ) !important;
+  font-weight : bold;
+  padding: 0 !important;
+}
+[data-button][data-button="plain"]:hover, [data-button][data-button="plain"][data-button-state="active"] {
+  background: none !important;
+  color: var( --dm-color-primary ) !important;
+}

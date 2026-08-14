@@ -1,0 +1,12 @@
+{
+  "name": "workstation_header",
+  "title": "Workstation Header",
+  "description": "Renders the workstation header with title, description, media visual, status indicator, and wave decorations.",
+  "assets": {
+    "php": ["assets/php/workstation_header.php"],
+    "css": [],
+    "scss": ["assets/scss/style.scss"],
+    "js": ["assets/js/workstation_header.js"]
+  },
+  "dependencies": ["image", "svg"]
+}

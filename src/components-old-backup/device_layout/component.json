@@ -1,0 +1,24 @@
+﻿{
+    "name": "device_layout",
+    "description":  "Device mockup layout (desktop/phone) for project showcases",
+    "assets":  {
+                   "php":  [
+                               "assets/php/device_layout.php"
+                           ],
+                   "css":  [
+
+                           ],
+                   "js":  [
+
+                          ],
+                   "html":  [
+
+                            ],
+                   "scss":  [
+
+                            ]
+               },
+    "dependencies":  [
+                         "image"
+                     ]
+}

@@ -1,0 +1,13 @@
+{
+    "name": "section_workstation_configuration",
+    "description": "Workstation configuration section with product list",
+    "post_types": ["page"],
+    "assets": {
+        "php": ["assets/php/section_workstation_configuration.php"],
+        "css": [],
+        "js": [],
+        "html": [],
+        "scss": ["assets/scss/style.scss"]
+    },
+    "dependencies": ["image", "svg"]
+}

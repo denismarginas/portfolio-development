@@ -1,0 +1,14 @@
+#header .dm-toggletheme {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#header .dm-toggletheme input {
+  display: none;
+}
+
+#header .dm-toggletheme span svg {
+  width: 24px;
+  height: 24px;
+}

@@ -1,0 +1,13 @@
+{
+    "name": "section_post_items_media",
+    "description": "Media projects list section",
+    "post_types": ["page"],
+    "assets": {
+        "php": ["assets/php/section_post_items_media.php"],
+        "css": [],
+        "js": [],
+        "html": [],
+        "scss": ["assets/scss/style.scss"]
+    },
+    "dependencies": ["image", "svg"]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "header_menu",
+  "description": "Header menu wrapper component.",
+  "assets": {
+    "php": ["assets/php/header_menu.php"],
+    "css": ["assets/scss/style.scss"],
+    "js": ["assets/js/header_menu.js"],
+    "html": ["assets/html/template.html"]
+  },
+  "dependencies": ["header_menu_pages_list", "search_post_button", "toggle_theme"]
+}

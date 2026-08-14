@@ -1,0 +1,9 @@
+{
+    "name": "video_component",
+    "description": "Passthrough wrapper for the video component",
+    "assets": {
+        "php": ["assets/php/video_component.php"],
+        "js": ["assets/js/video_component.js"]
+    },
+    "dependencies": ["video"]
+}

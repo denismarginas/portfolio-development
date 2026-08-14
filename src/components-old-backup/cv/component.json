@@ -1,0 +1,27 @@
+﻿{
+    "name": "cv",
+    "description":  "CV card display component",
+    "post_types":  [
+                       "cv"
+                   ],
+    "assets":  {
+                   "php":  [
+                               "assets/php/cv.php"
+                           ],
+                   "css":  [
+
+                           ],
+                   "js":  [
+                              "assets/js/cv.js"
+                          ],
+                   "html":  [
+                                "assets/html/template.html"
+                            ],
+                   "scss":  [
+                                "assets/scss/style.scss"
+                            ]
+               },
+    "dependencies":  [
+                         "image"
+                     ]
+}

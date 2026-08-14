@@ -1,0 +1,12 @@
+{
+  "name": "experience_categories",
+  "title": "Experience Categories",
+  "description": "Renders a list of experience category cards with SVG icons and background images.",
+  "assets": {
+    "php": ["assets/php/experience_categories.php"],
+    "css": [],
+    "scss": ["assets/scss/style.scss"],
+    "js": ["assets/js/experience_categories.js"]
+  },
+  "dependencies": ["svg", "image"]
+}

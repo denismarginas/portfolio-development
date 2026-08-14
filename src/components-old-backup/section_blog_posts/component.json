@@ -1,0 +1,10 @@
+{
+    "name": "section_blog_posts",
+    "description": "Blog posts list with user info, descriptions, buttons, media and sliders",
+    "assets": {
+        "php": ["assets/php/section_blog_posts.php"],
+        "css": ["assets/scss/style.scss"],
+        "js": ["assets/js/section_blog_posts.js"]
+    },
+    "dependencies": ["image", "svg"]
+}

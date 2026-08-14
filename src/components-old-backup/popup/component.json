@@ -1,0 +1,16 @@
+{
+    "name": "popup",
+    "description": "Modal popup with image zoom, slider support, and close button",
+    "assets": {
+        "css": [
+            "assets/css/styles.css"
+        ],
+        "js": [
+            "assets/js/render.js",
+            "assets/js/popup-init.js"
+        ]
+    },
+    "dependencies": [
+        "slider"
+    ]
+}

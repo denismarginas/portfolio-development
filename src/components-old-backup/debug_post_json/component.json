@@ -1,0 +1,10 @@
+{
+  "name": "debug_post_json",
+  "description": "Renders the full post data as formatted JSON for debugging",
+  "dependencies": [],
+  "assets": {
+    "php": ["assets/php/debug_post_json.php"]
+  },
+  "version": "1.0.0",
+  "author": ""
+}

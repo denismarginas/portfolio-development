@@ -1,0 +1,426 @@
+@import "functions/mixins.scss";
+@import "functions/functions.scss";
+
+.dm-experience-knowledge {
+  @include padding-x();
+  overflow: hidden;
+
+  > container {
+    @include flex-row();
+    @include flex-center();
+    gap: var( --dm-spacing-large);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .person-image {
+      @include flex-center();
+      box-sizing: border-box;
+      position: relative;
+      width: 40%;
+      max-width: 100%;
+      overflow: hidden;
+      border-bottom: 20px solid  var( --dm-color-primary );
+      @include border-radius( var( --dm-border-radius-primary ) );
+
+      > img {
+        box-sizing: border-box;
+        width: auto;
+        max-width: 100%;
+        height: 580px;
+        object-position: bottom;
+        object-fit: contain;
+        padding: var( --dm-spacing-secondary ) var( --dm-spacing-secondary ) 0 var( --dm-spacing-secondary );
+      }
+      > .graphic-element-1 {
+        @include border-radius( var( --dm-border-radius-primary ) );
+        z-index: -1;
+        content: "";
+        position: absolute;
+        left: 10%;
+        bottom: -10%;
+        width: 80%;
+        height: auto;
+
+        > svg {
+          @include svg-color( var( --dm-color-white) );
+          max-width: 100%;
+          width: 100%;
+          height: auto;
+          opacity: 1;
+        }
+      }
+      &:before {
+        z-index: -1;
+        content: "";
+        position: absolute;
+        width: 90%;
+        padding-bottom: 90%;
+        bottom: 0%;
+        left: 0%;
+        border-radius: 50%;
+        background-color: var( --dm-color-primary );
+        background-image: -webkit-gradient(
+                        linear, left top, left bottom,
+                        color-stop(20%, var( --dm-color-primary )),
+                        color-stop(200%, var( --dm-color-secondary ))
+        );
+      }
+    }
+    .experience-knowledge {
+      display: grid;
+      gap: var( --dm-spacing-secondary );
+      width: calc(60% - var( --dm-spacing-large));
+
+      > h2 {
+        @include dm-font-heading1();
+        --dm-text-heading1-font-family: var(--dm-font-family-secondary);
+
+
+        &:after {
+          position: relative;
+          display: block;
+          content: "";
+          width: 100%;
+          max-width: var( --dm-spacing-small );
+          height: 3px;
+          background-color: var( --dm-color-primary );
+          transition: max-width 0.3s;
+          transition-delay: 0.3s;
+          animation-duration: 2s;
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: 1;
+          animation-name: growDivider;
+          animation-fill-mode: both;
+
+        }
+        &:hover {
+          &:after {
+            max-width: var( --dm-spacing-medium );
+            transition: max-width 0.3s;
+          }
+        }
+      }
+      p {
+        @include dm-font-default();
+        word-break: break-word;
+      }
+      ul {
+        @include reset-list();
+
+        li {
+          @include dm-font-medium();
+        }
+      }
+      > .list {
+        display: flex;
+        flex-direction: column;
+        gap: var( --dm-spacing-primary );
+
+        > .list-section {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+
+          > .subtitle {
+            font-weight: 600;
+          }
+        }
+      }
+      > .buttons {
+        @include flex-row();
+        flex-wrap: wrap;
+        gap: var( --dm-spacing-primary );
+
+        > a {
+          display: flex;
+          flex-direction: row;
+          gap: 6px;
+
+
+          > svg {
+            @include svg-color( var( --dm-color-white ) );
+            @include fix-height(22px);
+            width: auto;
+            margin: 0;
+          }
+          > span {
+            @include limit-line-text(1);
+            @include dm-font-default();
+            --dm-text-default-font-weight: 600;
+            --dm-text-default-color: var( --dm-color-white );
+          }
+          &:hover {
+            > svg {
+              @include svg-color( var( --dm-link-color-primary ) );
+            }
+            > span {
+              --dm-text-default-color: var( --dm-link-color-primary );
+            }
+          }
+        }
+      }
+      > .dm-knowledge-lists-icons {
+        > ul {
+          max-width: 650px;
+          gap: var(--dm-spacing-primary);
+          justify-content: flex-start;
+
+          > li {
+            > a {
+              > svg {
+                @include fix-height(25px);
+              }
+            }
+          }
+        }
+      }
+    }
+    .experience-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var( --dm-spacing-large );
+      width: 100%;
+      align-items: center;
+
+      .text {
+        @include flex-column();
+        @include border-radius( var( --dm-border-radius-primary ) );
+        gap: var( --dm-spacing-secondary );
+        padding: var( --dm-spacing-secondary );
+        background-color: rgba( var( --dm-color-primary-rgb ), 0.1 );
+        background-image: linear-gradient(
+                        65deg,
+                        rgba(var( --dm-color-secondary-rgb ), 0),
+                        rgba(var( --dm-color-primary-rgb ), 0.1) 40%,
+                        rgba(var( --dm-color-secondary-rgb ), 0.2) 170%
+        );
+
+        > p {
+          @include dm-font-medium();
+        }
+      }
+
+      .banner-image {
+        height: 100%;
+
+        > img {
+          @include border-radius( var( --dm-border-radius-primary ) );
+          width: auto;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+  @media only screen and (min-width: $screen-desktop-large) {
+    > container {
+      .person-image {
+        width: 45%;
+
+        > img {
+          height: 650px;
+        }
+      }
+      .experience-knowledge {
+        width: calc(55% - var( --dm-spacing-large));
+      }
+    }
+  }
+  @media only screen and (max-width: $screen-desktop-medium) {
+    > container {
+      gap: var( --dm-spacing-medium );
+
+      .person-image {
+        > img {
+          height: 520px;
+        }
+      }
+      .experience-knowledge {
+        width: calc(60% - var( --dm-spacing-medium ));
+      }
+      .experience-container {
+        gap: var( --dm-spacing-small );
+      }
+    }
+  }
+  @media only screen and (max-width: $screen-desktop-small) {
+    > container {
+      gap: var( --dm-spacing-tertiary );
+
+      .person-image {
+        > img {
+          height: 440px;
+        }
+      }
+      .experience-knowledge {
+        width: calc(60% - var(--dm-spacing-tertiary));
+      }
+    }
+  }
+  @media only screen and (max-width: $screen-tablet-large) {
+    > container {
+      align-items: start;
+      flex-direction: column;
+      gap: var( --dm-spacing-secondary );
+
+      .person-image {
+        width: 100% !important;
+
+        > img {
+          height: 300px;
+        }
+      }
+      .experience-knowledge {
+        width: 100% ;
+
+        > .buttons {
+          @include flex-center();
+          margin-bottom: var( --dm-spacing-secondary );
+        }
+      }
+      .experience-container {
+        @include flex-column();
+        flex-direction: column-reverse;
+        gap: var( --dm-spacing-tertiary );
+
+        .banner-image {
+          width: 100%;
+
+          > img {
+            width: 100%;
+            height: 330px;
+          }
+        }
+      }
+      .person-image {
+        padding: var( --dm-spacing-primary ) var( --dm-spacing-primary ) 0px var( --dm-spacing-primary );
+        background-color: rgba( var( --dm-color-primary-rgb ), 0.5 );
+
+        &:before {
+          width: 30%;
+          padding-bottom: 30%;
+          left: 25%;
+        }
+        > .graphic-element-1 {
+          width: 40%;
+          left: 34%;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: $screen-tablet-small) {
+    > container {
+      gap: var( --dm-spacing-secondary );
+
+      .experience-knowledge {
+        > .dm-knowledge-lists-icons {
+          > ul {
+            gap: calc(var(--dm-spacing-primary) / 2 );
+
+            > li {
+              > a {
+                > svg {
+                  @include fix-height(20px);
+                }
+              }
+            }
+          }
+        }
+      }
+      .person-image {
+        &:before {
+          width: 55%;
+          padding-bottom: 55%;
+          left: 5%;
+        }
+        > .graphic-element-1 {
+          width: 60%;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: $screen-phone-large) {
+    > container {
+      .person-image {
+        &:before {
+          width: 70%;
+          padding-bottom: 70%;
+          left: 10%;
+        }
+        > .graphic-element-1 {
+          width: 90%;
+        }
+      }
+      .experience-knowledge {
+        > .buttons {
+          > a {
+            width: 100%;
+          }
+        }
+      }
+      .experience-container {
+        .banner-image {
+          > img {
+            height: 200px;
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: $screen-phone-small) {
+    > container {
+      gap: var(--dm-spacing-primary);
+
+      .person-image {
+        > img {
+          height: 200px;
+        }
+      }
+    }
+  }
+}
+
+
+body, body.theme-light {
+  .dm-experience-knowledge {
+    h2 {
+      --dm-text-heading1-color: var( --dm-color-gray-darken );
+    }
+    p {
+      --dm-text-default-color: var( --dm-color-gray );
+      --dm-text-medium-color: var( --dm-color-gray );
+    }
+    > container {
+      > div {
+        ul {
+          li {
+            --dm-text-medium-color: var( --dm-color-gray );
+          }
+        }
+      }
+    }
+  }
+}
+body.theme-dark {
+  .dm-experience-knowledge {
+    h2 {
+      --dm-text-heading1-color: var( --dm-color-white );
+    }
+    p {
+      --dm-text-default-color: var( --dm-color-white );
+      --dm-text-medium-color: var( --dm-color-white );
+    }
+    > container {
+      > div {
+        ul {
+          li {
+            --dm-text-medium-color: var( --dm-color-white );
+          }
+        }
+      }
+    }
+  }
+}

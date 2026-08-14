@@ -1,0 +1,13 @@
+{
+    "name": "section_post_items",
+    "description": "All projects list section with search bar",
+    "post_types": ["page"],
+    "assets": {
+        "php": ["assets/php/section_post_items.php"],
+        "css": [],
+        "js": [],
+        "html": [],
+        "scss": ["assets/scss/style.scss"]
+    },
+    "dependencies": ["image", "svg"]
+}
