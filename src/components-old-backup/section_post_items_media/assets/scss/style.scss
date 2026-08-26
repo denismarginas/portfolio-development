@@ -12,13 +12,13 @@
       display: grid;
       align-items: center;
       grid-template-columns: repeat(3, 1fr);
-      gap: var( --dm-spacing-secondary );
+      gap: var(--dm-spacing-secondary);
 
       > .dm-post-item {
-        @include border-radius( var( --dm-border-radius-primary ));
+        @include border-radius(var(--dm-border-radius-primary));
         @include flex-row();
-        gap: calc( var( --dm-spacing-secondary ) );
-        padding: var( --dm-spacing-secondary );
+        gap: calc(var(--dm-spacing-secondary));
+        padding: var(--dm-spacing-secondary);
         word-break: break-word;
         position: relative;
         overflow: hidden;
@@ -26,26 +26,27 @@
         height: 100%;
 
         > .dm-post-item-image {
-            @include flex-center();
-            @include border-radius( var( --dm-border-radius-primary ));
-            aspect-ratio: 16/9;
-            max-height: 300px;
-            overflow: hidden;
-            position: relative;
-            width: 40%;
-            height: 110px;
+          @include flex-center();
+          @include border-radius(var(--dm-border-radius-primary));
+          aspect-ratio: 16/9;
+          max-height: 300px;
+          overflow: hidden;
+          position: relative;
+          width: 40%;
+          height: 110px;
 
-           > .logo, > .svg {
-             @include svg-color( var( --dm-color-white ) );
-             box-sizing: content-box;
-             padding: var( --dm-spacing-secondary );
-             object-fit: contain;
-             object-position: center;
-             width: auto;
-             max-width: 70%;
-             height: auto;
-             max-height: 60%;
-           }
+          > .logo,
+          > .svg {
+            @include svg-color(var(--dm-color-white));
+            box-sizing: content-box;
+            padding: var(--dm-spacing-secondary);
+            object-fit: contain;
+            object-position: center;
+            width: auto;
+            max-width: 70%;
+            height: auto;
+            max-height: 60%;
+          }
           > .thumbnail {
             object-fit: cover;
             object-position: center;
@@ -70,7 +71,7 @@
         }
         > .dm-post-item-details {
           @include flex-column();
-          gap: var( --dm-spacing-primary );
+          gap: var(--dm-spacing-primary);
           justify-content: center;
           width: 60%;
 
@@ -80,7 +81,7 @@
             --dm-text-default-font-weight: 600;
 
             &:hover {
-              --dm-text-default-color: var( --dm-color-primary );
+              --dm-text-default-color: var(--dm-color-primary);
             }
           }
           > .dm-post-item-description {
@@ -93,19 +94,19 @@
             @include reset-list();
             @include flex-row();
             word-break: break-word;
-            gap: calc( var( --dm-spacing-primary ) / 2 );
+            gap: calc(var(--dm-spacing-primary) / 2);
 
             > li {
               @include flex-row();
               @include limit-line-text(1);
-              @include border-radius( var( --dm-border-radius-primary ));
+              @include border-radius(var(--dm-border-radius-primary));
               padding: 4px 6px;
               background-color: var(--dm-color-primary);
 
               > span {
                 @include limit-line-text(1);
                 @include dm-font-extra-small();
-                --dm-text-extra-small-color: var( --dm-color-white );
+                --dm-text-extra-small-color: var(--dm-color-white);
                 --dm-text-extra-small-font-weight: 600;
                 word-break: break-all;
                 text-transform: uppercase;
@@ -119,7 +120,7 @@
               --dm-text-default-font-weight: 600;
 
               &:hover {
-                --dm-text-default-color: var( --dm-color-primary );
+                --dm-text-default-color: var(--dm-color-primary);
               }
             }
             > .dm-post-item-date {
@@ -129,7 +130,9 @@
               gap: 5px;
               opacity: 0;
               max-height: 0px;
-              transition: opacity 0.6s, max-height 0.3s;
+              transition:
+                opacity 0.6s,
+                max-height 0.3s;
 
               > svg {
                 @include fix-size(12px);
@@ -143,7 +146,8 @@
         &.dm-post-item-web {
           > .dm-post-item-image {
             > img {
-              &.logo, &.thumbnail {
+              &.logo,
+              &.thumbnail {
                 z-index: 1;
               }
               &.preview-image {
@@ -176,14 +180,14 @@
                 transition: opacity 0.3s;
 
                 &:hover {
-                  --dm-text-default-color: var( --dm-color-primary );
+                  --dm-text-default-color: var(--dm-color-primary);
                 }
                 > svg {
                   @include fix-size(15px);
-                  @include svg-color( var( --dm-color-primary ) );
+                  @include svg-color(var(--dm-color-primary));
 
                   &.website-inactive {
-                    @include svg-color( var( --dm-color-highlight-primary-rgb ) );
+                    @include svg-color(var(--dm-color-highlight-primary-rgb));
                   }
                 }
               }
@@ -211,7 +215,8 @@
         &.dm-post-item-media {
           > .dm-post-item-image {
             > img {
-              &.logo, &.thumbnail {
+              &.logo,
+              &.thumbnail {
                 z-index: 1;
               }
               &.preview-image {
@@ -229,7 +234,7 @@
               }
             }
             > svg {
-              @include svg-color( var( --dm-color-white ) );
+              @include svg-color(var(--dm-color-white));
               width: auto;
               height: auto;
               width: 70%;
@@ -252,19 +257,29 @@
         }
         &.preview-image {
           > .dm-post-item-image {
-            > .logo, svg, > .thumbnail + .preview-image {
+            > .logo,
+            svg,
+            > .thumbnail + .preview-image {
               opacity: 0 !important;
               transition: all 0.6s ease-in-out;
             }
-            > .preview-image, > .thumbnail {
+            > .preview-image,
+            > .thumbnail {
               opacity: 0.7 !important;
-              mask: linear-gradient(0deg, transparent, white 50%, white 100%, transparent);
+              mask: linear-gradient(
+                0deg,
+                transparent,
+                white 50%,
+                white 100%,
+                transparent
+              );
               transition: all 0.6s ease-in-out;
             }
           }
           &:hover {
             > .dm-post-item-image {
-              > .preview-image, > .thumbnail {
+              > .preview-image,
+              > .thumbnail {
                 opacity: 1 !important;
                 transition: all 0.6s ease-in-out;
               }
@@ -285,7 +300,9 @@
               > .dm-post-item-date {
                 opacity: 1;
                 max-height: 12px;
-                transition: opacity 0.6s, max-height 0.3s;
+                transition:
+                  opacity 0.6s,
+                  max-height 0.3s;
               }
             }
           }
@@ -306,7 +323,7 @@
         grid-template-columns: repeat(2, 1fr);
 
         > .dm-post-item {
-          gap: var( --dm-spacing-primary );
+          gap: var(--dm-spacing-primary);
           flex-direction: column;
 
           > .dm-post-item-details {
@@ -329,13 +346,13 @@
   @media only screen and (max-width: $screen-phone-large) {
     > container {
       > ul {
-        gap: var( --dm-spacing-primary );
+        gap: var(--dm-spacing-primary);
 
         > .dm-post-item {
-          padding: var( --dm-spacing-primary );
+          padding: var(--dm-spacing-primary);
 
           > .dm-post-item-details {
-              gap: 8px;
+            gap: 8px;
 
             > .dm-post-item-description {
               @include limit-line-text(1);
@@ -385,48 +402,49 @@
   }
 }
 
-body, body.theme-light {
+body,
+body.theme-light {
   .dm-posts-list {
     > container {
       > ul {
         > .dm-post-item {
           border: 1px solid rgba(var(--dm-color-gray-rgb), 0.2);
-          background-color: rgba(var( --dm-color-white-rgb), 0.5 );
+          background-color: rgba(var(--dm-color-white-rgb), 0.5);
 
           > .dm-post-item-details {
             > .dm-post-item-title {
-              --dm-text-default-color: var( --dm-color-gray );
-              --dm-text-medium-color: var( --dm-color-gray );
+              --dm-text-default-color: var(--dm-color-gray);
+              --dm-text-medium-color: var(--dm-color-gray);
 
               &:hover {
-                --dm-text-default-color: var( --dm-color-primary );
+                --dm-text-default-color: var(--dm-color-primary);
               }
             }
             > .dm-post-item-description {
-              --dm-text-small-color: var( --dm-color-gray );
+              --dm-text-small-color: var(--dm-color-gray);
             }
             > .dm-post-item-heading {
               > .dm-post-item-title {
-                --dm-text-default-color: var( --dm-color-gray );
+                --dm-text-default-color: var(--dm-color-gray);
               }
               > .dm-post-item-date {
                 > svg {
-                  @include svg-color( var( --dm-color-gray ) );
+                  @include svg-color(var(--dm-color-gray));
                 }
                 > span {
-                  --dm-text-extra-small-color: var( --dm-color-gray );
+                  --dm-text-extra-small-color: var(--dm-color-gray);
                 }
               }
             }
           }
-          >.dm-post-item-image {
-            border: 1px solid rgba(var( --dm-color-black-rgb ), 0.3);
+          > .dm-post-item-image {
+            border: 1px solid rgba(var(--dm-color-black-rgb), 0.3);
           }
           &.dm-post-item-web {
             > .dm-post-item-details {
               > .dm-post-web-data {
                 > .dm-post-item-website {
-                  --dm-text-extra-small-color: var( --dm-color-gray );
+                  --dm-text-extra-small-color: var(--dm-color-gray);
                 }
               }
             }
@@ -446,45 +464,45 @@ body.theme-dark {
 
           > .dm-post-item-details {
             > .dm-post-item-title {
-              --dm-text-default-color: var( --dm-color-white );
-              --dm-text-medium-color: var( --dm-color-white );
+              --dm-text-default-color: var(--dm-color-white);
+              --dm-text-medium-color: var(--dm-color-white);
 
               &:hover {
-                --dm-text-default-color: var( --dm-color-highlight-primary );
+                --dm-text-default-color: var(--dm-color-highlight-primary);
               }
             }
             > .dm-post-item-description {
-              --dm-text-small-color: var( --dm-color-white );
+              --dm-text-small-color: var(--dm-color-white);
             }
             > .dm-post-item-heading {
               > .dm-post-item-title {
-                --dm-text-default-color: var( --dm-color-white );
+                --dm-text-default-color: var(--dm-color-white);
 
                 &:hover {
-                  --dm-text-default-color: var( --dm-color-highlight-primary );
+                  --dm-text-default-color: var(--dm-color-highlight-primary);
                 }
               }
               > .dm-post-item-date {
                 > svg {
-                  @include svg-color( var( --dm-color-white ) );
+                  @include svg-color(var(--dm-color-white));
                 }
                 > span {
-                  --dm-text-extra-small-color: var( --dm-color-white );
+                  --dm-text-extra-small-color: var(--dm-color-white);
                 }
               }
             }
           }
-          >.dm-post-item-image {
-            border: 1px solid rgba(var( --dm-color-white-rgb ), 0.3);
+          > .dm-post-item-image {
+            border: 1px solid rgba(var(--dm-color-white-rgb), 0.3);
           }
           &.dm-post-item-web {
             > .dm-post-item-details {
               > .dm-post-web-data {
                 > .dm-post-item-website {
-                  --dm-text-extra-small-color: var( --dm-color-white );
+                  --dm-text-extra-small-color: var(--dm-color-white);
 
                   > svg {
-                    @include svg-color( var( --dm-color-highlight-primary ) );
+                    @include svg-color(var(--dm-color-highlight-primary));
                   }
                 }
               }

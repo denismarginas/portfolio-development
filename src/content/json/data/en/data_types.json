@@ -22,8 +22,14 @@
     "types": {
       "jobs": { "singular": "Job", "plural": "Jobs" },
       "education": { "singular": "Education", "plural": "Education" },
+      "resume": { "singular": "Resume", "plural": "Resumes" },
       "games": { "singular": "Game", "plural": "Games" },
-      "socials": { "singular": "Social", "plural": "Socials" }
+      "socials": { "singular": "Social", "plural": "Socials" },
+      "videos": { "singular": "Video", "plural": "Videos" },
+      "filters_projects": {
+        "singular": "Filter Projects",
+        "plural": "Filters Projects"
+      }
     }
   }
 }

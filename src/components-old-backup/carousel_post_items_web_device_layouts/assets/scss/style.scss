@@ -1,7 +1,6 @@
 @import "functions/mixins.scss";
 @import "functions/functions.scss";
 
-
 .carousel-list-devices {
   @include reset-list();
   @include flex-row();
@@ -18,7 +17,7 @@
 
       > .device-layout-laptop {
         @include flex-center();
-        @include fix-width( var( --carousel-item-size ) );
+        @include fix-width(var(--carousel-item-size));
         width: 500px;
         height: 400px;
         position: relative;
@@ -27,7 +26,7 @@
           @include flex-center();
           align-items: flex-start;
           overflow: hidden;
-          background-color: var( --dm-color-white );
+          background-color: var(--dm-color-white);
           position: absolute;
           top: 12.5%;
           bottom: 28%;
@@ -40,7 +39,7 @@
             height: auto;
           }
           > .shadow-color {
-            content: '';
+            content: "";
             z-index: 1;
             position: absolute;
             top: 60%;
@@ -51,9 +50,9 @@
             filter: blur(18px);
           }
           &:before {
-            content: '';
+            content: "";
             z-index: 1;
-            background-color: var( --dm-color-white );
+            background-color: var(--dm-color-white);
             transform: rotate(40deg);
             margin-right: -195%;
             position: absolute;
@@ -83,11 +82,11 @@
         max-height: 80%;
 
         > .screen {
-          @include border-radius( 8% );
+          @include border-radius(8%);
           @include flex-center();
           align-items: flex-start;
           overflow: hidden;
-          background-color: var( --dm-color-white );
+          background-color: var(--dm-color-white);
           position: absolute;
           left: 12%;
           right: 12%;
@@ -101,7 +100,7 @@
             height: auto;
           }
           > .shadow-color {
-            content: '';
+            content: "";
             z-index: 1;
             position: absolute;
             top: 60%;
@@ -112,9 +111,9 @@
             filter: blur(18px);
           }
           &:before {
-            content: '';
+            content: "";
             z-index: 1;
-            background-color: var( --dm-color-white );
+            background-color: var(--dm-color-white);
             transform: rotate(50deg);
             margin-right: -495%;
             margin-top: -100%;

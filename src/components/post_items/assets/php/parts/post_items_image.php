@@ -1,8 +1,8 @@
 <?php
 
-trait post_items_image
+class post_items_image extends post_items_value
 {
-    protected static function render_image_link(array $post, array $context, string $title, string $link): string
+    public static function render_image_link(array $post, array $context, string $title, string $link): string
     {
         $mediaPath = (string)self::value_at($post, $context['media_path_param'] ?? ['data', 'media', 'path']);
         if ($mediaPath === '') return '';
@@ -23,7 +23,7 @@ trait post_items_image
         ]);
     }
 
-    protected static function resolve_image_file(string $dir, string $base): string
+    public static function resolve_image_file(string $dir, string $base): string
     {
         $root = defined('ENGINE_PROJECT_ROOT') ? ENGINE_PROJECT_ROOT . '/' : '';
         $exact = $dir . $base . '.webp';
@@ -35,3 +35,5 @@ trait post_items_image
         return $file;
     }
 }
+
+

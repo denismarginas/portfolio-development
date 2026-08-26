@@ -1,8 +1,8 @@
 <?php
 
-trait post_items_value
+class post_items_value
 {
-    protected static function value_at(array $data, mixed $path): ?string
+    public static function value_at(array $data, mixed $path): ?string
     {
         if (!is_array($path)) return null;
         $value = $data;
@@ -13,7 +13,7 @@ trait post_items_value
         return is_string($value) ? $value : null;
     }
 
-    protected static function mixed_at(array $data, array $path): mixed
+    public static function mixed_at(array $data, array $path): mixed
     {
         $value = $data;
         foreach ($path as $segment) {
@@ -23,7 +23,7 @@ trait post_items_value
         return $value;
     }
 
-    protected static function resolve_template_value(mixed $value, array $context): mixed
+    public static function resolve_template_value(mixed $value, array $context): mixed
     {
         if (is_array($value)) {
             if (isset($value['component']) && is_string($value['component'])) {
@@ -46,7 +46,7 @@ trait post_items_value
         return self::resolve_token($trimmed, $context);
     }
 
-    protected static function resolve_component_value(array $spec, array $context): mixed
+    public static function resolve_component_value(array $spec, array $context): mixed
     {
         $component = (string) ($spec['component'] ?? '');
         $rawParams = $spec['params'] ?? $spec['data'] ?? [];
@@ -62,7 +62,7 @@ trait post_items_value
         return PlatformComponentRenderer::value($component, $params);
     }
 
-    protected static function concat_value(string $value, array $context): ?string
+    public static function concat_value(string $value, array $context): ?string
     {
         $parts = preg_split('/\s*\+(?=\s*|$)/', $value, -1, PREG_SPLIT_NO_EMPTY);
         $out = '';
@@ -76,7 +76,7 @@ trait post_items_value
         return $out;
     }
 
-    protected static function resolve_token(string $token, array $context): mixed
+    public static function resolve_token(string $token, array $context): mixed
     {
         $len = strlen($token);
         if ($token !== '' && ($token[0] === '"' && $token[$len - 1] === '"' || $token[0] === "'" && $token[$len - 1] === "'") && $len >= 2) {
@@ -101,7 +101,7 @@ trait post_items_value
         return $token;
     }
 
-    protected static function resolve_ref(string $ref, array $context): mixed
+    public static function resolve_ref(string $ref, array $context): mixed
     {
         if ($ref === 'post_id' || $ref === '_id') {
             return (string) ($context['post_id'] ?? '');
@@ -121,3 +121,5 @@ trait post_items_value
         return $ref;
     }
 }
+
+

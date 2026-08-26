@@ -1,3 +1,5 @@
+@import "theme";
+
 .card {
   display: flex;
   flex-direction: column;
@@ -95,9 +97,12 @@
   }
 }
 
-.card-outline {
-  background: transparent;
-  border: 2px solid var(--dm-color-gray);
-  border-radius: var(--dm-radius-sm);
-  box-shadow: none;
+.card-md {
+  gap: var(--dm-spacing-md);
+  padding: var(--dm-spacing-md);
+
+  @media (max-width: $dm-screen-md) {
+    padding: var(--dm-spacing-sm);
+    gap: var(--dm-spacing-sm);
+  }
 }

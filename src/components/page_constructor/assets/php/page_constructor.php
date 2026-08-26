@@ -2,10 +2,8 @@
 
 require_once __DIR__ . '/page_constructor_seo.php';
 
-class page_constructor
+class page_constructor extends page_constructor_seo
 {
-    use page_constructor_seo;
-
     public static function render(array $data = []): string
     {
         $bodyContent = $data['body_content'] ?? $data['content'] ?? $data['children_html'] ?? '';
@@ -45,25 +43,28 @@ class page_constructor
 
         $footerContent = PlatformComponentRenderer::render('footer');
 
-        $template = file_get_contents(__DIR__ . '/../html/template.html');
-        return str_replace(
-            [
-                '{{ lang_iso }}',
-                '{{ body_mode }}',
-                '{{ seo_fields }}', '{{ component_asset_tags }}',
-                '{{ header_content }}',
-                '{{ main_content }}',
-                '{{ footer_content }}'
-            ],
-            [
-                $langIso,
-                $defaultMode,
-                $seoFields, $assetTags,
-                $headerContent,
-                $mainContent,
-                $footerContent
-            ],
-            $template
-        );
+        PlatformComponentRenderer::mark_used('overlay_noise');
+        PlatformComponentRenderer::mark_used('animation_grid_background');
+        $overlayNoise = PlatformComponentRenderer::render('overlay_noise');
+        $animationGridBackground = PlatformComponentRenderer::render('animation_grid_background');
+
+        $themeModeInit = '';
+        $themeModeInitPath = __DIR__ . '/../js/theme_mode_init.js';
+        if (file_exists($themeModeInitPath)) {
+            $themeModeInit = file_get_contents($themeModeInitPath);
+        }
+
+        return PlatformTemplateRenderer::render([
+            'lang_iso' => $langIso,
+            'body_mode' => $defaultMode,
+            'seo_fields' => $seoFields,
+            'component_asset_tags' => $assetTags,
+            'overlay_noise' => $overlayNoise,
+            'animation_grid_background' => $animationGridBackground,
+            'theme_mode_init' => $themeModeInit,
+            'header_content' => $headerContent,
+            'main_content' => $mainContent,
+            'footer_content' => $footerContent,
+        ]);
     }
 }

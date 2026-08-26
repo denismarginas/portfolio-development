@@ -1,8 +1,12 @@
 <?php
 
-PlatformPathService::load_php_dir(__DIR__ . '/parts/');
+require_once __DIR__ . '/parts/header_heading.php';
+require_once __DIR__ . '/parts/header_theme_toggle.php';
+require_once __DIR__ . '/parts/header_search_button.php';
+require_once __DIR__ . '/parts/header_menu.php';
+require_once __DIR__ . '/parts/header_logo.php';
+require_once __DIR__ . '/parts/header_render.php';
 
-class header
+class header extends header_render
 {
-    use header_render, header_logo, header_menu, header_search_button, header_theme_toggle, header_heading;
 }

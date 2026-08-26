@@ -1,8 +1,8 @@
 <?php
 
-trait card_media
+class card_media extends card_meta
 {
-    protected static function render_media(array $data, array $postData, string $title, string $link): string
+    public static function render_media(array $data, array $postData, string $title, string $link): string
     {
         $src = self::resolve_text_field($data, $postData, 'image');
         if ($src === '') return '';
@@ -25,7 +25,7 @@ trait card_media
         ]);
     }
 
-    protected static function render_title(string $title, string $link): string
+    public static function render_title(string $title, string $link): string
     {
         if ($title === '') return '';
         $escaped = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
@@ -40,3 +40,4 @@ trait card_media
         ]);
     }
 }
+

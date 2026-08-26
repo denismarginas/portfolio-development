@@ -1,6 +1,12 @@
 (function() {
     'use strict';
 })();
+(function() {
+    'use strict';
+})();
+(function() {
+    'use strict';
+})();
 
 (function () {
   const SCROLL_THRESHOLD = 200;
@@ -176,3 +182,55 @@ class Hero {
 
 window.Hero = window.Hero || Hero;
 
+(function () {
+    'use strict';
+
+    var mode = null;
+    try {
+        var saved = localStorage.getItem("dm_mode_value");
+        if (saved === "dark" || saved === "light") {
+            mode = saved;
+        }
+    } catch (e) { }
+
+    if (!mode) {
+        mode = document.body.getAttribute("mode") === "dark" ? "dark" : "light";
+    }
+
+    document.body.setAttribute("mode", mode);
+
+    var toggle = document.querySelector(".header-theme-mode-toggle");
+    if (toggle) {
+        toggle.setAttribute("data-mode", mode);
+        var input = toggle.querySelector(".header-theme-mode-toggle-input");
+        if (input) input.checked = mode === "dark";
+        var icons = toggle.querySelectorAll(".header-theme-mode-toggle-icon");
+        for (var i = 0; i < icons.length; i++) {
+            icons[i].setAttribute("active", icons[i].getAttribute("theme-style") === mode ? "true" : "false");
+        }
+    }
+})();
+class Svg {
+  static render({ svg = '', icon = '', icons = {}, className = 'svg-icon' } = {}) {
+    let markup = svg;
+
+    if (!markup && icon) {
+      markup = icons[icon] || icons[icon.replace(/-/g, '_')] || icons[icon.replace(/_/g, '-')] || '';
+    }
+
+    if (!markup) return null;
+
+    const template = document.createElement('template');
+    template.innerHTML = markup.trim();
+
+    const svgEl = template.content.querySelector('svg');
+    if (!svgEl) return null;
+
+    svgEl.classList.add(className);
+    svgEl.setAttribute('aria-hidden', 'true');
+
+    return svgEl;
+  }
+}
+
+window.Svg = window.Svg || Svg;

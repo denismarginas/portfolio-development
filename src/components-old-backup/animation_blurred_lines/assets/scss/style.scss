@@ -13,8 +13,8 @@
     position: absolute;
     width: 0px;
     opacity: 0.5;
-    background-color: var( --dm-color-white );
-    box-shadow: var( --dm-color-white ) 0px 0px 20px 2px;
+    background-color: var(--dm-color-white);
+    box-shadow: var(--dm-color-white) 0px 0px 20px 2px;
     top: 100vh;
     bottom: 0px;
     left: 0px;
@@ -23,7 +23,7 @@
 
     &:nth-child(1) {
       animation: floatUp 4s infinite linear;
-      transform: scale(1.0);
+      transform: scale(1);
     }
 
     &:nth-child(2) {
@@ -34,7 +34,7 @@
 
     &:nth-child(3) {
       animation: floatUp 2.5s infinite linear;
-      transform: scale(.5);
+      transform: scale(0.5);
       left: -15%;
     }
 
@@ -52,7 +52,7 @@
 
     &:nth-child(6) {
       animation: floatUp 3s infinite linear;
-      transform: scale(.8);
+      transform: scale(0.8);
       left: -81%;
     }
 
@@ -77,9 +77,22 @@
 }
 
 @keyframes floatUp {
-  0% {top: 100vh; opacity: 0;}
-  25% {opacity: 1;}
-  50% {top: 0vh; opacity: 0.3;}
-  75% {opacity: 0.4;}
-  100% {top: -100vh; opacity: 0;}
+  0% {
+    top: 100vh;
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    top: 0vh;
+    opacity: 0.3;
+  }
+  75% {
+    opacity: 0.4;
+  }
+  100% {
+    top: -100vh;
+    opacity: 0;
+  }
 }

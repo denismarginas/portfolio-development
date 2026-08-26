@@ -20,7 +20,7 @@ header {
       outline: 1px solid var(--dm-color-gray-light);
       box-shadow: 1px 2px 5px
         color-mix(in srgb, var(--dm-color-black) 40%, transparent);
-      transition: all 0.3s ease-in-out;
+      transition: var(--dm-transition);
       background: var(--dm-color-primary);
       background-image: linear-gradient(
         var(--dm-color-primary),
@@ -56,7 +56,7 @@ header {
         position: absolute;
         top: 4px;
         left: -3px;
-        transition: all 0.3s ease-in-out;
+        transition: var(--dm-transition);
       }
     }
 
@@ -138,8 +138,8 @@ header {
           width: 65px;
           height: 65px;
           top: 2px;
-          left: -12.5px;
-          transition: all 0.3s ease-in-out;
+          left: -11.5px;
+          transition: var(--dm-transition);
         }
       }
     }

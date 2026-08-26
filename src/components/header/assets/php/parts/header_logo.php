@@ -1,8 +1,8 @@
 <?php
 
-trait header_logo
+class header_logo extends header_menu
 {
-    protected static function render_logo(array $settings): string
+    public static function render_logo(array $settings): string
     {
         $siteTitle = (string) ($settings['site_title'] ?? '');
         $logoImg = (string) ($settings['logo']['site_logo_img'] ?? '');
@@ -55,7 +55,7 @@ trait header_logo
         ]);
     }
 
-    protected static function resolve_logo_img(string $logoImg): string
+    public static function resolve_logo_img(string $logoImg): string
     {
         if ($logoImg === '') {
             return '';
@@ -81,3 +81,5 @@ trait header_logo
         return '';
     }
 }
+
+

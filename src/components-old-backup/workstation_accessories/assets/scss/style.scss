@@ -13,15 +13,17 @@
     overflow: hidden;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: var( --dm-spacing-medium );
-    padding: var( --dm-spacing-small ) var( --dm-spacing-large );
+    gap: var(--dm-spacing-medium);
+    padding: var(--dm-spacing-small) var(--dm-spacing-large);
     align-items: start;
   }
   .visual {
     @include flex-row();
     @include flex-center();
 
-    img, svg, .slider > .slider-wrapper > .slider-container .slider-element > img {
+    img,
+    svg,
+    .slider > .slider-wrapper > .slider-container .slider-element > img {
       box-sizing: border-box;
       width: 100%;
       max-width: 100%;
@@ -38,20 +40,20 @@
     .card-bg {
       @include flex-row();
       @include flex-center();
-      @include border-radius( var( --dm-border-radius-primary ));
+      @include border-radius(var(--dm-border-radius-primary));
       overflow: hidden;
       position: relative;
-      background-color: var( --w-color-primary );
+      background-color: var(--w-color-primary);
       background-image: radial-gradient(
-          var(--w-color-primary) 0%,
-          var(--w-color-secondary) 100%
+        var(--w-color-primary) 0%,
+        var(--w-color-secondary) 100%
       );
       width: 100%;
       height: 100%;
-      padding: var( --dm-spacing-secondary );
+      padding: var(--dm-spacing-secondary);
 
       svg {
-        @include svg-color( var( --w-text-color-on-bg ) );
+        @include svg-color(var(--w-text-color-on-bg));
         padding: 10%;
         object-fit: contain;
         object-position: center;
@@ -62,33 +64,33 @@
   }
   .title {
     @include dm-font-heading4();
-    --dm-text-heading4-font-family: var( --w-title-font );
+    --dm-text-heading4-font-family: var(--w-title-font);
     font-weight: 600;
     text-transform: uppercase;
   }
   .text {
     @include dm-font-medium();
-    --dm-text-medium-font-family: var( --w-text-font );
+    --dm-text-medium-font-family: var(--w-text-font);
   }
   .product-list {
     @include reset-list();
     display: grid;
     grid-template-columns: repeat(4, 4fr);
-    gap: var( --dm-spacing-primary );
+    gap: var(--dm-spacing-primary);
   }
   .summary {
     @include flex-column();
-    gap: var( --dm-spacing-secondary );
+    gap: var(--dm-spacing-secondary);
   }
   .slider {
-    @include border-radius( var( --dm-border-radius-primary ));
+    @include border-radius(var(--dm-border-radius-primary));
     width: 100%;
     box-sizing: border-box;
     overflow: hidden;
-    background-color: var( --w-color-primary );
+    background-color: var(--w-color-primary);
     background-image: radial-gradient(
-        var(--w-color-primary) 0%,
-        var(--w-color-secondary) 100%
+      var(--w-color-primary) 0%,
+      var(--w-color-secondary) 100%
     );
 
     > .slider-container {
@@ -100,37 +102,38 @@
         }
         > .number-text {
           @include dm-font-extra-small();
-          --dm-text-extra-small-color: var(  --w-text-color-on-bg );
-          background-color: var( --w-color-secondary );
+          --dm-text-extra-small-color: var(--w-text-color-on-bg);
+          background-color: var(--w-color-secondary);
           opacity: 0.8;
         }
       }
     }
-    .prev, .next {
+    .prev,
+    .next {
       opacity: 0.6;
-      color: var( --w-text-color-on-bg );
-      background-color: var( --w-color-secondary );
+      color: var(--w-text-color-on-bg);
+      background-color: var(--w-color-secondary);
 
       &:hover {
         opacity: 1;
-        color: var( --w-text-color-on-bg );
-        background-color: var( --w-color-secondary );
+        color: var(--w-text-color-on-bg);
+        background-color: var(--w-color-secondary);
       }
     }
   }
   .enumeration {
     @include reset-list();
     @include flex-column();
-    gap: var( --dm-spacing-primary );
+    gap: var(--dm-spacing-primary);
 
     > li {
       @include flex-row();
-      gap: calc(var( --dm-spacing-primary) / 2);
+      gap: calc(var(--dm-spacing-primary) / 2);
 
       > svg {
-        @include border-radius( 50% );
-        @include svg-color(var( --w-text-color-on-bg ));
-        background-color: var( --w-color-primary );
+        @include border-radius(50%);
+        @include svg-color(var(--w-text-color-on-bg));
+        background-color: var(--w-color-primary);
         box-sizing: border-box;
         object-position: center;
         object-fit: contain;
@@ -140,7 +143,7 @@
       }
     }
   }
-  @media only screen and (max-width: $screen-desktop-medium ) {
+  @media only screen and (max-width: $screen-desktop-medium) {
     .product-list {
       grid-template-columns: repeat(3, 3fr);
     }
@@ -154,7 +157,7 @@
       }
     }
   }
-  @media only screen and (max-width: $screen-tablet-small ) {
+  @media only screen and (max-width: $screen-tablet-small) {
     .product-list {
       grid-template-columns: repeat(2, 2fr);
     }
@@ -168,15 +171,16 @@
       }
     }
   }
-  @media only screen and (max-width: $screen-phone-large ) {
+  @media only screen and (max-width: $screen-phone-large) {
     .visual {
-      img, svg {
+      img,
+      svg {
         height: 240px;
       }
     }
     .title {
       @include dm-font-heading5();
-      --dm-text-heading5-font-family: var( --w-title-font );
+      --dm-text-heading5-font-family: var(--w-title-font);
     }
   }
   &[data-grid="2/1"] {
@@ -191,8 +195,8 @@
   }
   @media only screen and (max-width: $screen-desktop-small) {
     > ul {
-      padding: var( --dm-spacing-tertiary);
-      gap: var( --dm-spacing-tertiary );
+      padding: var(--dm-spacing-tertiary);
+      gap: var(--dm-spacing-tertiary);
     }
   }
   @media only screen and (max-width: $screen-tablet-large) {
@@ -202,8 +206,8 @@
   }
   @media only screen and (max-width: $screen-tablet-medium) {
     > ul {
-      padding: var( --dm-spacing-secondary);
-      gap: var( --dm-spacing-secondary );
+      padding: var(--dm-spacing-secondary);
+      gap: var(--dm-spacing-secondary);
     }
     .product-list {
       grid-template-columns: repeat(2, 2fr);
@@ -216,19 +220,20 @@
   }
 }
 
-body, body.theme-light {
+body,
+body.theme-light {
   .dm-workstation-content {
     .title {
-      --dm-text-heading4-color: var( --dm-color-gray-darken );
-      --dm-text-heading5-color: var( --dm-color-gray-darken );
+      --dm-text-heading4-color: var(--dm-color-gray-darken);
+      --dm-text-heading5-color: var(--dm-color-gray-darken);
     }
     .text {
       @include dm-font-medium();
-      --dm-text-medium-color: var( --dm-color-gray );
+      --dm-text-medium-color: var(--dm-color-gray);
     }
     .visual {
       svg {
-        @include svg-color(var( --w-color-secondary ));
+        @include svg-color(var(--w-color-secondary));
       }
     }
   }
@@ -236,16 +241,16 @@ body, body.theme-light {
 body.theme-dark {
   .dm-workstation-content {
     .title {
-      --dm-text-heading4-color: var( --dm-color-white );
-      --dm-text-heading5-color: var( --dm-color-white );
+      --dm-text-heading4-color: var(--dm-color-white);
+      --dm-text-heading5-color: var(--dm-color-white);
     }
     .text {
       @include dm-font-medium();
-      --dm-text-medium-color: var( --dm-color-white );
+      --dm-text-medium-color: var(--dm-color-white);
     }
     .visual {
       svg {
-        @include svg-color(var( --w-color-primary ));
+        @include svg-color(var(--w-color-primary));
       }
     }
   }

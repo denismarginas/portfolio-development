@@ -3,10 +3,13 @@
 
 .dm-hobby-list {
   @include padding-x();
-  background-color: var( ---dm-color-primary   );
-  background: radial-gradient(var( --dm-color-primary ), var( --dm-color-secondary ) );
-  padding-top: var( --dm-spacing-medium );
-  padding-bottom: var( --dm-spacing-medium );
+  background-color: var(---dm-color-primary);
+  background: radial-gradient(
+    var(--dm-color-primary),
+    var(--dm-color-secondary)
+  );
+  padding-top: var(--dm-spacing-medium);
+  padding-bottom: var(--dm-spacing-medium);
   overflow: hidden;
   position: relative;
 
@@ -14,12 +17,12 @@
     z-index: 1;
     display: flex;
     flex-direction: column;
-    gap: var( --dm-spacing-small );
+    gap: var(--dm-spacing-small);
 
     > h4 {
       @include dm-font-heading1();
-      --dm-text-heading1-font-family: var( --dm-font-family-secondary );
-      --dm-text-heading1-color: var( --dm-color-white );
+      --dm-text-heading1-font-family: var(--dm-font-family-secondary);
+      --dm-text-heading1-color: var(--dm-color-white);
       text-align: center;
     }
 
@@ -29,20 +32,20 @@
       grid-template-columns: repeat(4, 4fr);
       align-items: center;
       justify-content: center;
-      gap: var( --dm-spacing-tertiary );
+      gap: var(--dm-spacing-tertiary);
     }
   }
 
   @media only screen and (max-width: $screen-desktop-medium) {
     > container {
       > ul {
-        gap: var( --dm-spacing-secondary )
+        gap: var(--dm-spacing-secondary);
       }
     }
   }
   @media only screen and (max-width: $screen-tablet-large) {
-    padding-top: var( --dm-spacing-tertiary );
-    padding-bottom: var( --dm-spacing-tertiary );
+    padding-top: var(--dm-spacing-tertiary);
+    padding-bottom: var(--dm-spacing-tertiary);
 
     > container {
       > ul {
@@ -53,7 +56,7 @@
   @media only screen and (max-width: $screen-tablet-small) {
     > container {
       > ul {
-        gap: var( --dm-spacing-primary );
+        gap: var(--dm-spacing-primary);
       }
     }
   }
@@ -61,8 +64,8 @@
     > container {
       > h4 {
         @include dm-font-heading3();
-        --dm-text-heading3-font-family: var( --dm-font-family-secondary );
-        --dm-text-heading3-color: var( --dm-color-white );
+        --dm-text-heading3-font-family: var(--dm-font-family-secondary);
+        --dm-text-heading3-color: var(--dm-color-white);
       }
     }
   }
@@ -77,11 +80,11 @@
 
 .dm-hobby-item {
   @include flex-center();
-  @include border-radius( var( --dm-border-radius-primary ) );
+  @include border-radius(var(--dm-border-radius-primary));
   flex-direction: column;
-  border: 2px solid var(  --dm-color-white );
-  padding: var( --dm-spacing-secondary );
-  gap: var( --dm-spacing-secondary );
+  border: 2px solid var(--dm-color-white);
+  padding: var(--dm-spacing-secondary);
+  gap: var(--dm-spacing-secondary);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -98,38 +101,38 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var( --dm-color-secondary );
+    background-color: var(--dm-color-secondary);
     opacity: 0.6;
-    transition: all 0.3s ease-in-out;
+    transition: var(--dm-transition);
   }
   &:hover {
     &:before {
-      background-color: var( --dm-color-secondary );
+      background-color: var(--dm-color-secondary);
       opacity: 0.85;
-      transition: all 0.3s ease-in-out;
+      transition: var(--dm-transition);
     }
     > .name {
       text-shadow: 3px 3px 10px rgba(var(--dm-color-black-rgb), 0.5);
     }
     > .icon {
-      filter: drop-shadow(5px 5px 6px var( --dm-color-gray ));
-      background-color: rgba( var( --dm-color-gray-darken-rgb ),0.8 );
-      transition: all 0.3s ease-in-out;
+      filter: drop-shadow(5px 5px 6px var(--dm-color-gray));
+      background-color: rgba(var(--dm-color-gray-darken-rgb), 0.8);
+      transition: var(--dm-transition);
     }
   }
   > .icon {
     @include flex-center();
     z-index: 1;
-    padding: var( --dm-spacing-secondary );
+    padding: var(--dm-spacing-secondary);
     border-radius: 50%;
     width: 80px;
     height: 80px;
-    filter: drop-shadow(0px 0px 0px var( --dm-color-gray ));
-    background-color: rgba( var( --dm-color-gray-darken-rgb ),0.4 );
-    transition: all 0.3s ease-in-out;
+    filter: drop-shadow(0px 0px 0px var(--dm-color-gray));
+    background-color: rgba(var(--dm-color-gray-darken-rgb), 0.4);
+    transition: var(--dm-transition);
 
     > svg {
-      @include svg-color( var( --dm-color-white ) );
+      @include svg-color(var(--dm-color-white));
       width: 80px;
       height: auto;
       max-width: 100%;
@@ -137,12 +140,11 @@
   }
   > .name {
     @include dm-font-large();
-    --dm-font-family: 'Matricode';
-    --dm-text-large-color: var( --dm-color-white );
+    --dm-font-family: "Matricode";
+    --dm-text-large-color: var(--dm-color-white);
     font-weight: 500;
     text-align: center;
     z-index: 1;
-
   }
   @media only screen and (max-width: $screen-phone-large) {
     > .icon {
@@ -151,7 +153,7 @@
     }
     > .name {
       @include dm-font-big();
-      --dm-text-big-color: var( --dm-color-white );
+      --dm-text-big-color: var(--dm-color-white);
     }
   }
 }

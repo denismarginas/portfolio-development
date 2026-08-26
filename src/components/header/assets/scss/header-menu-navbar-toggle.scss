@@ -12,7 +12,7 @@ header {
     border-color: var(--dm-color-transparent);
     border-radius: 50%;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: var(--dm-transition);
 
     > svg {
       width: 24px;

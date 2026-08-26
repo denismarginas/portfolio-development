@@ -3,10 +3,13 @@
 
 .dm-web-development-description {
   @include padding-x();
-  background-color: var( ---dm-color-primary   );
-  background: radial-gradient(var( --dm-color-primary ), var( --dm-color-secondary ) );
-  padding-top: var( --dm-spacing-medium );
-  padding-bottom: var( --dm-spacing-medium );
+  background-color: var(---dm-color-primary);
+  background: radial-gradient(
+    var(--dm-color-primary),
+    var(--dm-color-secondary)
+  );
+  padding-top: var(--dm-spacing-medium);
+  padding-bottom: var(--dm-spacing-medium);
   overflow: hidden;
   position: relative;
 
@@ -19,23 +22,23 @@
       grid-template-columns: 2fr 3fr 2fr;
       align-items: center;
       justify-content: center;
-      gap: var( --dm-spacing-tertiary );
+      gap: var(--dm-spacing-tertiary);
 
       > li {
         display: grid;
-        gap: var( --dm-spacing-medium );
+        gap: var(--dm-spacing-medium);
 
         > .dm-description-item {
           display: grid;
-          gap: var( --dm-spacing-primary );
+          gap: var(--dm-spacing-primary);
 
           > h3 {
             @include dm-font-heading3();
-            --dm-text-heading3-color: var( --dm-color-white );
+            --dm-text-heading3-color: var(--dm-color-white);
           }
           > p {
             @include dm-font-default();
-            --dm-text-default-color: var( --dm-color-white );
+            --dm-text-default-color: var(--dm-color-white);
           }
         }
         .dm-web-responsive {
@@ -56,14 +59,18 @@
             max-width: 25%;
             bottom: -4%;
             left: 0%;
-            transition: left 0.6s, bottom 0.3s;
+            transition:
+              left 0.6s,
+              bottom 0.3s;
           }
           .dm-tablet-responsive {
             position: absolute;
             max-width: 60%;
             bottom: -1%;
             right: 0%;
-            transition: right 0.6s, bottom 0.3s;
+            transition:
+              right 0.6s,
+              bottom 0.3s;
           }
           .dm-laptop-responsive {
             max-width: 100%;
@@ -75,12 +82,16 @@
             .dm-phone-responsive {
               left: -1%;
               bottom: 3%;
-              transition: left 0.6s, bottom 0.3s;
+              transition:
+                left 0.6s,
+                bottom 0.3s;
             }
             .dm-tablet-responsive {
               right: 30%;
               bottom: 5%;
-              transition: right 0.6s, bottom 0.3s;
+              transition:
+                right 0.6s,
+                bottom 0.3s;
             }
           }
         }
@@ -117,11 +128,11 @@
           > .dm-description-item {
             > h3 {
               @include dm-font-heading5();
-              --dm-text-heading5-color: var( --dm-color-white );
+              --dm-text-heading5-color: var(--dm-color-white);
             }
             > p {
               @include dm-font-medium();
-              --dm-text-medium-color: var( --dm-color-white );
+              --dm-text-medium-color: var(--dm-color-white);
             }
           }
         }

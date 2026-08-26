@@ -8,12 +8,12 @@
   overflow: hidden;
   position: relative;
 
-  >container {
+  > container {
     z-index: 1;
     display: flex;
     flex-direction: column;
 
-    >ul {
+    > ul {
       @include reset-list();
       display: flex;
       flex-direction: row;
@@ -49,7 +49,7 @@
       bottom: 0;
       padding: 5px 4px;
       background-color: rgba(var(--dm-color-gray-darken-rgb), 0.7);
-      transition: all 0.3s ease-in-out;
+      transition: var(--dm-transition);
     }
   }
 
@@ -60,11 +60,11 @@
     gap: 4px;
     align-items: center;
 
-    >span {
+    > span {
       @include dm-font-medium();
       --dm-text-medium-color: var(--dm-color-white);
       --dm-text-medium-font-weight: 300;
-      --dm-text-medium-line-height: var( --dm-text-extra-small-font-size);
+      --dm-text-medium-line-height: var(--dm-text-extra-small-font-size);
       opacity: 0;
       transform: rotate(100deg) scale(0.8) translateY(6px);
       transition: all 0.2s ease-in-out;
@@ -78,7 +78,7 @@
     gap: 4px;
     align-items: center;
 
-    >span {
+    > span {
       @include dm-font-extra-small();
       --dm-text-extra-small-color: var(--dm-color-white);
       --dm-text-extra-small-font-weight: 400;
@@ -117,19 +117,21 @@
     top: 0px;
     right: 0px;
     bottom: 0px;
-    background: linear-gradient(to bottom right,
-        rgba(var(--dm-color-secondary-rgb), 0.7) 20%,
-        rgba(var(--dm-color-primary-rgb), 0) 100%);
+    background: linear-gradient(
+      to bottom right,
+      rgba(var(--dm-color-secondary-rgb), 0.7) 20%,
+      rgba(var(--dm-color-primary-rgb), 0) 100%
+    );
     padding: 6px 9px;
     display: flex;
     flex-direction: column;
     gap: 6px;
     background-color: rgba(var(--dm-color-gray-darken-rgb), 0);
-    transition: all 0.3s ease-in-out;
+    transition: var(--dm-transition);
 
-    >div {
+    > div {
       opacity: 0.4;
-      transition: all 0.3s ease-in-out;
+      transition: var(--dm-transition);
     }
 
     svg {
@@ -139,9 +141,9 @@
     }
 
     &:hover {
-      >div {
+      > div {
         opacity: 1;
-        transition: all 0.3s ease-in-out;
+        transition: var(--dm-transition);
       }
     }
   }
@@ -151,7 +153,7 @@
     flex-wrap: wrap;
     gap: 4px;
     opacity: 0;
-    transition: all 0.3s ease-in-out;
+    transition: var(--dm-transition);
   }
 
   summary {
@@ -159,7 +161,7 @@
     cursor: pointer;
     list-style: none;
 
-    >svg {
+    > svg {
       &:hover {
         @include svg-color(var(--dm-link-color-primary));
       }
@@ -190,11 +192,11 @@
   &:hover {
     .details-box {
       background-color: rgba(var(--dm-color-gray-darken-rgb), 0.3);
-      transition: all 0.3s ease-in-out;
+      transition: var(--dm-transition);
     }
 
     .rank {
-      >span {
+      > span {
         opacity: 1;
         transform: rotate(0deg) scale(1) translateY(0px);
         transition: all 0.2s ease-in-out;
@@ -202,7 +204,7 @@
     }
 
     .playtime {
-      >span {
+      > span {
         opacity: 1;
         transform: rotate(0deg) scale(1) translateY(0px);
         transition: all 0.2s ease-in-out;
@@ -212,12 +214,12 @@
     .name {
       &.inside {
         opacity: 1;
-        transition: all 0.3s ease-in-out;
+        transition: var(--dm-transition);
       }
     }
     details {
       opacity: 1;
-      transition: all 0.3s ease-in-out;
+      transition: var(--dm-transition);
     }
     svg {
       opacity: 1;
@@ -236,17 +238,17 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 5px;
-  padding-bottom: var( --dm-spacing-primary );
+  padding-bottom: var(--dm-spacing-primary);
 
   > select {
-      @include dm-font-extra-small();
-      box-sizing: border-box;
-      padding: 5px 12px;
-      --dm-font-family: var(--dm-font-family-primary);
-      --dm-text-extra-small-color: var(--dm-color-gray-darken);
-      background-color: var(--dm-color-white);
-      --dm-text-extra-small-font-weight: 400;
-      border-radius: 4px;
+    @include dm-font-extra-small();
+    box-sizing: border-box;
+    padding: 5px 12px;
+    --dm-font-family: var(--dm-font-family-primary);
+    --dm-text-extra-small-color: var(--dm-color-gray-darken);
+    background-color: var(--dm-color-white);
+    --dm-text-extra-small-font-weight: 400;
+    border-radius: 4px;
   }
 }
 

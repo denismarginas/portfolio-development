@@ -1,6 +1,6 @@
 <?php
 
-trait card_render
+class card_render extends card_media
 {
     public static function render(array $data = []): string
     {
@@ -8,7 +8,7 @@ trait card_render
         return self::render_variant($variant, $data);
     }
 
-    protected static function render_variant(string $variant, array $data): string
+    public static function render_variant(string $variant, array $data): string
     {
         if (str_starts_with($variant, 'card_')) {
             $variant = substr($variant, 5);
@@ -20,7 +20,7 @@ trait card_render
         return self::render_post($data);
     }
 
-    protected static function render_post(array $data): string
+    public static function render_post(array $data): string
     {
         $postData = $data['post_current_data'] ?? [];
 
@@ -48,12 +48,12 @@ trait card_render
         ]);
     }
 
-    protected static function render_minimal(array $data): string
+    public static function render_minimal(array $data): string
     {
         return self::render_post($data);
     }
 
-    protected static function render_description(string $description): string
+    public static function render_description(string $description): string
     {
         if ($description === '') return '';
         return PlatformTemplateRenderer::render(__DIR__ . '/../../html/parts/description.html', [
@@ -61,3 +61,5 @@ trait card_render
         ]);
     }
 }
+
+

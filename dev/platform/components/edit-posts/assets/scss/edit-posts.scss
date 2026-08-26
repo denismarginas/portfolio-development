@@ -320,62 +320,7 @@ textarea.platform-ep-input {
   letter-spacing: var(--platform-letter-spacing-wider);
 }
 
-.platform-je-toggle-label {
-  display: flex;
-  align-items: center;
-  gap: var(--platform-gap-sm);
-  font-size: var(--platform-font-size-sm);
-  color: var(--platform-color-text-secondary);
-  cursor: pointer;
-  user-select: none;
-}
 
-.platform-checkbox {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
-  border: 1px solid var(--platform-color-border-base);
-  border-radius: 3px;
-  background: transparent;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin: 0;
-  outline: none;
-
-  &:checked {
-    background: var(--platform-color-primary);
-    border-color: var(--platform-color-primary);
-
-    &::after {
-      content: '';
-      display: block;
-      width: 4px;
-      height: 7px;
-      border: solid var(--platform-color-text-primary);
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
-      margin-top: -1px;
-    }
-  }
-
-  &:focus-visible {
-    border-color: var(--platform-color-primary);
-  }
-}
-
-.platform-checkbox-label {
-  display: flex;
-  align-items: center;
-  gap: var(--platform-gap-sm);
-  font-size: var(--platform-font-size-sm);
-  color: var(--platform-color-text-secondary);
-  cursor: pointer;
-  user-select: none;
-}
 
 .platform-ep-routable-row {
   padding: var(--platform-padding-sm) var(--platform-padding-md);

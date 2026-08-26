@@ -11,13 +11,13 @@
   background-color: var(--dm-color-black);
   background-image: linear-gradient(
     var(--dm-color-black) -20%,
-    var(--dm-color-primary-800) 20%,
-    var(--dm-color-primary-600) 100%
+    var(--dm-color-primary-950) 20%,
+    var(--dm-color-primary-700) 120%
   );
   min-height: 600px;
 
   &[data-layout="xs"] {
-    min-height: 200px;
+    min-height: 250px;
   }
 
   &[data-layout="sm"] {
@@ -102,10 +102,16 @@
       line-height: 1.6;
       color: var(--dm-color-white);
 
+      @media (max-width: $dm-screen-md) {
+        font-size: var(--dm-font-size-md);
+      }
       @media (max-width: $dm-screen-xs) {
         font-size: var(--dm-font-size-sm);
         line-height: 1.5;
       }
+    }
+    @media (max-width: $dm-screen-md) {
+      gap: var(--dm-spacing-sm);
     }
   }
 }

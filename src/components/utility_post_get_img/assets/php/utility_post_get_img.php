@@ -44,7 +44,7 @@ class utility_post_get_img
         return '';
     }
 
-    protected static function find_any(string $baseDir, array $case): string
+    public static function find_any(string $baseDir, array $case): string
     {
         $excludePath = (string) ($case['exclude_path_with_string'] ?? '');
         $excludeImg = (string) ($case['exclude_img_with_string'] ?? '');
@@ -76,18 +76,18 @@ class utility_post_get_img
         return '';
     }
 
-    protected static function file_exists(string $projectRelativePath): bool
+    public static function file_exists(string $projectRelativePath): bool
     {
         return is_file(self::absolute($projectRelativePath));
     }
 
-    protected static function absolute(string $projectRelativePath): string
+    public static function absolute(string $projectRelativePath): string
     {
         $root = defined('ENGINE_PROJECT_ROOT') ? ENGINE_PROJECT_ROOT : '';
         return rtrim($root, '/\\') . '/' . ltrim($projectRelativePath, '/\\');
     }
 
-    protected static function normalize_path(string $path): string
+    public static function normalize_path(string $path): string
     {
         return str_replace('\\', '/', $path);
     }

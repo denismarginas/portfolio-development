@@ -11,12 +11,12 @@ body[java-script="true"] {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    padding: var( --dm-spacing-secondary );
+    padding: var(--dm-spacing-secondary);
     z-index: 999;
     position: fixed;
     bottom: 0;
     left: 0;
-    gap: var( --dm-spacing-primary );
+    gap: var(--dm-spacing-primary);
     width: 680px;
     max-width: 100%;
     box-sizing: border-box;
@@ -38,43 +38,44 @@ body[java-script="true"] {
       gap: 8px;
 
       > svg {
-        @include svg-color( var( --dm-color-white ) );
+        @include svg-color(var(--dm-color-white));
         @include fix-height(18px);
         width: auto;
         max-width: 100%;
         margin: 0px;
         transform: rotate(0deg);
-        transition: all 0.3s ease-in-out;
+        transition: var(--dm-transition);
       }
       &:hover {
         > svg {
           transform: rotate(30deg);
-          transition: all 0.3s ease-in-out;
+          transition: var(--dm-transition);
         }
       }
     }
   }
 }
-body, body.theme-light {
+body,
+body.theme-light {
   .cookie-notice {
     border: 1px solid rgba(var(--dm-color-gray-rgb), 0.2);
-    background-color: var( --dm-color-white);
+    background-color: var(--dm-color-white);
 
     > .text {
-      --dm-text-medium-color: var( --dm-color-gray-darken );
+      --dm-text-medium-color: var(--dm-color-gray-darken);
 
       > .link {
-        --dm-text-medium-color: var( --dm-color-gray-darken );
+        --dm-text-medium-color: var(--dm-color-gray-darken);
 
         &:hover {
-          --dm-text-medium-color: var( --dm-color-primary );
+          --dm-text-medium-color: var(--dm-color-primary);
         }
       }
     }
     > .button-accept {
       &:hover {
         > svg {
-          @include svg-color( var( --dm-color-primary ) );
+          @include svg-color(var(--dm-color-primary));
         }
       }
     }
@@ -83,23 +84,23 @@ body, body.theme-light {
 body.theme-dark {
   .cookie-notice {
     border: 1px solid rgba(var(--dm-color-white-rgb), 0.2);
-    background-color: var( --dm-color-gray-darken );
+    background-color: var(--dm-color-gray-darken);
 
     > .text {
-      --dm-text-medium-color: var( --dm-color-white );
+      --dm-text-medium-color: var(--dm-color-white);
 
       > .link {
-        --dm-text-medium-color: var( --dm-color-white );
+        --dm-text-medium-color: var(--dm-color-white);
 
         &:hover {
-          --dm-text-medium-color: var( --dm-color-highlight-primary );
+          --dm-text-medium-color: var(--dm-color-highlight-primary);
         }
       }
     }
     > .button-accept {
       &:hover {
         > svg {
-          @include svg-color( var( --dm-color-highlight-primary ) );
+          @include svg-color(var(--dm-color-highlight-primary));
         }
       }
     }

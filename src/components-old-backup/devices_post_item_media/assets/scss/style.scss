@@ -1,22 +1,20 @@
 @import "functions/mixins.scss";
 @import "functions/functions.scss";
 
-
-
 .dm-post-item-media {
   > .dm-post-view {
     position: relative;
     box-sizing: border-box;
     width: 300px;
     max-width: 100%;
-    background-color: var( --dm-color-white );
+    background-color: var(--dm-color-white);
     padding: 8px 8px 18px 8px;
-    box-shadow: 3px 3px 6px rgba(var( --dm-color-gray-darken-rgb ), 0.4);
+    box-shadow: 3px 3px 6px rgba(var(--dm-color-gray-darken-rgb), 0.4);
 
     .photo {
       overflow: hidden;
       position: relative;
-      border: 1px solid rgba(var( --dm-color-gray-lighten-rgb ), 0.4);
+      border: 1px solid rgba(var(--dm-color-gray-lighten-rgb), 0.4);
       height: 120px;
       z-index: 1;
 
@@ -42,7 +40,7 @@
         border-radius: 50%;
         padding: 18px;
         opacity: 1;
-        box-shadow: 3px 3px 6px rgba(var( --dm-color-gray-darken-rgb ), 0.4);
+        box-shadow: 3px 3px 6px rgba(var(--dm-color-gray-darken-rgb), 0.4);
 
         > img {
           width: 100%;

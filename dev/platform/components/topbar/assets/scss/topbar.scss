@@ -52,6 +52,7 @@
   display: flex;
   gap: var(--platform-gap-sm);
   flex-wrap: wrap;
+  padding: var(--platform-padding-lg) 0px;
 
   @media (max-width: 700px) {
     justify-content: center;

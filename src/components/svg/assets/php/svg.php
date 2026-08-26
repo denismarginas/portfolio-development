@@ -25,7 +25,7 @@ class Svg
         return $svgMarkup;
     }
 
-    protected function load_svg(string $icon): string
+    public function load_svg(string $icon): string
     {
         $svgDir = PlatformConfig::get('svg_dir', '');
         if ($svgDir === '') {
@@ -41,3 +41,4 @@ class Svg
         return is_string($markup) ? trim($markup) : '';
     }
 }
+

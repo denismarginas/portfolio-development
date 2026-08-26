@@ -17,7 +17,7 @@ header {
   box-shadow: 0px 0px 2px
     color-mix(in srgb, var(--dm-color-black) 0%, transparent);
   transition:
-    all 0.3s ease-in-out,
+    var(--dm-transition),
     background-color 0.1s ease-in-out;
   transition-delay:
     min-height 0.1s ease-in-out,
@@ -26,7 +26,7 @@ header {
   [data-overlay="true"] & {
     padding-right: var(--dm-space-scroollbar, 0px);
     transition:
-      all 0.3s ease-in-out,
+      var(--dm-transition),
       padding-right 0s ease-in-out;
   }
   &[data-scrolled="true"] {
@@ -34,7 +34,7 @@ header {
     box-shadow: 0px 2px 5px
       color-mix(in srgb, var(--dm-color-black) 40%, transparent);
     transition:
-      all 0.3s ease-in-out,
+      var(--dm-transition),
       background-color 0.1s ease-in-out;
     transition-delay:
       min-height 0.15s ease-in-out,
@@ -53,13 +53,13 @@ header {
   [mode="dark"] & {
     background-color: var(--dm-color-gray-dark);
     transition:
-      all 0.3s ease-in-out,
+      var(--dm-transition),
       background-color 0.1s ease-in-out;
   }
   [mode="light"] & {
     background-color: var(--dm-color-white);
     transition:
-      all 0.3s ease-in-out,
+      var(--dm-transition),
       background-color 0.1s ease-in-out;
   }
   @media (max-width: $dm-screen-xs) {
@@ -68,4 +68,8 @@ header {
 }
 main {
   margin-top: var(--header-height);
+
+  @media (max-width: $dm-screen-xs) {
+    --header-height: 0px;
+  }
 }

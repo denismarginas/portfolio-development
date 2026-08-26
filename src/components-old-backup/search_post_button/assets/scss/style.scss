@@ -7,7 +7,7 @@
   border-radius: 30px;
   border: 2px solid var(--dm-color-white);
   padding: calc(var(--dm-spacing-primary) / 2);
-  transition: all 0.3s ease-in-out;
+  transition: var(--dm-transition);
 }
 
 #header .dm-search svg {
@@ -17,5 +17,5 @@
 }
 
 #header .dm-search:hover {
-  background-color: var(---dm-color-primary  );
+  background-color: var(---dm-color-primary);
 }

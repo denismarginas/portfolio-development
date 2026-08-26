@@ -2,17 +2,16 @@
 @import "functions/functions.scss";
 @import "interface-design/elements-text.scss";
 
-$color_1: var( --dm-color-white );
+$color_1: var(--dm-color-white);
 $color_2: inherit;
-$background-color_1: var( --dm-color-black );
-$background-color_2: rgba(100, 100, 100, .5);
+$background-color_1: var(--dm-color-black);
+$background-color_2: rgba(100, 100, 100, 0.5);
 $background-color_3: rgb(150, 150, 150);
-$background-color_4: var( --dm-video-color-primary );
-
+$background-color_4: var(--dm-video-color-primary);
 
 .video-container {
-  --dm-video-color-primary: var( --dm-color-highlight-secondary );
-  --dm-video-color-secondary: var( --dm-color-secondary );
+  --dm-video-color-primary: var(--dm-color-highlight-secondary);
+  --dm-video-color-secondary: var(--dm-color-secondary);
   position: relative;
   width: 100%;
   display: flex;
@@ -55,7 +54,7 @@ $background-color_4: var( --dm-video-color-primary );
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-color: var( --dm-video-color-secondary );
+    background-color: var(--dm-video-color-secondary);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -78,7 +77,8 @@ $background-color_4: var( --dm-video-color-primary );
       cursor: pointer;
     }
   }
-  .show-play, .show-pause {
+  .show-play,
+  .show-pause {
     @include flex-center();
     position: absolute;
     top: 0;
@@ -136,7 +136,8 @@ $background-color_4: var( --dm-video-color-primary );
     }
 
     &:hover {
-      > .show-play, > .show-pause {
+      > .show-play,
+      > .show-pause {
         opacity: 0.7;
         filter: drop-shadow(2px 4px 6px #00000094);
         transition: all 0.3s ease;
@@ -163,7 +164,7 @@ $background-color_4: var( --dm-video-color-primary );
       content: "";
       position: absolute;
       bottom: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, .75), transparent);
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
       width: 100%;
       left: 0;
       right: 0;
@@ -173,8 +174,8 @@ $background-color_4: var( --dm-video-color-primary );
     }
     .controls {
       display: flex;
-      gap: .5rem;
-      padding: .25rem;
+      gap: 0.5rem;
+      padding: 0.25rem;
       align-items: center;
       opacity: 1;
       transition: all 0.2s ease-in-out;
@@ -188,7 +189,7 @@ $background-color_4: var( --dm-video-color-primary );
         width: 30px;
         font-size: 1.1rem;
         cursor: pointer;
-        opacity: .85;
+        opacity: 0.85;
         transition: opacity 150ms ease-in-out;
 
         &:hover {
@@ -203,13 +204,13 @@ $background-color_4: var( --dm-video-color-primary );
   .duration-container {
     display: flex;
     align-items: center;
-    gap: .25rem;
+    gap: 0.25rem;
     flex-grow: 1;
   }
   .timeline-container {
     padding: 4px 0px;
     height: 7px;
-    margin-inline: .5rem;
+    margin-inline: 0.5rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -339,7 +340,8 @@ $background-color_4: var( --dm-video-color-primary );
   }
 
   @media only screen and (max-width: $screen-tablet-small) {
-    &:hover, &:focus-within {
+    &:hover,
+    &:focus-within {
       .timeline {
         height: 7px;
       }
@@ -396,9 +398,10 @@ $background-color_4: var( --dm-video-color-primary );
         }
       }
     }
-    .duration-container, .speed-btn {
+    .duration-container,
+    .speed-btn {
       @include dm-font-small();
-      --dm-text-small-color: var( --dm-color-white );
+      --dm-text-small-color: var(--dm-color-white);
     }
   }
   @media only screen and (max-width: $screen-phone-medium) {
@@ -408,10 +411,11 @@ $background-color_4: var( --dm-video-color-primary );
         bottom: 18px;
         left: 40px;
         position: absolute;
-        box-shadow: inset 10px 10px 0px rgba( var( --dm-color-black-rgb ), 0.2 );
+        box-shadow: inset 10px 10px 0px rgba(var(--dm-color-black-rgb), 0.2);
       }
     }
-    .video-controls-container, .video-controls-container:hover {
+    .video-controls-container,
+    .video-controls-container:hover {
       .volume-container {
         &:hover {
           .volume-slider {
@@ -433,7 +437,8 @@ body:not([java-script="true"]) {
     > .thumbnail {
       display: none !important;
     }
-    > .show-play, >.show-pause {
+    > .show-play,
+    > .show-pause {
       display: none !important;
     }
   }

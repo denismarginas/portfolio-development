@@ -1,8 +1,8 @@
 <?php
 
-trait card_button
+class card_button extends card_resolve
 {
-    protected static function render_button(array $data, array $postData, string $link): string
+    public static function render_button(array $data, array $postData, string $link): string
     {
         $raw = $data['button'] ?? null;
 
@@ -23,7 +23,7 @@ trait card_button
         ]);
     }
 
-    protected static function resolve_component_spec(array $spec, array $postData): string
+    public static function resolve_component_spec(array $spec, array $postData): string
     {
         $component = (string) ($spec['component'] ?? '');
         $rawParams = $spec['params'] ?? $spec['data'] ?? [];
@@ -43,3 +43,4 @@ trait card_button
         return (string) PlatformComponentRenderer::value($component, $params);
     }
 }
+

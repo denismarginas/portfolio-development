@@ -117,7 +117,37 @@
     "content": [
       {
         "component": "contact-data",
-        "data": []
+        "data": {
+          "title": "Contact Data",
+          "text": "You can reach me by phone on WhatsApp or through my personal email address.<br>Contact details are provided in the section below.",
+          "img": "/personal-images/dm-personal-image-0.webp",
+          "list": [
+            {
+              "name": "email",
+              "value": "denismarginas09@gmail.com",
+              "label": "Email:"
+            },
+            {
+              "name": "address",
+              "value": "denismarginas09@gmail.com",
+              "label": "Address:"
+            },
+            {
+              "name": "phone",
+              "value": "+40-74*******",
+              "label": "Phone:",
+              "tooltip": {
+                "render": true,
+                "children": {
+                  "component": "tooltip",
+                  "data": {
+                    "text": "For security reasons, the phone number is not displayed. However, you can request the contact phone number by sending a mail to the provided email address."
+                  }
+                }
+              }
+            }
+          ]
+        }
       },
       {
         "component": "resume-data",
@@ -134,7 +164,7 @@
     "data": {
       "seo": {
         "title": "Experience",
-        "description": "Experience a captivating journey through my professional work from 2019 to 2023 in this short video. From a captivating intro to web development, photo editing, and video editing, witness my diverse expertise in just under two minutes.",
+        "description": "I have experience as a Full-Stack Web Developer on projects such as presentation websites, online shops, booking web applications, competition form applications, and SEO optimization. ",
         "keywords": "denis marginas experience",
         "slug": "experience",
         "index": "true"
@@ -145,7 +175,7 @@
         "component": "hero",
         "children": [
           {
-            "component": "animation_waves",
+            "component": "animation_squares",
             "data": {}
           }
         ],
@@ -157,21 +187,32 @@
         }
       },
       {
-        "component": "experience-knowledge",
+        "component": "experience_knowledge",
         "data": {
           "variant": "standard"
         }
       },
       {
-        "component": "categories",
+        "component": "taxonomy_listing",
+        "data": {
+          "post_type": "project",
+          "taxonomy": "category",
+          "title_render": true,
+          "title": "Projects",
+          "template": {
+            "component": "card_taxonomy",
+            "data": {
+              "overlay": "design-elements/overlay-particles.webp"
+            }
+          }
+        }
+      },
+      {
+        "component": "portfolio_showcase",
         "data": []
       },
       {
-        "component": "portfolio-showcase",
-        "data": []
-      },
-      {
-        "component": "carousel-post-items",
+        "component": "carousel_post_items",
         "data": {
           "variant": "standard"
         }
@@ -194,7 +235,7 @@
         "component": "hero",
         "children": [
           {
-            "component": "animation_waves",
+            "component": "animation_blurred_lines",
             "data": {}
           }
         ],
@@ -206,8 +247,31 @@
         }
       },
       {
-        "component": "job-list",
-        "data": []
+        "component": "tab_items_listing",
+        "data": {
+          "type": "jobs",
+          "layout": "labels_top",
+          "external_links_social_text": false,
+          "external_links_text": false,
+          "exist_item_render_false": {
+            "condition": true,
+            "content": {
+              "component": "note",
+              "text": "Note: Please be aware that this is not an completed list, and there may be additional professional experiences not mentioned here. If you have specific inquiries about my work history or would like more details, feel free to reach out.",
+              "status": "warning"
+            }
+          },
+          "children": [
+            {
+              "component": "work_graph",
+              "data": {
+                "list": "jobs",
+                "total_work_exp_text": "Total Work Experience:",
+                "total_work_timeline_text": "Total Work Timeline:"
+              }
+            }
+          ]
+        }
       }
     ]
   },
@@ -227,7 +291,7 @@
         "component": "hero",
         "children": [
           {
-            "component": "animation_waves",
+            "component": "animation_blurred_lines",
             "data": {}
           }
         ],
@@ -241,7 +305,9 @@
       {
         "component": "tab_items_listing",
         "data": {
-          "type": "education"
+          "type": "education",
+          "layout": "labels_aside",
+          "external_links_social_text": false
         }
       }
     ]

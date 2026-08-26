@@ -1,8 +1,8 @@
 <?php
 
-trait card_meta
+class card_meta extends card_button
 {
-    protected static function render_meta(array $data, array $postData): string
+    public static function render_meta(array $data, array $postData): string
     {
         $dateHtml = self::render_date($data, $postData);
         $taxonomyHtml = self::render_taxonomy($data, $postData);
@@ -15,7 +15,7 @@ trait card_meta
         ]);
     }
 
-    protected static function render_date(array $data, array $postData): string
+    public static function render_date(array $data, array $postData): string
     {
         $raw = $data['date'] ?? null;
 
@@ -37,7 +37,7 @@ trait card_meta
         return self::render_date_html($date, $display, $data);
     }
 
-    protected static function render_date_html(string $datetime, string $display, array $data): string
+    public static function render_date_html(string $datetime, string $display, array $data): string
     {
         $time = PlatformTemplateRenderer::render(__DIR__ . '/../../html/parts/date.html', [
             'datetime' => htmlspecialchars($datetime, ENT_QUOTES, 'UTF-8'),
@@ -61,7 +61,7 @@ trait card_meta
         ]);
     }
 
-    protected static function render_taxonomy(array $data, array $postData): string
+    public static function render_taxonomy(array $data, array $postData): string
     {
         $raw = $data['taxonomy'] ?? null;
         if (!is_array($raw)) return '';
@@ -105,3 +105,4 @@ trait card_meta
         return $html;
     }
 }
+

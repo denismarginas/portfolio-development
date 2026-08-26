@@ -1,8 +1,8 @@
 <?php
 
-trait header_theme_toggle
+class header_theme_toggle extends header_heading
 {
-    protected static function render_theme_toggle(): string
+    public static function render_theme_toggle(): string
     {
         $toggleMode = PlatformConfig::get('theme_default_mode', 'light');
 
@@ -15,3 +15,5 @@ trait header_theme_toggle
         ]);
     }
 }
+
+

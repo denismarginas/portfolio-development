@@ -1,8 +1,8 @@
 <?php
 
-trait header_search_button
+class header_search_button extends header_theme_toggle
 {
-    protected static function render_search_button(array $data = []): string
+    public static function render_search_button(array $data = []): string
     {
         $mappings = PlatformConfig::getRoutingMappings();
         $searchId = $mappings['search_post_id'] ?? 'search';
@@ -22,3 +22,5 @@ trait header_search_button
         ]);
     }
 }
+
+

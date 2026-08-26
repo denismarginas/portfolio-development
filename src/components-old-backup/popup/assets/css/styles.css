@@ -33,7 +33,7 @@
   height: auto;
   max-height: calc(100vh - var( --dm-spacing-secondary ) * 2);
   cursor: zoom-in;
-  transition: all 0.3s ease-in-out;
+  transition: var(--dm-transition);
 }
 
 .dm-popup > .popup-content > .slider {
@@ -121,10 +121,10 @@
   line-height: var(--dm-text-small-line-height);
   color: var(--dm-text-small-color);
   padding: var( --dm-spacing-primary );
-  --dm-text-small-color: var( --dm-color-white );
-  background-color: var( --dm-color-primary );
+  --dm-text-small-color: var(--dm-color-white);
+  background-color: var(--dm-color-primary);
   border: 2px solid;
-  border-color: var( --dm-color-primary );
+  border-color: var(--dm-color-primary);
   height: auto;
   z-index: 1;
   position: absolute;
@@ -140,7 +140,7 @@
 
 .dm-popup > .popup-content > .popup-close-button:hover {
   background-color: var( --dm-color-secondary );
-  border-color: var( --dm-color-white );
+  border-color: var(--dm-color-white);
 }
 
 .dm-popup > .popup-content > .popup-close-button:hover > svg {
@@ -154,11 +154,11 @@
 }
 
 .dm-popup > .popup-content > .popup-close-button > svg[data-svg-type="fill"] > path {
-  fill: var( --dm-color-white );
+  fill: var(--dm-color-white);
 }
 
 .dm-popup > .popup-content > .popup-close-button > svg[data-svg-type="stroke"] > path {
-  stroke: var( --dm-color-white );
+  stroke: var(--dm-color-white);
 }
 
 @media only screen and (max-width: 1240px) {

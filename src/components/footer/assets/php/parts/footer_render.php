@@ -1,14 +1,18 @@
 <?php
 
-trait footer_render
+class footer_render extends footer_copyrights
 {
     public static function render(array $data = []): string
     {
         $jsonGlobalData = PlatformDataService::get_data('settings_site');
         $siteIdentity = $jsonGlobalData['name'] ?? '';
 
-        return PlatformTemplateRenderer::render(__DIR__ . '/../../html/template.html', [
+        return PlatformTemplateRenderer::render([
             'copyrights_html' => self::render_copyrights($siteIdentity),
         ]);
     }
 }
+
+
+
+

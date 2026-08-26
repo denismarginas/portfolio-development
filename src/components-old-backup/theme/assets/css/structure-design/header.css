@@ -42,13 +42,13 @@
   max-height: 60px;
   -webkit-border-radius : 60px;
   border-radius         : 60px;
-  border: 3px solid var( --dm-color-white );
+  border: 3px solid var(--dm-color-white);
   position: relative;
   overflow: hidden;
   box-shadow: 0px 0px 0px #22222200;
   background: var( ---dm-color-primary   );
   background-image: linear-gradient(var( ---dm-color-primary   ), var( ---dm-color-primary   ) 20%, var( --dm-color-secondary ) 120%);
-  transition: all 0.3s ease-in-out;
+  transition: var(--dm-transition);
 }
 #header > section .dm-logo .dm-logo-img [data="dm-logo-front"] {
   width     : 60px;
@@ -60,7 +60,7 @@
   filter: drop-shadow(0px 0px 0px #22222200);
   position: absolute;
   top: 10%;
-  transition: all 0.3s ease-in-out;
+  transition: var(--dm-transition);
 }
 #header > section .dm-logo .dm-logo-img:hover {
   box-shadow: 3px 3px 3px #222;
@@ -86,7 +86,7 @@
   font-weight: var(--dm-text-big-font-weight);
   line-height: var(--dm-text-big-line-height);
   color: var(--dm-text-big-color);
-  --dm-text-big-color: var( --dm-color-white );
+  --dm-text-big-color: var(--dm-color-white);
   --dm-font-family: var( --dm-font-family-secondary );
 }
 #header > section .dm-logo .dm-logo-text > span:first-of-type {
@@ -123,7 +123,7 @@
   font-weight: var(--dm-text-big-font-weight);
   line-height: var(--dm-text-big-line-height);
   color: var(--dm-text-big-color);
-  --dm-text-big-color: var( --dm-color-white );
+  --dm-text-big-color: var(--dm-color-white);
   padding: calc( var( --dm-spacing-primary ) / 3 ) 0;
 }
 #header > section .dm-menu > ul > li a:after, #header > section .dm-menu > ul > li > .dm-submenu > li a:after {
@@ -151,7 +151,7 @@
   padding: 0;
   gap: var( --dm-spacing-primary );
   position: absolute;
-  border: 2px solid var( --dm-color-primary );
+  border: 2px solid var(--dm-color-primary);
   background-color: var( --dm-color-secondary );
   max-width: 0%;
   height: auto;
@@ -179,7 +179,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  --dm-text-medium-color: var( --dm-color-white );
+  --dm-text-medium-color: var(--dm-color-white);
   --dm-text-medium-font-weight: 500;
 }
 #header > section .dm-menu > ul li > .dm-submenu > li > a:after {
@@ -215,9 +215,9 @@
   -webkit-border-radius : 30px;
   border-radius         : 30px;
   cursor: pointer;
-  border: 2px solid var( --dm-color-white );
+  border: 2px solid var(--dm-color-white);
   padding: calc( var( --dm-spacing-primary ) / 2 );
-  transition: all 0.3s ease-in-out;
+  transition: var(--dm-transition);
 }
 #header > section .dm-menu .dm-menu-utility .dm-search svg {
   width     : 20px;
@@ -227,7 +227,7 @@
   max-width : 20px;
   max-height: 20px;
   transform: rotate(-10deg);
-  transition: all 0.3s ease-in-out;
+  transition: var(--dm-transition);
 }
 #header > section .dm-menu .dm-menu-utility .dm-search svg[data-svg-type="fill"] > path {
   fill: var(--dm-color-white);
@@ -263,9 +263,9 @@
   border-radius         : 30px;
   display: none;
   cursor: pointer;
-  border: 2px solid var( --dm-color-white );
+  border: 2px solid var(--dm-color-white);
   padding: calc( var( --dm-spacing-primary ) / 2 );
-  transition: all 0.3s ease-in-out;
+  transition: var(--dm-transition);
 }
 #header > section .dm-navbar-toggle > svg[data-svg-type="fill"] > path {
   fill: var(--dm-color-white);
@@ -472,7 +472,7 @@
   letter-spacing: var(--dm-text-extra-small-letter-spacing);
   color: var(--dm-text-extra-small-color);
   --dm-text-extra-small-font-family: var( --dm-font-family-secondary );
-  --dm-text-extra-small-color: var( --dm-color-white );
+  --dm-text-extra-small-color: var(--dm-color-white);
 }
 #header > section .dm-logo .dm-logo-text > span:first-of-type {
   --dm-text-extra-small-font-weight: 800;

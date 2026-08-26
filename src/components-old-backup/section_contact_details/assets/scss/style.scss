@@ -15,26 +15,28 @@
       padding-bottom: var(--dm-spacing-large);
 
       > .dm-socials {
-        @include border-radius( var( --dm-border-radius-primary ) );
-        padding: var( --dm-spacing-secondary );
+        @include border-radius(var(--dm-border-radius-primary));
+        padding: var(--dm-spacing-secondary);
         display: grid;
         gap: var(--dm-spacing-secondary);
 
         > h4 {
           @include dm-font-heading3();
-          --dm-text-heading3-font-family: var( --dm-font-family-secondary );
+          --dm-text-heading3-font-family: var(--dm-font-family-secondary);
         }
         > .dm-socials-text {
           > a {
             @include limit-line-text(1);
             word-break: break-all;
 
-            &, span, b {
+            &,
+            span,
+            b {
               @include dm-font-medium();
             }
             > span {
-              --dm-text-medium-color: var( --dm-color-primary );
-              margin-right: var( --dm-spacing-primary );
+              --dm-text-medium-color: var(--dm-color-primary);
+              margin-right: var(--dm-spacing-primary);
             }
             > b {
               --dm-text-medium-font-weight: 600;
@@ -61,29 +63,34 @@
   }
 }
 
-body, body.theme-light {
-  .dm-contact-details  {
+body,
+body.theme-light {
+  .dm-contact-details {
     > container {
       > ul {
-        > .dm-socials  {
-          background-color: rgba(var( --dm-color-gray-rgb ),0.1);
+        > .dm-socials {
+          background-color: rgba(var(--dm-color-gray-rgb), 0.1);
           > h4 {
-            --dm-text-heading3-color: var( --dm-color-gray-darken );
+            --dm-text-heading3-color: var(--dm-color-gray-darken);
           }
           > .dm-socials-text {
             > a {
-              &, span, b {
-                --dm-text-medium-color: var( --dm-color-gray-darken );
+              &,
+              span,
+              b {
+                --dm-text-medium-color: var(--dm-color-gray-darken);
               }
               > span {
-                --dm-text-medium-color: var( --dm-color-primary );
+                --dm-text-medium-color: var(--dm-color-primary);
 
                 &:last-of-type {
-                  --dm-text-medium-color: var( --dm-color-gray-darken );
+                  --dm-text-medium-color: var(--dm-color-gray-darken);
                 }
               }
-              &:hover, &:hover span, &:hover b {
-                --dm-text-medium-color: var( --dm-color-primary );
+              &:hover,
+              &:hover span,
+              &:hover b {
+                --dm-text-medium-color: var(--dm-color-primary);
               }
             }
           }
@@ -93,21 +100,25 @@ body, body.theme-light {
   }
 }
 body.theme-dark {
-  .dm-contact-details  {
+  .dm-contact-details {
     > container {
       > ul {
-        > .dm-socials  {
-          background-color: rgba(var( --dm-color-gray-lighten-rgb ),0.1);
+        > .dm-socials {
+          background-color: rgba(var(--dm-color-gray-lighten-rgb), 0.1);
           > h4 {
-            --dm-text-heading3-color: var( --dm-color-white);
+            --dm-text-heading3-color: var(--dm-color-white);
           }
           > .dm-socials-text {
             > a {
-              &, span, b {
-                --dm-text-medium-color: var( --dm-color-white );
+              &,
+              span,
+              b {
+                --dm-text-medium-color: var(--dm-color-white);
               }
-              &:hover, &:hover span, &:hover b {
-                --dm-text-medium-color: var( --dm-color-highlight-primary );
+              &:hover,
+              &:hover span,
+              &:hover b {
+                --dm-text-medium-color: var(--dm-color-highlight-primary);
               }
             }
           }

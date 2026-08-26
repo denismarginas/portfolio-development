@@ -29,7 +29,7 @@ class simplelink_constructor
              . '</a>';
     }
 
-    protected static function resolve_url(string $link): string
+    public static function resolve_url(string $link): string
     {
         if (preg_match('#^https?://#i', $link)) {
             return $link;
@@ -38,3 +38,4 @@ class simplelink_constructor
         return PlatformPathService::post_link($link);
     }
 }
+

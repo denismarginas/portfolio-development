@@ -1,8 +1,8 @@
 <?php
 
-trait header_menu
+class header_menu extends header_search_button
 {
-    protected static function render_menu(array $data = []): string
+    public static function render_menu(array $data = []): string
     {
         $jsonContent = PlatformDataService::get_data('content_header_menu');
         $menuList = $jsonContent['menu_list'] ?? [];
@@ -53,7 +53,7 @@ trait header_menu
         ]);
     }
 
-    protected static function menu_active_attr(string $postId, string $currentPostId): string
+    public static function menu_active_attr(string $postId, string $currentPostId): string
     {
         if ($currentPostId !== '' && $postId === $currentPostId) {
             return 'class="active" aria-current="page"';
@@ -61,7 +61,7 @@ trait header_menu
         return '';
     }
 
-    protected static function render_menu_toggle(): string
+    public static function render_menu_toggle(): string
     {
         return PlatformTemplateRenderer::render(__DIR__ . '/../../html/template_menu_navbar_toggle.html', [
             'menu_icon_html' => PlatformComponentRenderer::render('svg', [
@@ -71,3 +71,5 @@ trait header_menu
         ]);
     }
 }
+
+

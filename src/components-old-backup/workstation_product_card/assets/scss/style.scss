@@ -1,10 +1,9 @@
 @import "functions/mixins.scss";
 @import "functions/functions.scss";
 
-
 .dm-w-product-card {
   .product {
-    @include border-radius( var( --dm-border-radius-primary ));
+    @include border-radius(var(--dm-border-radius-primary));
     @include flex-column();
     @include reset-list();
     border-width: 1px;
@@ -26,16 +25,17 @@
       position: relative;
 
       > img {
-        padding: var( --dm-spacing-primary );
+        padding: var(--dm-spacing-primary);
         box-sizing: border-box;
         z-index: 1;
         width: 90%;
         height: 90%;
         object-position: center;
         object-fit: contain;
-        filter: drop-shadow(4px 6px 4px rgba(var( --dm-color-black-rgb ), 0.4));
+        filter: drop-shadow(4px 6px 4px rgba(var(--dm-color-black-rgb), 0.4));
       }
-      &[tag="cpu"], &[tag="cpu cooler"] {
+      &[tag="cpu"],
+      &[tag="cpu cooler"] {
         > img {
           width: 60%;
         }
@@ -55,10 +55,10 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: var( --dm-color-white );
+        background-color: var(--dm-color-white);
         background-image: radial-gradient(
-            var(--w-color-primary) 0%,
-            var(--w-color-secondary) 200%
+          var(--w-color-primary) 0%,
+          var(--w-color-secondary) 200%
         );
         max-width: 100%;
         max-height: 100%;
@@ -67,25 +67,25 @@
         border-style: solid;
       }
       > .tag {
-        @include border-radius( var( --dm-border-radius-primary ));
+        @include border-radius(var(--dm-border-radius-primary));
         @include dm-font-extra-small();
         z-index: 1;
         --dm-text-extra-small-font-weight: 600;
         text-transform: uppercase;
         position: absolute;
-        left: calc(var( --dm-spacing-primary ) + 4px);
+        left: calc(var(--dm-spacing-primary) + 4px);
         bottom: 8px;
         box-sizing: border-box;
         padding: 5px 8px;
-        --dm-text-extra-small-color: var( --w-text-color-on-bg );
-        background-color: var( --w-color-secondary );
-        box-shadow: 1px 1px 4px rgba(var( --dm-color-black-rgb ), 0.2);
+        --dm-text-extra-small-color: var(--w-text-color-on-bg);
+        background-color: var(--w-color-secondary);
+        box-shadow: 1px 1px 4px rgba(var(--dm-color-black-rgb), 0.2);
       }
     }
     > .text {
       @include flex-column();
-      gap: calc(var( --dm-spacing-primary ) / 2);
-      padding: var( --dm-spacing-primary );
+      gap: calc(var(--dm-spacing-primary) / 2);
+      padding: var(--dm-spacing-primary);
 
       .title {
         @include dm-font-small();
@@ -94,10 +94,10 @@
       .hover {
         z-index: 4;
         overflow: hidden;
-        padding: var( --dm-spacing-primary );
-        --dm-color-primary: var( --w-color-primary );
-        --dm-color-secondary: var( --w-color-secondary );
-        background-color: var( --w-color-secondary );
+        padding: var(--dm-spacing-primary);
+        --dm-color-primary: var(--w-color-primary);
+        --dm-color-secondary: var(--w-color-secondary);
+        background-color: var(--w-color-secondary);
         box-sizing: border-box;
         position: absolute;
         opacity: 0;
@@ -108,7 +108,7 @@
         height: 40%;
         margin-bottom: -40%;
         margin-right: 8px;
-        transition: all 0.3s ease-in-out;
+        transition: var(--dm-transition);
 
         ::-webkit-scrollbar {
           width: 8px;
@@ -119,7 +119,7 @@
         overflow-y: auto;
         height: 100%;
         @include dm-font-extra-small();
-        --dm-text-extra-small-color: var( --w-text-color-on-bg );
+        --dm-text-extra-small-color: var(--w-text-color-on-bg);
       }
     }
     &:hover {
@@ -127,7 +127,7 @@
         .hover {
           opacity: 1;
           margin-bottom: 0%;
-          transition: all 0.3s ease-in-out;
+          transition: var(--dm-transition);
         }
       }
     }
@@ -139,11 +139,12 @@
   }
 }
 
-body, body.theme-light {
-  .dm-w-product-card  {
+body,
+body.theme-light {
+  .dm-w-product-card {
     .product {
       border-color: rgba(var(--dm-color-gray-rgb), 0.2);
-      background-color: rgba(var( --dm-color-white-rgb ), 0.8);
+      background-color: rgba(var(--dm-color-white-rgb), 0.8);
 
       > .visual {
         &:before {
@@ -152,14 +153,14 @@ body, body.theme-light {
       }
       > .text {
         .title {
-          --dm-text-small-color: var( --dm-color-gray-darken );
+          --dm-text-small-color: var(--dm-color-gray-darken);
         }
       }
     }
   }
 }
 body.theme-dark {
-  .dm-w-product-card  {
+  .dm-w-product-card {
     .product {
       border-color: rgba(var(--dm-color-white-rgb), 0.2);
       background-color: rgba(var(--dm-color-gray-darken-rgb), 0.8);
@@ -171,7 +172,7 @@ body.theme-dark {
       }
       > .text {
         .title {
-          --dm-text-small-color: var( --dm-color-white );
+          --dm-text-small-color: var(--dm-color-white);
         }
       }
     }

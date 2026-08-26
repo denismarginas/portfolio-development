@@ -46,7 +46,7 @@ class hero
             $childrenHtml .= PlatformComponentRenderer::render(str_replace('-', '_', $childComponent), $childData);
         }
 
-        return PlatformTemplateRenderer::render(__DIR__ . '/../html/template.html', [
+        return PlatformTemplateRenderer::render([
             'layout_attr' => htmlspecialchars($layout, ENT_QUOTES, 'UTF-8'),
             'bg_html' => $bgHtml,
             'text_content_html' => $textContentHtml,
@@ -54,7 +54,7 @@ class hero
         ]);
     }
 
-    protected static function resolve_image_src(string $imgPath, array $data): string
+    public static function resolve_image_src(string $imgPath, array $data): string
     {
         if ($imgPath === '') {
             return '';
@@ -84,7 +84,7 @@ class hero
         return '';
     }
 
-    protected static function resolve_text_field(array $data, array $postData, string $key): string
+    public static function resolve_text_field(array $data, array $postData, string $key): string
     {
         $raw = $data[$key] ?? null;
         if (!is_string($raw) || $raw === '') {
@@ -101,3 +101,6 @@ class hero
         return $raw;
     }
 }
+
+
+

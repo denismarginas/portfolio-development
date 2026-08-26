@@ -1,8 +1,6 @@
 @import "functions/mixins.scss";
 @import "functions/functions.scss";
 
-
-
 .dm-post-item-web {
   > .dm-post-view {
     position: relative;
@@ -13,7 +11,7 @@
 
     > .device-layout-laptop {
       @include flex-center();
-      @include fix-width( var( --carousel-item-size ) );
+      @include fix-width(var(--carousel-item-size));
       width: 100%;
       height: 170px;
       position: relative;
@@ -22,7 +20,7 @@
         @include flex-center();
         align-items: flex-start;
         overflow: hidden;
-        background-color: var( --dm-color-white );
+        background-color: var(--dm-color-white);
         position: absolute;
         top: 13%;
         bottom: 28%;
@@ -35,7 +33,7 @@
           height: auto;
         }
         > .shadow-color {
-          content: '';
+          content: "";
           z-index: 1;
           position: absolute;
           top: 50%;
@@ -46,9 +44,9 @@
           filter: blur(16px);
         }
         &:before {
-          content: '';
+          content: "";
           z-index: 1;
-          background-color: var( --dm-color-white );
+          background-color: var(--dm-color-white);
           transform: rotate(40deg);
           margin-right: -195%;
           position: absolute;
@@ -77,13 +75,12 @@
       display: block;
       max-width: 65px;
 
-
       > .screen {
-        @include border-radius( 8% );
+        @include border-radius(8%);
         @include flex-center();
         align-items: flex-start;
         overflow: hidden;
-        background-color: var( --dm-color-white );
+        background-color: var(--dm-color-white);
         position: absolute;
         left: 12%;
         right: 12%;
@@ -97,7 +94,7 @@
           height: auto;
         }
         > .shadow-color {
-          content: '';
+          content: "";
           z-index: 1;
           position: absolute;
           top: 60%;
@@ -108,9 +105,9 @@
           filter: blur(20px);
         }
         &:before {
-          content: '';
+          content: "";
           z-index: 1;
-          background-color: var( --dm-color-white );
+          background-color: var(--dm-color-white);
           transform: rotate(50deg);
           margin-right: -495%;
           margin-top: -100%;
@@ -160,7 +157,7 @@
   }
   @media only screen and (max-width: $screen-tablet-large) {
     @include flex-center();
-    padding: var( --dm-spacing-primary ) !important;
+    padding: var(--dm-spacing-primary) !important;
 
     > .dm-post-view {
       min-width: 50px;

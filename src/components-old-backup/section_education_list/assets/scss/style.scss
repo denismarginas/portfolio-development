@@ -8,7 +8,7 @@
   > container {
     display: flex;
     flex-direction: row-reverse;
-    gap: var( --dm-spacing-large );
+    gap: var(--dm-spacing-large);
 
     > .compact-list {
       @include reset-list();
@@ -22,10 +22,10 @@
 
         > .logo {
           @include flex-center();
-          @include border-radius( 50% );
+          @include border-radius(50%);
           border-width: 1px;
           border-style: solid;
-          padding: var( --dm-spacing-secondary );
+          padding: var(--dm-spacing-secondary);
           flex-direction: column;
           width: 150px;
           height: 150px;
@@ -42,15 +42,14 @@
             background: rgba(var(--dm-color-white-rgb), 0.85);
 
             > .name {
-              --dm-text-medium-color: var( --dm-color-gray-darken );
+              --dm-text-medium-color: var(--dm-color-gray-darken);
             }
-
           }
           &[data-layout="dark"] {
             background: rgba(var(--dm-color-gray-darken-rgb), 0.85);
 
             > .name {
-              --dm-text-medium-color: var( --dm-color-white );
+              --dm-text-medium-color: var(--dm-color-white);
             }
           }
           &:before {
@@ -72,20 +71,20 @@
           bottom: 12px;
           left: 0;
           right: 0;
-          background-color: var( --dm-color-secondary );
-          padding: calc( var( --dm-spacing-primary ) / 3 ) var( --dm-spacing-primary );
+          background-color: var(--dm-color-secondary);
+          padding: calc(var(--dm-spacing-primary) / 3) var(--dm-spacing-primary);
 
           > span {
             @include limit-line-text(1);
             @include dm-font-small();
             --dm-text-small-font-weight: 600;
-            --dm-text-small-color: var( --dm-color-white )
+            --dm-text-small-color: var(--dm-color-white);
           }
         }
       }
       > .gap-line {
         width: 1px;
-        height: var( --dm-spacing-tertiary );
+        height: var(--dm-spacing-tertiary);
         position: relative;
       }
     }
@@ -93,24 +92,24 @@
       @include reset-list();
       display: flex;
       flex-direction: column;
-      gap: var( --dm-spacing-small );
+      gap: var(--dm-spacing-small);
       position: relative;
       overflow: hidden;
 
       > .education {
-        @include border-radius( var( --dm-border-radius-secondary ) );
+        @include border-radius(var(--dm-border-radius-secondary));
         border-width: 1px;
         border-style: solid;
         padding: var(--dm-spacing-tertiary);
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        gap: var( --dm-spacing-small );
+        gap: var(--dm-spacing-small);
         position: relative;
         overflow: hidden;
 
         > .logo {
-          @include border-radius( var( --dm-border-radius-secondary ) );
+          @include border-radius(var(--dm-border-radius-secondary));
           @include flex-center();
           padding: var(--dm-spacing-secondary);
           width: 300px;
@@ -149,16 +148,16 @@
           flex-wrap: wrap;
           align-items: flex-start;
           justify-content: space-between;
-          gap: var( --dm-spacing-primary );
+          gap: var(--dm-spacing-primary);
           z-index: 1;
           width: 100%;
 
           > .head {
             @include flex-row();
             flex-wrap: wrap;
-            gap: calc( var( --dm-spacing-primary ) / 2 );
+            gap: calc(var(--dm-spacing-primary) / 2);
             width: 100%;
-            padding: var( --dm-spacing-secondary );
+            padding: var(--dm-spacing-secondary);
             border-radius: 4px;
             box-sizing: border-box;
             position: relative;
@@ -172,7 +171,7 @@
               display: flex;
               flex-direction: row;
               gap: 0px;
-              margin-bottom: calc( var( --dm-spacing-primary ) / 3 );
+              margin-bottom: calc(var(--dm-spacing-primary) / 3);
               width: 100%;
 
               > li {
@@ -185,35 +184,37 @@
             }
             > .type {
               @include flex-row();
-              gap: calc( var( --dm-spacing-primary ) / 2 );
+              gap: calc(var(--dm-spacing-primary) / 2);
               border-radius: 4px;
-              padding: calc( var( --dm-spacing-primary ) / 3 ) var( --dm-spacing-primary );
+              padding: calc(var(--dm-spacing-primary) / 3)
+                var(--dm-spacing-primary);
               width: fit-content;
 
               > svg {
                 width: 20px;
                 height: auto;
-                @include svg-color( var( --dm-color-secondary ) );
+                @include svg-color(var(--dm-color-secondary));
               }
 
               > span {
                 @include dm-font-medium();
                 --dm-text-medium-font-weight: 600;
-                --dm-text-medium-color: var( --dm-color-secondary );
+                --dm-text-medium-color: var(--dm-color-secondary);
               }
             }
             > .profession-list {
               display: flex;
               flex-direction: row;
               flex-wrap: wrap;
-              gap: var( --dm-spacing-primary );
+              gap: var(--dm-spacing-primary);
 
               > .profession {
                 @include dm-font-medium();
                 --dm-text-medium-font-weight: 600;
-                --dm-text-medium-color: var( --dm-color-white );
-                padding: calc( var( --dm-spacing-primary ) / 3 ) var( --dm-spacing-primary );
-                background-color: var( --dm-color-primary );
+                --dm-text-medium-color: var(--dm-color-white);
+                padding: calc(var(--dm-spacing-primary) / 3)
+                  var(--dm-spacing-primary);
+                background-color: var(--dm-color-primary);
                 border-radius: 4px;
               }
             }
@@ -221,8 +222,8 @@
           > .description {
             display: flex;
             flex-direction: column;
-            gap: var( --dm-spacing-primary );
-            margin-top: var( --dm-spacing-primary );
+            gap: var(--dm-spacing-primary);
+            margin-top: var(--dm-spacing-primary);
             width: 100%;
 
             > .text {
@@ -232,17 +233,17 @@
               @include reset-list();
               @include flex-row();
               flex-wrap: wrap;
-              row-gap: calc( var( --dm-spacing-primary ) / 2 );
-              column-gap: var( --dm-spacing-secondary );
+              row-gap: calc(var(--dm-spacing-primary) / 2);
+              column-gap: var(--dm-spacing-secondary);
 
               > li {
                 @include flex-row();
 
                 > svg {
-                  @include svg-color( var( --dm-color-white ) );
+                  @include svg-color(var(--dm-color-white));
                   @include fix-size(10px);
-                  @include border-radius( 50% );
-                  background-color: var( --dm-color-primary );
+                  @include border-radius(50%);
+                  background-color: var(--dm-color-primary);
                   margin-right: 5px;
                   padding: 4px;
                 }
@@ -256,34 +257,35 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            gap: var( --dm-spacing-primary );
-            margin-top: var( --dm-spacing-primary );
+            gap: var(--dm-spacing-primary);
+            margin-top: var(--dm-spacing-primary);
 
             > .external-links {
               @include flex-row();
               flex-wrap: wrap;
-              gap: var( --dm-spacing-primary );
+              gap: var(--dm-spacing-primary);
               align-self: flex-start;
 
               > .external-link {
                 @include flex-row();
                 @include flex-center();
-                @include border-radius( 4px );
-                background-color: var( --dm-color-primary );
-                padding: calc( var( --dm-spacing-primary ) / 3 ) var( --dm-spacing-primary );
+                @include border-radius(4px);
+                background-color: var(--dm-color-primary);
+                padding: calc(var(--dm-spacing-primary) / 3)
+                  var(--dm-spacing-primary);
                 min-height: 24px;
                 border-style: solid;
                 border-width: 1px;
-                border-color: var( --dm-color-primary );
+                border-color: var(--dm-color-primary);
 
                 > svg {
-                  @include svg-color( var( --dm-color-white ) );
+                  @include svg-color(var(--dm-color-white));
                   @include fix-size(20px);
                   margin-right: 5px;
                 }
                 > span {
                   @include dm-font-medium();
-                  --dm-text-medium-color: var( --dm-color-white );
+                  --dm-text-medium-color: var(--dm-color-white);
                   --dm-text-medium-font-weight: 600;
                 }
               }
@@ -292,7 +294,7 @@
               @include flex-row();
               @include flex-center();
               flex-wrap: wrap;
-              gap: var( --dm-spacing-primary );
+              gap: var(--dm-spacing-primary);
               align-self: flex-start;
 
               > .project {
@@ -301,11 +303,12 @@
                 border-radius: 4px;
                 border-style: solid;
                 border-width: 1px;
-                padding: calc( var( --dm-spacing-primary ) / 3 ) var( --dm-spacing-primary );
+                padding: calc(var(--dm-spacing-primary) / 3)
+                  var(--dm-spacing-primary);
                 min-height: 24px;
 
                 > svg {
-                  @include svg-color( var( --dm-color-white ) );
+                  @include svg-color(var(--dm-color-white));
                   @include fix-size(20px);
                   margin-right: 5px;
                 }
@@ -328,7 +331,7 @@
           opacity: 0.1;
 
           > svg {
-            @include svg-color( var( --dm-color-primary ) );
+            @include svg-color(var(--dm-color-primary));
             transform: rotate(299deg);
             width: 100%;
             height: 100%;
@@ -339,11 +342,11 @@
   }
   @media only screen and (max-width: $screen-desktop-small) {
     > container {
-      gap: var( --dm-spacing-tertiary );
+      gap: var(--dm-spacing-tertiary);
 
       > .detailed-list {
         > .education {
-            gap: var( --dm-spacing-tertiary );
+          gap: var(--dm-spacing-tertiary);
         }
       }
     }
@@ -351,18 +354,18 @@
   @media only screen and (max-width: $screen-tablet-large) {
     > container {
       flex-direction: column;
-      gap: var( --dm-spacing-extra-small );
+      gap: var(--dm-spacing-extra-small);
 
       > .detailed-list {
         > .education {
-         > .details {
-           > .head {
-             > .name {
-               @include dm-font-big();
-               --dm-text-big-font-weight: 600;
-             }
-           }
-         }
+          > .details {
+            > .head {
+              > .name {
+                @include dm-font-big();
+                --dm-text-big-font-weight: 600;
+              }
+            }
+          }
         }
       }
     }
@@ -372,7 +375,7 @@
       > .detailed-list {
         > .education {
           flex-direction: column;
-          gap: var( --dm-spacing-secondary );
+          gap: var(--dm-spacing-secondary);
 
           > .logo {
             width: 100%;
@@ -397,11 +400,11 @@
         }
       }
       > .detailed-list {
-        gap: var( --dm-spacing-secondary );
+        gap: var(--dm-spacing-secondary);
 
         > .education {
-          padding: var( --dm-spacing-primary );
-          gap: var( --dm-spacing-primary );
+          padding: var(--dm-spacing-primary);
+          gap: var(--dm-spacing-primary);
 
           > .background-shape {
             width: 80%;
@@ -422,50 +425,51 @@
   }
 }
 
-body, body.theme-light {
+body,
+body.theme-light {
   .dm-education {
     > container {
       > .compact-list {
         > .education {
           > .logo {
-            border: 1px solid rgba( var(--dm-color-gray-rgb), 0.2);
+            border: 1px solid rgba(var(--dm-color-gray-rgb), 0.2);
           }
         }
         > .gap-line {
-          background-color: rgba( var(--dm-color-gray-rgb), 0.2);
+          background-color: rgba(var(--dm-color-gray-rgb), 0.2);
         }
       }
       > .detailed-list {
         .education {
-          border: 1px solid rgba( var(--dm-color-gray-rgb), 0.2);
-          background-color: rgba( var( --dm-color-white-rgb ), 0.7 );
+          border: 1px solid rgba(var(--dm-color-gray-rgb), 0.2);
+          background-color: rgba(var(--dm-color-white-rgb), 0.7);
 
           > .logo {
-            border: 1px solid rgba( var(--dm-color-gray-rgb), 0.2);
+            border: 1px solid rgba(var(--dm-color-gray-rgb), 0.2);
           }
           > .details {
             > .head {
-              background-color: rgba( var( --dm-color-primary-rgb ), 0.1 );
+              background-color: rgba(var(--dm-color-primary-rgb), 0.1);
 
               > .name {
-                --dm-text-large-color: var( --dm-color-secondary );
-                --dm-text-big-color: var( --dm-color-secondary );
+                --dm-text-large-color: var(--dm-color-secondary);
+                --dm-text-big-color: var(--dm-color-secondary);
               }
               > .dates {
-                --dm-text-medium-color: var( --dm-color-gray );
+                --dm-text-medium-color: var(--dm-color-gray);
               }
               > .type {
-                background-color: rgba( var( --dm-color-primary-rgb ), 0.1 );
+                background-color: rgba(var(--dm-color-primary-rgb), 0.1);
               }
             }
             > .description {
               > .text {
-                --dm-text-default-color: var( --dm-color-gray-darken );
+                --dm-text-default-color: var(--dm-color-gray-darken);
               }
               > .list {
                 > li {
                   > span {
-                    --dm-text-medium-color: var( --dm-color-gray-darken );
+                    --dm-text-medium-color: var(--dm-color-gray-darken);
                   }
                 }
               }
@@ -473,14 +477,14 @@ body, body.theme-light {
             > .additional-information {
               > .projects {
                 > .project {
-                  background-color: rgba( var( --dm-color-primary-rgb ), 0.1 );
-                  border-color: rgba( var( --dm-color-primary-rgb ), 0.3 );
+                  background-color: rgba(var(--dm-color-primary-rgb), 0.1);
+                  border-color: rgba(var(--dm-color-primary-rgb), 0.3);
 
                   > svg {
-                    @include svg-color( var( --dm-color-secondary ) );
+                    @include svg-color(var(--dm-color-secondary));
                   }
                   > span {
-                    --dm-text-medium-color: var( --dm-color-secondary );
+                    --dm-text-medium-color: var(--dm-color-secondary);
                   }
                 }
               }
@@ -497,44 +501,44 @@ body.theme-dark {
       > .compact-list {
         > .education {
           > .logo {
-            border: 1px solid rgba( var(--dm-color-white-rgb), 0.3);
+            border: 1px solid rgba(var(--dm-color-white-rgb), 0.3);
           }
         }
         > .gap-line {
-          background-color: rgba( var(--dm-color-white-rgb), 0.2);
+          background-color: rgba(var(--dm-color-white-rgb), 0.2);
         }
       }
       > .detailed-list {
         .education {
-          border: 1px solid rgba( var(--dm-color-white-rgb), 0.3);
-          background-color: rgba( var( --dm-color-gray-darken-rgb ), 0.8 );
+          border: 1px solid rgba(var(--dm-color-white-rgb), 0.3);
+          background-color: rgba(var(--dm-color-gray-darken-rgb), 0.8);
 
           > .logo {
-            border: 1px solid rgba( var(--dm-color-white-rgb), 0.3);
+            border: 1px solid rgba(var(--dm-color-white-rgb), 0.3);
           }
           > .details {
             > .head {
-              background-color: rgba( var( --dm-color-secondary-rgb ), 0.1 );
+              background-color: rgba(var(--dm-color-secondary-rgb), 0.1);
 
               > .name {
-                --dm-text-large-color: var( --dm-color-white );
-                --dm-text-big-color: var( --dm-color-white );
+                --dm-text-large-color: var(--dm-color-white);
+                --dm-text-big-color: var(--dm-color-white);
               }
               > .dates {
-                --dm-text-medium-color: var( --dm-color-white );
+                --dm-text-medium-color: var(--dm-color-white);
               }
               > .type {
-                background-color: rgba( var( --dm-color-white-rgb ), 0.8 );
+                background-color: rgba(var(--dm-color-white-rgb), 0.8);
               }
             }
             > .description {
               > .text {
-                --dm-text-default-color: var( --dm-color-white);
+                --dm-text-default-color: var(--dm-color-white);
               }
               > .list {
                 > li {
                   > span {
-                    --dm-text-medium-color: var( --dm-color-white );
+                    --dm-text-medium-color: var(--dm-color-white);
                   }
                 }
               }
@@ -542,14 +546,14 @@ body.theme-dark {
             > .additional-information {
               > .projects {
                 > .project {
-                  background-color: rgba( var( --dm-color-primary-rgb ), 0.8 );
-                  border-color: rgba( var( --dm-color-white-rgb ), 0.2 );
+                  background-color: rgba(var(--dm-color-primary-rgb), 0.8);
+                  border-color: rgba(var(--dm-color-white-rgb), 0.2);
 
                   > svg {
-                    @include svg-color( var( --dm-color-white ) );
+                    @include svg-color(var(--dm-color-white));
                   }
                   > span {
-                    --dm-text-medium-color: var( --dm-color-white );
+                    --dm-text-medium-color: var(--dm-color-white);
                   }
                 }
               }

@@ -9,7 +9,7 @@
       display: grid;
       align-items: center;
       grid-template-columns: 1fr 1.2fr;
-      gap: var( --dm-spacing-medium );
+      gap: var(--dm-spacing-medium);
 
       > li {
         &:first-of-type {
@@ -20,16 +20,16 @@
             display: grid;
             align-items: center;
             grid-template-columns: repeat(2, 1fr);
-            gap: var( --dm-spacing-secondary );
+            gap: var(--dm-spacing-secondary);
           }
         }
         &:last-of-type {
           @include flex-column();
-          gap: var( --dm-spacing-secondary );
+          gap: var(--dm-spacing-secondary);
 
           > div {
             @include flex-column();
-            gap: var( --dm-spacing-secondary );
+            gap: var(--dm-spacing-secondary);
             overflow: hidden;
 
             &:first-of-type {
@@ -37,8 +37,8 @@
               margin-top: -300px;
 
               > img {
-                border-bottom-left-radius: var( --dm-border-radius-secondary );
-                border-bottom-right-radius: var( --dm-border-radius-secondary );
+                border-bottom-left-radius: var(--dm-border-radius-secondary);
+                border-bottom-right-radius: var(--dm-border-radius-secondary);
                 width: 100%;
                 height: auto;
               }
@@ -69,7 +69,7 @@
     > container {
       > ul {
         grid-template-columns: 1fr 1.5fr;
-        gap: var( --dm-spacing-tertiary );
+        gap: var(--dm-spacing-tertiary);
 
         > li {
           &:last-of-type {
@@ -105,13 +105,13 @@
     > container {
       > ul {
         grid-template-columns: repeat(1, 1fr);
-        gap: var( --dm-spacing-secondary );
+        gap: var(--dm-spacing-secondary);
 
         > li {
           &:first-of-type {
             > ul {
               grid-template-columns: repeat(1, 1fr);
-              gap: var( --dm-spacing-primary );
+              gap: var(--dm-spacing-primary);
             }
           }
         }
@@ -120,7 +120,8 @@
   }
 }
 
-body, body.theme-light {
+body,
+body.theme-light {
   .dm-resume-data {
     > container {
       > ul {
@@ -128,7 +129,7 @@ body, body.theme-light {
           &:last-of-type {
             > div {
               > p {
-                --dm-text-default-color: var( --dm-color-gray );
+                --dm-text-default-color: var(--dm-color-gray);
               }
             }
           }
@@ -145,7 +146,7 @@ body.theme-dark {
           &:last-of-type {
             > div {
               > p {
-                --dm-text-default-color: var( --dm-color-white );
+                --dm-text-default-color: var(--dm-color-white);
               }
             }
           }

@@ -28,7 +28,7 @@
   font-weight: var(--dm-text-medium-font-weight);
   line-height: var(--dm-text-medium-line-height);
   color: var(--dm-text-medium-color);
-  --dm-text-medium-color: var( --dm-color-white );
+  --dm-text-medium-color: var(--dm-color-white);
   --dm-text-medium-font-weight: 600;
 }
 #footer > section > .dm-footer-catalog > ul, #footer > section .dm-footer-contact > ul {
@@ -39,7 +39,7 @@
 #footer > section > .dm-footer-catalog > ul > li, #footer > section .dm-footer-contact > ul > li {
   display: flex;
   flex-shrink: 0;
-  color: var( --dm-color-white );
+  color: var(--dm-color-white);
 }
 #footer > section > .dm-footer-catalog > ul > li > a, #footer > section .dm-footer-contact > ul > li > a {
   display        : flex;
@@ -48,13 +48,13 @@
   gap: calc( var( --dm-spacing-primary ) / 3 );
 }
 #footer > section > .dm-footer-catalog > ul > li > a > span, #footer > section .dm-footer-contact > ul > li > a:hover > span {
-  --dm-text-small-color: var( --dm-color-highlight-primary );
+  --dm-text-small-color: var(--dm-color-accent-1);
 }
 #footer > section > .dm-footer-catalog > ul > li > a > svg > path, #footer > section .dm-footer-contact > ul > li > a:hover > svg[data-svg-type="fill"] > path {
-  fill: var( --dm-color-highlight-primary );
+  fill: var(--dm-color-accent-1);
 }
 #footer > section > .dm-footer-catalog > ul > li > a > svg > path, #footer > section .dm-footer-contact > ul > li > a:hover > svg[data-svg-type="stroke"] > path {
-  stroke: var( --dm-color-highlight-primary );
+  stroke: var(--dm-color-accent-1);
 }
 #footer > section > .dm-footer-catalog > ul > li > a > span, #footer > section .dm-footer-contact > ul > li > a > span {
   display: -webkit-box;
@@ -68,7 +68,7 @@
   font-weight: var(--dm-text-small-font-weight);
   line-height: var(--dm-text-small-line-height);
   color: var(--dm-text-small-color);
-  --dm-text-small-color: var( --dm-color-white );
+  --dm-text-small-color: var(--dm-color-white);
 }
 #footer > section > .dm-footer-catalog > ul > li > a > svg, #footer > section .dm-footer-contact > ul > li > a > svg {
   width     : 10px;
@@ -79,10 +79,10 @@
   max-height: 10px;
 }
 #footer > section > .dm-footer-catalog > ul > li > a > svg > path, #footer > section .dm-footer-contact > ul > li > a > svg[data-svg-type="fill"] > path {
-  fill: var( --dm-color-white );
+  fill: var(--dm-color-white);
 }
 #footer > section > .dm-footer-catalog > ul > li > a > svg > path, #footer > section .dm-footer-contact > ul > li > a > svg[data-svg-type="stroke"] > path {
-  stroke: var( --dm-color-white );
+  stroke: var(--dm-color-white);
 }
 #footer > section .dm-footer-contact > ul > li > a > svg:last-of-type {
   width    : auto;
@@ -116,7 +116,7 @@
   font-weight: var(--dm-text-medium-font-weight);
   line-height: var(--dm-text-medium-line-height);
   color: var(--dm-text-medium-color);
-  --dm-text-medium-color: var( --dm-color-white );
+  --dm-text-medium-color: var(--dm-color-white);
   --dm-text-medium-font-weight: 600;
 }
 #footer > section > .dm-footer-copyrights {
@@ -130,7 +130,7 @@
   font-weight: var(--dm-text-small-font-weight);
   line-height: var(--dm-text-small-line-height);
   color: var(--dm-text-small-color);
-  --dm-text-small-color: var( --dm-color-white );
+  --dm-text-small-color: var(--dm-color-white);
 }
 #footer > section {
   padding-top: calc( 0  / 2 + var( --dm-spacing-secondary ) );

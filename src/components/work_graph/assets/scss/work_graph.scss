@@ -1,0 +1,151 @@
+@import "theme";
+
+.work-graph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0px 2px 5px
+    color-mix(in srgb, var(--dm-color-black) 40%, transparent);
+  gap: 0px;
+
+  [mode="dark"] & {
+    .work-timeline {
+      > .year {
+        border-left: 1px solid var(--dm-color-white);
+
+        > span {
+          color: var(--dm-color-white);
+        }
+      }
+    }
+
+    > .work-timeline {
+      border-bottom: 1px solid var(--dm-color-white);
+    }
+
+    .work-graph__summary div {
+      color: var(--dm-color-white);
+    }
+  }
+
+  [mode="light"] & {
+    .work-timeline {
+      > .year {
+        border-left: 1px solid var(--dm-color-black);
+
+        > span {
+          color: var(--dm-color-gray-darken);
+        }
+      }
+    }
+
+    > .work-timeline {
+      border-bottom: 1px solid var(--dm-color-black);
+    }
+
+    .work-graph__summary div {
+      color: var(--dm-color-gray-darken);
+    }
+  }
+
+  .work-timeline,
+  .jobs-timeline {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+
+    .year {
+      position: relative;
+      display: flex;
+      align-items: end;
+      min-height: 20px;
+      width: 100%;
+
+      > span {
+        font-size: var(--dm-font-size-sm);
+        font-weight: 600;
+        display: none;
+        position: absolute;
+        bottom: 29px;
+      }
+
+      .month {
+        display: flex;
+        border-left: 0px solid var(--dm-color-gray-light);
+        min-height: 10px;
+        width: 100%;
+
+        > span {
+          display: none;
+        }
+
+        &:first-of-type {
+          border-left: 1px solid transparent;
+        }
+      }
+    }
+
+    &:first-of-type {
+      border-left: 1px solid transparent;
+    }
+  }
+
+  > .work-timeline {
+    padding-top: var(--dm-spacing-lg);
+    z-index: 1;
+  }
+
+  > .jobs-timeline {
+    margin-top: -21px;
+    margin-bottom: 20px;
+    z-index: 0;
+
+    > .year {
+      border-left: 0px solid transparent;
+
+      &:first-of-type {
+        > span {
+          display: block;
+          left: -2px;
+        }
+      }
+
+      &:last-of-type {
+        > span {
+          display: block;
+          left: -24px;
+        }
+      }
+
+      > .month {
+        &.worked {
+          background-color: var(--dm-color-success);
+          border-left: 1px solid var(--dm-color-success);
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+
+  > .work-graph__summary,
+  > div.work-graph__summary {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dm-spacing-xxs);
+    width: 100%;
+
+    div {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--dm-spacing-xxs);
+      margin: 0;
+    }
+    span {
+      font-size: var(--dm-font-size-sm);
+      line-height: 1.5;
+    }
+  }
+}

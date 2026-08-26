@@ -2,14 +2,15 @@
 @import "functions/functions.scss";
 
 .dm-jobs-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 60px 16px 30px;
-    border-radius: 14px;
-    box-shadow: 2px 2px 8px rgba(var(--dm-color-gray-darken-rgb), 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 16px 30px;
+  border-radius: 14px;
+  box-shadow: 2px 2px 8px rgba(var(--dm-color-gray-darken-rgb), 0.3);
 
-  .work-timeline, .jobs-timeline {
+  .work-timeline,
+  .jobs-timeline {
     width: 100%;
     position: relative;
     z-index: 1;
@@ -32,7 +33,7 @@
       }
       .month {
         display: flex;
-        border-left: 0px solid var( --dm-color-gray-lighten );
+        border-left: 0px solid var(--dm-color-gray-lighten);
         min-height: 10px;
         width: 100%;
 
@@ -74,10 +75,9 @@
         }
       }
       > .month {
-
         &.worked {
-          background-color: var( --dm-color-status-primary );
-          border-left: 1px solid var( --dm-color-status-primary );
+          background-color: var(--dm-color-status-primary);
+          border-left: 1px solid var(--dm-color-status-primary);
           opacity: 0.6;
         }
       }
@@ -94,54 +94,56 @@
     > span {
       @include dm-font-small();
       --dm-text-small-font-weight: 600;
-
     }
   }
 }
-body, body.theme-light {
+body,
+body.theme-light {
   .dm-jobs-grid {
-    background-color: rgba( var( --dm-color-white-rgb ), 1);
+    background-color: rgba(var(--dm-color-white-rgb), 1);
     border: 1px solid rgba(var(--dm-color-white-rgb), 1);
 
-    .work-timeline, .jobs-timeline {
+    .work-timeline,
+    .jobs-timeline {
       > .year {
-        border-left: 1px solid var( --dm-color-black );
+        border-left: 1px solid var(--dm-color-black);
 
         > span {
-          --dm-text-small-color: var( --dm-color-gray-darken );
+          --dm-text-small-color: var(--dm-color-gray-darken);
         }
       }
     }
     > .work-timeline {
-      border-bottom: 1px solid var( --dm-color-black );
+      border-bottom: 1px solid var(--dm-color-black);
     }
     > p {
       > span {
-        --dm-text-small-color: var( --dm-color-gray-darken );
+        --dm-text-small-color: var(--dm-color-gray-darken);
       }
     }
   }
 }
 body.theme-dark {
   .dm-jobs-grid {
-    background-color: rgba( var( --dm-color-gray-darken-rgb ), 0.5 );
+    background-color: rgba(var(--dm-color-gray-darken-rgb), 0.5);
     border: 1px solid rgba(var(--dm-color-white-rgb), 0.2);
 
-    .work-timeline, .jobs-timeline {
+    .work-timeline,
+    .jobs-timeline {
       > .year {
-        border-left: 1px solid var( --dm-color-white );
+        border-left: 1px solid var(--dm-color-white);
 
         > span {
-          --dm-text-small-color: var( --dm-color-white );
+          --dm-text-small-color: var(--dm-color-white);
         }
       }
     }
     > .work-timeline {
-      border-bottom: 1px solid var( --dm-color-white );
+      border-bottom: 1px solid var(--dm-color-white);
     }
     > p {
       > span {
-        --dm-text-small-color: var( --dm-color-white );
+        --dm-text-small-color: var(--dm-color-white);
       }
     }
   }

@@ -17,9 +17,9 @@ class SectionWorkstationList
                     $styles .= $styleKey . ': ' . $styleValue . ';';
                 }
             } else {
-                $styles = '--w-color-primary: var( --dm-color-primary );
+                $styles = '--w-color-primary: var(--dm-color-primary);
                    --w-color-secondary: var( --dm-color-secondary );
-                   --w-text-color-on-bg: var( --dm-color-white );
+                   --w-text-color-on-bg: var(--dm-color-white);
                    --w-title-font:  var( --dm-font-family-secondary );
                    --w-text-font: var( --dm-font-family-primary );';
             }

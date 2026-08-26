@@ -1,8 +1,8 @@
 <?php
 
-PlatformPathService::load_php_dir(__DIR__ . '/parts/');
+require_once __DIR__ . '/parts/image_sizes.php';
+require_once __DIR__ . '/parts/image_render.php';
 
-class image
+class image extends image_render
 {
-    use image_render, image_sizes;
 }

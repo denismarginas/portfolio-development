@@ -5,7 +5,7 @@ header {
     display: flex;
     align-items: center;
     gap: var(--dm-spacing-sm);
-    transition: all 0.3s ease-in-out;
+    transition: var(--dm-transition);
 
     ul {
       display: flex;
@@ -25,7 +25,7 @@ header {
         &:focus-within > .header-submenu {
           display: flex;
           opacity: 1;
-          transition: all 0.3s ease-in-out;
+          transition: var(--dm-transition);
         }
 
         a {
@@ -52,7 +52,7 @@ header {
             border-radius: 2px;
             transform: scaleX(0);
             transform-origin: center;
-            transition: all 0.3s ease-in-out;
+            transition: var(--dm-transition);
           }
 
           &.active::after,
@@ -115,8 +115,13 @@ header {
       transition: all 0.15s ease-in-out;
 
       a {
+        --dm-spacing-xs: var(--dm-spacing-xxs);
         display: block;
         white-space: nowrap;
+        font-size: var(--dm-font-size-md);
+        line-height: 1.8;
+        padding: var(--dm-spacing-xxs) var(--dm-spacing-xxs)
+          var(--dm-spacing-xxs) var(--dm-spacing-xxs);
       }
 
       [mode="dark"] & {
@@ -157,7 +162,7 @@ header {
       box-shadow: 3px 3px 17px
         color-mix(in srgb, var(--dm-color-black) 40%, transparent);
       transition:
-        all 0.3s ease-in-out,
+        var(--dm-transition),
         background-color 0.1s ease-in-out background-image 0.1s ease-in-out;
       &::before,
       &::after {

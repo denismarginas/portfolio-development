@@ -1,8 +1,8 @@
 <?php
 
-trait page_constructor_seo
+class page_constructor_seo
 {
-    protected static function implicit_seo_fields(): array
+    public static function implicit_seo_fields(): array
     {
         $fields = [];
         $global = PlatformDataService::get_global_settings();
@@ -40,7 +40,7 @@ trait page_constructor_seo
         return $fields;
     }
 
-    protected static function add_seo_to_html(array $seo_data, string $existing_html = ''): string
+    public static function add_seo_to_html(array $seo_data, string $existing_html = ''): string
     {
         $html = $existing_html;
 
@@ -67,3 +67,4 @@ trait page_constructor_seo
         return $html;
     }
 }
+

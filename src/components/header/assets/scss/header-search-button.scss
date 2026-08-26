@@ -10,13 +10,13 @@ header {
       height: 30px;
       text-decoration: none;
       padding: var(--dm-spacing-xxs);
-      transition: all 0.3s ease-in-out;
+      transition: var(--dm-transition);
 
       svg {
         width: 18px;
         height: 18px;
         transform: rotate(0deg);
-        transition: all 0.3s ease-in-out;
+        transition: var(--dm-transition);
       }
 
       [mode="dark"] & {
@@ -39,7 +39,7 @@ header {
         svg {
           @include svg-color(var(--dm-link));
           transform: rotate(90deg);
-          transition: all 0.3s ease-in-out;
+          transition: var(--dm-transition);
         }
       }
     }

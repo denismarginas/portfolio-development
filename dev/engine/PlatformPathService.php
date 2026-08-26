@@ -89,8 +89,12 @@ class PlatformPathService
 
     public static function load_php_dir(string $dir): void
     {
-        foreach (glob(rtrim($dir, '/\\') . '/*.php') as $filename) {
+        $dir = rtrim($dir, '/\\');
+        foreach (glob($dir . '/*.php') as $filename) {
             require_once $filename;
+        }
+        foreach (glob($dir . '/*', GLOB_ONLYDIR) as $subdir) {
+            self::load_php_dir($subdir);
         }
     }
 }

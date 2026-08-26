@@ -1,6 +1,6 @@
 <?php
 
-trait post_items_render
+class post_items_render extends post_items_item
 {
     public static function render(array $data = []): string
     {
@@ -37,12 +37,12 @@ trait post_items_render
 
         if ($items === '') return '';
 
-        return PlatformTemplateRenderer::render(__DIR__ . '/../../html/template.html', [
+        return PlatformTemplateRenderer::render([
             'items' => $items,
         ]);
     }
 
-    protected static function is_excluded(array $post, mixed $excludeBy): bool
+    public static function is_excluded(array $post, mixed $excludeBy): bool
     {
         $entries = is_array($excludeBy) ? $excludeBy : [$excludeBy];
         if (empty($entries)) return false;
@@ -78,7 +78,7 @@ trait post_items_render
         return false;
     }
 
-    protected static function passes_filter(array $post, mixed $filterBy): bool
+    public static function passes_filter(array $post, mixed $filterBy): bool
     {
         $entries = is_array($filterBy) ? $filterBy : [];
         if (empty($entries)) return true;
@@ -109,7 +109,7 @@ trait post_items_render
         return true;
     }
 
-    protected static function values_equal(mixed $a, mixed $b): bool
+    public static function values_equal(mixed $a, mixed $b): bool
     {
         if (is_bool($b)) {
             return (bool) $a === $b;
@@ -120,7 +120,7 @@ trait post_items_render
         return $a === $b;
     }
 
-    protected static function is_truthy(mixed $value): bool
+    public static function is_truthy(mixed $value): bool
     {
         if ($value === null || $value === '' || $value === false || $value === 0 || $value === '0' || $value === 'false') {
             return false;
@@ -131,7 +131,7 @@ trait post_items_render
         return true;
     }
 
-    protected static function resolve_post_types(mixed $postType): array
+    public static function resolve_post_types(mixed $postType): array
     {
         if ($postType === null || $postType === '' || $postType === false || $postType === []) {
             $valid = PlatformDataService::get_valid_post_files();
@@ -149,7 +149,7 @@ trait post_items_render
         return ['project'];
     }
 
-    protected static function render_via_template(array $post, array $template): string
+    public static function render_via_template(array $post, array $template): string
     {
         $component = (string) ($template['component'] ?? 'card');
         $rawParams = (array) ($template['params'] ?? $template['data'] ?? []);
@@ -183,7 +183,7 @@ trait post_items_render
         ]);
     }
 
-    protected static function build_context(array $data, string $postType): array
+    public static function build_context(array $data, string $postType): array
     {
         $contentBase = rtrim((string)($data['global_content_path'] ?? ''), '/');
         $globalImgPath = $contentBase !== '' ? $contentBase . '/img/' . $postType : self::post_type_img_base($postType);
@@ -197,7 +197,7 @@ trait post_items_render
         ];
     }
 
-    protected static function post_type_img_base(string $postType): string
+    public static function post_type_img_base(string $postType): string
     {
         $types = PlatformDataService::get_data('settings_types');
         $path = (string)($types['post'][$postType]['global_img_path'] ?? '');
@@ -205,3 +205,7 @@ trait post_items_render
         return 'src/content/img/' . $postType;
     }
 }
+
+
+
+

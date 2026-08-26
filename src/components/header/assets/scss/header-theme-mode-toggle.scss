@@ -61,7 +61,7 @@ header {
 
       &[active="false"] svg {
         transform: rotate(50deg);
-        transition: all 0.3s ease-in-out;
+        transition: var(--dm-transition);
         transition-delay: 0s;
       }
     }

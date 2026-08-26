@@ -1,9 +1,16 @@
 {
-    "name": "page_constructor",
-    "description": "Full HTML page structure: head, header, main content, footer.",
-    "assets": {
-        "php": ["assets/php/page_constructor.php"],
-        "html": ["assets/html/template.html"]
-    },
-    "dependencies": ["header", "footer", "page_content"]
+  "name": "page_constructor",
+  "description": "Full HTML page structure: head, header, main content, footer.",
+  "assets": {
+    "php": ["assets/php/page_constructor.php"],
+    "html": ["assets/html/template.html"],
+    "js": ["assets/js/theme_mode_init.js"]
+  },
+  "dependencies": [
+    "header",
+    "footer",
+    "page_content",
+    "animation_grid_background",
+    "overlay_noise"
+  ]
 }

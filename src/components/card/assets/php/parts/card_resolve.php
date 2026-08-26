@@ -1,8 +1,8 @@
 <?php
 
-trait card_resolve
+class card_resolve
 {
-    protected static function resolve_description(array $data, array $postData): string
+    public static function resolve_description(array $data, array $postData): string
     {
         $raw = self::resolve_text_field($data, $postData, 'description');
         if ($raw === '') return '';
@@ -15,7 +15,7 @@ trait card_resolve
         return PlatformTextService::excerpt($raw, $max);
     }
 
-    protected static function resolve_link(array $data): string
+    public static function resolve_link(array $data): string
     {
         $link = (string) ($data['link'] ?? $data['url'] ?? '');
         if ($link !== '') return $link;
@@ -26,7 +26,7 @@ trait card_resolve
         return PlatformPathService::post_link($postId);
     }
 
-    protected static function resolve_text_field(array $data, array $postData, string $key): string
+    public static function resolve_text_field(array $data, array $postData, string $key): string
     {
         $raw = $data[$key] ?? null;
         if (!is_string($raw) || $raw === '') {
@@ -38,3 +38,4 @@ trait card_resolve
         return $raw;
     }
 }
+

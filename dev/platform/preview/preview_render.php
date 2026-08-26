@@ -29,7 +29,7 @@ function platform_render_body_sections(array $postData, string $globalContentPat
             'global_content_path' => $globalContentPath,
             'global_img_path' => $globalImgPath,
             'global_vid_path' => $globalVidPath,
-            'children' => $item['children'] ?? [],
+            'children' => $item['children'] ?? $item['data']['children'] ?? [],
         ]);
 
         $bodyHtml .= PlatformComponentRenderer::render(str_replace('-', '_', $componentName), $componentData);

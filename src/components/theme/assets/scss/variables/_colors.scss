@@ -1,5 +1,10 @@
-$dm-color-primary: #b53836 !default;
+$dm-color-primary: #656c7a !default;
 
+$dm-color-primary-50: scale-color(
+  $dm-color-primary,
+  $lightness: 95%,
+  $saturation: 70%
+);
 $dm-color-primary-100: scale-color(
   $dm-color-primary,
   $lightness: 90%,
@@ -40,6 +45,11 @@ $dm-color-primary-900: scale-color(
   $dm-color-primary,
   $lightness: -80%,
   $saturation: -20%
+);
+$dm-color-primary-950: scale-color(
+  $dm-color-primary,
+  $lightness: -85%,
+  $saturation: -80%
 );
 
 $dm-color-accent-1: scale-color(

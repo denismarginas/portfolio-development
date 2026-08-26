@@ -1,8 +1,8 @@
 <?php
 
-trait post_items_item
+class post_items_item extends post_items_image
 {
-    protected static function render_item(array $post, array $context): string
+    public static function render_item(array $post, array $context): string
     {
         $postId = (string)($post['post_id'] ?? $post['_id'] ?? '');
         if ($postId === '') return '';
@@ -22,3 +22,5 @@ trait post_items_item
         ]);
     }
 }
+
+

@@ -2,10 +2,10 @@
 @import "../../../../theme/scss/functions/functions.scss";
 
 .dm-catalog-categories {
-  background-color: var( --dm-color-secondary );
+  background-color: var(--dm-color-secondary);
   background-image: linear-gradient(
-                  var( --dm-color-secondary ) 20%,
-                  var( --dm-color-primary ) 200%
+    var(--dm-color-secondary) 20%,
+    var(--dm-color-primary) 200%
   );
   position: relative;
   overflow: hidden;
@@ -16,21 +16,21 @@
     > div {
       @include flex-column();
       @include padding-x();
-      gap: var( --dm-spacing-secondary );
+      gap: var(--dm-spacing-secondary);
 
       > h2 {
         @include dm-font-heading1();
-        --dm-text-heading1-color: var( --dm-color-white );
-        --dm-text-heading1-font-family: var( --dm-font-family-secondary );
-        --dm-text-heading1-letter-spacing: var( --dm-spacing-primary );
+        --dm-text-heading1-color: var(--dm-color-white);
+        --dm-text-heading1-font-family: var(--dm-font-family-secondary);
+        --dm-text-heading1-letter-spacing: var(--dm-spacing-primary);
         text-align: center;
         background-image: linear-gradient(
-                        -225deg,
-                        var( --dm-color-white ) 0%,
-                        var( --dm-color-highlight-primary  ) 29%,
-                        var( --dm-color-highlight-secondary ) 45%,
-                        var( --dm-color-highlight-tertiary ) 67%,
-                        var( --dm-color-white ) 100%
+          -225deg,
+          var(--dm-color-white) 0%,
+          var(--dm-color-highlight-primary) 29%,
+          var(--dm-color-highlight-secondary) 45%,
+          var(--dm-color-highlight-tertiary) 67%,
+          var(--dm-color-white) 100%
         );
         background-size: auto auto;
         background-clip: border-box;
@@ -50,16 +50,22 @@
           width: 10%;
           max-width: 35%;
           margin: 4px auto;
-          background-color: var( --dm-color-white);
-          -webkit-transition: width 0.5s ease, background-color 0.5s ease;
-          transition: width 1s ease, background-color 0.5s ease;
+          background-color: var(--dm-color-white);
+          -webkit-transition:
+            width 0.5s ease,
+            background-color 0.5s ease;
+          transition:
+            width 1s ease,
+            background-color 0.5s ease;
           animation: moveDivider 5s linear infinite;
         }
         &:hover {
           &:after {
             width: 15%;
-            transition: width 1s ease, background-color 0.5s ease;
-            background-color: var( --dm-color-highlight-primary );
+            transition:
+              width 1s ease,
+              background-color 0.5s ease;
+            background-color: var(--dm-color-highlight-primary);
           }
         }
       }
@@ -69,8 +75,8 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         align-items: start;
-        gap: var( --dm-spacing-small );
-        padding: var( --dm-spacing-small ) 0;
+        gap: var(--dm-spacing-small);
+        padding: var(--dm-spacing-small) 0;
 
         > li {
           width: 100%;
@@ -85,7 +91,7 @@
     > container {
       > div {
         > ul {
-          gap: var( --dm-spacing-secondary );
+          gap: var(--dm-spacing-secondary);
         }
       }
     }
@@ -105,28 +111,28 @@
       }
     }
   }
-  @media only screen and (max-width: $screen-phone-large ) {
+  @media only screen and (max-width: $screen-phone-large) {
     > container {
       > div {
         > h2 {
           @include dm-font-heading3();
-          --dm-text-heading3-color: var( --dm-color-white );
-          --dm-text-heading3-font-family: var( --dm-font-family-secondary );
+          --dm-text-heading3-color: var(--dm-color-white);
+          --dm-text-heading3-font-family: var(--dm-font-family-secondary);
           --dm-text-heading3-letter-spacing: 4px;
         }
         > ul {
-          padding: var( --dm-spacing-secondary ) 0;
-          gap: calc( var( --dm-spacing-primary ) );
+          padding: var(--dm-spacing-secondary) 0;
+          gap: calc(var(--dm-spacing-primary));
         }
       }
     }
   }
-  @media only screen and (max-width: $screen-phone-medium ) {
+  @media only screen and (max-width: $screen-phone-medium) {
     > container {
       > div {
         > ul {
           grid-template-columns: repeat(1, 0.95fr);
-          gap: calc( var( --dm-spacing-primary ) );
+          gap: calc(var(--dm-spacing-primary));
 
           > li {
             &:first-of-type {

@@ -1,8 +1,8 @@
 <?php
 
-PlatformPathService::load_php_dir(__DIR__ . '/parts/');
+require_once __DIR__ . '/parts/footer_copyrights.php';
+require_once __DIR__ . '/parts/footer_render.php';
 
-class footer
+class footer extends footer_render
 {
-    use footer_render, footer_copyrights;
 }

@@ -1,0 +1,13 @@
+{
+  "name": "utility_datetime_amount",
+  "title": "Utility DateTime Amount",
+  "description": "Renders date interval as human-readable text (years, months, weeks, days) with proper singular/plural forms.",
+  "type": "component",
+  "assets": {
+    "php": ["assets/php/utility_datetime_amount.php"],
+    "html": ["assets/html/template.html"],
+    "scss": ["assets/scss/utility_datetime_amount.scss"],
+    "css": ["assets/css/utility_datetime_amount.css"]
+  },
+  "dependencies": []
+}

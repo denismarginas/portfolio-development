@@ -1,0 +1,13 @@
+{
+  "name": "animation_grid_background",
+  "title": "Animation Grid Background",
+  "description": "Style-only component providing the .animation-grid-background class with scrolling grid background per theme mode.",
+  "type": "utility",
+  "assets": {
+    "php": ["assets/php/animation_grid_background.php"],
+    "html": ["assets/html/template.html"],
+    "scss": ["assets/scss/style.scss"],
+    "css": ["assets/css/style.css"]
+  },
+  "dependencies": []
+}
