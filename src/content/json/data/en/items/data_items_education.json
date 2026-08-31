@@ -5,12 +5,11 @@
       "item_type": "education",
       "render": true,
       "appearance": {
-        "layout": "wrapper-layout",
         "colors": {
-          "primary": "#5e606c",
+          "primary": "#bf0001",
           "secondary": "#fff",
-          "canvas_primary": "#5e606c",
-          "canvas_secondary": "#fff"
+          "canvas_primary": "#fff",
+          "canvas_secondary": "#2c2c2c"
         }
       }
     },
@@ -75,12 +74,11 @@
       "item_type": "education",
       "render": true,
       "appearance": {
-        "layout": "wrapper-layout",
         "colors": {
-          "primary": "#5e606c",
+          "primary": "#97d059",
           "secondary": "#fff",
-          "canvas_primary": "#5e606c",
-          "canvas_secondary": "#fff"
+          "canvas_primary": "#fff",
+          "canvas_secondary": "#80906e"
         }
       }
     },

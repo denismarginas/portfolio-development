@@ -1,0 +1,13 @@
+{
+  "name": "video",
+  "title": "Video",
+  "description": "Video player with thumbnail, custom controls and primary color variable.",
+  "assets": {
+    "php": ["assets/php/video.php"],
+    "html": ["assets/html/template.html"],
+    "scss": ["assets/scss/style.scss", "assets/scss/progress-bar.scss"],
+    "css": ["assets/css/style.css", "assets/css/progress-bar.css"],
+    "js": ["assets/js/video.js", "assets/js/videoControls.js"]
+  },
+  "dependencies": ["image"]
+}

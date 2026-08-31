@@ -1,0 +1,12 @@
+{
+  "name": "video_listing",
+  "title": "Video Listing",
+  "description": "Lists videos filtered by taxonomy with 60/40 layout and reverse for odd items.",
+  "assets": {
+    "php": ["assets/php/video_listing.php"],
+    "html": ["assets/html/template.html"],
+    "scss": ["assets/scss/style.scss"],
+    "css": ["assets/css/style.css"]
+  },
+  "dependencies": ["video", "button"]
+}

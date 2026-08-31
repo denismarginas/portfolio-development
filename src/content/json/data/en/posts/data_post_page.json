@@ -208,8 +208,17 @@
         }
       },
       {
-        "component": "portfolio_showcase",
-        "data": []
+        "component": "video_listing",
+        "data": {
+          "template": {
+            "component": "video"
+          },
+          "filter": {
+            "taxonomy": {
+              "tags": ["portfolio showcase"]
+            }
+          }
+        }
       },
       {
         "component": "carousel_post_items",

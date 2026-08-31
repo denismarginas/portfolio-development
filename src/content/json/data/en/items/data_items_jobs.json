@@ -5,11 +5,10 @@
       "item_type": "job",
       "render": true,
       "appearance": {
-        "layout": "wrapper-layout",
         "colors": {
-          "primary": "#5e606c",
-          "secondary": "#fff",
-          "canvas_primary": "#5e606c",
+          "primary": "#141414",
+          "secondary": "#ffcc00",
+          "canvas_primary": "#141414",
           "canvas_secondary": "#fff"
         }
       }
@@ -87,12 +86,11 @@
       "item_type": "job",
       "render": true,
       "appearance": {
-        "layout": "wrapper-layout",
         "colors": {
-          "primary": "#5e606c",
+          "primary": "#ed1c24",
           "secondary": "#fff",
-          "canvas_primary": "#5e606c",
-          "canvas_secondary": "#fff"
+          "canvas_primary": "#e1e1e2",
+          "canvas_secondary": "#ed1c24"
         }
       }
     },
@@ -169,12 +167,11 @@
       "item_type": "job",
       "render": true,
       "appearance": {
-        "layout": "wrapper-layout",
         "colors": {
-          "primary": "#5e606c",
-          "secondary": "#fff",
-          "canvas_primary": "#5e606c",
-          "canvas_secondary": "#fff"
+          "primary": "#141414",
+          "secondary": "#33c67a",
+          "canvas_primary": "#141414",
+          "canvas_secondary": "#33c67a"
         }
       }
     },
@@ -240,11 +237,10 @@
       "item_type": "job",
       "render": false,
       "appearance": {
-        "layout": "wrapper-layout",
         "colors": {
-          "primary": "#5e606c",
+          "primary": "#39393c",
           "secondary": "#fff",
-          "canvas_primary": "#5e606c",
+          "canvas_primary": "#39393c",
           "canvas_secondary": "#fff"
         }
       }
@@ -309,12 +305,11 @@
       "item_type": "job",
       "render": true,
       "appearance": {
-        "layout": "wrapper-layout",
         "colors": {
-          "primary": "#5e606c",
+          "primary": "#db6106",
           "secondary": "#fff",
-          "canvas_primary": "#5e606c",
-          "canvas_secondary": "#fff"
+          "canvas_primary": "#fff",
+          "canvas_secondary": "#0d1166"
         }
       }
     },
@@ -380,10 +375,10 @@
       "appearance": {
         "layout": "wrapper-layout",
         "colors": {
-          "primary": "#5e606c",
+          "primary": "#015f87",
           "secondary": "#fff",
-          "canvas_primary": "#5e606c",
-          "canvas_secondary": "#fff"
+          "canvas_primary": "#fff",
+          "canvas_secondary": "#636363"
         }
       }
     },
