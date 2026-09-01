@@ -8,5 +8,5 @@
     "scss": ["assets/scss/style.scss"],
     "css": ["assets/css/style.css"]
   },
-  "dependencies": ["utility_grid_listing", "animation_waves", "card_taxonomy"]
+  "dependencies": ["utility_grid_listing", "card_taxonomy"]
 }

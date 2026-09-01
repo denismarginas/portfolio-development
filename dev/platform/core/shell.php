@@ -53,7 +53,6 @@ function platform_menu(): array
             ],
         ],
         'settings'        => ['label' => $get('home.settings', 'Settings'), 'icon' => 'settings', 'url' => '?page=settings', 'desc' => $get('home.settingsDesc', 'Site, routing, languages and SEO configuration.')],
-        'workflow'        => ['label' => $get('title', 'Workflow'), 'icon' => 'sitemap', 'url' => '?page=workflow', 'desc' => 'Build and run content pipelines.'],
     ];
 }
 
@@ -65,16 +64,15 @@ function platform_pages(): array
 
     return [
         'home'           => ['title' => $get('home.title', 'Dashboard'), 'render' => 'platform_render_home_fragment', 'file' => 'components/home/index.php'],
-        'structure-types'=> ['title' => $get('structureTypes.label', 'Structure Types'), 'render' => 'platform_render_structure_types_fragment', 'file' => 'components/structure-types/index.php'],
+        'structure-types' => ['title' => $get('structureTypes.label', 'Structure Types'), 'render' => 'platform_render_structure_types_fragment', 'file' => 'components/structure-types/index.php'],
         'edit-posts'     => ['title' => $get('editPosts.pageTitle', 'Post Editor'), 'render' => 'platform_render_edit_posts_fragment', 'file' => 'components/edit-posts/index.php'],
-        'edit-taxonomies'=> ['title' => $get('structureTypes.taxonomies', 'Taxonomies'), 'render' => 'platform_render_edit_taxonomies_fragment', 'file' => 'components/edit-taxonomies/index.php'],
+        'edit-taxonomies' => ['title' => $get('structureTypes.taxonomies', 'Taxonomies'), 'render' => 'platform_render_edit_taxonomies_fragment', 'file' => 'components/edit-taxonomies/index.php'],
         'edit-items'     => ['title' => $get('structureTypes.items', 'Items'), 'render' => 'platform_render_edit_items_fragment', 'file' => 'components/edit-items/index.php'],
         'taxonomies'     => ['title' => $get('structureTypes.taxonomies', 'Taxonomies'), 'render' => 'platform_render_taxonomies_fragment', 'file' => 'components/taxonomies/index.php'],
         'items'          => ['title' => $get('structureTypes.items', 'Items'), 'render' => 'platform_render_items_fragment', 'file' => 'components/items/index.php'],
         'settings'       => ['title' => $get('home.settings', 'Settings'), 'render' => 'platform_render_settings_fragment', 'file' => 'components/settings/index.php'],
         'render'         => ['title' => $get('actions.compileScss', 'Render'), 'render' => 'platform_render_render_fragment', 'file' => 'components/render/index.php'],
         'generate'       => ['title' => $get('actions.translate', 'Generate'), 'render' => 'platform_render_generate_fragment', 'file' => 'components/generate/index.php'],
-        'workflow'       => ['title' => $get('title', 'Workflow'), 'render' => 'platform_render_workflow_fragment', 'file' => 'components/workflow-ui/index.php'],
     ];
 }
 

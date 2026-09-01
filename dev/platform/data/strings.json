@@ -14,7 +14,7 @@
     "addCard"     : "Add card",
     "saveVariable": "Save variable",
     "delete"      : "Delete",
-    "compileScss" : "Compile SCSS",
+    "compileScss" : "Render",
     "editPosts"   : "Edit Posts",
     "view"        : "View",
     "translate"   : "Generate Translations"

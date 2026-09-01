@@ -26,6 +26,10 @@
       "games": { "singular": "Game", "plural": "Games" },
       "socials": { "singular": "Social", "plural": "Socials" },
       "videos": { "singular": "Video", "plural": "Videos" },
+      "knowledge_items": {
+        "singular": "Knowledge Item",
+        "plural": "Knowledge Items"
+      },
       "filters_projects": {
         "singular": "Filter Projects",
         "plural": "Filters Projects"

@@ -183,7 +183,8 @@
   user-select: none;
 }
 
-.platform-checkbox {
+.platform-checkbox,
+[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
   width: 14px;

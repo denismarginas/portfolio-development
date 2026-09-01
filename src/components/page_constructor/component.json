@@ -4,7 +4,7 @@
   "assets": {
     "php": ["assets/php/page_constructor.php"],
     "html": ["assets/html/template.html"],
-    "js": ["assets/js/theme_mode_init.js", "assets/js/check_js_init.js"]
+    "js": ["assets/js/check_js_init.js"]
   },
   "dependencies": [
     "header",

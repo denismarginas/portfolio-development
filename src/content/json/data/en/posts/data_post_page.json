@@ -193,38 +193,49 @@
         }
       },
       {
-        "component": "taxonomy_listing",
-        "data": {
-          "post_type": "project",
-          "taxonomy": "category",
-          "title_render": true,
-          "title": "Projects",
-          "template": {
-            "component": "card_taxonomy",
+        "component": "section",
+        "children": [
+          {
+            "component": "taxonomy_listing",
             "data": {
-              "overlay": "design-elements/overlay-particles.webp"
+              "post_type": "project",
+              "taxonomy": "category",
+              "title_render": true,
+              "title": "Projects",
+              "template": {
+                "component": "card_taxonomy",
+                "data": {
+                  "overlay": "design-elements/overlay-particles.webp"
+                }
+              }
             }
           }
-        }
+        ]
       },
+
       {
-        "component": "video_listing",
-        "data": {
-          "template": {
-            "component": "video"
+        "component": "section",
+        "children": [
+          {
+            "component": "video_listing",
+            "data": {
+              "template": {
+                "component": "video"
+              },
+              "filter": {
+                "taxonomy": {
+                  "tags": ["portfolio showcase"]
+                }
+              }
+            }
           },
-          "filter": {
-            "taxonomy": {
-              "tags": ["portfolio showcase"]
+          {
+            "component": "carousel_post_items",
+            "data": {
+              "variant": "standard"
             }
           }
-        }
-      },
-      {
-        "component": "carousel_post_items",
-        "data": {
-          "variant": "standard"
-        }
+        ]
       }
     ]
   },

@@ -11,12 +11,14 @@ $background-color_4: var(--dm-color-primary);
   --dm-color-primary: var(--dm-color-primary);
   --dm-color-secondary: var(--dm-color-primary-950);
   position: relative;
+  overflow: hidden;
   width: 100%;
   display: flex;
   justify-content: center;
   margin-inline: auto;
   background-color: $background-color_1;
   container-type: inline-size;
+  border-radius: var(--dm-radius-sm);
 
   &:focus-within {
     .video-controls-container {
@@ -60,7 +62,7 @@ $background-color_4: var(--dm-color-primary);
     background-size: cover;
     overflow: hidden;
     cursor: pointer;
-    z-index: 101;
+    z-index: 2;
 
     > img {
       position: absolute;
@@ -93,9 +95,10 @@ $background-color_4: var(--dm-color-primary);
     opacity: 0.2;
     transition: all 0.3s ease;
     filter: drop-shadow(2px 4px 1px #00000094);
-    z-index: 102;
+    z-index: 3;
 
     > svg {
+      @include svg-color(var(--dm-color-white));
       width: 100px;
       height: 100px;
       max-width: 50%;
@@ -110,6 +113,13 @@ $background-color_4: var(--dm-color-primary);
 
     .open {
       display: none;
+    }
+  }
+  &.no-thumbnail {
+    > .thumbnail,
+    > .show-play,
+    > .show-pause {
+      display: none !important;
     }
   }
   &.scrubbing {
@@ -128,13 +138,16 @@ $background-color_4: var(--dm-color-primary);
 
     .video-controls-container {
       opacity: 1;
-      display: none;
     }
     .pause-icon {
       display: none;
     }
     > .show-pause {
-      z-index: 99;
+      z-index: 1;
+
+      > svg {
+        display: flex;
+      }
     }
 
     &:hover {
@@ -159,7 +172,7 @@ $background-color_4: var(--dm-color-primary);
     left: 0;
     right: 0;
     color: $color_1;
-    z-index: 100;
+    z-index: 1;
     opacity: 0;
     transition: opacity 150ms ease-in-out;
 
@@ -361,7 +374,6 @@ $background-color_4: var(--dm-color-primary);
     &:not(:hover) {
       .video-controls-container {
         opacity: 1;
-        display: none;
 
         > .controls {
           opacity: 0;

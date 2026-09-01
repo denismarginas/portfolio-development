@@ -1,5 +1,15 @@
-<div class="video-container paused" data-volume-level="high" style="{{ style }}">
-  {{ thumbnail_section }}
+<div class="video-container paused{{ no_thumbnail_class }}" data-volume-level="high" style="{{ style }}">
+  <div class="thumbnail" style="{{ thumbnail_bg_style }}">{{ thumbnail_img }}</div>
+  <div class="show-play" style="display:flex;">
+    <svg type="fill" class="play-icon" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+    </svg>
+  </div>
+  <div class="show-pause" style="display:none;">
+    <svg type="fill" class="pause-icon" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M14,19H18V5H14M6,19H10V5H6V19Z" />
+    </svg>
+  </div>
   <div class="video-controls-container">
     <div class="timeline-container">
       <div class="timeline">

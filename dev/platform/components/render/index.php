@@ -33,7 +33,7 @@ function platform_render_render_fragment(string $tab = ''): string
     $previewDefaultsJson = htmlspecialchars(json_encode($previewDefaults), ENT_QUOTES, 'UTF-8');
 
     ob_start();
-    ?>
+?>
     <div class="platform-admin-page" data-render-root data-render-tab="<?php echo htmlspecialchars($tab, ENT_QUOTES, 'UTF-8'); ?>" data-render-preview-defaults="<?php echo $previewDefaultsJson; ?>">
         <div class="platform-page-heading">
             <h2 class="platform-title">Render</h2>
@@ -85,6 +85,6 @@ function platform_render_render_fragment(string $tab = ''): string
             </div>
         </section>
     </div>
-    <?php
+<?php
     return ob_get_clean();
 }

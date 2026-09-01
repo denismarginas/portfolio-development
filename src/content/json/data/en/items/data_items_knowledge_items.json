@@ -1,0 +1,182 @@
+[
+  {
+    "_id": "wordpress",
+    "svg": "wordpress",
+    "external_url": "https://wordpress.org/",
+    "text": "Wordpress"
+  },
+  {
+    "_id": "prestashop",
+    "svg": "prestashop",
+    "external_url": "https://prestashop.com/",
+    "text": "Prestashop"
+  },
+  {
+    "_id": "html",
+    "svg": "html",
+    "external_url": "https://en.wikipedia.org/wiki/HTML",
+    "text": "HTML"
+  },
+  {
+    "_id": "css",
+    "svg": "css",
+    "external_url": "https://en.wikipedia.org/wiki/CSS",
+    "text": "CSSS"
+  },
+  {
+    "_id": "js",
+    "svg": "js",
+    "external_url": "https://en.wikipedia.org/wiki/JavaScript",
+    "text": "Java Script"
+  },
+  {
+    "_id": "bootstrap",
+    "svg": "bootstrap",
+    "external_url": "https://getbootstrap.com/",
+    "text": "Bootstrap"
+  },
+  {
+    "_id": "jquery",
+    "svg": "jquery",
+    "external_url": "https://jquery.com/",
+    "text": "jQuery"
+  },
+  {
+    "_id": "nodejs",
+    "svg": "nodejs",
+    "external_url": "https://nodejs.org/en",
+    "text": "Node JS"
+  },
+  {
+    "_id": "sass",
+    "svg": "sass",
+    "external_url": "https://sass-lang.com/",
+    "text": "SASS"
+  },
+  {
+    "_id": "php",
+    "svg": "php",
+    "external_url": "https://www.php.net/",
+    "text": "PHP"
+  },
+  {
+    "_id": "tpl",
+    "svg": "tpl",
+    "external_url": "https://www.smarty.net/docs/en/what.is.smarty.tpl",
+    "text": "TPL Smarty"
+  },
+  {
+    "_id": "c++",
+    "svg": "c++",
+    "external_url": "https://en.wikipedia.org/wiki/C%2B%2B",
+    "text": "C++"
+  },
+  {
+    "_id": "c",
+    "svg": "c",
+    "external_url": "https://en.wikipedia.org/wiki/C_(programming_language)",
+    "text": "C"
+  },
+  {
+    "_id": "python",
+    "svg": "python",
+    "external_url": "https://www.python.org/",
+    "text": "Python"
+  },
+  {
+    "_id": "sql",
+    "svg": "sql",
+    "external_url": "https://en.wikipedia.org/wiki/SQL",
+    "text": "SQL"
+  },
+  {
+    "_id": "xampp",
+    "svg": "xampp",
+    "external_url": "https://www.apachefriends.org/",
+    "text": "XAMPP"
+  },
+  {
+    "_id": "phpmyadmin",
+    "svg": "phpmyadmin",
+    "external_url": "https://www.phpmyadmin.net/",
+    "text": "PHP My Admin"
+  },
+  {
+    "_id": "vscode",
+    "svg": "vscode",
+    "external_url": "https://code.visualstudio.com/",
+    "text": "Visual Studio Code"
+  },
+  {
+    "_id": "phpstorm",
+    "svg": "phpstorm",
+    "external_url": "https://www.jetbrains.com/phpstorm/",
+    "text": "PhpStorm"
+  },
+  {
+    "_id": "pycharm",
+    "svg": "pycharm",
+    "external_url": "https://www.jetbrains.com/pycharm/",
+    "text": "PyCharm"
+  },
+  {
+    "_id": "sv",
+    "svg": "sv",
+    "external_url": "https://www.vegascreativesoftware.com/us/vegas-pro/",
+    "text": "Sony Vegas"
+  },
+  {
+    "_id": "ae",
+    "svg": "ae",
+    "external_url": "https://www.adobe.com/products/aftereffects.html",
+    "text": "Adobe After Effects"
+  },
+  {
+    "_id": "photopea",
+    "svg": "photopea",
+    "external_url": "https://www.photopea.com/",
+    "text": "Photopea"
+  },
+  {
+    "_id": "xaraphoto",
+    "svg": "xaraphoto",
+    "external_url": "https://www.xara.com/photo-graphic-plus/",
+    "text": "Xara Photo"
+  },
+  {
+    "_id": "blender",
+    "svg": "blender",
+    "external_url": "https://www.blender.org/",
+    "text": "Blender"
+  },
+  {
+    "_id": "office",
+    "svg": "office",
+    "external_url": "https://www.office.com/",
+    "text": "Office"
+  },
+  {
+    "_id": "googledrive",
+    "svg": "googledrive",
+    "external_url": "https://www.google.com/drive/",
+    "text": "Google Drive"
+  },
+  {
+    "_id": "github_colors",
+    "svg": "github_colors",
+    "external_url": "https://github.com/",
+    "text": "Git Hub"
+  },
+  {
+    "_id": "gitlab",
+    "svg": "gitlab",
+    "external_url": "https://about.gitlab.com/",
+    "text": "Git Lab"
+  },
+  {
+    "_id": "chatgpt",
+    "svg": "chatgpt",
+    "external_url": "https://chat.openai.com/",
+    "text": "Chat GPT"
+  }
+]

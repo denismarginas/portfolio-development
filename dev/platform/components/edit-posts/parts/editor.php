@@ -1,5 +1,5 @@
             <main class="platform-ep-main" data-ep-editor style="display:none">
-                <div class="platform-status" data-ep-status></div>
+                <div class="platform-status platform-button platform-button-sm platform-button-ghost" data-ep-status></div>
 
                 <section class="platform-card">
                     <div class="platform-card-header">

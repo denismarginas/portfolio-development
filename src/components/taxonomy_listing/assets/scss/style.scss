@@ -3,12 +3,9 @@
 .taxonomy-listing {
   overflow: hidden;
   position: relative;
-
-  container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--dm-spacing-lg);
-  }
+  display: flex;
+  flex-direction: column;
+  gap: var(--dm-spacing-lg);
 
   h2 {
     margin: 0;
@@ -24,12 +21,14 @@
       background-color: var(--dm-color-primary);
     }
   }
+
   .taxonomy-items {
     gap: var(--dm-spacing-md);
 
     @media (max-width: $dm-screen-md) {
       gap: var(--dm-spacing-sm);
     }
+
     @media (max-width: $dm-screen-sm) {
       gap: var(--dm-spacing-xs);
     }

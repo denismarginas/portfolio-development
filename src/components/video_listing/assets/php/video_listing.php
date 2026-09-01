@@ -41,7 +41,7 @@ class video_listing
 
             $textHtml = '<div class="video-text">';
             if ($title !== '') $textHtml .= '<h3>' . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . '</h3>';
-            if ($desc !== '') $textHtml .= '<div class="video-description">' . $desc . '</div>';
+            if ($desc !== '') $textHtml .= '<p class="video-description">' . $desc . '</p>';
             if (is_array($timeline) && !empty($timeline['list'])) {
                 $textHtml .= '<div class="video-timeline"><span>' . htmlspecialchars($timeline['text'] ?? '', ENT_QUOTES, 'UTF-8') . '</span><ul>';
                 foreach ($timeline['list'] as $tl) $textHtml .= '<li>' . htmlspecialchars((string) $tl, ENT_QUOTES, 'UTF-8') . '</li>';

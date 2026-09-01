@@ -34,6 +34,23 @@ class VideoControls {
     const showPause = this.container.querySelector(".show-pause");
 
     if (!video) return;
+    const originalSrc = video.getAttribute("src") || video.src;
+    if (originalSrc && !originalSrc.startsWith("blob:")) {
+      fetch(originalSrc)
+        .then((response) => {
+          if (!response.ok) throw new Error("Network response was not ok");
+          return response.blob();
+        })
+        .then((blob) => {
+          video.src = URL.createObjectURL(blob);
+        })
+        .catch((error) => {
+          console.warn(
+            "[VideoControls] Failed to load video as blob, falling back to direct src:",
+            error,
+          );
+        });
+    }
 
     if (showPause) showPause.style.display = "none";
 
@@ -42,6 +59,25 @@ class VideoControls {
     let wasPaused;
     let lastVolume = 0.08;
     let playPromise = null;
+
+    function safePlay() {
+      playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
+      }
+    }
+
+    function safePause() {
+      if (playPromise !== null) {
+        playPromise
+          .then(() => {
+            video.pause();
+          })
+          .catch(() => {});
+      } else {
+        video.pause();
+      }
+    }
 
     video.volume = lastVolume;
     video.muted = false;
@@ -97,8 +133,11 @@ class VideoControls {
 
     if (timelineContainer) {
       timelineContainer.addEventListener("mousemove", handleTimelineUpdate);
-
       timelineContainer.addEventListener("mousedown", startScrubbing);
+      timelineContainer.addEventListener("touchmove", handleTimelineUpdate, {
+        passive: true,
+      });
+      timelineContainer.addEventListener("touchstart", startScrubbing);
 
       timelineContainer.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -112,46 +151,82 @@ class VideoControls {
       }
     });
 
-    document.addEventListener("mouseup", (e) => {
-      if (!isScrubbing) return;
+    document.addEventListener(
+      "touchmove",
+      (e) => {
+        if (isScrubbing) {
+          handleTimelineUpdate(e);
+          seekToPosition(e);
+        }
+      },
+      { passive: true },
+    );
 
-      seekToPosition(e);
+    document.addEventListener("mouseup", stopScrubbing);
+    document.addEventListener("touchend", stopScrubbing);
+
+    function stopScrubbing(e) {
+      if (!isScrubbing) return;
 
       isScrubbing = false;
       self.container.classList.remove("scrubbing");
 
+      if (window.DM_VIDEO_DEBUG) {
+        console.log("[video seek] mouseup/touchend done", {
+          wasPaused,
+          currentTimeAfterSeek: video.currentTime,
+          willAutoplay: !wasPaused,
+        });
+      }
+
       if (!wasPaused) {
         safePlay();
       }
-    });
-
+    }
     function getTimelinePercent(e) {
-      if (!timelineContainer) return 0;
-
       const rect = timelineContainer.getBoundingClientRect();
 
-      if (rect.width === 0) return 0;
+      let clientX = 0;
+      if (e.clientX !== undefined) {
+        clientX = e.clientX;
+      } else if (e.touches && e.touches.length > 0) {
+        clientX = e.touches[0].clientX;
+      } else if (e.changedTouches && e.changedTouches.length > 0) {
+        clientX = e.changedTouches[0].clientX;
+      }
+
+      if (rect.width === 0) {
+        return 0;
+      }
 
       return (
-        Math.min(Math.max(0, e.clientX - rect.left), rect.width) / rect.width
+        Math.min(Math.max(0, clientX - rect.left), rect.width) / rect.width
       );
+    }
+    function getEffectiveDuration() {
+      if (isFinite(video.duration) && video.duration > 0) {
+        return video.duration;
+      }
+
+      if (video.seekable && video.seekable.length > 0) {
+        const end = video.seekable.end(video.seekable.length - 1);
+        if (isFinite(end) && end > 0) return end;
+      }
+
+      return NaN;
     }
 
     function seekToPosition(e) {
       if (!timelineContainer) return;
 
       const percent = getTimelinePercent(e);
+      const duration = getEffectiveDuration();
 
-      if (
-        !isNaN(video.duration) &&
-        isFinite(video.duration) &&
-        video.duration > 0
-      ) {
-        video.currentTime = percent * video.duration;
+      if (!isNaN(duration)) {
+        video.currentTime = percent * duration;
       }
 
       timelineContainer.style.setProperty("--progress-position", percent);
-
       timelineContainer.style.setProperty("--preview-position", percent);
 
       if (currentTimeElem) {
@@ -172,7 +247,10 @@ class VideoControls {
 
     function startScrubbing(e) {
       if (!timelineContainer) return;
-      if (e.button !== 0) return;
+
+      if (e.button !== undefined && e.button !== 0) {
+        return;
+      }
 
       isScrubbing = true;
       wasPaused = video.paused;
@@ -202,7 +280,13 @@ class VideoControls {
 
     video.addEventListener("loadeddata", () => {
       if (totalTimeElem) {
-        totalTimeElem.textContent = formatDuration(video.duration);
+        totalTimeElem.textContent = formatDuration(getEffectiveDuration());
+      }
+    });
+
+    video.addEventListener("durationchange", () => {
+      if (totalTimeElem) {
+        totalTimeElem.textContent = formatDuration(getEffectiveDuration());
       }
     });
 
@@ -213,7 +297,8 @@ class VideoControls {
         currentTimeElem.textContent = formatDuration(video.currentTime);
       }
 
-      const percent = video.currentTime / video.duration;
+      const duration = getEffectiveDuration();
+      const percent = isNaN(duration) ? 0 : video.currentTime / duration;
 
       if (timelineContainer) {
         timelineContainer.style.setProperty("--progress-position", percent);

@@ -85,6 +85,11 @@
       "label": "Videos",
       "file": "data_items_videos.json",
       "routable": false
+    },
+    "knowledge_items": {
+      "label": "Knowledge Items",
+      "file": "data_items_knowledge_items.json",
+      "routable": false
     }
   }
 }
