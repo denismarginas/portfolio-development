@@ -10,6 +10,23 @@ trait PlatformComponentRendererAssets
 
         $names = !empty(self::$used_components) ? self::$used_components : PlatformDataService::get_all_component_names();
 
+        // "theme" is the foundational stylesheet (base .card/.card-outline/etc.
+        // element styles, design tokens). It's usually only pulled into
+        // $used_components as a side effect of some other component listing
+        // it as a dependency, which can place its <link> AFTER that
+        // component's own <link> in document order (mark_used() appends a
+        // component before walking its dependency chain). On equal CSS
+        // specificity the later stylesheet wins, so theme's base rules could
+        // silently override a component's own styles. Force theme first,
+        // same convention PlatformBundleBuilder::build() already uses for the
+        // production bundle.
+        $names = array_values($names);
+        $themeIndex = array_search('theme', $names, true);
+        if ($themeIndex !== false && $themeIndex !== 0) {
+            array_splice($names, $themeIndex, 1);
+            array_unshift($names, 'theme');
+        }
+
         foreach ($names as $name) {
             $config = self::get_component_config($name);
             if ($config === null) continue;

@@ -3,7 +3,7 @@
 .listing {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: var(--dm-spacing-xs);
+  gap: var(--dm-spacing-sm);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -37,6 +37,6 @@
 
 @media (min-width: $dm-screen-xl) {
   .listing {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }

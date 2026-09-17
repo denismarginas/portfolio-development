@@ -1,0 +1,21 @@
+// PLACEHOLDER positioning. These three model selectors are all duplicated
+// from the single set of values that existed before this file was split
+// out (top: 5%, left: 11.5%, width: 78%, height: 88%) - they need to be
+// replaced with the real per-model bezel-fit percentages from
+// element-post-web-gallery.scss once that reference file is available.
+// Until then, all three desktop models render identically.
+
+.dm-post-view {
+  .device-layout-laptop {
+    &.desktop-model-01,
+    &.desktop-model-02,
+    &.desktop-model-03 {
+      > .screen {
+        top: 5%;
+        left: 11.5%;
+        width: 78%;
+        height: 88%;
+      }
+    }
+  }
+}

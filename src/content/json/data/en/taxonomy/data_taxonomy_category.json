@@ -44,6 +44,12 @@
           "post_type": "project",
           "filter_by": {
             "taxonomy.category": "Web Development Projects"
+          },
+          "template": {
+            "component": "card_post_project",
+            "params": {
+              "visual_component": "card_post_project_visual_website"
+            }
           }
         }
       }
@@ -94,6 +100,12 @@
           "post_type": "project",
           "filter_by": {
             "taxonomy.category": "Visual Media Projects"
+          },
+          "template": {
+            "component": "card_post_project",
+            "params": {
+              "visual_component": "card_post_project_visual_media"
+            }
           }
         }
       }
@@ -144,6 +156,12 @@
           "post_type": "project",
           "filter_by": {
             "taxonomy.category": "Miscellaneous Projects"
+          },
+          "template": {
+            "component": "card_post_project",
+            "params": {
+              "visual_component": "card_post_project_visual_default"
+            }
           }
         }
       }

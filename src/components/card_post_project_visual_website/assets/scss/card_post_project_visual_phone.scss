@@ -1,0 +1,27 @@
+// PLACEHOLDER positioning. These three model selectors are all duplicated
+// from the single set of values that existed before this file was split
+// out (top: 2%, left: 6%, width: 88%, height: 96%) - they need to be
+// replaced with the real per-model bezel-fit percentages from
+// element-post-web-gallery.scss once that reference file is available.
+// Until then, all three phone models render identically.
+//
+// NOTE: named card_post_project_visual_phone.scss (not
+// card_post_project_visual_website_phone.scss) exactly as specified -
+// flagged for confirmation, since it breaks the naming symmetry with
+// card_post_project_visual_website_desktop.scss.
+
+.dm-post-view {
+  .device-layout-phone {
+    &.phone-model-01,
+    &.phone-model-02,
+    &.phone-model-03 {
+      > .screen {
+        top: 2%;
+        left: 6%;
+        width: 88%;
+        height: 96%;
+        border-radius: var(--dm-radius-md);
+      }
+    }
+  }
+}

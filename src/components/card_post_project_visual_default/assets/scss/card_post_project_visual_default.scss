@@ -1,0 +1,40 @@
+@import "theme";
+
+.dm-post-view-default {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 150px;
+  border-radius: var(--dm-radius-md);
+  overflow: hidden;
+  text-decoration: none;
+  padding: var(--dm-spacing-sm, var(--dm-spacing-sm));
+
+  .default-visual-image,
+  .default-visual-svg {
+    display: block;
+    box-sizing: border-box;
+
+    &.default-visual-logo {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 90%;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    &.default-visual-thumbnail {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      padding: 0;
+    }
+  }
+
+  .default-visual-svg {
+    @include svg-color(var(--dm-color-white));
+  }
+}
