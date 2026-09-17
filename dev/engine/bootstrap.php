@@ -7,6 +7,7 @@ define('ENGINE_ROOT', dirname(__DIR__));
 define('ENGINE_DIR', __DIR__);
 
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/PlatformAssetResolver.php';
 require_once __DIR__ . '/PlatformDataService/PlatformDataServiceCore.php';
 require_once __DIR__ . '/PlatformDataService/PlatformDataServicePosts.php';
 require_once __DIR__ . '/PlatformDataService/PlatformDataServiceItems.php';

@@ -49,18 +49,11 @@
         display: flex;
         flex-direction: column;
         gap: 2px;
-        
 
         li {
           font-size: var(--dm-font-size-sm);
         }
       }
-    }
-
-    .video-urls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--dm-spacing-xs);
     }
   }
 

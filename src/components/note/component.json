@@ -3,10 +3,18 @@
   "title": "Note",
   "description": "Renders a note with optional status (info, success, warning, error).",
   "assets": {
-    "php": ["assets/php/note.php"],
-    "html": ["assets/html/template.html"],
-    "scss": ["assets/scss/note.scss"],
-    "css": ["assets/css/note.css"]
+    "php": [
+      "assets/php/note.php"
+    ],
+    "html": [
+      "assets/html/template.html"
+    ],
+    "scss": [
+      "assets/scss/**"
+    ],
+    "css": [
+      "assets/css/**"
+    ]
   },
   "dependencies": []
 }

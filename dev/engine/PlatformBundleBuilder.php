@@ -22,15 +22,17 @@ class PlatformBundleBuilder
             if (!$config) continue;
 
             $assets = $config['assets'] ?? [];
-            foreach ($assets['css'] ?? [] as $file) {
+            $componentDir = $componentsDir . '/' . $name;
+
+            foreach (PlatformAssetResolver::resolve($assets['css'] ?? [], $componentDir) as $file) {
                 if (str_ends_with($file, '.scss')) continue;
-                $fullPath = $componentsDir . '/' . $name . '/' . $file;
+                $fullPath = $componentDir . '/' . $file;
                 if (file_exists($fullPath)) {
                     $cssContent .= file_get_contents($fullPath) . "\n";
                 }
             }
-            foreach ($assets['js'] ?? [] as $file) {
-                $fullPath = $componentsDir . '/' . $name . '/' . $file;
+            foreach (PlatformAssetResolver::resolve($assets['js'] ?? [], $componentDir) as $file) {
+                $fullPath = $componentDir . '/' . $file;
                 if (file_exists($fullPath)) {
                     $jsContent .= file_get_contents($fullPath) . "\n";
                 }

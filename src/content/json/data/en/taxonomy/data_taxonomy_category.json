@@ -5,7 +5,9 @@
       "settings": {
         "type": "taxonomy",
         "taxonomy_type": "category",
-        "post_types": ["project"],
+        "post_types": [
+          "project"
+        ],
         "render": true
       },
       "seo": {
@@ -23,7 +25,12 @@
     "content": [
       {
         "component": "hero",
-        "children": [{ "component": "animation_waves", "data": {} }],
+        "children": [
+          {
+            "component": "animation_waves",
+            "data": {}
+          }
+        ],
         "data": {
           "variant": "xs",
           "img": "categories/category-photo-web-development-photo.webp",
@@ -35,7 +42,9 @@
         "component": "post-items",
         "data": {
           "post_type": "project",
-          "filter_by": { "taxonomy.categories": "Web Development Projects" }
+          "filter_by": {
+            "taxonomy.category": "Web Development Projects"
+          }
         }
       }
     ]
@@ -46,7 +55,9 @@
       "settings": {
         "type": "taxonomy",
         "taxonomy_type": "category",
-        "post_types": ["project"],
+        "post_types": [
+          "project"
+        ],
         "render": true
       },
       "seo": {
@@ -64,7 +75,12 @@
     "content": [
       {
         "component": "hero",
-        "children": [{ "component": "animation_waves", "data": {} }],
+        "children": [
+          {
+            "component": "animation_waves",
+            "data": {}
+          }
+        ],
         "data": {
           "variant": "xs",
           "img": "categories/category-photo-visual-media.webp",
@@ -76,7 +92,9 @@
         "component": "post-items",
         "data": {
           "post_type": "project",
-          "filter_by": { "taxonomy.categories": "Visual Media Projects" }
+          "filter_by": {
+            "taxonomy.category": "Visual Media Projects"
+          }
         }
       }
     ]
@@ -87,7 +105,9 @@
       "settings": {
         "type": "taxonomy",
         "taxonomy_type": "category",
-        "post_types": ["project"],
+        "post_types": [
+          "project"
+        ],
         "render": true
       },
       "seo": {
@@ -105,7 +125,12 @@
     "content": [
       {
         "component": "hero",
-        "children": [{ "component": "animation_waves", "data": {} }],
+        "children": [
+          {
+            "component": "animation_waves",
+            "data": {}
+          }
+        ],
         "data": {
           "variant": "xs",
           "img": "categories/category-photo-miscellaneous.webp",
@@ -117,7 +142,9 @@
         "component": "post-items",
         "data": {
           "post_type": "project",
-          "filter_by": { "taxonomy.categories": "Miscellaneous Projects" }
+          "filter_by": {
+            "taxonomy.category": "Miscellaneous Projects"
+          }
         }
       }
     ]

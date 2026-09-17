@@ -3,7 +3,9 @@
   "title": "Tab Items Listing",
   "description": "Renders items of a given type with badge labels aside the item content sections.",
   "assets": {
-    "php": ["assets/php/tab_items_listing.php"],
+    "php": [
+      "assets/php/tab_items_listing.php"
+    ],
     "html": [
       "assets/html/template.html",
       "assets/html/parts/label.html",
@@ -22,8 +24,12 @@
       "assets/html/parts/education/projects.html",
       "assets/html/parts/education/project_plain.html"
     ],
-    "scss": ["assets/scss/tab_items_listing.scss"],
-    "css": ["assets/css/tab_items_listing.css"]
+    "scss": [
+      "assets/scss/**"
+    ],
+    "css": [
+      "assets/css/**"
+    ]
   },
   "dependencies": [
     "image",

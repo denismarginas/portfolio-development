@@ -35,25 +35,29 @@
     }
   },
   "taxonomy": {
-    "categories": {
+    "category": {
       "label": "Categories",
-      "file": "data_taxonomy_categories.json",
+      "file": "data_taxonomy_category.json",
       "root": "/category/",
       "routable": true,
-      "post_types": ["project"]
+      "post_types": [
+        "project"
+      ]
     },
-    "tags": {
+    "tag": {
       "label": "Tags",
-      "file": "data_taxonomy_tags.json",
+      "file": "data_taxonomy_tag.json",
       "root": "/tag/",
       "routable": true,
-      "post_types": ["project"]
+      "post_types": [
+        "project"
+      ]
     }
   },
   "item": {
-    "jobs": {
+    "job": {
       "label": "Jobs",
-      "file": "data_items_jobs.json",
+      "file": "data_items_job.json",
       "routable": false
     },
     "education": {
@@ -61,14 +65,14 @@
       "file": "data_items_education.json",
       "routable": false
     },
-    "games": {
+    "game": {
       "label": "Games",
-      "file": "data_items_games.json",
+      "file": "data_items_game.json",
       "routable": false
     },
-    "socials": {
+    "social": {
       "label": "Socials",
-      "file": "data_items_socials.json",
+      "file": "data_items_social.json",
       "routable": false
     },
     "resume": {
@@ -81,14 +85,14 @@
       "file": "data_items_filters_projects.json",
       "routable": false
     },
-    "videos": {
+    "video": {
       "label": "Videos",
-      "file": "data_items_videos.json",
+      "file": "data_items_video.json",
       "routable": false
     },
-    "knowledge_items": {
+    "knowledge_item": {
       "label": "Knowledge Items",
-      "file": "data_items_knowledge_items.json",
+      "file": "data_items_knowledge_item.json",
       "routable": false
     }
   }

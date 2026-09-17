@@ -26,8 +26,15 @@
       },
       "experience": {
         "type": "Company",
-        "location_types": ["Remote", "On-site", "Hybrid"],
-        "functions": ["Full-Stack Web Developer", "Photo-Video Editor"],
+        "location_types": [
+          "Remote",
+          "On-site",
+          "Hybrid"
+        ],
+        "functions": [
+          "Full-Stack Web Developer",
+          "Photo-Video Editor"
+        ],
         "work_time_types": [
           {
             "name": "full-time",
@@ -75,8 +82,15 @@
         }
       ],
       "taxonomy": {
-        "tags": ["full-stack", "wordpress", "prestashop", "php"],
-        "categories": ["Experience"]
+        "tag": [
+          "full-stack",
+          "wordpress",
+          "prestashop",
+          "php"
+        ],
+        "category": [
+          "Experience"
+        ]
       }
     }
   },
@@ -107,8 +121,12 @@
       },
       "experience": {
         "type": "Company",
-        "location_types": ["Remote"],
-        "functions": ["Front-End Developer"],
+        "location_types": [
+          "Remote"
+        ],
+        "functions": [
+          "Front-End Developer"
+        ],
         "work_time_types": [
           {
             "name": "full-time",
@@ -133,7 +151,11 @@
         }
       },
       "external_links": [
-        { "name": "website", "link": "https://www.netex.ro", "svg": "web" },
+        {
+          "name": "website",
+          "link": "https://www.netex.ro",
+          "svg": "web"
+        },
         {
           "name": "facebook",
           "link": "https://www.facebook.com/netex.ro",
@@ -156,8 +178,15 @@
         }
       ],
       "taxonomy": {
-        "tags": ["front-end", "wordpress", "javascript", "sass"],
-        "categories": ["Experience"]
+        "tag": [
+          "front-end",
+          "wordpress",
+          "javascript",
+          "sass"
+        ],
+        "category": [
+          "Experience"
+        ]
       }
     }
   },
@@ -188,8 +217,12 @@
       },
       "experience": {
         "type": "Company",
-        "location_types": ["Remote"],
-        "functions": ["Junior Wordpress Developer"],
+        "location_types": [
+          "Remote"
+        ],
+        "functions": [
+          "Junior Wordpress Developer"
+        ],
         "work_time_types": [
           {
             "name": "full-time",
@@ -213,7 +246,11 @@
         }
       },
       "external_links": [
-        { "name": "website", "link": "https://enlivy.ro", "svg": "web" },
+        {
+          "name": "website",
+          "link": "https://enlivy.ro",
+          "svg": "web"
+        },
         {
           "name": "facebook",
           "link": "https://www.facebook.com/enlivy",
@@ -226,8 +263,15 @@
         }
       ],
       "taxonomy": {
-        "tags": ["wordpress", "figma", "php", "scss"],
-        "categories": ["Experience"]
+        "tag": [
+          "wordpress",
+          "figma",
+          "php",
+          "scss"
+        ],
+        "category": [
+          "Experience"
+        ]
       }
     }
   },
@@ -258,8 +302,12 @@
       },
       "experience": {
         "type": "Company",
-        "location_types": ["On-site"],
-        "functions": ["Full-Stack Web Developer"],
+        "location_types": [
+          "On-site"
+        ],
+        "functions": [
+          "Full-Stack Web Developer"
+        ],
         "work_time_types": [
           {
             "name": "full-time",
@@ -281,7 +329,11 @@
         }
       },
       "external_links": [
-        { "name": "website", "link": "https://yesagency.ro/", "svg": "web" },
+        {
+          "name": "website",
+          "link": "https://yesagency.ro/",
+          "svg": "web"
+        },
         {
           "name": "facebook",
           "link": "https://www.facebook.com/yesagency.ro",
@@ -294,8 +346,14 @@
         }
       ],
       "taxonomy": {
-        "tags": ["wordpress", "elementor", "full-stack"],
-        "categories": ["Experience"]
+        "tag": [
+          "wordpress",
+          "elementor",
+          "full-stack"
+        ],
+        "category": [
+          "Experience"
+        ]
       }
     }
   },
@@ -326,8 +384,13 @@
       },
       "experience": {
         "type": "Company",
-        "location_types": ["Remote"],
-        "functions": ["Wordpress Developer", "Web Page Designer"],
+        "location_types": [
+          "Remote"
+        ],
+        "functions": [
+          "Wordpress Developer",
+          "Web Page Designer"
+        ],
         "work_time_types": [
           {
             "name": "full-time",
@@ -362,8 +425,14 @@
         }
       ],
       "taxonomy": {
-        "tags": ["wordpress", "elementor", "web-design"],
-        "categories": ["Experience"]
+        "tag": [
+          "wordpress",
+          "elementor",
+          "web-design"
+        ],
+        "category": [
+          "Experience"
+        ]
       }
     }
   },
@@ -395,8 +464,13 @@
       },
       "experience": {
         "type": "Company",
-        "location_types": ["Remote"],
-        "functions": ["Wordpress Developer", "Web Page Designer"],
+        "location_types": [
+          "Remote"
+        ],
+        "functions": [
+          "Wordpress Developer",
+          "Web Page Designer"
+        ],
         "work_time_types": [
           {
             "name": "full-time",
@@ -405,7 +479,9 @@
             "end": "present"
           }
         ],
-        "attributes": ["Working for Mentor Marketing Experts"]
+        "attributes": [
+          "Working for Mentor Marketing Experts"
+        ]
       },
       "media": {
         "path": "projects",
@@ -415,7 +491,11 @@
         }
       },
       "external_links": [
-        { "name": "website", "link": "https://ro.gigroup.com/", "svg": "web" },
+        {
+          "name": "website",
+          "link": "https://ro.gigroup.com/",
+          "svg": "web"
+        },
         {
           "name": "linkedin",
           "link": "https://www.linkedin.com/company/gi-group/",
@@ -423,8 +503,13 @@
         }
       ],
       "taxonomy": {
-        "tags": ["wordpress", "web-design"],
-        "categories": ["Experience"]
+        "tag": [
+          "wordpress",
+          "web-design"
+        ],
+        "category": [
+          "Experience"
+        ]
       }
     }
   }

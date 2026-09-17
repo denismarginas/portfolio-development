@@ -3,10 +3,18 @@
   "title": "Section",
   "description": "Generic <section><container> wrapper. Renders its configured children (component blocks) inside the container.",
   "assets": {
-    "php": ["assets/php/section.php"],
-    "html": ["assets/html/template.html"],
-    "scss": ["assets/scss/style.scss"],
-    "css": ["assets/css/style.css"]
+    "php": [
+      "assets/php/section.php"
+    ],
+    "html": [
+      "assets/html/template.html"
+    ],
+    "scss": [
+      "assets/scss/**"
+    ],
+    "css": [
+      "assets/css/**"
+    ]
   },
   "dependencies": []
 }

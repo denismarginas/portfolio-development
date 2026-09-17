@@ -4,7 +4,7 @@
     "data": {
       "seo": {
         "title": "Denis Marginas",
-        "description": "My name is Denis Ionut Marginas, I\u0027m 25-year-old, and I\u0027ve been working as a full-stack web developer and photo-video editor since 2019. Before entering the web development field, I worked as a freelance video editor, specializing in editing videos for video games.",
+        "description": "My name is Denis Ionut Marginas, I'm 25-year-old, and I've been working as a full-stack web developer and photo-video editor since 2019. Before entering the web development field, I worked as a freelance video editor, specializing in editing videos for video games.",
         "keywords": "denis marginas portfolio",
         "slug": "index",
         "index": "true"
@@ -50,7 +50,7 @@
     "data": {
       "seo": {
         "title": "Home",
-        "description": "My name is Denis Ionut Marginas, I\u0027m 25-year-old, and I\u0027ve been working as a full-stack web developer and photo-video editor since 2019. Before entering the web development field, I worked as a freelance video editor, specializing in editing videos for video games.",
+        "description": "My name is Denis Ionut Marginas, I'm 25-year-old, and I've been working as a full-stack web developer and photo-video editor since 2019. Before entering the web development field, I worked as a freelance video editor, specializing in editing videos for video games.",
         "keywords": "denis marginas home",
         "slug": "home",
         "index": "true"
@@ -78,7 +78,7 @@
     "data": {
       "seo": {
         "title": "About",
-        "description": "My name is Denis Ionut Marginas, I\u0027m 25-year-old, and I\u0027ve been working as a full-stack web developer and photo-video editor since 2019. Before entering the web development field, I worked as a freelance video editor, specializing in editing videos for video games.",
+        "description": "My name is Denis Ionut Marginas, I'm 25-year-old, and I've been working as a full-stack web developer and photo-video editor since 2019. Before entering the web development field, I worked as a freelance video editor, specializing in editing videos for video games.",
         "keywords": "denis marginas about",
         "slug": "about",
         "index": "false"
@@ -187,10 +187,15 @@
         }
       },
       {
-        "component": "experience_knowledge",
-        "data": {
-          "variant": "standard"
-        }
+        "component": "section",
+        "children": [
+          {
+            "component": "experience_knowledge",
+            "data": {
+              "variant": "standard"
+            }
+          }
+        ]
       },
       {
         "component": "section",
@@ -212,7 +217,6 @@
           }
         ]
       },
-
       {
         "component": "section",
         "children": [
@@ -224,15 +228,49 @@
               },
               "filter": {
                 "taxonomy": {
-                  "tags": ["portfolio showcase"]
+                  "tag": [
+                    "portfolio showcase"
+                  ]
                 }
               }
             }
-          },
+          }
+        ]
+      },
+      {
+        "component": "carousels_post_items",
+        "children": [
           {
             "component": "carousel_post_items",
             "data": {
-              "variant": "standard"
+              "element_type": "project",
+              "filter": {
+                "taxonomy": {
+                  "category": [
+                    "web-development-projects"
+                  ]
+                },
+                "max": "10"
+              },
+              "sort": {
+                "by": "date.end",
+                "order": "desc"
+              },
+              "template": {
+                "component": "card_project_web",
+                "params": {
+                  "images": {
+                    "overlay_imgs": {
+                      "desktop": "design-elements/device-layout-desktop-model-001.webp",
+                      "mobile": "design-elements/device-layout-phone-model-001.webp"
+                    },
+                    "screen_imgs": {
+                      "desktop": "web/overview/web_desktop_overview.webp",
+                      "mobile": "web/overview/web_phone_overview.webp"
+                    }
+                  }
+                }
+              }
             }
           }
         ]
@@ -269,7 +307,7 @@
       {
         "component": "tab_items_listing",
         "data": {
-          "type": "jobs",
+          "type": "job",
           "layout": "labels_top",
           "external_links_social_text": false,
           "external_links_text": false,
@@ -285,7 +323,7 @@
             {
               "component": "work_graph",
               "data": {
-                "list": "jobs",
+                "list": "job",
                 "total_work_exp_text": "Total Work Experience:",
                 "total_work_timeline_text": "Total Work Timeline:"
               }
@@ -495,8 +533,8 @@
                 }
               },
               "taxonomy": {
-                "categories": "@data.taxonomy.categories",
-                "tags": "@data.taxonomy.tags"
+                "category": "@data.taxonomy.category",
+                "tag": "@data.taxonomy.tag"
               },
               "button": {
                 "component": "button",
@@ -519,7 +557,7 @@
     "data": {
       "seo": {
         "title": "Social Activity",
-        "description": "Dive into the world of a full-stack web developer and skilled photo-video editor. Explore the intersection of web development and visual storytelling on Denis Ionut Marginas\u0027s insightful blog.",
+        "description": "Dive into the world of a full-stack web developer and skilled photo-video editor. Explore the intersection of web development and visual storytelling on Denis Ionut Marginas's insightful blog.",
         "keywords": "denis marginas social activity",
         "slug": "social-activity",
         "index": "false"

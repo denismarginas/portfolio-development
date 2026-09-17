@@ -14,14 +14,34 @@
     "hero": {
       "img": "design-elements/website-responsive-laptop.webp"
     },
-    "post_types": ["project"],
+    "post_types": [
+      "project"
+    ],
     "content": [
       {
         "component": "hero",
-        "children": [{"component": "animation_waves", "data": {}}],
-        "data": {"variant": "xs", "img": "design-elements/website-responsive-laptop.webp", "title": "@seo.title", "description": "@seo.description"}
+        "children": [
+          {
+            "component": "animation_waves",
+            "data": {}
+          }
+        ],
+        "data": {
+          "variant": "xs",
+          "img": "design-elements/website-responsive-laptop.webp",
+          "title": "@seo.title",
+          "description": "@seo.description"
+        }
       },
-      {"component": "post-items", "data": {"post_type": "project", "filter_by": {"taxonomy.tags": "web"}}}
+      {
+        "component": "post-items",
+        "data": {
+          "post_type": "project",
+          "filter_by": {
+            "taxonomy.tag": "web"
+          }
+        }
+      }
     ]
   },
   {
@@ -39,14 +59,34 @@
     "hero": {
       "img": "design-elements/website-responsive-phone.webp"
     },
-    "post_types": ["project"],
+    "post_types": [
+      "project"
+    ],
     "content": [
       {
         "component": "hero",
-        "children": [{"component": "animation_waves", "data": {}}],
-        "data": {"variant": "xs", "img": "design-elements/website-responsive-phone.webp", "title": "@seo.title", "description": "@seo.description"}
+        "children": [
+          {
+            "component": "animation_waves",
+            "data": {}
+          }
+        ],
+        "data": {
+          "variant": "xs",
+          "img": "design-elements/website-responsive-phone.webp",
+          "title": "@seo.title",
+          "description": "@seo.description"
+        }
       },
-      {"component": "post-items", "data": {"post_type": "project", "filter_by": {"taxonomy.tags": "content-web"}}}
+      {
+        "component": "post-items",
+        "data": {
+          "post_type": "project",
+          "filter_by": {
+            "taxonomy.tag": "content-web"
+          }
+        }
+      }
     ]
   },
   {
@@ -64,14 +104,34 @@
     "hero": {
       "img": "design-elements/monitor-with-project.webp"
     },
-    "post_types": ["project"],
+    "post_types": [
+      "project"
+    ],
     "content": [
       {
         "component": "hero",
-        "children": [{"component": "animation_waves", "data": {}}],
-        "data": {"variant": "xs", "img": "design-elements/monitor-with-project.webp", "title": "@seo.title", "description": "@seo.description"}
+        "children": [
+          {
+            "component": "animation_waves",
+            "data": {}
+          }
+        ],
+        "data": {
+          "variant": "xs",
+          "img": "design-elements/monitor-with-project.webp",
+          "title": "@seo.title",
+          "description": "@seo.description"
+        }
       },
-      {"component": "post-items", "data": {"post_type": "project", "filter_by": {"taxonomy.tags": "media-web"}}}
+      {
+        "component": "post-items",
+        "data": {
+          "post_type": "project",
+          "filter_by": {
+            "taxonomy.tag": "media-web"
+          }
+        }
+      }
     ]
   },
   {
@@ -89,14 +149,34 @@
     "hero": {
       "img": "design-elements/device-layout-phone.webp"
     },
-    "post_types": ["project"],
+    "post_types": [
+      "project"
+    ],
     "content": [
       {
         "component": "hero",
-        "children": [{"component": "animation_waves", "data": {}}],
-        "data": {"variant": "xs", "img": "design-elements/device-layout-phone.webp", "title": "@seo.title", "description": "@seo.description"}
+        "children": [
+          {
+            "component": "animation_waves",
+            "data": {}
+          }
+        ],
+        "data": {
+          "variant": "xs",
+          "img": "design-elements/device-layout-phone.webp",
+          "title": "@seo.title",
+          "description": "@seo.description"
+        }
       },
-      {"component": "post-items", "data": {"post_type": "project", "filter_by": {"taxonomy.tags": "photo"}}}
+      {
+        "component": "post-items",
+        "data": {
+          "post_type": "project",
+          "filter_by": {
+            "taxonomy.tag": "photo"
+          }
+        }
+      }
     ]
   },
   {
@@ -114,14 +194,34 @@
     "hero": {
       "img": "design-elements/device-layout-laptop.webp"
     },
-    "post_types": ["project"],
+    "post_types": [
+      "project"
+    ],
     "content": [
       {
         "component": "hero",
-        "children": [{"component": "animation_waves", "data": {}}],
-        "data": {"variant": "xs", "img": "design-elements/device-layout-laptop.webp", "title": "@seo.title", "description": "@seo.description"}
+        "children": [
+          {
+            "component": "animation_waves",
+            "data": {}
+          }
+        ],
+        "data": {
+          "variant": "xs",
+          "img": "design-elements/device-layout-laptop.webp",
+          "title": "@seo.title",
+          "description": "@seo.description"
+        }
       },
-      {"component": "post-items", "data": {"post_type": "project", "filter_by": {"taxonomy.tags": "video"}}}
+      {
+        "component": "post-items",
+        "data": {
+          "post_type": "project",
+          "filter_by": {
+            "taxonomy.tag": "video"
+          }
+        }
+      }
     ]
   }
 ]

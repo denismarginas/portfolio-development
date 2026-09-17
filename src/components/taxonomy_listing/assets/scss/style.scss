@@ -11,15 +11,6 @@
     margin: 0;
     font-size: var(--dm-font-size-xl);
     font-weight: var(--dm-font-weight-bold);
-
-    &::after {
-      content: "";
-      display: block;
-      width: 48px;
-      height: 3px;
-      margin-top: 8px;
-      background-color: var(--dm-color-primary);
-    }
   }
 
   .taxonomy-items {

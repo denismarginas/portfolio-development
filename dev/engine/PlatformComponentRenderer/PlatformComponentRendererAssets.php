@@ -15,17 +15,18 @@ trait PlatformComponentRendererAssets
             if ($config === null) continue;
 
             $assets = $config['assets'] ?? [];
+            $component_dir = $components_dir . '/' . $name;
 
-            foreach ($assets['css'] ?? [] as $css_file) {
+            foreach (PlatformAssetResolver::resolve($assets['css'] ?? [], $component_dir) as $css_file) {
                 if (str_ends_with($css_file, '.scss')) continue;
-                $file_path = $components_dir . '/' . $name . '/' . $css_file;
+                $file_path = $component_dir . '/' . $css_file;
                 if (file_exists($file_path)) {
                     $html .= '<link rel="stylesheet" href="' . $url_path . 'src/components/' . $name . '/' . $css_file . '">';
                 }
             }
 
-            foreach ($assets['js'] ?? [] as $js_file) {
-                $file_path = $components_dir . '/' . $name . '/' . $js_file;
+            foreach (PlatformAssetResolver::resolve($assets['js'] ?? [], $component_dir) as $js_file) {
+                $file_path = $component_dir . '/' . $js_file;
                 if (file_exists($file_path)) {
                     $html .= '<script src="' . $url_path . 'src/components/' . $name . '/' . $js_file . '"></script>';
                 }

@@ -17,14 +17,15 @@ class PlatformScssBuilder
         return $flags;
     }
 
-    public static function compile_component(string $componentDir): array
+    public static function compile_component(string $componentDir, bool $clean = false): array
     {
-        return self::compile_dir($componentDir . '/assets/scss', $componentDir . '/assets/css');
+        return self::compile_dir($componentDir . '/assets/scss', $componentDir . '/assets/css', $clean);
     }
 
-    public static function compile_dir(string $scssDir, string $cssDir): array
+    public static function compile_dir(string $scssDir, string $cssDir, bool $clean = false): array
     {
         if (!is_dir($scssDir)) return [];
+        if ($clean) self::clean_css_dir($cssDir);
         $results = [];
         $themeScss = PlatformConfig::get('theme_scss_dir');
         foreach (self::find_scss_files($scssDir) as $scssFile) {
@@ -43,29 +44,29 @@ class PlatformScssBuilder
         return $results;
     }
 
-    public static function compile_src(): array
+    public static function compile_src(bool $clean = false): array
     {
         $results = [];
         foreach (glob(PlatformConfig::get('components_dir') . '/*', GLOB_ONLYDIR) as $dir) {
-            $results = array_merge($results, self::compile_component($dir));
+            $results = array_merge($results, self::compile_component($dir, $clean));
         }
         return $results;
     }
 
-    public static function compile_platform_components(): array
+    public static function compile_platform_components(bool $clean = false): array
     {
         $dev = PlatformConfig::get('dev_dir');
         $results = [];
         foreach (glob($dev . '/platform/components/*', GLOB_ONLYDIR) as $dir) {
-            $results = array_merge($results, self::compile_component($dir));
+            $results = array_merge($results, self::compile_component($dir, $clean));
         }
         return $results;
     }
 
-    public static function compile_platform_assets(): array
+    public static function compile_platform_assets(bool $clean = false): array
     {
         $dev = PlatformConfig::get('dev_dir');
-        return self::compile_dir($dev . '/platform/assets/scss', $dev . '/platform/assets/css');
+        return self::compile_dir($dev . '/platform/assets/scss', $dev . '/platform/assets/css', $clean);
     }
 
     public static function compile_assets(): array
@@ -77,14 +78,34 @@ class PlatformScssBuilder
     {
         if (!$flags) $flags = self::read_flags();
         self::refresh_font_list();
+        $clean = !empty($flags['compile_scss_everytime']);
         $results = [];
-        if (!empty($flags['compile_scss_src_components'])) $results = array_merge($results, self::compile_src());
-        if (!empty($flags['compile_scss_platform_components'])) $results = array_merge($results, self::compile_platform_components());
-        if (!empty($flags['compile_scss_platform_assets'])) $results = array_merge($results, self::compile_platform_assets());
+        if (!empty($flags['compile_scss_src_components'])) $results = array_merge($results, self::compile_src($clean));
+        if (!empty($flags['compile_scss_platform_components'])) $results = array_merge($results, self::compile_platform_components($clean));
+        if (!empty($flags['compile_scss_platform_assets'])) $results = array_merge($results, self::compile_platform_assets($clean));
         if (!empty($flags['compile_scss_assets'])) $results = array_merge($results, self::compile_assets());
         $success = 0;
         foreach ($results as $r) if (!empty($r['success'])) $success++;
         return ['total' => count($results), 'success_count' => $success, 'error_count' => count($results) - $success, 'results' => $results];
+    }
+
+    private static function clean_css_dir(string $cssDir): void
+    {
+        if (!is_dir($cssDir)) return;
+        $iterator = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($cssDir, FilesystemIterator::SKIP_DOTS),
+            RecursiveIteratorIterator::CHILD_FIRST
+        );
+        foreach ($iterator as $file) {
+            $path = $file->getPathname();
+            if ($file->isDir()) {
+                @rmdir($path);
+                continue;
+            }
+            if (str_ends_with($path, '.css')) {
+                @unlink($path);
+            }
+        }
     }
 
     private static function refresh_font_list(): void

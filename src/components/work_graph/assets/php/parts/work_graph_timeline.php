@@ -4,7 +4,7 @@ class work_graph_timeline extends work_graph_experience
 {
     public static function render(array $data = []): string
     {
-        $list = (string) ($data['list'] ?? 'jobs');
+        $list = (string) ($data['list'] ?? 'job');
         $jobs = PlatformDataService::get_all_items_from_file($list) ?? [];
         $jobs = PlatformComponentRenderer::value('utility_sort_by_date', ['items' => $jobs, 'key' => 'start', 'order' => 'ASC']);
 

@@ -40,7 +40,7 @@ class taxonomy_listing
         if ($cards === '') return '';
 
 
-        $titleHtml = $titleRender ? '<h2>' . htmlspecialchars((string) ($data['title'] ?? ''), ENT_QUOTES, 'UTF-8') . '</h2>' : '';
+        $titleHtml = $titleRender ? '<h2 class="title-divider">' . htmlspecialchars((string) ($data['title'] ?? ''), ENT_QUOTES, 'UTF-8') . '</h2>' : '';
 
         return PlatformTemplateRenderer::render([
             'title_html' => $titleHtml,

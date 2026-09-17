@@ -4,9 +4,15 @@
   "description": "Calculates date intervals and returns time units (years, months, weeks, days) with singular/plural labels from data_dates.json.",
   "type": "utility",
   "assets": {
-    "php": ["assets/php/utility_calc_date_interval.php"],
-    "scss": ["assets/scss/utility_calc_date_interval.scss"],
-    "css": ["assets/css/utility_calc_date_interval.css"]
+    "php": [
+      "assets/php/utility_calc_date_interval.php"
+    ],
+    "scss": [
+      "assets/scss/**"
+    ],
+    "css": [
+      "assets/css/**"
+    ]
   },
   "dependencies": []
 }

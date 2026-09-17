@@ -1,7 +1,6 @@
 @import "theme";
 
 $color_1: var(--dm-color-white);
-$color_2: var(--dm-color-900);
 $background-color_1: var(--dm-color-black);
 $background-color_2: rgba(100, 100, 100, 0.5);
 $background-color_3: rgb(150, 150, 150);
@@ -9,7 +8,7 @@ $background-color_4: var(--dm-color-primary);
 
 .video-container {
   --dm-color-primary: var(--dm-color-primary);
-  --dm-color-secondary: var(--dm-color-primary-950);
+  --dm-font-size: var(--dm-font-size-md);
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -195,25 +194,30 @@ $background-color_4: var(--dm-color-primary);
       align-items: center;
       opacity: 1;
       transition: all 0.2s ease-in-out;
+      font-size: var(--dm-font-size);
 
       button {
+        display: flex;
+        align-items: center;
         background: none;
         border: none;
-        color: $color_2;
-        padding: 0;
-        height: 30px;
-        width: 30px;
-        font-size: 1.1rem;
+        color: $color_1;
+        padding: 2px 4px;
+        height: 32px;
+        width: auto;
         cursor: pointer;
         opacity: 0.85;
+        font-size: var(--dm-font-size);
         transition: opacity 150ms ease-in-out;
+
+        svg {
+          width: auto;
+          height: 28px;
+        }
 
         &:hover {
           opacity: 1;
         }
-      }
-      button.wide-btn {
-        width: 50px;
       }
     }
   }
@@ -289,11 +293,13 @@ $background-color_4: var(--dm-color-primary);
   .volume-container {
     display: flex;
     align-items: center;
+    position: relative;
+    gap: 4px;
 
     &:hover {
       .volume-slider {
         cursor: pointer;
-        width: 100px;
+        width: 60px;
         transform: scaleX(1);
         transition: all 0.1s ease-in-out !important;
       }
@@ -316,7 +322,7 @@ $background-color_4: var(--dm-color-primary);
       transition: all 0.1s ease-in-out;
 
       &:focus-within {
-        width: 100px;
+        width: 60px;
         transform: scaleX(1);
         transition: all 0.1s ease-in-out;
       }
@@ -394,9 +400,8 @@ $background-color_4: var(--dm-color-primary);
     .video-controls-container {
       .controls {
         button {
-          font-size: var(--dm-font-size-sm);
-          --dm-text-small-color: var(--dm-color-white);
-          width: 20px;
+          --dm-font-size: var(--dm-font-size-sm);
+          width: auto;
           height: 20px;
         }
       }
@@ -416,7 +421,7 @@ $background-color_4: var(--dm-color-primary);
     .duration-container,
     .speed-btn {
       font-size: var(--dm-font-size-sm);
-      --dm-text-small-color: var(--dm-color-white);
+      color: var(--dm-color-white);
     }
   }
   @media only screen and (max-width: $dm-screen-xs) {
@@ -424,7 +429,7 @@ $background-color_4: var(--dm-color-primary);
       .volume-slider {
         transform: rotate(270deg) scale(0);
         bottom: 18px;
-        left: 40px;
+        left: 14px;
         position: absolute;
         box-shadow: inset 10px 10px 0px rgba(var(--dm-color-black-rgb), 0.2);
       }

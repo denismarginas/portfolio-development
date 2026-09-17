@@ -3,11 +3,22 @@
   "title": "Popup",
   "description": "Modal popup supporting images, arbitrary HTML content and galleries (slider-based or data-attribute groups), with zoom and close.",
   "assets": {
-    "php": ["assets/php/popup.php"],
-    "html": ["assets/html/template.html", "assets/html/parts/trigger.html"],
-    "scss": ["assets/scss/style.scss"],
-    "css": ["assets/css/style.css"],
-    "js": ["assets/js/popup.js"]
+    "php": [
+      "assets/php/popup.php"
+    ],
+    "html": [
+      "assets/html/template.html",
+      "assets/html/parts/trigger.html"
+    ],
+    "scss": [
+      "assets/scss/**"
+    ],
+    "css": [
+      "assets/css/**"
+    ],
+    "js": [
+      "assets/js/popup.js"
+    ]
   },
   "dependencies": []
 }

@@ -3,10 +3,22 @@
   "title": "Card Taxonomy",
   "description": "Standalone card for a taxonomy term: feature image with overlay, svg wrapper and text (seo title + description).",
   "assets": {
-    "php": ["assets/php/card_taxonomy.php"],
-    "html": ["assets/html/template.html"],
-    "scss": ["assets/scss/style.scss"],
-    "css": ["assets/css/style.css"]
+    "php": [
+      "assets/php/card_taxonomy.php"
+    ],
+    "html": [
+      "assets/html/template.html"
+    ],
+    "scss": [
+      "assets/scss/**"
+    ],
+    "css": [
+      "assets/css/**"
+    ]
   },
-  "dependencies": ["image", "svg", "card_outline_style"]
+  "dependencies": [
+    "image",
+    "svg",
+    "card_outline_style"
+  ]
 }

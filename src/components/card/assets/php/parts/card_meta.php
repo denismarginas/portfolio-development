@@ -67,7 +67,7 @@ class card_meta extends card_button
         if (!is_array($raw)) return '';
 
         $html = '';
-        foreach (['categories', 'tags'] as $type) {
+        foreach (['category', 'tag'] as $type) {
             $items = $raw[$type] ?? null;
             if (!is_array($items) || empty($items)) continue;
 

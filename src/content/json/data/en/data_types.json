@@ -3,30 +3,63 @@
     "singular": "Post",
     "plural": "Posts",
     "types": {
-      "page": { "singular": "Page", "plural": "Pages" },
-      "project": { "singular": "Project", "plural": "Projects" },
-      "workstation": { "singular": "Workstation", "plural": "Workstations" }
+      "page": {
+        "singular": "Page",
+        "plural": "Pages"
+      },
+      "project": {
+        "singular": "Project",
+        "plural": "Projects"
+      },
+      "workstation": {
+        "singular": "Workstation",
+        "plural": "Workstations"
+      }
     }
   },
   "taxonomy": {
     "singular": "Taxonomy",
     "plural": "Taxonomies",
     "types": {
-      "categories": { "singular": "Category", "plural": "Categories" },
-      "tags": { "singular": "Tag", "plural": "Tags" }
+      "category": {
+        "singular": "Category",
+        "plural": "Categories"
+      },
+      "tag": {
+        "singular": "Tag",
+        "plural": "Tags"
+      }
     }
   },
   "item": {
     "singular": "Item",
     "plural": "Items",
     "types": {
-      "jobs": { "singular": "Job", "plural": "Jobs" },
-      "education": { "singular": "Education", "plural": "Education" },
-      "resume": { "singular": "Resume", "plural": "Resumes" },
-      "games": { "singular": "Game", "plural": "Games" },
-      "socials": { "singular": "Social", "plural": "Socials" },
-      "videos": { "singular": "Video", "plural": "Videos" },
-      "knowledge_items": {
+      "job": {
+        "singular": "Job",
+        "plural": "Jobs"
+      },
+      "education": {
+        "singular": "Education",
+        "plural": "Education"
+      },
+      "resume": {
+        "singular": "Resume",
+        "plural": "Resumes"
+      },
+      "game": {
+        "singular": "Game",
+        "plural": "Games"
+      },
+      "social": {
+        "singular": "Social",
+        "plural": "Socials"
+      },
+      "video": {
+        "singular": "Video",
+        "plural": "Videos"
+      },
+      "knowledge_item": {
         "singular": "Knowledge Item",
         "plural": "Knowledge Items"
       },

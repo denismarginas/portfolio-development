@@ -3,7 +3,9 @@
   "title": "Card",
   "description": "Card with image, title, description, button, link, date and taxonomy. Post, minimal and education templates.",
   "assets": {
-    "php": ["assets/php/card.php"],
+    "php": [
+      "assets/php/card.php"
+    ],
     "html": [
       "assets/html/template_card_post.html",
       "assets/html/template_card_minimal.html",
@@ -20,8 +22,15 @@
       "assets/html/parts/taxonomy_item_span.html",
       "assets/html/parts/button.html"
     ],
-    "scss": ["assets/scss/card.scss"],
-    "css": ["assets/css/card.css"]
+    "scss": [
+      "assets/scss/**"
+    ],
+    "css": [
+      "assets/css/**"
+    ]
   },
-  "dependencies": ["image", "theme"]
+  "dependencies": [
+    "image",
+    "theme"
+  ]
 }

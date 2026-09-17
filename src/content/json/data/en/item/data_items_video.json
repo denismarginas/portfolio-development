@@ -31,16 +31,18 @@
             }
           }
         },
-        "urls": [
+        "buttons": [
           {
             "text": "Watch on YouTube",
             "url": "https://www.youtube.com/watch?v=HxGdZ_embL8",
-            "svg": "socials-youtube"
+            "svg": "socials_youtube"
           }
         ]
       },
       "taxonomy": {
-        "tags": ["portfolio showcase"]
+        "tag": [
+          "portfolio showcase"
+        ]
       }
     }
   },
@@ -78,16 +80,18 @@
             }
           }
         },
-        "urls": [
+        "buttons": [
           {
             "text": "Watch on YouTube",
             "url": "https://www.youtube.com/watch?v=ilz2avyGG_U",
-            "svg": "socials-youtube"
+            "svg": "socials_youtube"
           }
         ]
       },
       "taxonomy": {
-        "tags": ["portfolio showcase"]
+        "tag": [
+          "portfolio showcase"
+        ]
       }
     }
   }

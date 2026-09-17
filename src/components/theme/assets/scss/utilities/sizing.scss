@@ -19,7 +19,7 @@
 }
 
 @each $bp, $width in $dm-breakpoints {
-  @media (min-width: $width) {
+  @media (max-width: $width) {
     @each $name, $value in $dm-sizing {
       .w-#{$bp}-#{$name} {
         width: $value;

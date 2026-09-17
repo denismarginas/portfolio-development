@@ -6,14 +6,14 @@ class video_listing
     {
         $template = $data['template'] ?? [];
         $comp = str_replace('-', '_', (string) ($template['component'] ?? 'video'));
-        $filterTags = $data['filter']['taxonomy']['tags'] ?? null;
+        $filterTags = $data['filter']['taxonomy']['tag'] ?? null;
 
-        $videos = PlatformDataService::get_all_items_from_file('videos') ?? [];
+        $videos = PlatformDataService::get_all_items_from_file('video') ?? [];
         $videos = array_values(array_filter($videos, fn($v) => ($v['settings']['render'] ?? true) !== false));
 
         if (is_array($filterTags) && !empty($filterTags)) {
             $videos = array_values(array_filter($videos, function ($v) use ($filterTags) {
-                $tags = $v['taxonomy']['tags'] ?? $v['data']['taxonomy']['tags'] ?? [];
+                $tags = $v['taxonomy']['tag'] ?? $v['data']['taxonomy']['tag'] ?? [];
                 return !empty(array_intersect($filterTags, (array) $tags));
             }));
         }
@@ -37,20 +37,27 @@ class video_listing
             $title = $videoData['title'] ?? $d['seo']['title'] ?? '';
             $desc = $videoData['description'] ?? '';
             $timeline = $videoData['timeline'] ?? null;
-            $urls = $videoData['urls'] ?? $d['urls'] ?? [];
+            $buttons = $d['media']['buttons'] ?? [];
 
             $textHtml = '<div class="video-text">';
-            if ($title !== '') $textHtml .= '<h3>' . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . '</h3>';
-            if ($desc !== '') $textHtml .= '<p class="video-description">' . $desc . '</p>';
+            $textHtml .= PlatformComponentRenderer::render('text_block', ['elements' => [
+                ['subtitle' => $title],
+                ['paragraph' => $desc, 'class' => 'video-description', 'escape' => false],
+            ]]);
             if (is_array($timeline) && !empty($timeline['list'])) {
                 $textHtml .= '<div class="video-timeline"><span>' . htmlspecialchars($timeline['text'] ?? '', ENT_QUOTES, 'UTF-8') . '</span><ul>';
                 foreach ($timeline['list'] as $tl) $textHtml .= '<li>' . htmlspecialchars((string) $tl, ENT_QUOTES, 'UTF-8') . '</li>';
                 $textHtml .= '</ul></div>';
             }
-            if (!empty($urls) && is_array($urls)) {
-                $textHtml .= '<div class="video-urls">';
-                foreach ($urls as $u) $textHtml .= PlatformComponentRenderer::render('button', ['text' => $u['text'] ?? '', 'link' => $u['url'] ?? '', 'svg' => $u['svg'] ?? '']);
-                $textHtml .= '</div>';
+            if (!empty($buttons) && is_array($buttons)) {
+                $buttonItems = array_map(fn($b) => [
+                    'text' => $b['text'] ?? '',
+                    'link' => $b['url'] ?? '',
+                    'svg' => $b['svg'] ?? '',
+                ], $buttons);
+                $textHtml .= PlatformComponentRenderer::render('text_block', ['elements' => [
+                    ['buttons' => $buttonItems, 'class' => 'content-wrapper'],
+                ]]);
             }
             $textHtml .= '</div>';
 

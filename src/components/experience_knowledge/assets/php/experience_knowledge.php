@@ -21,21 +21,20 @@ class experience_knowledge
     private static function render_portrait(string $src): string
     {
         if ($src === '') return '';
-        $img = PlatformComponentRenderer::render('image', ['src' => $src, 'alt' => 'Portrait', 'class' => 'portrait-img']);
-        $dots = PlatformComponentRenderer::render('svg', ['icon' => 'dots-graphic', 'class' => 'portrait-dots']);
-        return '<div class="portrait">' . $img . '<div class="portrait-graphic">' . $dots . '</div></div>';
+        $img = PlatformComponentRenderer::render('image', ['src' => $src, 'alt' => 'Portrait', 'class' => 'portrait-img w-100 h-auto']);
+        $dots = PlatformComponentRenderer::render('svg', ['icon' => 'dots-graphic', 'class' => 'portrait-dots w-100 h-auto']);
+        return '' . $img . '<div class="portrait-graphic">' . $dots . '</div>';
     }
 
     private static function render_main(array $exp): string
     {
-        $html = '';
         $title = (string) ($exp['title'] ?? '');
-        if ($title !== '') $html .= '<h2>' . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . '</h2>';
-
         $textItems = $exp['knowledge_lists_text']['text_items'] ?? [];
-        if (!empty($textItems) && is_array($textItems)) {
-            foreach ($textItems as $t) $html .= '<p>' . htmlspecialchars((string) $t, ENT_QUOTES, 'UTF-8') . '</p>';
-        }
+
+        $html = PlatformComponentRenderer::render('text_block', ['elements' => [
+            ['title' => $title],
+            ['paragraphs' => $textItems],
+        ]]);
 
         $lists = $exp['knowledge_lists_text']['list_items'] ?? [];
         if (!empty($lists) && is_array($lists)) {
@@ -48,7 +47,7 @@ class experience_knowledge
             $html .= '</div>';
         }
 
-        $icons = $exp['knowledge_lists_items'] ?? [];
+        $icons = PlatformDataService::get_all_items_from_file('knowledge_item') ?? [];
         if (!empty($icons) && is_array($icons)) {
             $html .= '<ul class="knowledge-icons">';
             foreach ($icons as $ic) {
@@ -63,11 +62,14 @@ class experience_knowledge
 
         $buttons = $exp['buttons'] ?? [];
         if (!empty($buttons) && is_array($buttons)) {
-            $html .= '<div class="actions">';
-            foreach ($buttons as $btn) {
-                $html .= PlatformComponentRenderer::render('button', ['text' => (string)($btn['text'] ?? ''), 'link' => $btn['_id'] ?? '', 'svg' => (string)($btn['svg'] ?? ''), 'class' => 'btn btn-primary']);
-            }
-            $html .= '</div>';
+            $buttonItems = array_map(fn($btn) => [
+                'text' => (string) ($btn['text'] ?? ''),
+                'link' => $btn['_id'] ?? '',
+                'svg' => (string) ($btn['svg'] ?? ''),
+            ], $buttons);
+            $html .= PlatformComponentRenderer::render('text_block', ['elements' => [
+                ['buttons' => $buttonItems],
+            ]]);
         }
 
         return $html;
@@ -78,19 +80,20 @@ class experience_knowledge
         $html = '';
         $textList = $exp['text_list'] ?? [];
         if (!empty($textList) && is_array($textList)) {
-            $html .= '<div class="text-list">';
-            foreach ($textList as $p) $html .= '<p>' . htmlspecialchars((string)$p, ENT_QUOTES, 'UTF-8') . '</p>';
-            $html .= '</div>';
+            $inner = PlatformComponentRenderer::render('text_block', ['elements' => [
+                ['paragraphs' => $textList],
+            ]]);
+            $html .= '<div class="text-list w-60 w-md-100">' . $inner . '</div>';
         }
         $banner = $exp['media']['banner']['img'] ?? '';
         if ($banner !== '') {
             $img = PlatformComponentRenderer::render('image', [
                 'src' => $banner,
                 'alt' => 'Banner',
-                'class' => 'banner-img',
+                'class' => 'banner-img w-100',
                 'attributes' => ['data-popup' => 'true'],
             ]);
-            $html .= '<div class="banner">' . $img . '</div>';
+            $html .= '<div class="banner w-40 w-md-100">' . $img . '</div>';
         }
         return $html;
     }

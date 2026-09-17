@@ -28,7 +28,9 @@
       "education": {
         "type": "University",
         "location": "Baia Mare",
-        "profession": ["Mathematics-Informatics"],
+        "profession": [
+          "Mathematics-Informatics"
+        ],
         "heading": "Studied disciplines",
         "disciplines": {
           "list": [
@@ -60,11 +62,20 @@
         }
       },
       "external_links": [
-        { "text": "Website", "link": "https://www.utcluj.ro", "svg": "web" }
+        {
+          "text": "Website",
+          "link": "https://www.utcluj.ro",
+          "svg": "web"
+        }
       ],
       "taxonomy": {
-        "tags": ["university", "mathematics-informatics"],
-        "categories": ["Education"]
+        "tag": [
+          "university",
+          "mathematics-informatics"
+        ],
+        "category": [
+          "Education"
+        ]
       }
     }
   },
@@ -97,7 +108,9 @@
       "education": {
         "type": "High School",
         "location": "Baia Mare",
-        "profession": ["Mathematics-Informatics"],
+        "profession": [
+          "Mathematics-Informatics"
+        ],
         "heading": "Studied disciplines",
         "disciplines": {
           "list": [
@@ -128,8 +141,13 @@
         }
       ],
       "taxonomy": {
-        "tags": ["high-school", "mathematics-informatics"],
-        "categories": ["Education"]
+        "tag": [
+          "high-school",
+          "mathematics-informatics"
+        ],
+        "category": [
+          "Education"
+        ]
       }
     }
   }

@@ -8,7 +8,7 @@ class tab_items_listing_content
         if ($type === 'education') {
             return tab_items_listing_education_content::render_content_education($item, $data, $itemId);
         }
-        if ($type === 'jobs') {
+        if ($type === 'job') {
             return tab_items_listing_job_content::render_content_jobs($item, $data, $itemId);
         }
 
