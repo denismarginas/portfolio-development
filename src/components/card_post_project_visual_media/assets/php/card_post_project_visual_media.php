@@ -1,26 +1,22 @@
 <?php
 
+require_once __DIR__ . '/parts/project_media_finder.php';
+
 /**
- * card_post_project_visual_media
+ * Photo + logo card for "Visual Media Projects".
  *
- * PLACEHOLDER / structure only. Visual for a project card when the post
- * belongs to the "Visual Media Projects" category. For now this renders a
- * single cover image (with a play icon overlay, for when the project is a
- * video) - the real image-folder convention (single cover vs. gallery vs.
- * video embed) still needs to be defined, same way "web/overview/" was
- * defined for the website visual.
+ * $data options:
+ *   post_current_data  array   project post (required)
+ *   texture            string  overlay texture image, "" to disable
+ *                              (default "design-elements/overlay-texture-paper.webp")
+ *   lazy               bool    lazy-load images (default true)
  *
- * Expected $data:
- *   'post_current_data' => array   full project post entry (required)
- *   'cover_image'  => string  explicit override path for the cover image.
- *                              When omitted, falls back to
- *                              "src/content/img/projects/<media.path>/media/overview/media_overview.webp".
- *   'is_video'     => bool    when true, renders the play-icon overlay.
- *                              Default: false.
+ * Photo: see project_media_finder::photo(). Logo: data.media.logo.img
+ * (image) or data.media.logo.svg (svg icon). Nothing found -> ''.
  */
 class card_post_project_visual_media
 {
-    private const DEFAULT_COVER_RELATIVE = 'media/overview/media_overview.webp';
+    private const DEFAULT_TEXTURE = 'design-elements/overlay-texture-paper.webp';
 
     public static function render(array $data = []): string
     {
@@ -30,32 +26,70 @@ class card_post_project_visual_media
         }
 
         $postData = is_array($post['data'] ?? null) ? $post['data'] : [];
-        $mediaPath = (string) ($postData['media']['path'] ?? '');
+        $lazy = !array_key_exists('lazy', $data) || (bool) $data['lazy'];
 
-        $coverImage = (string) ($data['cover_image'] ?? '');
-        if ($coverImage === '' && $mediaPath !== '') {
-            $coverImage = 'src/content/img/projects/' . $mediaPath . '/' . self::DEFAULT_COVER_RELATIVE;
+        $photo = self::image(project_media_finder::photo($postData), 'media-photo', $lazy);
+        $logo = self::logo($postData['media']['logo'] ?? [], $lazy);
+        if ($photo === '' && $logo === '') {
+            return '';
         }
 
+        $colors = $post['settings']['appearance']['colors'] ?? [];
+        $color = self::color($colors['primary'] ?? '');
+        $logoColor = self::color($colors['canvas_primary'] ?? '');
+        $bgStyle = self::bg_style($color);
+        $texture = (string) ($data['texture'] ?? self::DEFAULT_TEXTURE);
         $link = PlatformPathService::post_link((string) ($post['_id'] ?? '')) . '#visualmedia';
-
-        $coverImageHtml = $coverImage !== ''
-            ? PlatformComponentRenderer::render('image', [
-                'src' => $coverImage,
-                'alt' => 'Project media preview',
-                'class' => 'media-cover-image',
-            ])
-            : '';
-
-        $isVideo = (bool) ($data['is_video'] ?? false);
-        $playIconHtml = $isVideo
-            ? PlatformComponentRenderer::render('svg', ['icon' => 'play', 'class' => 'media-play-icon'])
-            : '';
 
         return PlatformTemplateRenderer::render(__DIR__ . '/../html/template.html', [
             'link' => htmlspecialchars($link, ENT_QUOTES, 'UTF-8'),
-            'cover_image' => $coverImageHtml,
-            'play_icon' => $playIconHtml,
+            'color_style' => $color !== '' ? ' style="--primary-color-post: ' . $color . ';"' : '',
+            'bg_style' => $bgStyle,
+            'photo' => $photo,
+            'logo' => $logo !== '' ? '<div class="logo"' . self::bg_style($logoColor) . '>' . $logo . '</div>' : '',
+            'texture' => self::image($texture, 'texture', $lazy),
+        ]);
+    }
+
+    private static function color(mixed $value): string
+    {
+        return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
+    }
+
+    private static function bg_style(string $color): string
+    {
+        return $color !== '' ? ' style="background-color: ' . $color . ';"' : '';
+    }
+
+    private static function logo(mixed $logo, bool $lazy): string
+    {
+        if (!is_array($logo)) {
+            return '';
+        }
+
+        $img = (string) ($logo['img'] ?? '');
+        if ($img !== '') {
+            return self::image('src/content/img/projects/' . ltrim($img, '/'), 'logo-image', $lazy);
+        }
+
+        $svg = (string) ($logo['svg'] ?? '');
+        return $svg !== ''
+            ? PlatformComponentRenderer::render('svg', ['icon' => $svg, 'class' => 'logo-svg'])
+            : '';
+    }
+
+    /** Renders through the image component ('' when the file is missing). */
+    private static function image(string $src, string $class, bool $lazy): string
+    {
+        if ($src === '') {
+            return '';
+        }
+
+        return PlatformComponentRenderer::render('image', [
+            'src' => $src,
+            'alt' => 'Image: ' . pathinfo($src, PATHINFO_FILENAME),
+            'class' => $class,
+            'lazy' => $lazy,
         ]);
     }
 }

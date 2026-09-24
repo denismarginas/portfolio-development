@@ -1,7 +1,7 @@
 {
   "name": "card_post_project_visual_default",
   "title": "Card Post Project Visual - Default",
-  "description": "Fallback visual for a project card: the project's logo (image or svg icon) or a thumbnail, on a flat color background. Used for \"Miscellaneous Projects\" or when no matching category is found, and whenever visual_component is forced to this component.",
+  "description": "Fallback project card visual: logo (image, svg icon, or the \"projects\" svg when neither exists) on the canvas_primary color, with a preview image (thumbnail, web overview for web projects, or first media photo) shown on hover.",
   "post_types": ["project"],
   "assets": {
     "php": ["assets/php/card_post_project_visual_default.php"],

@@ -1,40 +1,54 @@
 @import "theme";
 
+// Logo on a flat color; the preview image fades in behind it on hover.
+
 .dm-post-view-default {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   width: 100%;
   height: 150px;
   border-radius: var(--dm-radius-md);
   overflow: hidden;
   text-decoration: none;
-  padding: var(--dm-spacing-sm, var(--dm-spacing-sm));
+  padding: var(--dm-spacing-sm);
+  box-sizing: border-box;
 
-  .default-visual-image,
-  .default-visual-svg {
+  > img.default-visual-logo {
+    position: relative;
+    z-index: 1;
     display: block;
     box-sizing: border-box;
-
-    &.default-visual-logo {
-      width: auto;
-      max-width: 100%;
-      height: auto;
-      max-height: 90%;
-      object-fit: contain;
-      object-position: center;
-    }
-
-    &.default-visual-thumbnail {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      padding: 0;
-    }
+    width: auto;
+    max-width: 70%;
+    height: auto;
+    max-height: 70%;
+    object-fit: contain;
+    object-position: center;
   }
 
-  .default-visual-svg {
+  > svg.default-visual-logo {
+    width: 60%;
+    height: 60%;
     @include svg-color(var(--dm-color-white));
+  }
+
+  > img.default-visual-preview {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  &:hover > img.default-visual-preview,
+  .card-post-project:hover & > img.default-visual-preview {
+    opacity: 0.2;
   }
 }

@@ -1,33 +1,114 @@
 @import "theme";
 
-// PLACEHOLDER: minimal styling, structure only - revisit once the real
-// image convention for "Visual Media Projects" is defined.
+// Photo + logo card, "polaroid" style (paper frame, round logo badge,
+// diagonal color band). Scoped with .visual-media so the website visual's
+// .dm-post-view rules don't leak in.
 
-.dm-post-view-media {
+.dm-post-view.visual-media {
   display: block;
   position: relative;
+  box-sizing: border-box;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
-  border-radius: var(--dm-radius-md);
+  min-height: 0;
+  padding: 8px 8px 18px;
+  background-color: var(--dm-color-white);
+  box-shadow: 3px 3px 6px
+    color-mix(in srgb, var(--dm-color-black) 30%, transparent);
   text-decoration: none;
+  overflow: hidden;
 
-  img.media-cover-image {
-    display: block;
+  > .photo {
+    position: relative;
+    z-index: 1;
+    height: 150px;
+    overflow: hidden;
+    border: 1px solid
+      color-mix(in srgb, var(--dm-color-gray-light) 100%, transparent);
+
+    > img.media-photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.8;
+      transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
+    }
+
+    > .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      z-index: 2;
+      bottom: 10%;
+      left: 6%;
+      box-sizing: border-box;
+      width: 100px;
+      height: 100px;
+      max-width: 90%;
+      max-height: 90%;
+      padding: 18px;
+      border-radius: 50%;
+      box-shadow: 3px 3px 6px
+        color-mix(in srgb, var(--dm-color-black) 40%, transparent);
+
+      > img.logo-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      > svg.logo-svg {
+        width: 100%;
+        height: 100%;
+        @include svg-color(var(--dm-color-white));
+      }
+    }
+
+    > .bg-overlay-color {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: -80%;
+      width: 200%;
+      height: 100%;
+      transform: rotate(29deg);
+      box-shadow: 3px -3px 8px
+        color-mix(in srgb, var(--dm-color-black) 30%, transparent);
+      pointer-events: none;
+    }
+  }
+
+  > img.texture {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    opacity: 0.6;
+    pointer-events: none;
   }
 
-  .media-play-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 15%;
-    height: auto;
-    @include svg-color(var(--dm-color-white));
-    pointer-events: none;
+  &:hover > .photo > img.media-photo {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+
+  @media only screen and (max-width: $dm-screen-md) {
+    > .photo > .logo {
+      width: 80px;
+      height: 80px;
+      padding: 14px;
+    }
+  }
+
+  @media only screen and (max-width: $dm-screen-sm) {
+    padding: 8px 8px 28px;
   }
 }

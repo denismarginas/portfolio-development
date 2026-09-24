@@ -9,7 +9,7 @@
       "description": "Websites, online shops and front-end interfaces I have designed and built for clients and personal projects.",
       "keywords": "denis marginas web projects",
       "slug": "web",
-      "index": "false"
+      "index": false
     },
     "hero": {
       "img": "design-elements/website-responsive-laptop.webp"
@@ -54,7 +54,7 @@
       "description": "Content-focused web projects, from editorial sites to resource hubs built around structured, accessible information.",
       "keywords": "denis marginas content web projects",
       "slug": "content-web",
-      "index": "false"
+      "index": false
     },
     "hero": {
       "img": "design-elements/website-responsive-phone.webp"
@@ -99,7 +99,7 @@
       "description": "Media-heavy web projects featuring embedded photo and video content, galleries and rich visual storytelling.",
       "keywords": "denis marginas media web projects",
       "slug": "media-web",
-      "index": "false"
+      "index": false
     },
     "hero": {
       "img": "design-elements/monitor-with-project.webp"
@@ -144,7 +144,7 @@
       "description": "Photography-driven projects, covering photo galleries, image-focused portfolios and visual media showcases.",
       "keywords": "denis marginas photo projects",
       "slug": "photo",
-      "index": "false"
+      "index": false
     },
     "hero": {
       "img": "design-elements/device-layout-phone.webp"
@@ -189,7 +189,7 @@
       "description": "Video-centric projects, from motion showcases and video editing work to embedded media experiences.",
       "keywords": "denis marginas video projects",
       "slug": "video",
-      "index": "false"
+      "index": false
     },
     "hero": {
       "img": "design-elements/device-layout-laptop.webp"

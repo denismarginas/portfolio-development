@@ -21,12 +21,15 @@ class post_items_render extends post_items_item
         $excludeBy = $data['exclude_by'] ?? [];
         $filterBy = $data['filter_by'] ?? [];
 
+        $posts = array_filter($posts, fn (array $post): bool =>
+            ($post['settings']['render'] ?? true) !== false
+            && !self::is_excluded($post, $excludeBy)
+            && self::passes_filter($post, $filterBy)
+        );
+        $posts = self::sort_posts($posts, $data['sort'] ?? null);
+
         $items = '';
         foreach ($posts as $post) {
-            if (($post['settings']['render'] ?? true) === false) continue;
-            if (self::is_excluded($post, $excludeBy)) continue;
-            if (!self::passes_filter($post, $filterBy)) continue;
-
             if (is_array($template)) {
                 $items .= self::render_via_template($post, $template);
             } else {
@@ -40,6 +43,16 @@ class post_items_render extends post_items_item
         return PlatformTemplateRenderer::render([
             'items' => $items,
         ]);
+    }
+
+    /** Sorting is done by the utility_sort component (see its header for the rules). */
+    public static function sort_posts(array $posts, mixed $sort): array
+    {
+        $posts = array_values($posts);
+        if (empty($sort)) return $posts;
+
+        $sorted = PlatformComponentRenderer::value('utility_sort', ['items' => $posts, 'rules' => $sort]);
+        return is_array($sorted) ? $sorted : $posts;
     }
 
     public static function is_excluded(array $post, mixed $excludeBy): bool
@@ -66,10 +79,10 @@ class post_items_render extends post_items_item
             }
 
             if ($path === '') continue;
-            $resolved = self::resolve_token($path, $context);
+            $resolved = self::resolve_token(self::path_token($path), $context);
 
             if ($expected !== null) {
-                if (self::values_equal($resolved, $expected)) return true;
+                if (self::matches($resolved, $expected)) return true;
             } elseif (self::is_truthy($resolved)) {
                 return true;
             }
@@ -93,20 +106,28 @@ class post_items_render extends post_items_item
         foreach ($entries as $path => $expected) {
             if (!is_string($path)) continue;
 
-            $token = (str_starts_with($path, 'data.') || str_starts_with($path, 'settings.'))
-                ? '@' . $path
-                : '@data.' . $path;
-
-            $resolved = self::resolve_token($token, $context);
-
-            if (is_array($resolved)) {
-                if (!in_array((string) $expected, array_map('strval', $resolved), true)) return false;
-            } elseif (!self::values_equal($resolved, $expected)) {
-                return false;
-            }
+            if (!self::matches(self::resolve_token(self::path_token($path), $context), $expected)) return false;
         }
 
         return true;
+    }
+
+    /** "taxonomy.category" -> "@data.taxonomy.category"; data./settings./@ paths kept. */
+    public static function path_token(string $path): string
+    {
+        if (str_starts_with($path, '@')) return $path;
+        return (str_starts_with($path, 'data.') || str_starts_with($path, 'settings.'))
+            ? '@' . $path
+            : '@data.' . $path;
+    }
+
+    /** A list matches when it contains $expected; anything else must be equal. */
+    public static function matches(mixed $resolved, mixed $expected): bool
+    {
+        if (is_array($resolved)) {
+            return in_array((string) $expected, array_map('strval', $resolved), true);
+        }
+        return self::values_equal($resolved, $expected);
     }
 
     public static function values_equal(mixed $a, mixed $b): bool

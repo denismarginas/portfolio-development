@@ -58,8 +58,8 @@ class page_constructor_seo
         if (!empty($slug)) {
             $ext = PlatformConfig::getPageSlugExtension();
             $html .= '<link rel="canonical" href="' . htmlspecialchars($slug . $ext) . '">';
-            $index = $seo_data['index'] ?? 'true';
-            $html .= ($index === 'true' || $index === true)
+            $index = filter_var($seo_data['index'] ?? true, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) ?? true;
+            $html .= $index
                 ? '<meta name="robots" content="index, follow">'
                 : '<meta name="robots" content="noindex, nofollow">';
         }

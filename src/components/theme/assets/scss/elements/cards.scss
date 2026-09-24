@@ -21,7 +21,7 @@
   }
   [mode="light"] & {
     background-color: var(--dm-color-white);
-    border-color: var(--dm-color-gray);
+    border-color: var(--dm-color-gray-light);
     transition: var(--dm-transition);
   }
   [mode="dark"] & {

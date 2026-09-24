@@ -20,6 +20,7 @@ class taxonomy_listing
         }
         if (!is_array($terms)) $terms = [];
         $terms = array_values(array_filter($terms, function ($t) use ($postType, $taxConfig) {
+            if (($t['data']['settings']['listing'] ?? true) === false) return false;
             $termTypes = $t['post_types'] ?? $taxConfig['post_types'] ?? [];
             return $postType === '' || empty($termTypes) || in_array($postType, $termTypes, true);
         }));

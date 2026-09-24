@@ -9,5 +9,5 @@
       "assets/html/template_item_image.html"
     ]
   },
-  "dependencies": ["image"]
+  "dependencies": ["image", "utility_sort"]
 }

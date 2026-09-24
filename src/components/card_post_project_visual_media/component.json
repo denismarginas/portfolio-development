@@ -1,12 +1,12 @@
 {
   "name": "card_post_project_visual_media",
   "title": "Card Post Project Visual - Media",
-  "description": "Placeholder visual for a project card when the post belongs to the \"Visual Media Projects\" category: cover image with a play icon overlay. Structure only for now - image path convention and video/gallery handling still need to be defined.",
+  "description": "Photo + logo card for \"Visual Media Projects\". Photo: data.media.overview_media, else media/overview/, else the first media subfolder without \"logo\" in its name. Logo: data.media.logo.img (image) or .svg (svg icon).",
   "post_types": ["project"],
   "assets": {
     "php": ["assets/php/card_post_project_visual_media.php"],
     "html": ["assets/html/template.html"],
-    "scss": ["assets/scss/card_post_project_visual_media.scss"],
+    "scss": ["assets/scss/**"],
     "css": ["assets/css/**"]
   },
   "dependencies": ["image", "svg", "theme"]
