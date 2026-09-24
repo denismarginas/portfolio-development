@@ -27,13 +27,8 @@
         "publish": "2019-05-01"
       },
       "project": {
-        "types": [
-          "bachelor's thesis",
-          "personal"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
+        "types": ["bachelor's thesis", "personal"],
+        "collaboration": ["Individual"],
         "school": "Technical University of Cluj-Napoca UTCNBM"
       },
       "web": {
@@ -74,13 +69,8 @@
         "thumbnail_img": "student-courses-bachelor-s-thesis/thumbnail/thumbnail.webp"
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Miscellaneous Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects", "Miscellaneous Projects"]
       }
     },
     "content": [
@@ -117,21 +107,10 @@
         "publish": "2019-10-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork",
-          "Individual"
-        ],
-        "companies": [
-          "A&A Toys & Furniture"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Teamwork", "Individual"],
+        "companies": ["A&A Toys & Furniture"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -184,12 +163,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -229,20 +204,10 @@
         "publish": "2021-05-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content"
-        ],
-        "collaboration": [
-          "Teamwork",
-          "Individual"
-        ],
-        "companies": [
-          "Acvatic Bebe Club"
-        ],
-        "contractors": [
-          "Digital Advisors"
-        ],
+        "types": ["presentation website", "web content"],
+        "collaboration": ["Teamwork", "Individual"],
+        "companies": ["Acvatic Bebe Club"],
+        "contractors": ["Digital Advisors"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -295,12 +260,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -349,15 +310,9 @@
           "web maintenance",
           "seo optimization"
         ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Agramix"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual"],
+        "companies": ["Agramix"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -470,16 +425,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web",
-          "photo",
-          "video"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Visual Media Projects"
-        ]
+        "tag": ["web", "media-web", "photo", "video"],
+        "category": ["Web Development Projects", "Visual Media Projects"]
       }
     },
     "content": [
@@ -531,15 +478,9 @@
           "web maintenance",
           "seo optimization"
         ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Agromir"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual"],
+        "companies": ["Agromir"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -652,16 +593,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web",
-          "photo",
-          "video"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Visual Media Projects"
-        ]
+        "tag": ["web", "media-web", "photo", "video"],
+        "category": ["Web Development Projects", "Visual Media Projects"]
       }
     },
     "content": [
@@ -819,15 +752,9 @@
           "web design",
           "web maintenance"
         ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Agromir"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual"],
+        "companies": ["Agromir"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -904,13 +831,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "media-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -957,15 +879,9 @@
           "web maintenance",
           "seo optimization"
         ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Amorino"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual"],
+        "companies": ["Amorino"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -1026,13 +942,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "media-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -1088,18 +999,10 @@
         "publish": "2023-01-01"
       },
       "project": {
-        "types": [
-          "media image"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Augustin Nail Trainer"
-        ],
-        "contractors": [
-          "Freelancer"
-        ],
+        "types": ["media image"],
+        "collaboration": ["Individual"],
+        "companies": ["Augustin Nail Trainer"],
+        "contractors": ["Freelancer"],
         "employer": "Freelancer"
       },
       "media": {
@@ -1119,13 +1022,8 @@
         "urls": []
       },
       "taxonomy": {
-        "tag": [
-          "photo"
-        ],
-        "category": [
-          "Visual Media Projects",
-          "Miscellaneous Projects"
-        ]
+        "tag": ["photo"],
+        "category": ["Visual Media Projects", "Miscellaneous Projects"]
       }
     },
     "content": [
@@ -1162,20 +1060,10 @@
         "publish": "2021-11-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "AXA Company"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Individual"],
+        "companies": ["AXA Company"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -1233,13 +1121,8 @@
         "platforms": []
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "media-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -1285,15 +1168,9 @@
           "web content",
           "web design"
         ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Bonea Med"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual"],
+        "companies": ["Bonea Med"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -1355,13 +1232,8 @@
         "platforms": []
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "media-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -1401,20 +1273,10 @@
         "publish": "2019-11-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "BRB Home"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Individual"],
+        "companies": ["BRB Home"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -1471,13 +1333,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "media-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -1517,19 +1374,10 @@
         "publish": "2020-10-01"
       },
       "project": {
-        "types": [
-          "online shop",
-          "web content"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Brisa Scents"
-        ],
-        "contractors": [
-          "Digital Advisors"
-        ],
+        "types": ["online shop", "web content"],
+        "collaboration": ["Individual"],
+        "companies": ["Brisa Scents"],
+        "contractors": ["Digital Advisors"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -1586,12 +1434,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -1630,18 +1474,10 @@
         "publish": "2020-01-01"
       },
       "project": {
-        "types": [
-          "media image"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Bus-Vip"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["media image"],
+        "collaboration": ["Individual"],
+        "companies": ["Bus-Vip"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "media": {
@@ -1682,13 +1518,8 @@
         "urls": []
       },
       "taxonomy": {
-        "tag": [
-          "photo",
-          "video"
-        ],
-        "category": [
-          "Visual Media Projects"
-        ]
+        "tag": ["photo", "video"],
+        "category": ["Visual Media Projects"]
       }
     },
     "content": [
@@ -1793,15 +1624,9 @@
           "web design",
           "web maintenance"
         ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Centrul De Resurse Si Inovatie In Educatie"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual"],
+        "companies": ["Centrul De Resurse Si Inovatie In Educatie"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -1858,13 +1683,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -1910,15 +1730,9 @@
           "web design",
           "web maintenance"
         ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Cafea Gano"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual"],
+        "companies": ["Cafea Gano"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -1979,12 +1793,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -2024,20 +1834,10 @@
         "publish": "2021-06-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Carconcordia"
-        ],
-        "contractors": [
-          "Digital Advisors"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Individual"],
+        "companies": ["Carconcordia"],
+        "contractors": ["Digital Advisors"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -2098,12 +1898,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -2149,15 +1945,9 @@
           "web design",
           "web maintenance"
         ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Casa Darius"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual"],
+        "companies": ["Casa Darius"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -2214,13 +2004,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "media-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -2269,15 +2054,9 @@
           "media image",
           "media video"
         ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Casa Darius"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual"],
+        "companies": ["Casa Darius"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -2402,16 +2181,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web",
-          "photo",
-          "video"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Visual Media Projects"
-        ]
+        "tag": ["web", "media-web", "photo", "video"],
+        "category": ["Web Development Projects", "Visual Media Projects"]
       }
     },
     "content": [
@@ -2454,18 +2225,10 @@
         "publish": "2024-01-01"
       },
       "project": {
-        "types": [
-          "web design"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Cekan"
-        ],
-        "contractors": [
-          "Enlivy"
-        ],
+        "types": ["web design"],
+        "collaboration": ["Individual"],
+        "companies": ["Cekan"],
+        "contractors": ["Enlivy"],
         "employer": "Freelancer"
       },
       "web": {
@@ -2508,14 +2271,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Miscellaneous Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects", "Miscellaneous Projects"]
       }
     },
     "content": [
@@ -2552,19 +2309,10 @@
         "publish": "2020-05-01"
       },
       "project": {
-        "types": [
-          "online shop",
-          "web content"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Ceramic & Stone Evolutione"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["online shop", "web content"],
+        "collaboration": ["Individual"],
+        "companies": ["Ceramic & Stone Evolutione"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -2615,13 +2363,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "media-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -2661,20 +2404,10 @@
         "publish": "2019-11-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Copiatoare Alba Iulia"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Individual"],
+        "companies": ["Copiatoare Alba Iulia"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -2741,13 +2474,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "media-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -2793,15 +2521,9 @@
           "web design",
           "web maintenance"
         ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Covoare Alex"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual"],
+        "companies": ["Covoare Alex"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -2867,13 +2589,8 @@
         "platforms": []
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "media-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -2913,18 +2630,10 @@
         "publish": "2020-03-01"
       },
       "project": {
-        "types": [
-          "media image"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Dabo Satu Mare"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["media image"],
+        "collaboration": ["Individual"],
+        "companies": ["Dabo Satu Mare"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "media": {
@@ -2951,13 +2660,8 @@
         "urls": []
       },
       "taxonomy": {
-        "tag": [
-          "photo",
-          "video"
-        ],
-        "category": [
-          "Visual Media Projects"
-        ]
+        "tag": ["photo", "video"],
+        "category": ["Visual Media Projects"]
       }
     },
     "content": [
@@ -3000,9 +2704,7 @@
           "web design",
           "personal"
         ],
-        "collaboration": [
-          "Individual"
-        ]
+        "collaboration": ["Individual"]
       },
       "web": {
         "platform": [
@@ -3044,13 +2746,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Miscellaneous Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects", "Miscellaneous Projects"]
       }
     },
     "content": [
@@ -3089,14 +2786,8 @@
         "publish": "2020-06-01"
       },
       "project": {
-        "types": [
-          "media image",
-          "media video",
-          "personal"
-        ],
-        "collaboration": [
-          "Individual"
-        ]
+        "types": ["media image", "media video", "personal"],
+        "collaboration": ["Individual"]
       },
       "media": {
         "path": "denismarginas",
@@ -3160,14 +2851,8 @@
         "urls": []
       },
       "taxonomy": {
-        "tag": [
-          "photo",
-          "video"
-        ],
-        "category": [
-          "Visual Media Projects",
-          "Miscellaneous Projects"
-        ]
+        "tag": ["photo", "video"],
+        "category": ["Visual Media Projects", "Miscellaneous Projects"]
       }
     },
     "content": [
@@ -3211,9 +2896,7 @@
           "personal",
           "seo optimization"
         ],
-        "collaboration": [
-          "Individual"
-        ]
+        "collaboration": ["Individual"]
       },
       "web": {
         "platform": [
@@ -3275,14 +2958,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Miscellaneous Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects", "Miscellaneous Projects"]
       }
     },
     "content": [
@@ -3338,19 +3015,10 @@
         "publish": "2020-03-01"
       },
       "project": {
-        "types": [
-          "media image",
-          "media video"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "DS Auto Center"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["media image", "media video"],
+        "collaboration": ["Individual"],
+        "companies": ["DS Auto Center"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "media": {
@@ -3383,13 +3051,8 @@
         "urls": []
       },
       "taxonomy": {
-        "tag": [
-          "photo",
-          "video"
-        ],
-        "category": [
-          "Visual Media Projects"
-        ]
+        "tag": ["photo", "video"],
+        "category": ["Visual Media Projects"]
       }
     },
     "content": [
@@ -3445,15 +3108,9 @@
           "web design",
           "web maintenance"
         ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "FreyMob Design"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual"],
+        "companies": ["FreyMob Design"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -3510,12 +3167,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -3554,18 +3207,10 @@
         "publish": "2021-11-01"
       },
       "project": {
-        "types": [
-          "media image"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Gamada Metal"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["media image"],
+        "collaboration": ["Individual"],
+        "companies": ["Gamada Metal"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "media": {
@@ -3585,12 +3230,8 @@
         "urls": []
       },
       "taxonomy": {
-        "tag": [
-          "photo"
-        ],
-        "category": [
-          "Visual Media Projects"
-        ]
+        "tag": ["photo"],
+        "category": ["Visual Media Projects"]
       }
     },
     "content": [
@@ -3626,18 +3267,10 @@
         "publish": "2020-02-01"
       },
       "project": {
-        "types": [
-          "media image"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "HART - Keep your hat on"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["media image"],
+        "collaboration": ["Individual"],
+        "companies": ["HART - Keep your hat on"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "media": {
@@ -3670,12 +3303,8 @@
         "urls": []
       },
       "taxonomy": {
-        "tag": [
-          "photo"
-        ],
-        "category": [
-          "Visual Media Projects"
-        ]
+        "tag": ["photo"],
+        "category": ["Visual Media Projects"]
       }
     },
     "content": [
@@ -3715,20 +3344,10 @@
         "publish": "2022-01-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Ilnic Electric"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Individual"],
+        "companies": ["Ilnic Electric"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -3790,13 +3409,8 @@
         "platforms": []
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "media-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -3855,20 +3469,10 @@
         "publish": "2020-06-01"
       },
       "project": {
-        "types": [
-          "online shop",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Lavplast"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["online shop", "web content", "web design"],
+        "collaboration": ["Individual"],
+        "companies": ["Lavplast"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -3929,13 +3533,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "media-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -3983,15 +3582,9 @@
           "web design",
           "web maintenance"
         ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Lavplast"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual"],
+        "companies": ["Lavplast"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -4066,13 +3659,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "media-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -4131,20 +3719,10 @@
         "publish": "2019-10-01"
       },
       "project": {
-        "types": [
-          "online shop",
-          "web content"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "companies": [
-          "Mara Safety"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["online shop", "web content"],
+        "collaboration": ["Individual", "Teamwork"],
+        "companies": ["Mara Safety"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -4195,13 +3773,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "media-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -4241,20 +3814,10 @@
         "publish": "2020-06-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Masini in Rate Baia Mare"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Individual"],
+        "companies": ["Masini in Rate Baia Mare"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -4319,13 +3882,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "media-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -4365,19 +3923,10 @@
         "publish": "2021-07-01"
       },
       "project": {
-        "types": [
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Medical Ortovit"
-        ],
-        "contractors": [
-          "Digital Advisors"
-        ],
+        "types": ["web content", "web design"],
+        "collaboration": ["Individual"],
+        "companies": ["Medical Ortovit"],
+        "contractors": ["Digital Advisors"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -4434,12 +3983,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -4479,20 +4024,10 @@
         "publish": "2022-01-01"
       },
       "project": {
-        "types": [
-          "web content",
-          "web design",
-          "web maintenance"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Mewi"
-        ],
-        "contractors": [
-          "Netex Romania"
-        ],
+        "types": ["web content", "web design", "web maintenance"],
+        "collaboration": ["Individual"],
+        "companies": ["Mewi"],
+        "contractors": ["Netex Romania"],
         "employer": "Netex Romania"
       },
       "web": {
@@ -4549,13 +4084,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -4614,19 +4144,10 @@
         "publish": "2019-11-01"
       },
       "project": {
-        "types": [
-          "online shop",
-          "media image"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Mobila Simex Plus"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["online shop", "media image"],
+        "collaboration": ["Individual"],
+        "companies": ["Mobila Simex Plus"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -4693,14 +4214,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "photo"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Visual Media Projects"
-        ]
+        "tag": ["web", "photo"],
+        "category": ["Web Development Projects", "Visual Media Projects"]
       }
     },
     "content": [
@@ -4742,18 +4257,10 @@
         "publish": "2019-12-01"
       },
       "project": {
-        "types": [
-          "media image"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "My Creative Design"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["media image"],
+        "collaboration": ["Individual"],
+        "companies": ["My Creative Design"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "media": {
@@ -4782,12 +4289,8 @@
         "urls": []
       },
       "taxonomy": {
-        "tag": [
-          "photo"
-        ],
-        "category": [
-          "Visual Media Projects"
-        ]
+        "tag": ["photo"],
+        "category": ["Visual Media Projects"]
       }
     },
     "content": [
@@ -4824,19 +4327,10 @@
         "publish": "2021-12-01"
       },
       "project": {
-        "types": [
-          "web maintenance"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "companies": [
-          "Netex Romania"
-        ],
-        "contractors": [
-          "Netex Romania"
-        ],
+        "types": ["web maintenance"],
+        "collaboration": ["Individual", "Teamwork"],
+        "companies": ["Netex Romania"],
+        "contractors": ["Netex Romania"],
         "employer": "Netex Romania"
       },
       "web": {
@@ -4889,14 +4383,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "photo"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Visual Media Projects"
-        ]
+        "tag": ["web", "photo"],
+        "category": ["Web Development Projects", "Visual Media Projects"]
       }
     },
     "content": [
@@ -4939,19 +4427,10 @@
         "publish": "2023-05-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "companies": [
-          "Petri"
-        ],
-        "contractors": [
-          "Enlivy"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Teamwork"],
+        "companies": ["Petri"],
+        "contractors": ["Enlivy"],
         "employer": "Enlivy"
       },
       "web": {
@@ -5008,12 +4487,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -5062,16 +4537,9 @@
           "media image",
           "media video"
         ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "companies": [
-          "Pia Soft Product"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual", "Teamwork"],
+        "companies": ["Pia Soft Product"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -5164,16 +4632,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web",
-          "photo",
-          "video"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Visual Media Projects"
-        ]
+        "tag": ["web", "media-web", "photo", "video"],
+        "category": ["Web Development Projects", "Visual Media Projects"]
       }
     },
     "content": [
@@ -5246,21 +4706,10 @@
         "publish": "2020-03-01"
       },
       "project": {
-        "types": [
-          "online shop",
-          "web content",
-          "web design",
-          "media image"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Prisma Nord Product"
-        ],
-        "contractors": [
-          "Freelancer"
-        ],
+        "types": ["online shop", "web content", "web design", "media image"],
+        "collaboration": ["Individual"],
+        "companies": ["Prisma Nord Product"],
+        "contractors": ["Freelancer"],
         "employer": "Freelancer"
       },
       "web": {
@@ -5345,11 +4794,7 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web",
-          "photo"
-        ],
+        "tag": ["web", "media-web", "photo"],
         "category": [
           "Web Development Projects",
           "Visual Media Projects",
@@ -5404,16 +4849,9 @@
           "web design",
           "web maintenance"
         ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "companies": [
-          "TNDC"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual", "Teamwork"],
+        "companies": ["TNDC"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -5470,13 +4908,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -5539,19 +4972,10 @@
         "publish": "2022-11-01"
       },
       "project": {
-        "types": [
-          "web content",
-          "web maintenance"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Pur Style"
-        ],
-        "contractors": [
-          "Netex Romania"
-        ],
+        "types": ["web content", "web maintenance"],
+        "collaboration": ["Individual"],
+        "companies": ["Pur Style"],
+        "contractors": ["Netex Romania"],
         "employer": "Netex Romania"
       },
       "web": {
@@ -5615,12 +5039,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -5660,19 +5080,10 @@
         "publish": "2021-12-01"
       },
       "project": {
-        "types": [
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Reifen Direkt"
-        ],
-        "contractors": [
-          "Netex Romania"
-        ],
+        "types": ["web content", "web design"],
+        "collaboration": ["Individual"],
+        "companies": ["Reifen Direkt"],
+        "contractors": ["Netex Romania"],
         "employer": "Netex Romania"
       },
       "web": {
@@ -5723,13 +5134,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -5797,15 +5203,9 @@
           "web design",
           "web maintenance"
         ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Centrul De Resurse Si Inovatie In Educatie"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual"],
+        "companies": ["Centrul De Resurse Si Inovatie In Educatie"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -5886,13 +5286,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -5967,15 +5362,9 @@
           "web maintenance",
           "seo optimization"
         ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Avadores"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual"],
+        "companies": ["Avadores"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -6080,17 +5469,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web",
-          "content-web",
-          "photo",
-          "video"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Visual Media Projects"
-        ]
+        "tag": ["web", "media-web", "content-web", "photo", "video"],
+        "category": ["Web Development Projects", "Visual Media Projects"]
       }
     },
     "content": [
@@ -6179,15 +5559,9 @@
           "web design",
           "web maintenance"
         ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Centrul De Resurse Si Inovatie In Educatie"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual"],
+        "companies": ["Centrul De Resurse Si Inovatie In Educatie"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -6244,14 +5618,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "media-web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -6290,18 +5658,10 @@
         "publish": "2022-12-01"
       },
       "project": {
-        "types": [
-          "media image"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Round Selfie"
-        ],
-        "contractors": [
-          "Freelancer"
-        ],
+        "types": ["media image"],
+        "collaboration": ["Individual"],
+        "companies": ["Round Selfie"],
+        "contractors": ["Freelancer"],
         "employer": "Freelancer"
       },
       "media": {
@@ -6321,13 +5681,8 @@
         "urls": []
       },
       "taxonomy": {
-        "tag": [
-          "photo"
-        ],
-        "category": [
-          "Visual Media Projects",
-          "Miscellaneous Projects"
-        ]
+        "tag": ["photo"],
+        "category": ["Visual Media Projects", "Miscellaneous Projects"]
       }
     },
     "content": [
@@ -6364,20 +5719,10 @@
         "publish": "2022-11-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Royal Compass"
-        ],
-        "contractors": [
-          "Netex Romania"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Individual"],
+        "companies": ["Royal Compass"],
+        "contractors": ["Netex Romania"],
         "employer": "Netex Romania"
       },
       "web": {
@@ -6430,12 +5775,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -6474,18 +5815,10 @@
         "publish": "2022-06-01"
       },
       "project": {
-        "types": [
-          "media image"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Spalatorie Automata Baia Mare"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["media image"],
+        "collaboration": ["Individual"],
+        "companies": ["Spalatorie Automata Baia Mare"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "media": {
@@ -6505,12 +5838,8 @@
         "urls": []
       },
       "taxonomy": {
-        "tag": [
-          "photo"
-        ],
-        "category": [
-          "Visual Media Projects"
-        ]
+        "tag": ["photo"],
+        "category": ["Visual Media Projects"]
       }
     },
     "content": [
@@ -6547,15 +5876,9 @@
         "publish": "2021-06-01"
       },
       "project": {
-        "types": [
-          "media image"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "contractors": [
-          "Freelancer"
-        ],
+        "types": ["media image"],
+        "collaboration": ["Individual"],
+        "contractors": ["Freelancer"],
         "employer": "Unspecified"
       },
       "media": {
@@ -6582,13 +5905,8 @@
         "urls": []
       },
       "taxonomy": {
-        "tag": [
-          "photo"
-        ],
-        "category": [
-          "Visual Media Projects",
-          "Miscellaneous Projects"
-        ]
+        "tag": ["photo"],
+        "category": ["Visual Media Projects", "Miscellaneous Projects"]
       }
     },
     "content": [
@@ -6624,18 +5942,10 @@
         "publish": "2020-01-01"
       },
       "project": {
-        "types": [
-          "media image"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Speed - Satu Mare"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["media image"],
+        "collaboration": ["Individual"],
+        "companies": ["Speed - Satu Mare"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "media": {
@@ -6664,12 +5974,8 @@
         "urls": []
       },
       "taxonomy": {
-        "tag": [
-          "photo"
-        ],
-        "category": [
-          "Visual Media Projects"
-        ]
+        "tag": ["photo"],
+        "category": ["Visual Media Projects"]
       }
     },
     "content": [
@@ -6706,14 +6012,8 @@
         "publish": "2016-09-01"
       },
       "project": {
-        "types": [
-          "media image",
-          "media video",
-          "personal"
-        ],
-        "collaboration": [
-          "Individual"
-        ]
+        "types": ["media image", "media video", "personal"],
+        "collaboration": ["Individual"]
       },
       "media": {
         "path": "strikerproduction",
@@ -6781,14 +6081,8 @@
         "urls": []
       },
       "taxonomy": {
-        "tag": [
-          "photo",
-          "video"
-        ],
-        "category": [
-          "Visual Media Projects",
-          "Miscellaneous Projects"
-        ]
+        "tag": ["photo", "video"],
+        "category": ["Visual Media Projects", "Miscellaneous Projects"]
       }
     },
     "content": [
@@ -6867,9 +6161,7 @@
           "web design",
           "personal"
         ],
-        "collaboration": [
-          "Individual"
-        ]
+        "collaboration": ["Individual"]
       },
       "web": {
         "platform": [
@@ -6919,14 +6211,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Miscellaneous Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects", "Miscellaneous Projects"]
       }
     },
     "content": [
@@ -6966,14 +6252,8 @@
         "publish": "2021-03-01"
       },
       "project": {
-        "types": [
-          "content generator",
-          "web design",
-          "personal"
-        ],
-        "collaboration": [
-          "Individual"
-        ]
+        "types": ["content generator", "web design", "personal"],
+        "collaboration": ["Individual"]
       },
       "web": {
         "platform": [
@@ -7033,14 +6313,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "media-web"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Miscellaneous Projects"
-        ]
+        "tag": ["web", "media-web"],
+        "category": ["Web Development Projects", "Miscellaneous Projects"]
       }
     },
     "content": [
@@ -7080,20 +6354,10 @@
         "publish": "2022-11-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Super Brain"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Individual"],
+        "companies": ["Super Brain"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -7154,14 +6418,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web",
-          "media-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web", "media-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -7201,19 +6459,10 @@
         "publish": "2021-05-01"
       },
       "project": {
-        "types": [
-          "online shop",
-          "web content"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Tinib"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["online shop", "web content"],
+        "collaboration": ["Individual"],
+        "companies": ["Tinib"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -7274,12 +6523,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -7319,16 +6564,9 @@
         "publish": "2023-08-01"
       },
       "project": {
-        "types": [
-          "contest application",
-          "web content"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "contractors": [
-          "Tndc"
-        ],
+        "types": ["contest application", "web content"],
+        "collaboration": ["Individual"],
+        "contractors": ["Tndc"],
         "employer": "Freelancer"
       },
       "web": {
@@ -7390,14 +6628,8 @@
         "thumbnail": "promotionalcampaignstndc/thumbnail/thumbnail.webp"
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Miscellaneous Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects", "Miscellaneous Projects"]
       }
     },
     "content": [
@@ -7433,19 +6665,10 @@
         "publish": "2021-06-01"
       },
       "project": {
-        "types": [
-          "media image",
-          "media video"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Transport Osian"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["media image", "media video"],
+        "collaboration": ["Individual"],
+        "companies": ["Transport Osian"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "media": {
@@ -7474,13 +6697,8 @@
         "urls": []
       },
       "taxonomy": {
-        "tag": [
-          "photo",
-          "video"
-        ],
-        "category": [
-          "Visual Media Projects"
-        ]
+        "tag": ["photo", "video"],
+        "category": ["Visual Media Projects"]
       }
     },
     "content": [
@@ -7534,19 +6752,10 @@
         "publish": "2023-05-01"
       },
       "project": {
-        "types": [
-          "web content",
-          "web maintenance"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Vreau Alpin"
-        ],
-        "contractors": [
-          "Freelancer"
-        ],
+        "types": ["web content", "web maintenance"],
+        "collaboration": ["Individual"],
+        "companies": ["Vreau Alpin"],
+        "contractors": ["Freelancer"],
         "employer": "Freelancer"
       },
       "web": {
@@ -7603,14 +6812,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Miscellaneous Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects", "Miscellaneous Projects"]
       }
     },
     "content": [
@@ -7646,18 +6849,10 @@
         "publish": "2022-04-01"
       },
       "project": {
-        "types": [
-          "media image"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "VSE Construct"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "types": ["media image"],
+        "collaboration": ["Individual"],
+        "companies": ["VSE Construct"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "media": {
@@ -7677,12 +6872,8 @@
         "urls": []
       },
       "taxonomy": {
-        "tag": [
-          "photo"
-        ],
-        "category": [
-          "Visual Media Projects"
-        ]
+        "tag": ["photo"],
+        "category": ["Visual Media Projects"]
       }
     },
     "content": [
@@ -7725,15 +6916,9 @@
           "web design",
           "seo optimization"
         ],
-        "collaboration": [
-          "Individual"
-        ],
-        "companies": [
-          "Wood Work Art"
-        ],
-        "contractors": [
-          "Pia Soft Product"
-        ],
+        "collaboration": ["Individual"],
+        "companies": ["Wood Work Art"],
+        "contractors": ["Pia Soft Product"],
         "employer": "Pia Soft Product"
       },
       "web": {
@@ -7790,12 +6975,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -7835,18 +7016,9 @@
         "publish": "2024-01-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -7915,13 +7087,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -7961,18 +7128,9 @@
         "publish": "2024-02-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -8037,13 +7195,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -8083,18 +7236,9 @@
         "publish": "2024-02-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -8163,13 +7307,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -8209,18 +7348,9 @@
         "publish": "2024-02-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -8293,13 +7423,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -8339,17 +7464,9 @@
         "publish": "2024-03-01"
       },
       "project": {
-        "types": [
-          "landing page",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["landing page", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -8410,12 +7527,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -8455,18 +7568,9 @@
         "publish": "2024-03-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -8527,13 +7631,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -8573,18 +7672,9 @@
         "publish": "2024-04-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -8653,13 +7743,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -8699,18 +7784,9 @@
         "publish": "2024-03-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -8779,13 +7855,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -8825,18 +7896,9 @@
         "publish": "2024-04-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -8901,13 +7963,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -8953,13 +8010,8 @@
           "web design",
           "web maintenance"
         ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -9032,13 +8084,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -9116,17 +8163,9 @@
         "publish": "2024-05-01"
       },
       "project": {
-        "types": [
-          "landing page",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["landing page", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -9183,12 +8222,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -9228,17 +8263,9 @@
         "publish": "2024-05-01"
       },
       "project": {
-        "types": [
-          "landing page",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["landing page", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -9299,12 +8326,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -9344,17 +8367,9 @@
         "publish": "2024-06-01"
       },
       "project": {
-        "types": [
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["web content", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -9419,13 +8434,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -9465,15 +8475,9 @@
         "publish": "2024-06-01"
       },
       "project": {
-        "types": [
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -9552,13 +8556,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -9605,12 +8604,8 @@
           "web design",
           "web maintenance"
         ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -9683,13 +8678,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -9729,17 +8719,9 @@
         "publish": "2024-07-01"
       },
       "project": {
-        "types": [
-          "landing page",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["landing page", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -9796,12 +8778,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -9848,12 +8826,8 @@
           "web design",
           "seo optimization"
         ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -9926,12 +8900,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -10032,16 +9002,9 @@
         "publish": "2024-10-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -10094,12 +9057,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -10139,16 +9098,9 @@
         "publish": "2024-11-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -10201,12 +9153,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -10246,17 +9194,9 @@
         "publish": "2024-08-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web content",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web content", "web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -10329,13 +9269,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -10375,16 +9310,9 @@
         "publish": "2024-12-01"
       },
       "project": {
-        "types": [
-          "online shop",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["online shop", "web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -10449,12 +9377,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -10513,16 +9437,9 @@
         "publish": "2024-11-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -10575,12 +9492,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -10620,16 +9533,9 @@
         "publish": "2025-01-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -10686,12 +9592,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -10731,16 +9633,9 @@
         "publish": "2025-02-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -10801,13 +9696,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -10847,17 +9737,9 @@
         "publish": "2025-03-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -10922,12 +9804,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -10967,17 +9845,9 @@
         "publish": "2025-03-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -11038,13 +9908,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -11084,17 +9949,9 @@
         "publish": "2025-02-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -11151,12 +10008,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -11196,15 +10049,9 @@
         "publish": "2025-02-01"
       },
       "project": {
-        "types": [
-          "online shop"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "contractors": [
-          "Freelancer"
-        ],
+        "types": ["online shop"],
+        "collaboration": ["Individual"],
+        "contractors": ["Freelancer"],
         "employer": "Freelancer"
       },
       "web": {
@@ -11261,13 +10108,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Miscellaneous Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects", "Miscellaneous Projects"]
       }
     },
     "content": [
@@ -11307,15 +10149,9 @@
         "publish": "2025-02-01"
       },
       "project": {
-        "types": [
-          "online shop"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["online shop"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -11376,12 +10212,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -11421,17 +10253,9 @@
         "publish": "2025-04-01"
       },
       "project": {
-        "types": [
-          "landing page",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["landing page", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -11496,12 +10320,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -11541,17 +10361,9 @@
         "publish": "2025-04-01"
       },
       "project": {
-        "types": [
-          "web maintenance",
-          "online shop"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["web maintenance", "online shop"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -11616,12 +10428,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -11680,16 +10488,9 @@
         "publish": "2024-03-01"
       },
       "project": {
-        "types": [
-          "online shop"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["online shop"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -11758,12 +10559,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -11803,16 +10600,9 @@
         "publish": "2025-03-01"
       },
       "project": {
-        "types": [
-          "online shop"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["online shop"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -11885,12 +10675,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -11930,17 +10716,9 @@
         "publish": "2025-05-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -12005,12 +10783,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -12050,17 +10824,9 @@
         "publish": "2025-05-01"
       },
       "project": {
-        "types": [
-          "online shop",
-          "booking application"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["online shop", "booking application"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -12137,13 +10903,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -12316,16 +11077,9 @@
         "publish": "2025-07-01"
       },
       "project": {
-        "types": [
-          "landing page",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["landing page", "web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -12382,12 +11136,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -12427,16 +11177,9 @@
         "publish": "2025-03-01"
       },
       "project": {
-        "types": [
-          "landing page",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["landing page", "web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -12497,12 +11240,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -12542,16 +11281,9 @@
         "publish": "2025-03-01"
       },
       "project": {
-        "types": [
-          "landing page",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["landing page", "web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -12612,12 +11344,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -12657,16 +11385,9 @@
         "publish": "2025-03-01"
       },
       "project": {
-        "types": [
-          "landing page",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["landing page", "web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -12727,12 +11448,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -12772,16 +11489,9 @@
         "publish": "2025-04-01"
       },
       "project": {
-        "types": [
-          "landing page",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["landing page", "web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -12842,12 +11552,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -12887,16 +11593,9 @@
         "publish": "2025-06-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -12957,12 +11656,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -13002,16 +11697,9 @@
         "publish": "2025-06-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -13072,12 +11760,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -13117,16 +11801,9 @@
         "publish": "2025-10-01"
       },
       "project": {
-        "types": [
-          "landing page",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["landing page", "web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -13187,12 +11864,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -13238,12 +11911,8 @@
           "web design",
           "web content"
         ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -13300,13 +11969,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -13346,17 +12010,9 @@
         "publish": "2025-11-01"
       },
       "project": {
-        "types": [
-          "landing page",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["landing page", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -13417,12 +12073,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -13462,18 +12114,9 @@
         "publish": "2025-06-01"
       },
       "project": {
-        "types": [
-          "platform",
-          "exchange application",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork",
-          "Individual"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["platform", "exchange application", "web design"],
+        "collaboration": ["Teamwork", "Individual"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -13546,13 +12189,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -13611,16 +12249,9 @@
         "publish": "2025-10-01"
       },
       "project": {
-        "types": [
-          "landing page",
-          "web design"
-        ],
-        "collaboration": [
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["landing page", "web design"],
+        "collaboration": ["Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -13676,12 +12307,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -13721,17 +12348,9 @@
         "publish": "2025-10-01"
       },
       "project": {
-        "types": [
-          "wordpress plugin",
-          "content generator",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["wordpress plugin", "content generator", "web design"],
+        "collaboration": ["Individual"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -13774,12 +12393,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -13819,16 +12434,9 @@
         "publish": "2025-09-01"
       },
       "project": {
-        "types": [
-          "wordpress plugin",
-          "privacy compliance"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["wordpress plugin", "privacy compliance"],
+        "collaboration": ["Individual"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -13881,12 +12489,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -13926,17 +12530,9 @@
         "publish": "2025-11-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -13997,12 +12593,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -14042,18 +12634,9 @@
         "publish": "2025-11-01"
       },
       "project": {
-        "types": [
-          "online shop",
-          "web design",
-          "web maintenance"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["online shop", "web design", "web maintenance"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -14122,12 +12705,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -14186,12 +12765,8 @@
         "publish": "2026-01-01"
       },
       "project": {
-        "types": [
-          "wordpress plugin"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
+        "types": ["wordpress plugin"],
+        "collaboration": ["Individual"],
         "employer": "Freelancer"
       },
       "web": {
@@ -14244,13 +12819,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects",
-          "Miscellaneous Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects", "Miscellaneous Projects"]
       }
     },
     "content": [
@@ -14290,15 +12860,9 @@
         "publish": "2026-01-01"
       },
       "project": {
-        "types": [
-          "wordpress plugin"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["wordpress plugin"],
+        "collaboration": ["Individual"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -14346,12 +12910,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -14391,17 +12951,9 @@
         "publish": "2026-02-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -14462,13 +13014,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -14508,17 +13055,9 @@
         "publish": "2026-02-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -14579,13 +13118,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -14625,17 +13159,9 @@
         "publish": "2026-02-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -14696,13 +13222,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -14742,17 +13263,9 @@
         "publish": "2026-04-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -14813,12 +13326,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -14858,17 +13367,9 @@
         "publish": "2026-05-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -14933,12 +13434,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -14978,17 +13475,9 @@
         "publish": "2026-06-01"
       },
       "project": {
-        "types": [
-          "online shop",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["online shop", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -15053,12 +13542,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -15098,17 +13583,9 @@
         "publish": "2026-05-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -15169,13 +13646,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -15215,18 +13687,9 @@
         "publish": "2026-04-01"
       },
       "project": {
-        "types": [
-          "online shop",
-          "web design",
-          "api integration"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["online shop", "web design", "api integration"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -15299,13 +13762,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -15345,16 +13803,9 @@
         "publish": "2026-06-01"
       },
       "project": {
-        "types": [
-          "wordpress plugin",
-          "web design"
-        ],
-        "collaboration": [
-          "Individual"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["wordpress plugin", "web design"],
+        "collaboration": ["Individual"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -15403,12 +13854,8 @@
         ]
       },
       "taxonomy": {
-        "tag": [
-          "web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -15448,18 +13895,9 @@
         "publish": "2026-04-01"
       },
       "project": {
-        "types": [
-          "presentation website",
-          "web design",
-          "seo optimization"
-        ],
-        "collaboration": [
-          "Individual",
-          "Teamwork"
-        ],
-        "contractors": [
-          "Mentor Marketing Experts"
-        ],
+        "types": ["presentation website", "web design", "seo optimization"],
+        "collaboration": ["Individual", "Teamwork"],
+        "contractors": ["Mentor Marketing Experts"],
         "employer": "Mentor Marketing Experts"
       },
       "web": {
@@ -15520,13 +13958,8 @@
         }
       },
       "taxonomy": {
-        "tag": [
-          "web",
-          "content-web"
-        ],
-        "category": [
-          "Web Development Projects"
-        ]
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
       }
     },
     "content": [
@@ -15552,6 +13985,102 @@
             }
           }
         ]
+      }
+    ]
+  },
+  {
+    "_id": "bookstore-angular",
+    "settings": {
+      "render": true,
+      "appearance": {
+        "layout": "wrapper-layout",
+        "colors": {
+          "primary": "#284044",
+          "secondary": "#ece6da",
+          "canvas_primary": "#ece6da",
+          "canvas_secondary": "#284044"
+        }
+      }
+    },
+    "data": {
+      "seo": {
+        "title": "BookStore",
+        "description": "This project was made during an online course for JavaScript, where I studied Angular, TypeScript, JavaScript especially, and a bit of HTML, CSS, and Bootstrap.<br>I built this project independently at the end of the course.<br>It uses Angular, TypeScript, JavaScript, HTML, and CSS.<br>For the database, I used a JSON server during development, and Supabase (PostgreSQL) for production.<br>Vercel Blob handles file management, and the project is hosted on Vercel.<br>The application includes essential online bookshop features, featuring a user account panel, an admin panel, and a minimalist shopping system.",
+        "slug": "bookstore-angular",
+        "index": "false"
+      },
+      "date": {
+        "start": "2026-09-22",
+        "end": "2026-09-23",
+        "publish": "2026-09-23"
+      },
+      "project": {
+        "types": ["online shop", "web design", "personal"],
+        "collaboration": ["Individual"]
+      },
+      "web": {
+        "platform": [
+          {
+            "svg": "angular",
+            "text": "Angular"
+          },
+          {
+            "svg": "vercel",
+            "text": "Vercel"
+          },
+          {
+            "svg": "nodejs",
+            "text": "NodeJS"
+          }
+        ],
+        "technology": [
+          {
+            "svg": "ts",
+            "text": "TypeScript"
+          },
+          {
+            "svg": "js",
+            "text": "JS"
+          },
+          {
+            "svg": "html",
+            "text": "HTML"
+          },
+          {
+            "svg": "css",
+            "text": "CSS"
+          },
+          {
+            "svg": "sql",
+            "text": "SQL"
+          }
+        ],
+        "plugins": [],
+        "urls": [
+          {
+            "url": "app-angular-bookstore.vercel.app",
+            "svg": "web"
+          }
+        ],
+        "delivery_status": true
+      },
+      "media": {
+        "path": "bookstore-angular",
+        "logo": {
+          "img": "bookstore-angular/logo/logo.webp"
+        }
+      },
+      "taxonomy": {
+        "tag": ["web", "content-web"],
+        "category": ["Web Development Projects"]
+      }
+    },
+    "content": [
+      {
+        "component": "project_feature_hero"
+      },
+      {
+        "component": "section_web_project"
       }
     ]
   }
