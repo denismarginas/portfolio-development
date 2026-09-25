@@ -58,9 +58,14 @@
       z-index: 3;
     }
 
-    @media only screen and (max-width: $dm-screen-sm) {
+    @media only screen and (max-width: $dm-screen-md) {
       .device-layout-phone {
         width: 38%;
+      }
+    }
+        @media only screen and (max-width: $dm-screen-sm) {
+      .device-layout-phone {
+        width: 30%;
       }
     }
   }

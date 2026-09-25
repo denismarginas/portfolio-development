@@ -269,7 +269,9 @@
                 "height_phone": 75
               },
               "direction": "right",
-              "speed": "slow"
+              "speed": "slow",
+              "gap": "--dm-spacing-sm",
+              "gap_phone": "--dm-spacing-xs"
             }
           },
           {
@@ -303,7 +305,9 @@
                 "height_phone": 200
               },
               "direction": "left",
-              "speed": "slow"
+              "speed": "slow",
+              "gap": "--dm-spacing-lg",
+              "gap_phone": "--dm-spacing-sm"
             }
           },
           {
@@ -337,7 +341,9 @@
                 "height_phone": 75
               },
               "direction": "right",
-              "speed": "slow"
+              "speed": "slow",
+              "gap": "--dm-spacing-sm",
+              "gap_phone": "--dm-spacing-xs"
             }
           }
         ]

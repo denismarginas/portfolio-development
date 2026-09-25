@@ -20,9 +20,7 @@
       object-position: bottom;
       padding: var(--dm-spacing-md) var(--dm-spacing-md) 0;
 
-      @media (max-width: $dm-screen-md) {
-        margin-bottom: var(--dm-spacing-lg);
-      }
+
     }
 
     .portrait-graphic {

@@ -15,6 +15,7 @@ require_once __DIR__ . '/parts/carousel_projects_items_size.php';
  *     params           object  passed to that component
  *     width, height, width_phone, height_phone   item size ("200px", 200 = px)
  *   (visual_component / visual_params / sizes directly in $data still work)
+ *   gap, gap_phone     string  space between items, e.g. "--dm-spacing-lg" (default --dm-spacing-sm)
  *   direction          string  "right" | "left" (default "right")
  *   speed              string  "slow" | "normal" | "fast" or a duration like "60s" (default "slow")
  */

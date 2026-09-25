@@ -57,6 +57,7 @@
             "component": "post-items",
             "data": {
               "id": "projects",
+              "class": "gap-xs gap-sm-sm",
               "post_type": "project",
               "sort": [
                 {
@@ -136,6 +137,7 @@
             "component": "post-items",
             "data": {
               "id": "projects",
+              "class": "gap-xs gap-sm-sm",
               "post_type": "project",
               "filter_by": {
                 "taxonomy.category": "Web Development Projects"
@@ -224,6 +226,7 @@
             "component": "post-items",
             "data": {
               "id": "projects",
+              "class": "gap-xs gap-sm-sm",
               "post_type": "project",
               "filter_by": {
                 "taxonomy.category": "Visual Media Projects"
@@ -299,6 +302,7 @@
             "component": "post-items",
             "data": {
               "id": "projects",
+              "class": "gap-xs gap-sm-sm",
               "post_type": "project",
               "filter_by": {
                 "taxonomy.category": "Miscellaneous Projects"

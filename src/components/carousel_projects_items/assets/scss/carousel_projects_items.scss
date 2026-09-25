@@ -10,6 +10,7 @@
   --carousel-item-width-phone: 120px;
   --carousel-item-height-phone: 75px;
   --carousel-gap: var(--dm-spacing-sm);
+  --carousel-gap-current: var(--carousel-gap);
   --carousel-duration: 80s;
 
   width: 100%;
@@ -23,7 +24,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: var(--carousel-gap);
+    gap: var(--carousel-gap-current);
 
     > .carousel-item {
       flex: 0 0 auto;
@@ -64,6 +65,8 @@
   }
 
   @media only screen and (max-width: $dm-screen-sm) {
+    --carousel-gap-current: var(--carousel-gap-phone, var(--carousel-gap));
+
     > .carousel-list > .carousel-item {
       width: var(--carousel-item-width-phone);
       height: var(--carousel-item-height-phone);
@@ -74,6 +77,6 @@
 @keyframes carousel-projects-scroll {
   to {
     // half the list + half a gap = exactly one set of items
-    transform: translateX(calc(-50% - var(--carousel-gap) / 2));
+    transform: translateX(calc(-50% - var(--carousel-gap-current) / 2));
   }
 }

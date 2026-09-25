@@ -72,6 +72,7 @@
 
   @media only screen and (max-width: $dm-screen-sm) {
     flex-direction: column;
+    padding: var(--dm-spacing-xs);
 
     > .card-visual {
       flex: 0 0 auto;

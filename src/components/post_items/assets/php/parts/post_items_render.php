@@ -46,6 +46,7 @@ class post_items_render extends post_items_item
 
         return PlatformTemplateRenderer::render([
             'id_attr' => self::id_attr($data['id'] ?? ''),
+            'extra_class' => self::extra_class($data['class'] ?? ''),
             'items' => $items,
         ]);
     }
@@ -55,6 +56,13 @@ class post_items_render extends post_items_item
     {
         $id = is_scalar($id) ? trim((string) $id) : '';
         return $id !== '' ? ' id="' . htmlspecialchars($id, ENT_QUOTES, 'UTF-8') . '"' : '';
+    }
+
+    /** "class": "gap-xs gap-sm-sm" -> extra classes on the <ul class="listing">. */
+    public static function extra_class(mixed $class): string
+    {
+        $class = is_scalar($class) ? trim(preg_replace('/[^a-zA-Z0-9_\- ]/', '', (string) $class)) : '';
+        return $class !== '' ? ' ' . preg_replace('/\s+/', ' ', $class) : '';
     }
 
     /** Sorting is done by the utility_sort component (see its header for the rules). */

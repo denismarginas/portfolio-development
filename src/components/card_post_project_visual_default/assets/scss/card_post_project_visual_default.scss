@@ -15,7 +15,7 @@
   padding: var(--dm-spacing-sm);
   box-sizing: border-box;
 
-  > img.default-visual-logo {
+  >img.default-visual-logo {
     position: relative;
     z-index: 1;
     display: block;
@@ -26,15 +26,17 @@
     max-height: 70%;
     object-fit: contain;
     object-position: center;
+    transition: var(--dm-transition);
   }
 
-  > svg.default-visual-logo {
+  >svg.default-visual-logo {
+    @include svg-color(var(--dm-color-white));
     width: 60%;
     height: 60%;
-    @include svg-color(var(--dm-color-white));
+    transition: var(--dm-transition);
   }
 
-  > img.default-visual-preview {
+  >img.default-visual-preview {
     position: absolute;
     z-index: 0;
     inset: 0;
@@ -43,12 +45,37 @@
     object-fit: cover;
     object-position: top center;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: var(--dm-transition);
     pointer-events: none;
   }
 
-  &:hover > img.default-visual-preview,
-  .card-post-project:hover & > img.default-visual-preview {
+  &:hover>img.default-visual-preview,
+  .card-post-project:hover &>img.default-visual-preview {
     opacity: 0.2;
+  }
+
+  .show-preview & {
+    img.default-visual-preview {
+      opacity: 0.7;
+      mask: linear-gradient(0deg, transparent, white 50%, white 100%, transparent);
+    }
+
+    .default-visual-logo {
+      opacity: 0;
+    }
+
+    &:hover {
+      img.default-visual-preview {
+        opacity: 0.9;
+      }
+    }
+  }
+}
+
+.show-preview {
+  .card-post-project:hover {
+    img.default-visual-preview {
+      opacity: 0.9;
+    }
   }
 }
