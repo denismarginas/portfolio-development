@@ -1,0 +1,20 @@
+<form class="filters-post-projects" id="{{ form_id }}" data-target="{{ target }}" data-filters-number="{{ filters_number }}" role="search">
+  <ul>
+    <li class="block-filters"{{ filters_hidden }}>
+      {{ filters }}
+    </li>
+    <li class="block-search">
+      <div class="search-input">
+        <input class="post-search" type="search" name="keywords" placeholder="{{ search_placeholder }}" aria-label="{{ search_placeholder }}">
+        <button class="post-search-submit" type="submit">{{ search_button }}</button>
+      </div>
+      <div class="toggle-icons">
+        <button type="button" class="icon toggle-filters" aria-expanded="{{ filters_expanded }}" aria-label="Filters">{{ icon_filter }}</button>
+        <button type="button" class="icon toggle-query" aria-expanded="false" aria-label="Results">{{ icon_query }}</button>
+        {{ preview_button }}
+      </div>
+      <div class="query-text" hidden>{{ results_text }}</div>
+    </li>
+  </ul>
+  <script type="application/json" class="filters-index">{{ index }}</script>
+</form>

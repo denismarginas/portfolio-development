@@ -14,12 +14,11 @@ class tab_items_listing_render
         $items = $data['items'] ?? PlatformDataService::get_all_items_from_file($type);
         if (!is_array($items) || empty($items)) return '';
 
-        $items = PlatformComponentRenderer::value('utility_sort_by_date', [
+        $items = PlatformComponentRenderer::value('utility_sort', [
             'items' => $items,
-            'key' => (string) ($data['date_sort_key'] ?? 'publish'),
-            'order' => (string) ($data['date_sort_order'] ?? 'DESC'),
+            'rules' => $data['sort'] ?? self::default_sort($data),
         ]);
-        if (empty($items)) return '';
+        if (!is_array($items) || empty($items)) return '';
 
         $labels = '';
         $itemsHtml = '';
@@ -65,6 +64,15 @@ class tab_items_listing_render
             'layout_attr' => $layout !== '' ? ' layout="' . htmlspecialchars($layout, ENT_QUOTES, 'UTF-8') . '"' : '',
             'type' => htmlspecialchars($type, ENT_QUOTES, 'UTF-8'),
         ]);
+    }
+
+    /** No "sort" given: date.<date_sort_key> (default publish), <date_sort_order> (default desc). */
+    public static function default_sort(array $data): array
+    {
+        return [
+            'by' => 'date.' . (string) ($data['date_sort_key'] ?? 'publish'),
+            'order' => strtolower((string) ($data['date_sort_order'] ?? 'desc')),
+        ];
     }
 
     public static function render_exist_note(array $data, array $items): string

@@ -35,7 +35,7 @@
     "image",
     "svg",
     "theme",
-    "utility_sort_by_date",
+    "utility_sort",
     "utility_grid_listing",
     "utility_calc_date_interval",
     "utility_datetime_amount"

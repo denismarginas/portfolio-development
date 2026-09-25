@@ -228,9 +228,7 @@
               },
               "filter": {
                 "taxonomy": {
-                  "tag": [
-                    "portfolio showcase"
-                  ]
+                  "tag": ["portfolio showcase"]
                 }
               }
             }
@@ -238,39 +236,108 @@
         ]
       },
       {
-        "component": "carousels_post_items",
+        "component": "carousels_projects_items",
         "children": [
           {
-            "component": "carousel_post_items",
+            "component": "carousel_projects_items",
             "data": {
-              "element_type": "project",
-              "filter": {
-                "taxonomy": {
-                  "category": [
-                    "web-development-projects"
-                  ]
-                },
-                "max": "10"
+              "post_type": "project",
+              "filter_by": {
+                "taxonomy.category": "Web Development Projects",
+                "max_items": 12
               },
-              "sort": {
-                "by": "date.end",
-                "order": "desc"
-              },
-              "template": {
-                "component": "card_project_web",
-                "params": {
-                  "images": {
-                    "overlay_imgs": {
-                      "desktop": "design-elements/device-layout-desktop-model-001.webp",
-                      "mobile": "design-elements/device-layout-phone-model-001.webp"
-                    },
-                    "screen_imgs": {
-                      "desktop": "web/overview/web_desktop_overview.webp",
-                      "mobile": "web/overview/web_phone_overview.webp"
-                    }
-                  }
+              "exclude_by": [
+                {
+                  "path": "taxonomy.category",
+                  "value": "Miscellaneous Projects"
                 }
-              }
+              ],
+              "sort": [
+                {
+                  "by": "project.types",
+                  "value": "personal",
+                  "position": "last"
+                },
+                { "by": "date.publish", "order": "desc" }
+              ],
+              "template": {
+                "component": "card_post_project_visual_default",
+                "params": {},
+                "width": 200,
+                "height": 120,
+                "width_phone": 120,
+                "height_phone": 75
+              },
+              "direction": "right",
+              "speed": "slow"
+            }
+          },
+          {
+            "component": "carousel_projects_items",
+            "data": {
+              "post_type": "project",
+              "filter_by": {
+                "taxonomy.category": "Web Development Projects",
+                "max_items": 12
+              },
+              "exclude_by": [
+                {
+                  "path": "taxonomy.category",
+                  "value": "Miscellaneous Projects"
+                }
+              ],
+              "sort": [
+                {
+                  "by": "project.types",
+                  "value": "personal",
+                  "position": "last"
+                },
+                { "by": "date.publish", "order": "desc" }
+              ],
+              "template": {
+                "component": "card_post_project_visual_website",
+                "params": {},
+                "width": 320,
+                "height": "auto",
+                "width_phone": 200,
+                "height_phone": 200
+              },
+              "direction": "left",
+              "speed": "slow"
+            }
+          },
+          {
+            "component": "carousel_projects_items",
+            "data": {
+              "post_type": "project",
+              "filter_by": {
+                "taxonomy.category": "Visual Media Projects",
+                "max_items": 12
+              },
+              "exclude_by": [
+                {
+                  "path": "taxonomy.category",
+                  "value": "Miscellaneous Projects"
+                }
+              ],
+              "sort": [
+                {
+                  "by": "project.types",
+                  "value": "personal",
+                  "position": "last"
+                },
+                { "by": "date.publish", "order": "desc" }
+              ],
+              "template": {
+                "component": "card_post_project_visual_default",
+                "params": {},
+                "width": 200,
+                "height": 120,
+                "width_phone": 120,
+                "height_phone": 75
+              },
+              "direction": "right",
+              "speed": "slow"
             }
           }
         ]
@@ -309,6 +376,7 @@
         "data": {
           "type": "job",
           "layout": "labels_top",
+          "sort": { "by": "date.publish", "order": "desc" },
           "external_links_social_text": false,
           "external_links_text": false,
           "exist_item_render_false": {
@@ -365,6 +433,7 @@
         "data": {
           "type": "education",
           "layout": "labels_aside",
+          "sort": { "by": "date.publish", "order": "desc" },
           "external_links_social_text": false
         }
       }

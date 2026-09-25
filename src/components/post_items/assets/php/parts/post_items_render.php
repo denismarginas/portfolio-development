@@ -2,6 +2,9 @@
 
 class post_items_render extends post_items_item
 {
+    /** Keys in filter_by that are settings, not post paths. */
+    private const FILTER_SETTINGS = ['max_items'];
+
     public static function render(array $data = []): string
     {
         $postTypes = self::resolve_post_types($data['post_type'] ?? null);
@@ -27,6 +30,7 @@ class post_items_render extends post_items_item
             && self::passes_filter($post, $filterBy)
         );
         $posts = self::sort_posts($posts, $data['sort'] ?? null);
+        $posts = self::limit($posts, $filterBy);
 
         $items = '';
         foreach ($posts as $post) {
@@ -41,8 +45,16 @@ class post_items_render extends post_items_item
         if ($items === '') return '';
 
         return PlatformTemplateRenderer::render([
+            'id_attr' => self::id_attr($data['id'] ?? ''),
             'items' => $items,
         ]);
+    }
+
+    /** "id": "projects" -> ' id="projects"' on the <ul class="listing">. */
+    public static function id_attr(mixed $id): string
+    {
+        $id = is_scalar($id) ? trim((string) $id) : '';
+        return $id !== '' ? ' id="' . htmlspecialchars($id, ENT_QUOTES, 'UTF-8') . '"' : '';
     }
 
     /** Sorting is done by the utility_sort component (see its header for the rules). */
@@ -104,12 +116,25 @@ class post_items_render extends post_items_item
         ];
 
         foreach ($entries as $path => $expected) {
-            if (!is_string($path)) continue;
+            if (!is_string($path) || in_array($path, self::FILTER_SETTINGS, true)) continue;
 
             if (!self::matches(self::resolve_token(self::path_token($path), $context), $expected)) return false;
         }
 
         return true;
+    }
+
+    /** filter_by.max_items: keep only the first N posts (after sorting). */
+    public static function max_items(mixed $filterBy): ?int
+    {
+        $max = is_array($filterBy) ? ($filterBy['max_items'] ?? null) : null;
+        return is_numeric($max) && (int) $max > 0 ? (int) $max : null;
+    }
+
+    public static function limit(array $posts, mixed $filterBy): array
+    {
+        $max = self::max_items($filterBy);
+        return $max === null ? array_values($posts) : array_slice(array_values($posts), 0, $max);
     }
 
     /** "taxonomy.category" -> "@data.taxonomy.category"; data./settings./@ paths kept. */
@@ -200,6 +225,7 @@ class post_items_render extends post_items_item
         $item = PlatformComponentRenderer::render($component, $params);
 
         return PlatformTemplateRenderer::render(__DIR__ . '/../../html/template_item.html', [
+            'post_id' => htmlspecialchars($context['post_id'], ENT_QUOTES, 'UTF-8'),
             'item' => $item,
         ]);
     }

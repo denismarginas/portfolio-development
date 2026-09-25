@@ -43,6 +43,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         text-decoration: none;
+        text-wrap: auto;
         transition: var(--dm-transition);
 
         [mode="light"] & {

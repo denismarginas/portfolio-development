@@ -35,20 +35,46 @@
         }
       },
       {
-        "component": "post-items",
-        "data": {
-          "post_type": "project",
-          "sort": [
-            { "by": "project.types", "value": "personal", "position": "last" },
-            { "by": "date.publish", "order": "desc" }
-          ],
-          "template": {
-            "component": "card_post_project",
-            "params": {
-              "visual_component": "card_post_project_visual_default"
+        "component": "section",
+        "children": [
+          {
+            "component": "filters_post_projects",
+            "data": {
+              "id": "projects",
+              "preview_toggle": true,
+              "post_type": "project",
+              "sort": [
+                {
+                  "by": "project.types",
+                  "value": "personal",
+                  "position": "last"
+                },
+                { "by": "date.publish", "order": "desc" }
+              ]
+            }
+          },
+          {
+            "component": "post-items",
+            "data": {
+              "id": "projects",
+              "post_type": "project",
+              "sort": [
+                {
+                  "by": "project.types",
+                  "value": "personal",
+                  "position": "last"
+                },
+                { "by": "date.publish", "order": "desc" }
+              ],
+              "template": {
+                "component": "card_post_project",
+                "params": {
+                  "visual_component": "card_post_project_visual_default"
+                }
+              }
             }
           }
-        }
+        ]
       }
     ]
   },
@@ -91,33 +117,52 @@
         }
       },
       {
-        "component": "post-items",
-        "data": {
-          "post_type": "project",
-          "filter_by": {
-            "taxonomy.category": "Web Development Projects"
+        "component": "section",
+        "children": [
+          {
+            "component": "filters_post_projects",
+            "data": {
+              "id": "projects",
+              "post_type": "project",
+              "filter_by": { "taxonomy.category": "Web Development Projects" },
+              "filters_exclude": ["post-category", "post-media-platform"],
+              "exclude_by": [
+                { "path": "taxonomy.category", "value": "Miscellaneous Projects" }
+              ],
+              "sort": { "by": "date.publish", "order": "desc" }
+            }
           },
-          "exclude_by": [
-            { "path": "taxonomy.category", "value": "Miscellaneous Projects" }
-          ],
-          "sort": { "by": "date.publish", "order": "desc" },
-          "template": {
-            "component": "card_post_project",
-            "params": {
-              "visual_component": "card_post_project_visual_website",
-              "visual_params": {
-                "desktop_device": "model-03",
-                "phone_device": "model-03",
-                "devices_conditions_render": false,
-                "desktop_layout_style": false,
-                "phone_layout_style": false,
-                "screen_path": "web/overview/",
-                "screen_desktop": "web_desktop_overview.webp",
-                "screen_phone": "web_phone_overview.webp"
+          {
+            "component": "post-items",
+            "data": {
+              "id": "projects",
+              "post_type": "project",
+              "filter_by": {
+                "taxonomy.category": "Web Development Projects"
+              },
+              "exclude_by": [
+                { "path": "taxonomy.category", "value": "Miscellaneous Projects" }
+              ],
+              "sort": { "by": "date.publish", "order": "desc" },
+              "template": {
+                "component": "card_post_project",
+                "params": {
+                  "visual_component": "card_post_project_visual_website",
+                  "visual_params": {
+                    "desktop_device": "model-03",
+                    "phone_device": "model-03",
+                    "devices_conditions_render": false,
+                    "desktop_layout_style": false,
+                    "phone_layout_style": false,
+                    "screen_path": "web/overview/",
+                    "screen_desktop": "web_desktop_overview.webp",
+                    "screen_phone": "web_phone_overview.webp"
+                  }
+                }
               }
             }
           }
-        }
+        ]
       }
     ]
   },
@@ -160,23 +205,42 @@
         }
       },
       {
-        "component": "post-items",
-        "data": {
-          "post_type": "project",
-          "filter_by": {
-            "taxonomy.category": "Visual Media Projects"
+        "component": "section",
+        "children": [
+          {
+            "component": "filters_post_projects",
+            "data": {
+              "id": "projects",
+              "post_type": "project",
+              "filter_by": { "taxonomy.category": "Visual Media Projects" },
+              "filters_exclude": ["post-category", "post-web-platform", "post-web-technology"],
+              "exclude_by": [
+                { "path": "taxonomy.category", "value": "Miscellaneous Projects" }
+              ],
+              "sort": { "by": "date.publish", "order": "desc" }
+            }
           },
-          "exclude_by": [
-            { "path": "taxonomy.category", "value": "Miscellaneous Projects" }
-          ],
-          "sort": { "by": "date.publish", "order": "desc" },
-          "template": {
-            "component": "card_post_project",
-            "params": {
-              "visual_component": "card_post_project_visual_media"
+          {
+            "component": "post-items",
+            "data": {
+              "id": "projects",
+              "post_type": "project",
+              "filter_by": {
+                "taxonomy.category": "Visual Media Projects"
+              },
+              "exclude_by": [
+                { "path": "taxonomy.category", "value": "Miscellaneous Projects" }
+              ],
+              "sort": { "by": "date.publish", "order": "desc" },
+              "template": {
+                "component": "card_post_project",
+                "params": {
+                  "visual_component": "card_post_project_visual_media"
+                }
+              }
             }
           }
-        }
+        ]
       }
     ]
   },
@@ -219,29 +283,45 @@
         }
       },
       {
-        "component": "post-items",
-        "data": {
-          "post_type": "project",
-          "filter_by": {
-            "taxonomy.category": "Miscellaneous Projects"
+        "component": "section",
+        "children": [
+          {
+            "component": "filters_post_projects",
+            "data": {
+              "id": "projects",
+              "post_type": "project",
+              "filter_by": { "taxonomy.category": "Miscellaneous Projects" },
+              "filters_exclude": ["post-category"],
+              "sort": { "by": "date.publish", "order": "desc" }
+            }
           },
-          "sort": { "by": "date.publish", "order": "desc" },
-          "template": {
-            "component": "card_post_project",
-            "params": {
-              "visual_params": {
-                "desktop_device": "model-03",
-                "phone_device": "model-03",
-                "devices_conditions_render": false,
-                "desktop_layout_style": false,
-                "phone_layout_style": false,
-                "screen_path": "web/overview/",
-                "screen_desktop": "web_desktop_overview.webp",
-                "screen_phone": "web_phone_overview.webp"
+          {
+            "component": "post-items",
+            "data": {
+              "id": "projects",
+              "post_type": "project",
+              "filter_by": {
+                "taxonomy.category": "Miscellaneous Projects"
+              },
+              "sort": { "by": "date.publish", "order": "desc" },
+              "template": {
+                "component": "card_post_project",
+                "params": {
+                  "visual_params": {
+                    "desktop_device": "model-03",
+                    "phone_device": "model-03",
+                    "devices_conditions_render": false,
+                    "desktop_layout_style": false,
+                    "phone_layout_style": false,
+                    "screen_path": "web/overview/",
+                    "screen_desktop": "web_desktop_overview.webp",
+                    "screen_phone": "web_phone_overview.webp"
+                  }
+                }
               }
             }
           }
-        }
+        ]
       }
     ]
   }

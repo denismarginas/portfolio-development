@@ -5,7 +5,7 @@ class work_graph_experience
 public static function calculate_totals(array $jobs): array
     {
         $filtered = array_values(array_filter($jobs, fn($j) => ($j['settings']['render'] ?? true) !== false));
-        $filtered = PlatformComponentRenderer::value('utility_sort_by_date', ['items' => $filtered, 'key' => 'start', 'order' => 'ASC']);
+        $filtered = PlatformComponentRenderer::value('utility_sort', ['items' => $filtered, 'rules' => ['by' => 'date.start', 'order' => 'asc']]);
 
         $totalYears = 0;
         $totalMonths = 0;

@@ -16,8 +16,8 @@
     display: block;
     width: 100%;
 
-    > img.laptop,
-    > img.phone {
+    >img.laptop,
+    >img.phone {
       position: relative;
       display: block;
       width: 100%;
@@ -26,7 +26,7 @@
       pointer-events: none;
     }
 
-    > .screen {
+    >.screen {
       display: flex;
       justify-content: start;
       align-items: start;
@@ -39,18 +39,10 @@
         width: 100%;
         object-fit: unset;
         height: auto;
-        mask-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 1) 0%,
-          rgba(0, 0, 0, 1) 80%,
-          rgba(0, 0, 0, 0) 100%
-        );
+        mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 80%, transparent 100%);
         mask-size: 100% 100%;
       }
 
-      // Utility classes added when the "desktop_layout_style" param is on
-      // (see project_desktop_layout_style.php) - ported from the legacy
-      // aspect-ratio check. Placeholder treatment, pending real design.
       &.top img {
         align-self: flex-start;
       }
@@ -68,12 +60,10 @@
       }
 
       &.fade-under {
-        mask-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 1) 0%,
-          rgba(0, 0, 0, 1) 60%,
-          rgba(0, 0, 0, 0) 100%
-        );
+        > img {
+mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 80%, transparent 100%);
+
+        }
       }
     }
   }

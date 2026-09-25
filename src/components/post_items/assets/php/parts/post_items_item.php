@@ -18,6 +18,7 @@ class post_items_item extends post_items_image
         ]);
 
         return PlatformTemplateRenderer::render(__DIR__ . '/../../html/template_item.html', [
+            'post_id' => htmlspecialchars($postId, ENT_QUOTES, 'UTF-8'),
             'item' => $item,
         ]);
     }

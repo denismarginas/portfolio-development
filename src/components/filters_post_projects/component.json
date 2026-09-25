@@ -1,0 +1,17 @@
+{
+  "name": "filters_post_projects",
+  "title": "Filters Post Projects",
+  "description": "Filter + keyword search bar for a post-items listing. Linked by \"id\" to the <ul id> of the listing; filters come from data_items_filters_projects.json, options from the same posts the listing shows (post_type, filter_by, exclude_by, sort).",
+  "post_types": ["project"],
+  "assets": {
+    "php": ["assets/php/filters_post_projects.php"],
+    "html": [
+      "assets/html/template.html",
+      "assets/html/parts/filter.html"
+    ],
+    "scss": ["assets/scss/**"],
+    "css": ["assets/css/**"],
+    "js": ["assets/js/filters_post_projects.js"]
+  },
+  "dependencies": ["post_items", "utility_sort", "svg", "theme"]
+}

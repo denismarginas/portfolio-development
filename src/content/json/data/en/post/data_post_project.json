@@ -14417,5 +14417,125 @@
         "component": "section_web_project"
       }
     ]
+  },
+  {
+    "_id": "project-strikerproduction-killfeed-generator",
+    "settings": {
+      "render": true,
+      "exclude_from_categories": false,
+      "appearance": {
+        "layout": "wrapper-layout",
+        "colors": {
+          "primary": "#8292a8",
+          "secondary": "#ffffff",
+          "canvas_primary": "#313c4a",
+          "canvas_secondary": "#ffffff"
+        }
+      }
+    },
+    "data": {
+      "seo": {
+        "title": "Striker Production - KillFeed Generator",
+        "description": "Static website to generate and customize death notice / kill-feed overlays for RUST, PUBG, CS2 and COD MW3. Edit player names, weapon and headshot icons, then download the image for video editing. The project is hosted on GitHub Pages platform.",
+        "slug": "strikerproduction-killfeed-generator",
+        "index": false
+      },
+      "date": {
+        "start": "2026-08-01",
+        "end": "2026-08-19",
+        "publish": "2026-08-19"
+      },
+      "project": {
+        "types": ["content generator", "web design", "personal"],
+        "collaboration": ["Individual"]
+      },
+      "web": {
+        "platform": [
+          {
+            "svg": "github-pages",
+            "text": "GitHub Pages"
+          }
+        ],
+        "technology": [
+          {
+            "svg": "html",
+            "text": "HTML"
+          },
+          {
+            "svg": "css",
+            "text": "CSS"
+          },
+          {
+            "svg": "js",
+            "text": "JS"
+          },
+          {
+            "svg": "jquery",
+            "text": "jQuery"
+          },
+          {
+            "svg": "html2canvas",
+            "text": "html2canvas"
+          },
+          {
+            "svg": "json",
+            "text": "JSON"
+          },
+          {
+            "svg": "google-analytics",
+            "text": "Google Analytics"
+          }
+        ],
+        "urls": [
+          {
+            "url": "https://strikerprod09.github.io/killfeed-generator/",
+            "svg": "web"
+          },
+          {
+            "url": "https://strikerprod09.github.io/killfeed-generator/",
+            "text": "GitHub Pages"
+          },
+          {
+            "url": "https://github.com/StrikerProd09/killfeed-generator",
+            "text": "GitHub Repository"
+          },
+          {
+            "url": "https://strikerprod09.github.io/killfeed-generator/killfeed-generator-rust",
+            "text": "Rust KillFeed Generator"
+          },
+          {
+            "url": "https://strikerprod09.github.io/killfeed-generator/killfeed-generator-pubg",
+            "text": "PUBG KillFeed Generator"
+          },
+          {
+            "url": "https://strikerprod09.github.io/killfeed-generator/killfeed-generator-cs2",
+            "text": "CS2 KillFeed Generator"
+          },
+          {
+            "url": "https://strikerprod09.github.io/killfeed-generator/killfeed-generator-codmw3",
+            "text": "COD MW3 KillFeed Generator"
+          }
+        ],
+        "delivery_status": true
+      },
+      "media": {
+        "path": "strikerproduction-killfeed-generator",
+        "logo": {
+          "img": "strikerproduction-killfeed-generator/logo/logo.webp"
+        }
+      },
+      "taxonomy": {
+        "tag": ["web", "media-web"],
+        "category": ["Web Development Projects", "Miscellaneous Projects"]
+      }
+    },
+    "content": [
+      {
+        "component": "project_feature_hero"
+      },
+      {
+        "component": "section_web_project"
+      }
+    ]
   }
 ]
