@@ -1,0 +1,8 @@
+// Default post colors. Posts override them with their settings.appearance.colors
+// (utility_appearance_colors, e.g. on .section-layout-aside).
+:root {
+  --post-color-primary: var(--dm-color-primary-600);
+  --post-color-secondary: var(--dm-color-primary-50);
+  --post-color-canvas-primary: var(--dm-color-primary-800);
+  --post-color-canvas-secondary: var(--dm-color-primary-50);
+}

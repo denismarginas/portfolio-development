@@ -23,7 +23,7 @@ class section
         ]);
     }
 
-    private static function render_children(array $data): string
+    public static function render_children(array $data): string
     {
         $children = $data['children'] ?? [];
 

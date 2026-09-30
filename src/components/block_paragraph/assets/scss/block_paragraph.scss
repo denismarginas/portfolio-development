@@ -1,0 +1,47 @@
+@import "theme";
+
+// Text block (old .dm-post-title-description): centered text in an outlined card.
+.block-paragraph {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dm-spacing-sm);
+  margin: 0;
+  padding: var(--dm-spacing-md);
+  box-sizing: border-box;
+
+  > .block-paragraph-text {
+    max-width: 100%;
+    margin: 0;
+    font-family: var(--dm-font-primary);
+    font-size: var(--dm-font-size-md);
+    font-weight: var(--dm-font-weight-regular);
+    line-height: 1.6;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+
+    [mode="dark"] & {
+      color: var(--dm-color-white);
+    }
+
+    [mode="light"] & {
+      color: var(--dm-color-gray-dark);
+    }
+  }
+
+  // Only children (e.g. a slider): no inner padding, the child fills the card.
+  &.block-paragraph-no-text {
+    padding: 0;
+  }
+
+  > :not(.block-paragraph-text) {
+    width: 100%;
+  }
+
+  @media (max-width: $dm-screen-sm) {
+    padding: var(--dm-spacing-sm);
+
+    > .block-paragraph-text {
+      font-size: var(--dm-font-size-base);
+    }
+  }
+}

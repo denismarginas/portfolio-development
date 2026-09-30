@@ -28,14 +28,20 @@
     "web_technology": "Technology: ",
     "web_plugins": "Modules: ",
     "project_collaboration": "Project Collaboration: ",
+    "project_companies": "Companies: ",
+    "project_contractors": "Contractors: ",
+    "project_school": "School: ",
     "web_project_status": "Web Project Status:",
+    "web_project_status_done": "Done",
+    "web_project_status_undone": "Undone",
     "media_facebook_url": "Facebook: ",
     "media_instagram_url": "Instagram: ",
     "media_youtube_url": "YouTube: ",
     "media_platforms": "Media Platforms: ",
     "employer_type": "Worked as:",
     "employer_location": "Worked at:",
-    "date": "Date:"
+    "date": "Date:",
+    "date_present": "Present"
   },
   "index": false
 }

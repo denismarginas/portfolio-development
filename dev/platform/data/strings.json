@@ -26,7 +26,7 @@
     "items"        : "Items",
     "postsDesc"    : "Manage pages, projects and workstations.",
     "taxonomiesDesc": "Manage categories and taxonomies.",
-    "itemsDesc"    : "Manage data items (jobs, education, games, socials)."
+    "itemsDesc"    : "Manage data items (jobs, education, hobby PC video games, socials)."
   },
   "sections"        : {"createCard": "Create card", "setVariable": "Set variable", "inspector": "Inspector", "links": "Links"},
   "templates"       : {

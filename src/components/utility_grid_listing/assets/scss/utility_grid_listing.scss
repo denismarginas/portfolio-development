@@ -62,7 +62,8 @@
 }
 
 @media (max-width: $dm-screen-md) {
-  @each $d in 1, 2, 3, 4, 5, 6, 7, 8, 9 {
+  // (a single item keeps the full width)
+  @each $d in 2, 3, 4, 5, 6, 7, 8, 9 {
     [data-grid-list-design="items-divisible-by-#{$d}"] {
       grid-template-columns: repeat(2, 1fr);
     }

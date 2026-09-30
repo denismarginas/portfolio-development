@@ -1,0 +1,13 @@
+@import "theme";
+
+.block-tags {
+  @include pills();
+
+  > .block-tags-tag {
+    @include pill();
+  }
+
+  > a.block-tags-tag:hover {
+    @include pill-hover();
+  }
+}

@@ -1,0 +1,28 @@
+@import "theme";
+
+// Image slider of a post. Sliding, arrows, counter and dots: utility_slider.
+.block-slider-images {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--dm-spacing-xs);
+
+  > .block-slider-images-viewport {
+    border-radius: var(--dm-radius-md);
+  }
+
+  .block-slider-images-slide {
+    cursor: pointer;
+
+    > img.block-slider-images-img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.block-slider-images > .utility-slider-counter {
+  border-top-left-radius: var(--dm-radius-md);
+}

@@ -1,0 +1,16 @@
+{
+  "name": "block_slider_images",
+  "title": "Block Slider Images",
+  "description": "Image slider of a post (old slider_directory_images): every image in src/content/img/projects/<media.path>/<img_array_path_dir>. Sliding, arrows, \"i / N\" counter and optional dots come from utility_slider; slides open in the popup gallery (same slider).",
+  "post_types": ["project"],
+  "assets": {
+    "php": ["assets/php/block_slider_images.php"],
+    "html": [
+      "assets/html/template.html",
+      "assets/html/parts/slide.html"
+    ],
+    "scss": ["assets/scss/**"],
+    "css": ["assets/css/**"]
+  },
+  "dependencies": ["image", "popup", "utility_slider", "theme"]
+}

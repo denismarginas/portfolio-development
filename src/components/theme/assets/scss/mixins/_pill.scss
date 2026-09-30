@@ -1,0 +1,28 @@
+// Small post-colored label (categories, types, #tags ...).
+// Used by post_short_info_content (.post-short-info-pill) and block_tags (.block-tags-tag).
+@mixin pill() {
+  padding: 6px 8px;
+  border-radius: var(--dm-radius-sm);
+  font-size: var(--dm-font-size-xs);
+  font-weight: var(--dm-font-weight-semibold);
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--post-color-secondary, var(--dm-color-white));
+  background-color: var(--post-color-primary, var(--dm-color-primary));
+  transition: var(--dm-transition);
+}
+
+// Hover of a link pill: colors swapped.
+@mixin pill-hover() {
+  color: var(--post-color-primary, var(--dm-color-primary));
+  background-color: var(--post-color-secondary, var(--dm-color-white));
+}
+
+// Row of pills.
+@mixin pills() {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--dm-spacing-xxs);
+}

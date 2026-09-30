@@ -149,7 +149,7 @@
               "template": {
                 "component": "card_post_project",
                 "params": {
-                  "visual_component": "card_post_project_visual_website",
+                  "visual_component": "card_post_project_visual_devices_website",
                   "visual_params": {
                     "desktop_device": "model-03",
                     "phone_device": "model-03",

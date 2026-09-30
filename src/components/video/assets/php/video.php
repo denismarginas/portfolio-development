@@ -26,26 +26,27 @@ class video
             $src = rtrim(PlatformPathService::asset_relative_prefix(), '/') . '/' . ltrim($found, '/');
         }
 
-        $thumb = (string) ($data['thumbnail'] ?? $data['video_thumbnail'] ?? $data['media']['video']['video_thumbnail'] ?? '');
-        $thumbBg = (string) ($data['thumbnail_bg'] ?? '');
-        $thumbImg = '';
-        $thumbBgStyle = '';
-        if ($thumb !== '') {
-            $thumbImg = PlatformComponentRenderer::render('image', ['src' => $thumb, 'alt' => 'Video thumbnail']);
-            if ($thumbImg === '') $thumbImg = '<img src="' . htmlspecialchars($thumb, ENT_QUOTES, 'UTF-8') . '" alt="Video thumbnail">';
-            if ($thumbBg !== '') {
-                $thumbBgStyle = 'background-image: url(\'' . htmlspecialchars($thumbBg, ENT_QUOTES, 'UTF-8') . '\')';
-            }
+        // Thumbnail = background image of .thumbnail only (no <img> inside).
+        // "thumbnail_bg" first; "thumbnail" / "video_thumbnail" are used only when it is missing.
+        $thumb = trim((string) ($data['thumbnail_bg'] ?? ''));
+        if ($thumb === '') {
+            $thumb = trim((string) ($data['thumbnail'] ?? $data['video_thumbnail'] ?? $data['media']['video']['video_thumbnail'] ?? ''));
         }
+        $thumbStyle = $thumb !== ''
+            ? ' style="background-image: url(\'' . htmlspecialchars($thumb, ENT_QUOTES, 'UTF-8') . '\')"'
+            : '';
 
         $color = (string) ($data['appearance']['colors']['primary'] ?? $data['video_primary_color'] ?? $data['primary'] ?? '#fff');
         if ($color === '') $color = '#fff';
 
+        // Optional markup inside the thumbnail (e.g. a logo, see project_block_video).
+        $thumbContent = (string) ($data['thumbnail_content'] ?? '');
+
         return PlatformTemplateRenderer::render([
             'src' => htmlspecialchars($src, ENT_QUOTES, 'UTF-8'),
-            'thumbnail_img' => $thumbImg,
-            'thumbnail_bg_style' => $thumbBgStyle,
-            'no_thumbnail_class' => $thumb === '' ? ' no-thumbnail' : '',
+            'thumbnail_style' => $thumbStyle,
+            'thumbnail_content' => $thumbContent,
+            'no_thumbnail_class' => $thumb === '' && trim($thumbContent) === '' ? ' no-thumbnail' : '',
             'style' => '--dm-color-primary:' . htmlspecialchars($color, ENT_QUOTES, 'UTF-8') . ';',
         ]);
     }

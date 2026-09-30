@@ -10,9 +10,11 @@
     "css": ["assets/css/**"]
   },
   "dependencies": [
-    "card_post_project_visual_website",
+    "card_post_project_visual_devices_website",
+    "card_post_project_visual_devices_media",
     "card_post_project_visual_media",
     "card_post_project_visual_default",
+    "utility_appearance_colors",
     "theme"
   ]
 }

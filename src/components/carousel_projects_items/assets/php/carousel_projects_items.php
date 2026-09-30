@@ -11,7 +11,7 @@ require_once __DIR__ . '/parts/carousel_projects_items_size.php';
  *   filter_by.max_items int    max items (default 12; "max" at top level still works)
  *   offset             int     skip first N (default 0)
  *   template           object  the item:
- *     component        string  card_post_project_visual_default | _media | _website
+ *     component        string  card_post_project_visual_default | _media | _devices_website | _devices_media
  *     params           object  passed to that component
  *     width, height, width_phone, height_phone   item size ("200px", 200 = px)
  *   (visual_component / visual_params / sizes directly in $data still work)
@@ -25,14 +25,18 @@ class carousel_projects_items
     private const VISUALS = [
         'card_post_project_visual_default',
         'card_post_project_visual_media',
-        'card_post_project_visual_website',
+        'card_post_project_visual_devices_website',
+        'card_post_project_visual_devices_media',
     ];
+    /** old name -> new name, kept working after the rename */
+    private const ALIASES = ['card_post_project_visual_website' => 'card_post_project_visual_devices_website'];
     private const SPEEDS = ['slow' => '80s', 'normal' => '50s', 'fast' => '30s'];
 
     public static function render(array $data = []): string
     {
         $template = is_array($data['template'] ?? null) ? $data['template'] : [];
         $visual = str_replace('-', '_', (string) ($template['component'] ?? $data['visual_component'] ?? self::DEFAULT_VISUAL));
+        $visual = self::ALIASES[$visual] ?? $visual;
         if (!in_array($visual, self::VISUALS, true)) {
             $visual = self::DEFAULT_VISUAL;
         }
@@ -49,6 +53,10 @@ class carousel_projects_items
 
             $items .= PlatformTemplateRenderer::render(__DIR__ . '/../html/parts/item.html', [
                 'post_id' => htmlspecialchars((string) ($post['_id'] ?? ''), ENT_QUOTES, 'UTF-8'),
+                'style_attr' => (string) PlatformComponentRenderer::value('utility_appearance_colors', [
+                    'post_current_data' => $post,
+                    'output' => 'attribute',
+                ]),
                 'visual' => $html,
             ]);
             $count++;

@@ -34,6 +34,11 @@ class card_post_project
             'link' => htmlspecialchars($link, ENT_QUOTES, 'UTF-8'),
             'visual' => $visual,
             'visual_type' => htmlspecialchars($visualComponent, ENT_QUOTES, 'UTF-8'),
+            // --post-color-* of this project (listing pages are outside section_layout_aside)
+            'style_attr' => (string) PlatformComponentRenderer::value('utility_appearance_colors', [
+                'post_current_data' => $post,
+                'output' => 'attribute',
+            ]),
             'title' => htmlspecialchars($title, ENT_QUOTES, 'UTF-8'),
             'description' => $descriptionHtml,
         ]);
@@ -66,10 +71,12 @@ class card_post_project
     private static function resolve_visual_component(?string $override, array $categories): string
     {
         if (is_string($override) && $override !== '') {
-            return $override;
+            $override = str_replace('-', '_', $override);
+            // old name, kept working after the rename
+            return $override === 'card_post_project_visual_website' ? 'card_post_project_visual_devices_website' : $override;
         }
         if (in_array(self::CATEGORY_WEBSITE, $categories, true)) {
-            return 'card_post_project_visual_website';
+            return 'card_post_project_visual_devices_website';
         }
         if (in_array(self::CATEGORY_MEDIA, $categories, true)) {
             return 'card_post_project_visual_media';

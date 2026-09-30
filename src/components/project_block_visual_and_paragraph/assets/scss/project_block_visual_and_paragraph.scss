@@ -1,0 +1,44 @@
+@import "theme";
+
+// Layout only: visual (post_short_info_visual) 30% + text (block_paragraph + block_tags) 70%,
+// stacked (100%) on small screens. The visual, text card and pills keep their own component styles.
+
+.project-block-visual-and-paragraph {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
+  align-items: stretch;
+  gap: var(--dm-spacing-sm);
+  width: 100%;
+
+  // visual fills the row height instead of its fixed heights
+  > .post-short-info-visual.project-block-visual-and-paragraph-visual {
+    height: 100%;
+    min-height: 200px;
+  }
+
+  &.project-block-visual-and-paragraph-visual-right {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 3fr);
+
+    > .project-block-visual-and-paragraph-visual {
+      order: 2;
+    }
+  }
+
+  &.project-block-visual-and-paragraph-no-visual {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  @media (max-width: $dm-screen-md) {
+    &,
+    &.project-block-visual-and-paragraph-visual-right {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--dm-spacing-xs);
+
+      > .post-short-info-visual.project-block-visual-and-paragraph-visual {
+        order: 0;
+        height: 180px;
+        min-height: 0;
+      }
+    }
+  }
+}

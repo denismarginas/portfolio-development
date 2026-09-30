@@ -431,10 +431,10 @@ class VideoControls {
 
         self.container.classList.remove("paused");
 
-        const thumbnailImg = self.container.querySelector(".thumbnail");
+        const thumbnail = self.container.querySelector(".thumbnail");
 
-        if (thumbnailImg) {
-          thumbnailImg.style.display = "none";
+        if (thumbnail) {
+          thumbnail.style.display = "none";
         }
       } else {
         if (playPromise !== null) {

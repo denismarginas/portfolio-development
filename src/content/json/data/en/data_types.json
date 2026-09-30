@@ -47,9 +47,9 @@
         "singular": "Resume",
         "plural": "Resumes"
       },
-      "game": {
-        "singular": "Game",
-        "plural": "Games"
+      "hobby_pc_video_game": {
+        "singular": "Hobby PC Video Game",
+        "plural": "Hobby PC Video Games"
       },
       "social": {
         "singular": "Social",

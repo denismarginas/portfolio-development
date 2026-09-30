@@ -1,0 +1,13 @@
+{
+  "name": "block_image",
+  "title": "Block Image",
+  "description": "Single image block of a post (old image_block / .dm-post-image): image from src/content/img/projects/<media.path>/<image_path><image_file_name> in an outlined card, opens in the popup.",
+  "post_types": ["project"],
+  "assets": {
+    "php": ["assets/php/block_image.php"],
+    "html": ["assets/html/template.html", "assets/html/parts/caption.html"],
+    "scss": ["assets/scss/**"],
+    "css": ["assets/css/**"]
+  },
+  "dependencies": ["image", "popup", "theme"]
+}

@@ -28,75 +28,71 @@
         return popup;
     }
 
+    // Post colors (--post-color-*) of the element that opened the popup; the popup
+    // lives in <body>, outside the section that declares them.
+    var POST_COLORS = ['--post-color-primary', '--post-color-secondary'];
+
+    function applyColors(popup, source) {
+        var styles = source ? window.getComputedStyle(source) : null;
+        POST_COLORS.forEach(function (name) {
+            var value = styles ? styles.getPropertyValue(name).trim() : '';
+            if (value) popup.style.setProperty(name, value);
+            else popup.style.removeProperty(name);
+        });
+    }
+
     function openPopup(html, options) {
         options = options || {};
         var popup = createPopup();
+        applyColors(popup, options.source || null);
+        destroyGallery(popup);
         var body = popup.querySelector('.popup-body');
         body.innerHTML = html;
         body.className = 'popup-body' + (options.gallery ? ' has-gallery' : '');
-        if (options.index) body.setAttribute('data-initial-index', options.index);
 
-        if (options.gallery) initGallery(body);
         show(popup);
+        if (options.gallery) initGallery(popup, body, parseInt(options.index, 10) || 0);
         return popup;
     }
 
     function closePopup(popup) {
         if (!popup) return;
+        destroyGallery(popup);
         popup.hidden = true;
         var body = popup.querySelector('.popup-body');
         if (body) {
             body.innerHTML = '';
-            body.removeAttribute('data-initial-index');
             body.classList.remove('has-gallery');
         }
     }
 
     function show(popup) { popup.hidden = false; }
 
-    function initGallery(body) {
-        var slides = body.querySelectorAll('[data-popup-gallery] .popup-slide');
-        if (!slides.length) return;
+    /**
+     * Gallery = utility_slider (same sliding, arrows and counter as block_slider_images).
+     * The slider root is #popup itself, so the arrows / counter sit on the screen edges.
+     */
+    function initGallery(popup, body, index) {
+        var gallery = body.querySelector('[data-popup-gallery]');
+        var slides = gallery ? gallery.querySelectorAll('.popup-slide') : [];
+        if (!slides.length || !window.UtilitySlider) return;
 
-        var index = parseInt(body.getAttribute('data-initial-index') || '0', 10) || 0;
-        showSlide(slides, index);
-
-        var nav = document.createElement('div');
-        nav.className = 'popup-nav';
-
-        var prev = document.createElement('button');
-        prev.type = 'button';
-        prev.className = 'popup-nav-btn prev';
-        prev.innerHTML = '&#10094;';
-        prev.addEventListener('click', function () {
-            index = (index - 1 + slides.length) % slides.length;
-            showSlide(slides, index);
+        var track = document.createElement('div');
+        track.className = 'utility-slider-track';
+        Array.prototype.forEach.call(slides, function (slide) {
+            slide.classList.add('utility-slider-slide');
+            track.appendChild(slide);
         });
+        gallery.classList.add('utility-slider-viewport');
+        gallery.appendChild(track);
 
-        var next = document.createElement('button');
-        next.type = 'button';
-        next.className = 'popup-nav-btn next';
-        next.innerHTML = '&#10095;';
-        next.addEventListener('click', function () {
-            index = (index + 1) % slides.length;
-            showSlide(slides, index);
-        });
+        popup.classList.add('popup-has-gallery');
+        window.UtilitySlider.init(popup, { viewport: gallery, start: index, arrows: true, counter: true, dots: false });
+    }
 
-        var counter = document.createElement('span');
-        counter.className = 'popup-counter';
-
-        nav.appendChild(prev);
-        nav.appendChild(counter);
-        nav.appendChild(next);
-        body.appendChild(nav);
-        updateCounter(counter, index, slides.length);
-
-        function showSlide(list, i) {
-            list.forEach(function (s, idx) { s.style.display = idx === i ? 'flex' : 'none'; });
-            var c = body.querySelector('.popup-counter');
-            if (c) updateCounter(c, i, list.length);
-        }
-        function updateCounter(el, i, total) { el.textContent = (i + 1) + ' / ' + total; }
+    function destroyGallery(popup) {
+        if (popup.utilitySlider) popup.utilitySlider.destroy();
+        popup.classList.remove('popup-has-gallery');
     }
 
     function bindPopupEvents(popup) {
@@ -106,8 +102,9 @@
         document.addEventListener('keydown', function (e) {
             if (popup.hidden) return;
             if (e.keyCode === ESCAPE_KEY || e.key === 'Escape') closePopup(popup);
-            if (e.key === 'ArrowLeft') { var p = popup.querySelector('.popup-nav-btn.prev'); if (p) p.click(); }
-            if (e.key === 'ArrowRight') { var n = popup.querySelector('.popup-nav-btn.next'); if (n) n.click(); }
+            if (!popup.utilitySlider) return;
+            if (e.key === 'ArrowLeft') { e.preventDefault(); popup.utilitySlider.prev(); }
+            if (e.key === 'ArrowRight') { e.preventDefault(); popup.utilitySlider.next(); }
         });
 
         // Zoom for images inside popup
@@ -141,7 +138,7 @@
             if (template) {
                 var galleryEl = template.content.querySelector('[data-popup-gallery]');
                 var slides = template.content.querySelectorAll('[data-popup-gallery] .popup-slide');
-                openPopup(template.innerHTML, { gallery: !!galleryEl && slides.length > 1 });
+                openPopup(template.innerHTML, { gallery: !!galleryEl && slides.length > 1, source: trigger });
                 return;
             }
 
@@ -151,9 +148,10 @@
                 var members = Array.prototype.slice.call(document.querySelectorAll('[data-popup-group="' + group + '"]'));
                 var idx = members.indexOf(trigger);
                 var slidesHtml = members.map(function (m) {
-                    return '<div class="popup-slide">' + (m.querySelector('img') ? m.querySelector('img').outerHTML : m.innerHTML) + '</div>';
+                    var img = m.tagName === 'IMG' ? m : m.querySelector('img');
+                    return '<div class="popup-slide">' + (img ? img.outerHTML : m.innerHTML) + '</div>';
                 }).join('');
-                openPopup('<div data-popup-gallery>' + slidesHtml + '</div>', { gallery: members.length > 1, index: idx });
+                openPopup('<div data-popup-gallery>' + slidesHtml + '</div>', { gallery: members.length > 1, index: idx, source: trigger });
                 return;
             }
 
@@ -167,7 +165,7 @@
                 var img = trigger.tagName === 'IMG' ? trigger : trigger.querySelector('img');
                 content = img ? img.outerHTML : trigger.innerHTML;
             }
-            openPopup(content);
+            openPopup(content, { source: trigger });
         });
     }
 

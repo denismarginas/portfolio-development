@@ -1,7 +1,7 @@
 {
   "name": "video",
   "title": "Video",
-  "description": "Video player with thumbnail, custom controls and primary color variable.",
+  "description": "Video player with a background-image thumbnail, custom controls and primary color variable.",
   "assets": {
     "php": [
       "assets/php/video.php"
@@ -20,7 +20,5 @@
       "assets/js/videoControls.js"
     ]
   },
-  "dependencies": [
-    "image"
-  ]
+  "dependencies": []
 }

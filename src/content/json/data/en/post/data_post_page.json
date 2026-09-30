@@ -297,7 +297,7 @@
                 { "by": "date.publish", "order": "desc" }
               ],
               "template": {
-                "component": "card_post_project_visual_website",
+                "component": "card_post_project_visual_devices_website",
                 "params": {},
                 "width": 320,
                 "height": "auto",

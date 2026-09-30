@@ -1,0 +1,28 @@
+{
+  "name": "project_block_visual_and_paragraph",
+  "title": "Project Block - Visual and Paragraph",
+  "description": "Post visual (post_short_info_visual: logo on the post canvas color) next to a block_paragraph with block_tags (#tag pills). 30% / 70% on big screens, stacked 100% on small screens. All text comes from data (text, tags) - nothing is generated. Replaces the old section_media_project .dm-post-details-grid.",
+  "post_types": [
+    "project"
+  ],
+  "assets": {
+    "php": [
+      "assets/php/project_block_visual_and_paragraph.php"
+    ],
+    "html": [
+      "assets/html/template.html"
+    ],
+    "scss": [
+      "assets/scss/**"
+    ],
+    "css": [
+      "assets/css/**"
+    ]
+  },
+  "dependencies": [
+    "post_short_info_visual",
+    "block_paragraph",
+    "block_tags",
+    "theme"
+  ]
+}

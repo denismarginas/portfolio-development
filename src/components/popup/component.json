@@ -1,7 +1,7 @@
 {
   "name": "popup",
   "title": "Popup",
-  "description": "Modal popup supporting images, arbitrary HTML content and galleries (slider-based or data-attribute groups), with zoom and close.",
+  "description": "Modal popup supporting images, arbitrary HTML content and galleries (utility_slider, from data-popup-group or a popup-gallery template), with zoom and close.",
   "assets": {
     "php": [
       "assets/php/popup.php"
@@ -20,5 +20,7 @@
       "assets/js/popup.js"
     ]
   },
-  "dependencies": []
+  "dependencies": [
+    "utility_slider"
+  ]
 }

@@ -65,9 +65,9 @@
       "file": "data_items_education.json",
       "routable": false
     },
-    "game": {
-      "label": "Games",
-      "file": "data_items_game.json",
+    "hobby_pc_video_game": {
+      "label": "Hobby PC Video Games",
+      "file": "data_items_hobby_pc_video_game.json",
       "routable": false
     },
     "social": {
