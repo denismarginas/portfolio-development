@@ -1,0 +1,28 @@
+{
+  "name": "form",
+  "title": "Form",
+  "description": "Renders a form item from data_items_form.json (simple or multi-step). On submit the answers are sent to an external form (Google Forms, prefilled link opened in a new tab).",
+  "assets": {
+    "php": [
+      "assets/php/form.php"
+    ],
+    "html": [
+      "assets/html/template.html",
+      "assets/html/parts/step.html"
+    ],
+    "scss": [
+      "assets/scss/**"
+    ],
+    "css": [
+      "assets/css/**"
+    ],
+    "js": [
+      "assets/js/form.js"
+    ]
+  },
+  "dependencies": [
+    "image",
+    "svg",
+    "theme"
+  ]
+}

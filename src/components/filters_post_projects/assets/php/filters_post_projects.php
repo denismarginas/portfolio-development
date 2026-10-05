@@ -16,6 +16,9 @@ require_once __DIR__ . '/parts/filters_post_projects_render.php';
  *   filters_exclude     array   skip these filter _ids
  *   hide_single_option  bool    hide filters with fewer than 2 options (default true)
  *   preview_toggle      bool    show the eye button that toggles preview images (default false)
+ *   sort_fields         array   sort toggle fields (default Name = seo.title, Publish Date = date.publish); [] hides it
+ *   sort_default        string  first Sort by option that keeps the listing's own order (default "Default")
+ *   sort_expanded, sort_by_label, sort_order_label   see filters_sort
  *   filters_expanded    bool    filters row open on load (default false)
  *   search_placeholder, search_button, results_text ("{n}" = count)
  */

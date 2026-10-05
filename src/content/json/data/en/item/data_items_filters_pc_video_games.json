@@ -1,0 +1,54 @@
+[
+  {
+    "_id": "game-display",
+    "name": "display",
+    "placeholder": "Display",
+    "label": "Display:",
+    "type": "display",
+    "options": [
+      { "value": "default", "label": "Default" },
+      { "value": "all", "label": "All" }
+    ]
+  },
+  {
+    "_id": "game-tags",
+    "name": "tags",
+    "placeholder": "--select--",
+    "label": "Tag:",
+    "type": "select",
+    "json-path": "['tags']",
+    "json-type": "list",
+    "json-separator": ","
+  },
+  {
+    "_id": "game-rank",
+    "name": "rank",
+    "placeholder": "--select--",
+    "label": "Min Rank:",
+    "type": "select",
+    "json-path": "['rank']",
+    "json-type": "number",
+    "json-search-mode": ">="
+  },
+  {
+    "_id": "game-playtime",
+    "name": "playtime",
+    "placeholder": "--select--",
+    "label": "Min Playtime:",
+    "type": "select",
+    "json-path": "['playtime']",
+    "json-type": "number",
+    "json-search-mode": ">=",
+    "options": ["10", "50", "100", "250", "500", "1000", "2000"],
+    "option-suffix": "h+"
+  },
+  {
+    "_id": "game-release-date",
+    "name": "release-date",
+    "placeholder": "--select--",
+    "label": "Release Year:",
+    "type": "select",
+    "json-path": "['release-date']",
+    "json-type": "date"
+  }
+]

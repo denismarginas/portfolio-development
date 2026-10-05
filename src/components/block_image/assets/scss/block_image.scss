@@ -31,3 +31,47 @@
     opacity: 0.8;
   }
 }
+
+// Plain variant (card: false): just the rounded image, no outline / padding.
+.block-image.block-image-plain {
+  padding: 0;
+
+  > img.block-image-img {
+    border-radius: var(--dm-radius-md);
+  }
+}
+
+// Sizes from the data (width / height / height_lg|md|sm|xs) as CSS vars; smaller screens fall back to the bigger value.
+.block-image.block-image-sized {
+  width: var(--block-image-width, auto);
+  max-width: 100%;
+  height: var(--block-image-height, auto);
+
+  @media (max-width: $dm-screen-lg) {
+    height: var(--block-image-height-lg, var(--block-image-height, auto));
+  }
+  @media (max-width: $dm-screen-md) {
+    height: var(--block-image-height-md, var(--block-image-height-lg, var(--block-image-height, auto)));
+  }
+  @media (max-width: $dm-screen-sm) {
+    height: var(--block-image-height-sm, var(--block-image-height-md, var(--block-image-height-lg, var(--block-image-height, auto))));
+  }
+  @media (max-width: $dm-screen-xs) {
+    height: var(--block-image-height-xs, var(--block-image-height-sm, var(--block-image-height-md, var(--block-image-height-lg, var(--block-image-height, auto)))));
+  }
+}
+
+// height: 100% -> fill the column (e.g. next to a taller text card)
+.block-image.block-image-fill {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+// cover: the image fills the block and is cropped
+.block-image.block-image-cover > img.block-image-img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+}

@@ -1,0 +1,24 @@
+{
+  "name": "knowledge_listing",
+  "title": "Knowledge Listing",
+  "description": "Title, intro text, knowledge groups (title + list) and buttons from the page data, plus the knowledge icons from data_items_knowledge_item.json.",
+  "assets": {
+    "php": [
+      "assets/php/knowledge_listing.php"
+    ],
+    "html": [
+      "assets/html/template.html"
+    ],
+    "scss": [
+      "assets/scss/**"
+    ],
+    "css": [
+      "assets/css/**"
+    ]
+  },
+  "dependencies": [
+    "button",
+    "svg",
+    "theme"
+  ]
+}

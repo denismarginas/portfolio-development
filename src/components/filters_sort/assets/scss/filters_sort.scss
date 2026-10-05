@@ -1,0 +1,41 @@
+@import "theme";
+
+// Sort row inside a filters form (<li class="block-sort">). Select look comes from the form.
+.filters-sort {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--dm-spacing-xs);
+  width: 100%;
+
+  > .filters-sort-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+
+    > label {
+      font-family: var(--dm-font-primary);
+      font-size: var(--dm-font-size-sm);
+      font-weight: var(--dm-font-weight-bold);
+      color: var(--dm-color-white);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    > select {
+      width: 100%;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.block-sort {
+  &[hidden] {
+    display: none !important;
+  }
+}

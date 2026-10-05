@@ -1,0 +1,24 @@
+{
+  "name": "portrait_experience",
+  "title": "Portrait Experience",
+  "description": "Portrait photo standing on a gradient circle, with a dots graphic behind it and a colored bottom bar (experience page).",
+  "assets": {
+    "php": [
+      "assets/php/portrait_experience.php"
+    ],
+    "html": [
+      "assets/html/template.html"
+    ],
+    "scss": [
+      "assets/scss/**"
+    ],
+    "css": [
+      "assets/css/**"
+    ]
+  },
+  "dependencies": [
+    "image",
+    "svg",
+    "theme"
+  ]
+}

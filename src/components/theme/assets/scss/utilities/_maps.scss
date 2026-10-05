@@ -95,6 +95,14 @@ $dm-grid-columns: (
   '2-1': (2fr 1fr),
   '1-3': (1fr 3fr),
   '3-1': (3fr 1fr),
+  // percentage splits (minmax(0, …) keeps wide content from stretching a column)
+  '100': (minmax(0, 1fr)),
+  '50-50': (minmax(0, 1fr) minmax(0, 1fr)),
+  '60-40': (minmax(0, 3fr) minmax(0, 2fr)),
+  '40-60': (minmax(0, 2fr) minmax(0, 3fr)),
+  '70-30': (minmax(0, 7fr) minmax(0, 3fr)),
+  '30-70': (minmax(0, 3fr) minmax(0, 7fr)),
+  '33-33-33': (minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr)),
 );
 
 $dm-text-align: (

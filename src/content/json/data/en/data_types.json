@@ -55,6 +55,14 @@
         "singular": "Social",
         "plural": "Socials"
       },
+      "social_link": {
+        "singular": "Social Link",
+        "plural": "Social Links"
+      },
+      "form": {
+        "singular": "Form",
+        "plural": "Forms"
+      },
       "video": {
         "singular": "Video",
         "plural": "Videos"
@@ -66,6 +74,10 @@
       "filters_projects": {
         "singular": "Filter Projects",
         "plural": "Filters Projects"
+      },
+      "filters_pc_video_games": {
+        "singular": "Filter PC Video Games",
+        "plural": "Filters PC Video Games"
       }
     }
   }

@@ -1,0 +1,58 @@
+@import "theme";
+
+// Portrait on a gradient circle, dots graphic behind, colored bottom bar (from experience_knowledge).
+.portrait-experience {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-inline: auto;
+  border-bottom: 12px solid var(--dm-color-primary);
+  border-radius: var(--dm-radius-md);
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 90%;
+    padding-bottom: 90%;
+    bottom: 0;
+    left: 0;
+    border-radius: 50%;
+    background: linear-gradient(
+      180deg,
+      var(--dm-color-primary) 20%,
+      var(--dm-color-secondary) 200%
+    );
+    z-index: -1;
+  }
+
+  .portrait-experience-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: bottom;
+    padding: var(--dm-spacing-md) var(--dm-spacing-md) 0;
+    box-sizing: border-box;
+  }
+
+  .portrait-experience-graphic {
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    bottom: -2%;
+    z-index: -1; // same layer as the circle, painted after it (dots show on top of the circle)
+
+    > svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      @include svg-color(var(--dm-color-white));
+    }
+  }
+
+  @media (max-width: $dm-screen-md) {
+    max-width: 360px;
+  }
+}

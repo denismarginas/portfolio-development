@@ -1,0 +1,155 @@
+[
+  {
+    "_id": "social-link-youtube",
+    "settings": {
+      "item_type": "social_link",
+      "render": true
+    },
+    "data": {
+      "seo": {
+        "title": "YouTube"
+      },
+      "external_link": "https://www.youtube.com/channel/UCZGb7hnkyawMgnSO9T-rnnQ",
+      "svg": "socials_youtube",
+      "visual_list": { "render": true },
+      "text_list": { "render": false }
+    }
+  },
+  {
+    "_id": "social-link-facebook",
+    "settings": {
+      "item_type": "social_link",
+      "render": true
+    },
+    "data": {
+      "seo": {
+        "title": "Facebook"
+      },
+      "external_link": "https://www.facebook.com/denismarginas09",
+      "svg": "socials_facebook",
+      "visual_list": { "render": true },
+      "text_list": {
+        "render": true,
+        "title": "Facebook Page:",
+        "text": "facebook.com/denismarginas09"
+      }
+    }
+  },
+  {
+    "_id": "social-link-linkedin",
+    "settings": {
+      "item_type": "social_link",
+      "render": true
+    },
+    "data": {
+      "seo": {
+        "title": "Linkedin"
+      },
+      "external_link": "https://www.linkedin.com/in/denismarginas09/",
+      "svg": "socials_linkedin",
+      "visual_list": { "render": true },
+      "text_list": {
+        "render": true,
+        "title": "Linkedin:",
+        "text": "linkedin.com/in/denismarginas09"
+      }
+    }
+  },
+  {
+    "_id": "social-link-x",
+    "settings": {
+      "item_type": "social_link",
+      "render": true
+    },
+    "data": {
+      "seo": {
+        "title": "X"
+      },
+      "external_link": "https://x.com/DenisMarginas",
+      "svg": "socials_x",
+      "visual_list": { "render": true },
+      "text_list": { "render": false }
+    }
+  },
+  {
+    "_id": "social-link-google-site",
+    "settings": {
+      "item_type": "social_link",
+      "render": true
+    },
+    "data": {
+      "seo": {
+        "title": "Google Site"
+      },
+      "external_link": "https://sites.google.com/view/denis-marginas",
+      "svg": "socials-google-site",
+      "visual_list": { "render": true },
+      "text_list": {
+        "render": true,
+        "title": "Google Site:",
+        "text": "sites.google.com/view/denis-marginas",
+        "external_link": "https://sites.google.com/view/denis-marginas/portfolio"
+      }
+    }
+  },
+  {
+    "_id": "social-link-github",
+    "settings": {
+      "item_type": "social_link",
+      "render": true
+    },
+    "data": {
+      "seo": {
+        "title": "Github"
+      },
+      "external_link": "https://github.com/denismarginas",
+      "svg": "socials_github",
+      "visual_list": { "render": true },
+      "text_list": {
+        "render": true,
+        "title": "Github:",
+        "text": "github.com/denismarginas"
+      }
+    }
+  },
+  {
+    "_id": "social-link-google-form",
+    "settings": {
+      "item_type": "social_link",
+      "render": true
+    },
+    "data": {
+      "seo": {
+        "title": "Google Form"
+      },
+      "external_link": "https://forms.gle/vTHeLVkc1TwXCxBJA",
+      "svg": "form",
+      "visual_list": { "render": false },
+      "text_list": {
+        "render": true,
+        "title": "Google Form:",
+        "text": "forms.gle/vTHeLVkc1TwXCxBJA"
+      }
+    }
+  },
+  {
+    "_id": "social-link-github-pages",
+    "settings": {
+      "item_type": "social_link",
+      "render": true
+    },
+    "data": {
+      "seo": {
+        "title": "GitHub Pages"
+      },
+      "external_link": "https://denismarginas.github.io/portfolio/",
+      "svg": "github-pages",
+      "visual_list": { "render": false },
+      "text_list": {
+        "render": true,
+        "title": "GitHub Pages:",
+        "text": "denismarginas.github.io"
+      }
+    }
+  }
+]

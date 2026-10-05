@@ -8,6 +8,11 @@ class filters_post_projects_render
 {
     private const HTML_DIR = __DIR__ . '/../../html/';
 
+    private const DEFAULT_SORT_FIELDS = [
+        ['label' => 'Name', 'by' => 'seo.title', 'type' => 'text', 'order' => 'asc'],
+        ['label' => 'Publish Date', 'by' => 'date.publish', 'type' => 'date', 'order' => 'desc'],
+    ];
+
     public static function form(array $data, string $target, array $filters, array $posts): string
     {
         $texts = PlatformDataService::get_data('content_search_fields') ?? [];
@@ -18,6 +23,9 @@ class filters_post_projects_render
         foreach ($filters as $filter) {
             $filtersHtml .= self::filter($target, $filter);
         }
+
+        $sortData = self::sort_data($data, $target);
+        $sortHtml = (string) filters_sort::render($sortData);
 
         return PlatformTemplateRenderer::render(self::HTML_DIR . 'template.html', [
             'target' => self::e($target),
@@ -32,7 +40,10 @@ class filters_post_projects_render
             'icon_filter' => self::icon('filter'),
             'icon_query' => self::icon('filter-query'),
             'preview_button' => self::preview_button($data),
-            'index' => self::index($filters, $posts),
+            'sort' => $sortHtml,
+            'sort_hidden' => $sortHtml === '' ? ' hidden' : filters_sort::hidden_attr($sortData),
+            'sort_button' => $sortHtml === '' ? '' : filters_sort::toggle_button($sortData),
+            'index' => self::index($filters, $posts, $sortHtml === '' ? null : $sortData),
         ]);
     }
 
@@ -58,8 +69,18 @@ class filters_post_projects_render
         ]);
     }
 
-    /** { "post-id": { "keywords": "...", "post-category": ["..."], ... } } */
-    private static function index(array $filters, array $posts): string
+    /** Data for filters_sort (target + sort_fields + "Default" option for the listing's own order). */
+    private static function sort_data(array $data, string $target): array
+    {
+        return array_merge($data, [
+            'target' => $target,
+            'sort_fields' => $data['sort_fields'] ?? self::DEFAULT_SORT_FIELDS,
+            'sort_default' => $data['sort_default'] ?? 'Default',
+        ]);
+    }
+
+    /** { "post-id": { "keywords": "...", "post-category": ["..."], "_sort": { "seo.title": "...", ... } } } */
+    private static function index(array $filters, array $posts, ?array $sortData = null): string
     {
         $index = [];
         foreach ($posts as $post) {
@@ -69,6 +90,9 @@ class filters_post_projects_render
             $entry = ['keywords' => self::keywords($post)];
             foreach ($filters as $filter) {
                 $entry[$filter['_id']] = filters_post_projects_values::of($post, $filter);
+            }
+            if ($sortData !== null) {
+                $entry['_sort'] = filters_sort::values($post, $sortData);
             }
             $index[$id] = $entry;
         }

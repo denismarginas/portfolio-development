@@ -1,0 +1,23 @@
+<form class="hobby-pc-video-games-filters" id="{{ form_id }}" data-target="{{ target }}" data-filters-number="{{ filters_number }}" role="search">
+  <ul>
+    <li class="block-filters"{{ filters_hidden }}>
+      {{ filters }}
+    </li>
+    <li class="block-sort"{{ sort_hidden }}>
+      {{ sort }}
+    </li>
+    <li class="block-search">
+      <div class="search-input">
+        <input class="item-search" type="search" name="keywords" placeholder="{{ search_placeholder }}" aria-label="{{ search_placeholder }}">
+        <button class="item-search-submit" type="submit">{{ search_button }}</button>
+      </div>
+      <div class="toggle-icons">
+        <button type="button" class="icon toggle-filters" aria-expanded="{{ filters_expanded }}" aria-label="Filters"{{ filters_button_hidden }}>{{ icon_filter }}</button>
+        {{ sort_button }}
+        <button type="button" class="icon toggle-query" aria-expanded="false" aria-label="Results">{{ icon_query }}</button>
+      </div>
+      <div class="query-text" hidden>{{ results_text }}</div>
+    </li>
+  </ul>
+  <script type="application/json" class="filters-index">{{ index }}</script>
+</form>

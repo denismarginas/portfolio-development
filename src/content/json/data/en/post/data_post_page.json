@@ -116,46 +116,145 @@
     },
     "content": [
       {
-        "component": "contact-data",
+        "component": "hero",
+        "children": [
+          {
+            "component": "animation_squares",
+            "data": {}
+          }
+        ],
         "data": {
-          "title": "Contact Data",
-          "text": "You can reach me by phone on WhatsApp or through my personal email address.<br>Contact details are provided in the section below.",
-          "img": "/personal-images/dm-personal-image-0.webp",
-          "list": [
-            {
-              "name": "email",
-              "value": "denismarginas09@gmail.com",
-              "label": "Email:"
-            },
-            {
-              "name": "address",
-              "value": "denismarginas09@gmail.com",
-              "label": "Address:"
-            },
-            {
-              "name": "phone",
-              "value": "+40-74*******",
-              "label": "Phone:",
-              "tooltip": {
-                "render": true,
-                "children": {
-                  "component": "tooltip",
-                  "data": {
-                    "text": "For security reasons, the phone number is not displayed. However, you can request the contact phone number by sending a mail to the provided email address."
-                  }
-                }
-              }
-            }
-          ]
+          "variant": "sm",
+          "img": "backgrounds/bg-home.webp",
+          "title": "@data.seo.title",
+          "description": "@data.seo.description"
         }
       },
       {
-        "component": "resume-data",
-        "data": []
+        "component": "section",
+        "children": [
+          {
+            "component": "profile_card",
+            "data": {
+              "img": "personal-images/dm-personal-image-0.webp",
+              "img_alt": "Denis Marginas",
+              "image_position": "left",
+              "image_style": "circle",
+              "title": "Contact Data",
+              "text": [
+                "You can reach me by phone on WhatsApp or through my personal email address.",
+                "Contact details are provided in the section below."
+              ],
+              "details": [
+                {
+                  "label": "Email:",
+                  "value": "denismarginas09@gmail.com",
+                  "link": "mailto:denismarginas09@gmail.com"
+                },
+                {
+                  "label": "Address:",
+                  "value": "Romania, Baia Mare",
+                  "tooltip": {
+                    "text": "For security reasons, the full address is not displayed. However, you can request the contact address by sending an email to the provided email address.",
+                    "status": "info"
+                  }
+                },
+                {
+                  "label": "Phone:",
+                  "value": "+40-74*******",
+                  "tooltip": {
+                    "text": "For security reasons, the phone number is not displayed. However, you can request the contact phone number by sending an email to the provided email address.",
+                    "status": "info"
+                  }
+                }
+              ]
+            }
+          }
+        ]
       },
       {
-        "component": "contact-details",
-        "data": []
+        "component": "columns",
+        "data": {
+          "layout": { "base": "100", "lg": "50-50" },
+          "gap": { "base": "sm", "md": "md", "xl": "xl" },
+          "align": "start"
+        },
+        "children": [
+          {
+            "component": "column",
+            "children": [
+              {
+                "component": "text_block",
+                "data": {
+                  "elements": [
+                    {
+                      "title": "Resumes"
+                    }
+                  ]
+                }
+              },
+              {
+                "component": "resume_listing",
+                "data": {
+                  "id": "contact-resumes",
+                  "type": "resume",
+                  "columns": 2,
+                  "sort": [
+                    {
+                      "by": "date.publish",
+                      "order": "desc"
+                    }
+                  ],
+                  "date_format": "M j, Y",
+                  "download_text": "Download",
+                  "lang_labels": {
+                    "en": "English",
+                    "ro": "Romanian"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "component": "profile_card",
+            "data": {
+              "img": "personal-images/dm-desktop-working.webp",
+              "img_alt": "Denis Marginas working at his desk",
+              "image_position": "top",
+              "image_style": "rounded",
+              "text": [
+                "I am a skilled professional with expertise in web development and programming. With a strong foundation in various web platforms and programming languages, I possess the ability to create dynamic and user-friendly websites. My proficiency extends to page builders and web development programs, enabling me to design and customize web pages effectively.",
+                "I have experience working with a range of software and tools, including photo editing and video editing programs. My knowledge extends to streaming programs and other widely used applications, such as Microsoft Office and Google Suite.",
+                "With a strong technical aptitude and adaptability, I am confident in my ability to contribute to innovative projects and deliver exceptional results. I am eager to leverage my skills and experiences to make a meaningful impact."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "component": "columns",
+        "data": {
+          "layout": { "base": "100", "md": "60-40", "xl": "70-30" },
+          "gap": { "base": "sm", "md": "md", "xl": "xl" },
+          "align": "start"
+        },
+        "children": [
+          {
+            "component": "form",
+            "data": {
+              "form": "contact-form",
+              "type": "form"
+            }
+          },
+          {
+            "component": "social_links",
+            "data": {
+              "title": "Socials",
+              "lists": ["visual", "text"],
+              "variant": "card"
+            }
+          }
+        ]
       }
     ]
   },
@@ -190,10 +289,119 @@
         "component": "section",
         "children": [
           {
-            "component": "experience_knowledge",
+            "component": "columns",
             "data": {
-              "variant": "standard"
-            }
+              "layout": {
+                "base": "100",
+                "md": "40-60"
+              },
+              "gap": {
+                "base": "lg",
+                "md": "xl"
+              },
+              "align": "start"
+            },
+            "children": [
+              {
+                "component": "portrait_experience",
+                "data": {
+                  "img": "personal-images/dm-personal-with-laptop.webp",
+                  "alt": "Denis Marginas with his laptop",
+                  "graphic": "dots-graphic",
+                  "class": "pt-sm pt-md-xl"
+                }
+              },
+              {
+                "component": "knowledge_listing",
+                "data": {
+                  "title": "Experience",
+                  "text": [
+                    "I have experience as a Full-Stack Web Developer on projects such as presentation websites, online shops, booking web applications, competition form applications, and SEO optimization. Additionally, I have experience as a Photo-Video Editor working on projects like ad banners, promotional offers, company logos, identity media content, and video ads."
+                  ],
+                  "groups": [
+                    {
+                      "title": "Web Development",
+                      "list": [
+                        "Technology: PHP, TPL, SQL, JS, Git, HTML, CSS, SASS/SCSS, Python, C/C++, jQuery 3, Bootstrap 5",
+                        "Platforms: WordPress, Prestashop, Node.js, GitHub Pages, Google Site, XAMPP, cPanel",
+                        "CMS: Elementor, WPBakery, Gutenberg",
+                        "Others: HeidiSQL, phpMyAdmin, GitLab, GitHub, Visual Studio Code, PhpStorm, PyCharm, Prepros, Figma",
+                        "Operating Systems: Windows, Linux"
+                      ]
+                    },
+                    {
+                      "title": "Photo-Video Editing",
+                      "list": [
+                        "Video Editing Software: Sony Vegas Pro, Adobe After Effects, Topaz Video Enhance",
+                        "Video Editing Plugins: BCC, RSMB, Sapphire, Ignite Pro, Optical Flares, Plexus, Particular, Element 3D, 3D Camera Tracking",
+                        "Photo Editing Software: Photopea, Photoshop, Paint.net, Xara Photo, Topaz Gigapixel",
+                        "3D Programs: Blender"
+                      ]
+                    },
+                    {
+                      "title": "Office Software",
+                      "list": [
+                        "Microsoft Office: Microsoft Excel, Microsoft Word, Microsoft PowerPoint",
+                        "Google Drive: Google Sheets, Google Docs, Google Slides"
+                      ]
+                    }
+                  ],
+                  "icons": true,
+                  "buttons": [
+                    {
+                      "text": "Employee Experience",
+                      "_id": "employee-experience",
+                      "svg": "employ"
+                    },
+                    {
+                      "text": "Projects Catalog",
+                      "_id": "projects",
+                      "svg": "about-me"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "component": "columns",
+            "data": {
+              "layout": {
+                "base": "100",
+                "md": "60-40"
+              },
+              "gap": {
+                "base": "lg",
+                "md": "xl"
+              },
+              "align": "stretch"
+            },
+            "children": [
+              {
+                "component": "block_paragraph_card",
+                "data": {
+                  "text": [
+                    "Before entering the web development field, I worked as a freelance video editor, specializing in editing videos for video games. After completing my university studies in Mathematics and Informatics, I shifted my focus to web development and began pursuing a career in that field.",
+                    "In 2019, I joined Pia Soft Product as a web developer and video-photo editor. During my time there, I worked on various tasks, including creating presentation websites and online shops using platforms like WordPress and Prestashop. I also handled SEO optimization, website and host maintenance, customer communication, and designing banners, logos, and video advertisements. Working independently on my tasks, I took the initiative to learn from scratch, except for my prior experience in video editing. Additionally, I developed web applications using PHP, TPL, SQL, JavaScript, jQuery, HTML, CSS, and more.",
+                    "Towards the end of 2021, I transitioned to working full time at Netex Romania, where I was hired as a front-end developer. My responsibilities involved maintaining multiple WordPress websites and working on web design projects. The web design aspect was particularly challenging as I received templates and page sections in formats, similar to Figma projects, and had to recreate them as static web pages using HTML, SASS, Node.js, Bootstrap, JavaScript, and jQuery. Initially, I worked independently on my part of the project, but later collaborated with a colleague who joined to assist with the same project. During this time, I gained valuable experience with the GitLab platform, learned Git commands, and improved my teamwork skills."
+                  ]
+                }
+              },
+              {
+                "component": "block_image",
+                "data": {
+                  "img": "personal-images/dm-working-in-office.webp",
+                  "alt": "Denis Marginas working in the office",
+                  "card": false,
+                  "popup": true,
+                  "cover": true,
+                  "width": "100%",
+                  "height": "100%",
+                  "height_md": "320px",
+                  "height_sm": "220px"
+                }
+              }
+            ]
           }
         ]
       },
@@ -491,29 +699,122 @@
     ]
   },
   {
-    "_id": "video-games",
+    "_id": "hobby-pc-video-games",
     "data": {
       "seo": {
-        "title": "Video Games",
-        "description": "Here you can explore my personal list of top video games.",
-        "keywords": "denis marginas video-games",
-        "slug": "video-games",
+        "title": "Hobby PC Video Games",
+        "description": "Here you can explore my personal list of top pc video games.",
+        "keywords": "denis marginas pc-video-games",
+        "slug": "hobby-pc-video-games",
         "index": false
       }
     },
     "content": [
       {
         "component": "hero",
+        "children": [
+          {
+            "component": "animation_squares",
+            "data": {}
+          }
+        ],
         "data": {
-          "variant": "compress-squares",
-          "filename": "video-games",
+          "variant": "xs",
+          "img": "backgrounds/bg-workstation.webp",
           "title": "@data.seo.title",
           "description": "@data.seo.description"
         }
       },
       {
-        "component": "video-games-list",
-        "data": []
+        "component": "section",
+        "children": [
+          {
+            "component": "hobby_pc_video_games_filters",
+            "data": {
+              "id": "hobby-pc-video-games",
+              "type": "hobby_pc_video_game",
+              "filters": "filters_pc_video_games",
+              "filters_expanded": false,
+              "sort_fields": [
+                {
+                  "label": "Name",
+                  "by": "name",
+                  "type": "text",
+                  "order": "asc"
+                },
+                {
+                  "label": "Rank",
+                  "by": "rank",
+                  "type": "number",
+                  "order": "desc"
+                },
+                {
+                  "label": "Playtime",
+                  "by": "playtime",
+                  "type": "number",
+                  "order": "desc"
+                }
+              ],
+              "sort_expanded": false,
+              "search_placeholder": "Search games...",
+              "results_text": "Showing {n} games."
+            }
+          },
+          {
+            "component": "hobby_pc_video_games_listing",
+            "data": {
+              "id": "hobby-pc-video-games",
+              "type": "hobby_pc_video_game",
+              "sort": [{ "by": "name", "order": "asc" }],
+              "empty_text": "No games match the selected filters."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "personal-resumes",
+    "data": {
+      "seo": {
+        "title": "Personal Resumes",
+        "description": "Browse and download my resumes (CV) in English and Romanian. Click a preview to see the full page, or download the PDF.",
+        "keywords": "denis marginas resumes cv",
+        "slug": "personal-resumes",
+        "index": false
+      }
+    },
+    "content": [
+      {
+        "component": "hero",
+        "children": [
+          {
+            "component": "animation_blurred_lines",
+            "data": {}
+          }
+        ],
+        "data": {
+          "variant": "xs",
+          "img": "backgrounds/bg-home.webp",
+          "title": "@data.seo.title",
+          "description": "@data.seo.description"
+        }
+      },
+      {
+        "component": "section",
+        "children": [
+          {
+            "component": "resume_listing",
+            "data": {
+              "id": "resumes",
+              "type": "resume",
+              "sort": [{ "by": "date.publish", "order": "desc" }],
+              "date_format": "M j, Y",
+              "download_text": "Download",
+              "lang_labels": { "en": "English", "ro": "Romanian" }
+            }
+          }
+        ]
       }
     ]
   },

@@ -13,5 +13,5 @@
     "css": ["assets/css/**"],
     "js": ["assets/js/filters_post_projects.js"]
   },
-  "dependencies": ["post_items", "utility_sort", "svg", "theme"]
+  "dependencies": ["post_items", "utility_sort", "filters_sort", "svg", "theme"]
 }

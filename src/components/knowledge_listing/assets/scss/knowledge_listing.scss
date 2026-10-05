@@ -1,0 +1,86 @@
+@import "theme";
+
+// Experience text column (from experience_knowledge .content).
+.knowledge-listing {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dm-spacing-sm);
+  min-width: 0;
+
+  .knowledge-listing-title {
+    margin: 0;
+    font-family: var(--dm-font-secondary);
+    font-size: var(--dm-font-size-xl);
+    font-weight: var(--dm-font-weight-bold);
+    text-transform: uppercase;
+  }
+
+  .knowledge-groups {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dm-spacing-md);
+  }
+
+  .knowledge-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    > ul {
+      margin: 0;
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      > li {
+        font-size: var(--dm-font-size-md);
+      }
+    }
+  }
+
+  .knowledge-group-title {
+    margin: 0;
+    font-size: var(--dm-font-size-md);
+    font-weight: var(--dm-font-weight-semibold);
+  }
+
+  .knowledge-icons {
+    @include reset-list();
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dm-spacing-xs);
+
+    > li,
+    > li > a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    > li > a {
+      transition: var(--dm-transition);
+
+      &:hover,
+      &:focus-visible {
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .knowledge-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .knowledge-listing-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dm-spacing-sm);
+
+    @media (max-width: $dm-screen-sm) {
+      justify-content: center;
+      gap: var(--dm-spacing-xs);
+    }
+  }
+}
