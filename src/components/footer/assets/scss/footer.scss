@@ -1,22 +1,84 @@
+@import "theme";
+
+// Colors follow the light / dark mode like the header; text colors come from the theme.
 footer {
-  background-color: var(--dm-color-secondary);
-  border-top: 2px solid var(--dm-color-primary);
+  border-top: 1px solid color-mix(in srgb, var(--dm-color-primary) 35%, transparent);
+  transition: var(--dm-transition);
 
-  container-sm {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-block: var(--dm-spacing-xl);
+  [mode="dark"] & {
+    background-color: var(--dm-color-gray-dark);
+  }
+  [mode="light"] & {
+    background-color: var(--dm-color-white);
+  }
 
-    @media (max-width: var(--dm-screen-md)) {
-      padding-block: var(--dm-spacing-lg);
+  > container {
+    flex-direction: column;
+    gap: var(--dm-spacing-lg);
+    padding-block: var(--dm-spacing-xl) var(--dm-spacing-md);
+  }
+
+  .footer-columns {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--dm-spacing-lg);
+
+    @media (max-width: $dm-screen-lg) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--dm-spacing-md);
     }
+
+    @media (max-width: $dm-screen-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dm-spacing-sm);
+    min-width: 0;
+  }
+
+  .footer-bottom {
+    padding-top: var(--dm-spacing-md);
+    border-top: 1px solid color-mix(in srgb, var(--dm-color-primary) 25%, transparent);
+  }
+
+  // Socials column: title like .link-list-title, smaller icons
+  .social-links[data-variant="plain"] {
+    gap: var(--dm-spacing-xs);
+
+    .social-links-title {
+      font-size: var(--dm-font-size-md);
+      font-weight: var(--dm-font-weight-bold);
+    }
+
+    .social-links-visual {
+      gap: var(--dm-spacing-xxs);
+    }
+
+    .social-links-visual-link {
+      width: 28px;
+      height: 28px;
+    }
+
+    .social-links-icon {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  // white icon circles would vanish on the light footer
+  [mode="light"] & .social-links-visual-link {
+    background-color: var(--dm-color-primary-100);
   }
 }
 
+// Fallback (no data_content_footer.json)
 .footer-copyrights {
   font-family: var(--dm-font-primary);
   font-size: var(--dm-font-size-sm);
   font-weight: var(--dm-font-weight-regular);
-  color: var(--dm-color-white);
+  text-align: center;
 }

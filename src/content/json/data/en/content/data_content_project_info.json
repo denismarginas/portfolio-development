@@ -1,15 +1,20 @@
 {
-    "dates": {
-        "start-date": {
-            "text": "Begining of the webiste:",
-            "date": "04.06.2023"
-        },
-        "end-date": {
-            "text": "Last update of webiste:",
-            "date": "curent-date"
-        }
+  "dates": [
+    {
+      "text": "Beginning of the portfolio:",
+      "date": "04-06-2023"
     },
-    "copyright": {
-        "text": "©All copyrights reserved by Denis Marginas"
+    {
+      "text": "Last update of portfolio:",
+      "date": "current-date"
     }
+  ],
+  "date_format": "M j, Y",
+  "copyright": {
+    "text": "©All copyrights reserved by",
+    "link": {
+      "text": "Denis Marginas",
+      "_id": "home"
+    }
+  }
 }

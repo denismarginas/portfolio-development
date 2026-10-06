@@ -1,6 +1,6 @@
 {
   "name": "footer",
-  "description": "Page footer wrapper component.",
+  "description": "Page footer. Content comes from data_content_footer.json: \"columns\" and \"bottom\" are lists of component blocks ({ component, data, children }), same shape as page content.",
   "assets": {
     "php": [
       "assets/php/footer.php"
@@ -9,9 +9,18 @@
       "assets/html/template.html",
       "assets/html/template_copyrights.html"
     ],
+    "scss": [
+      "assets/scss/**"
+    ],
     "css": [
       "assets/css/**"
     ]
   },
-  "dependencies": []
+  "dependencies": [
+    "theme",
+    "section",
+    "link_list",
+    "social_links",
+    "website_info"
+  ]
 }

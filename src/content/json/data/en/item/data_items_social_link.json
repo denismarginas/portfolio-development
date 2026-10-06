@@ -11,6 +11,7 @@
       },
       "external_link": "https://www.youtube.com/channel/UCZGb7hnkyawMgnSO9T-rnnQ",
       "svg": "socials_youtube",
+      "display_footer": true,
       "visual_list": { "render": true },
       "text_list": { "render": false }
     }
@@ -27,6 +28,7 @@
       },
       "external_link": "https://www.facebook.com/denismarginas09",
       "svg": "socials_facebook",
+      "display_footer": true,
       "visual_list": { "render": true },
       "text_list": {
         "render": true,
@@ -47,6 +49,7 @@
       },
       "external_link": "https://www.linkedin.com/in/denismarginas09/",
       "svg": "socials_linkedin",
+      "display_footer": true,
       "visual_list": { "render": true },
       "text_list": {
         "render": true,
@@ -67,6 +70,7 @@
       },
       "external_link": "https://x.com/DenisMarginas",
       "svg": "socials_x",
+      "display_footer": true,
       "visual_list": { "render": true },
       "text_list": { "render": false }
     }
@@ -83,6 +87,7 @@
       },
       "external_link": "https://sites.google.com/view/denis-marginas",
       "svg": "socials-google-site",
+      "display_footer": false,
       "visual_list": { "render": true },
       "text_list": {
         "render": true,
@@ -104,6 +109,7 @@
       },
       "external_link": "https://github.com/denismarginas",
       "svg": "socials_github",
+      "display_footer": true,
       "visual_list": { "render": true },
       "text_list": {
         "render": true,
@@ -124,6 +130,7 @@
       },
       "external_link": "https://forms.gle/vTHeLVkc1TwXCxBJA",
       "svg": "form",
+      "display_footer": false,
       "visual_list": { "render": false },
       "text_list": {
         "render": true,
@@ -144,6 +151,7 @@
       },
       "external_link": "https://denismarginas.github.io/portfolio/",
       "svg": "github-pages",
+      "display_footer": false,
       "visual_list": { "render": false },
       "text_list": {
         "render": true,

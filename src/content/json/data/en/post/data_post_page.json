@@ -169,90 +169,111 @@
                 }
               ]
             }
-          }
-        ]
-      },
-      {
-        "component": "columns",
-        "data": {
-          "layout": { "base": "100", "lg": "50-50" },
-          "gap": { "base": "sm", "md": "md", "xl": "xl" },
-          "align": "start"
-        },
-        "children": [
+          },
           {
-            "component": "column",
+            "component": "columns",
+            "data": {
+              "layout": {
+                "base": "100",
+                "lg": "50-50"
+              },
+              "gap": {
+                "base": "sm",
+                "md": "md",
+                "xl": "xl"
+              },
+              "align": "start"
+            },
             "children": [
               {
-                "component": "text_block",
-                "data": {
-                  "elements": [
-                    {
-                      "title": "Resumes"
+                "component": "column",
+                "children": [
+                  {
+                    "component": "text_block",
+                    "data": {
+                      "elements": [
+                        {
+                          "title": "Resumes"
+                        }
+                      ]
                     }
-                  ]
-                }
+                  },
+                  {
+                    "component": "resume_listing",
+                    "data": {
+                      "id": "contact-resumes",
+                      "type": "resume",
+                      "filter_by": {
+                        "max_items": 2
+                      },
+                      "columns": 2,
+                      "sort": [
+                        {
+                          "by": "date.publish",
+                          "order": "desc"
+                        }
+                      ],
+                      "date_format": "M j, Y",
+                      "download_text": "Download",
+                      "lang_labels": {
+                        "en": "English",
+                        "ro": "Romanian"
+                      }
+                    }
+                  }
+                ]
               },
               {
-                "component": "resume_listing",
+                "component": "profile_card",
                 "data": {
-                  "id": "contact-resumes",
-                  "type": "resume",
-                  "columns": 2,
-                  "sort": [
-                    {
-                      "by": "date.publish",
-                      "order": "desc"
-                    }
-                  ],
-                  "date_format": "M j, Y",
-                  "download_text": "Download",
-                  "lang_labels": {
-                    "en": "English",
-                    "ro": "Romanian"
-                  }
+                  "img": "personal-images/dm-desktop-working.webp",
+                  "img_alt": "Denis Marginas working at his desk",
+                  "image_position": "top",
+                  "image_style": "rounded",
+                  "text": [
+                    "I am a skilled professional with expertise in web development and programming. With a strong foundation in various web platforms and programming languages, I possess the ability to create dynamic and user-friendly websites. My proficiency extends to page builders and web development programs, enabling me to design and customize web pages effectively.",
+                    "I have experience working with a range of software and tools, including photo editing and video editing programs. My knowledge extends to streaming programs and other widely used applications, such as Microsoft Office and Google Suite.",
+                    "With a strong technical aptitude and adaptability, I am confident in my ability to contribute to innovative projects and deliver exceptional results. I am eager to leverage my skills and experiences to make a meaningful impact."
+                  ]
                 }
               }
             ]
           },
           {
-            "component": "profile_card",
+            "component": "columns",
             "data": {
-              "img": "personal-images/dm-desktop-working.webp",
-              "img_alt": "Denis Marginas working at his desk",
-              "image_position": "top",
-              "image_style": "rounded",
-              "text": [
-                "I am a skilled professional with expertise in web development and programming. With a strong foundation in various web platforms and programming languages, I possess the ability to create dynamic and user-friendly websites. My proficiency extends to page builders and web development programs, enabling me to design and customize web pages effectively.",
-                "I have experience working with a range of software and tools, including photo editing and video editing programs. My knowledge extends to streaming programs and other widely used applications, such as Microsoft Office and Google Suite.",
-                "With a strong technical aptitude and adaptability, I am confident in my ability to contribute to innovative projects and deliver exceptional results. I am eager to leverage my skills and experiences to make a meaningful impact."
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "component": "columns",
-        "data": {
-          "layout": { "base": "100", "md": "60-40", "xl": "70-30" },
-          "gap": { "base": "sm", "md": "md", "xl": "xl" },
-          "align": "start"
-        },
-        "children": [
-          {
-            "component": "form",
-            "data": {
-              "form": "contact-form",
-              "type": "form"
-            }
-          },
-          {
-            "component": "social_links",
-            "data": {
-              "title": "Socials",
-              "lists": ["visual", "text"],
-              "variant": "card"
-            }
+              "layout": {
+                "base": "100",
+                "md": "60-40",
+                "xl": "70-30"
+              },
+              "gap": {
+                "base": "sm",
+                "md": "md",
+                "xl": "xl"
+              },
+              "align": "start"
+            },
+            "children": [
+              {
+                "component": "form",
+                "data": {
+                  "form": "contact-form",
+                  "type": "form"
+                }
+              },
+              {
+                "component": "social_links",
+                "data": {
+                  "title": "Socials",
+                  "lists": [
+                    "visual",
+                    "text"
+                  ],
+                  "variant": "card"
+                }
+              }
+            ]
           }
         ]
       }
@@ -436,7 +457,9 @@
               },
               "filter": {
                 "taxonomy": {
-                  "tag": ["portfolio showcase"]
+                  "tag": [
+                    "portfolio showcase"
+                  ]
                 }
               }
             }
@@ -466,7 +489,10 @@
                   "value": "personal",
                   "position": "last"
                 },
-                { "by": "date.publish", "order": "desc" }
+                {
+                  "by": "date.publish",
+                  "order": "desc"
+                }
               ],
               "template": {
                 "component": "card_post_project_visual_default",
@@ -502,7 +528,10 @@
                   "value": "personal",
                   "position": "last"
                 },
-                { "by": "date.publish", "order": "desc" }
+                {
+                  "by": "date.publish",
+                  "order": "desc"
+                }
               ],
               "template": {
                 "component": "card_post_project_visual_devices_website",
@@ -538,7 +567,10 @@
                   "value": "personal",
                   "position": "last"
                 },
-                { "by": "date.publish", "order": "desc" }
+                {
+                  "by": "date.publish",
+                  "order": "desc"
+                }
               ],
               "template": {
                 "component": "card_post_project_visual_default",
@@ -590,7 +622,10 @@
         "data": {
           "type": "job",
           "layout": "labels_top",
-          "sort": { "by": "date.publish", "order": "desc" },
+          "sort": {
+            "by": "date.publish",
+            "order": "desc"
+          },
           "external_links_social_text": false,
           "external_links_text": false,
           "exist_item_render_false": {
@@ -647,7 +682,10 @@
         "data": {
           "type": "education",
           "layout": "labels_aside",
-          "sort": { "by": "date.publish", "order": "desc" },
+          "sort": {
+            "by": "date.publish",
+            "order": "desc"
+          },
           "external_links_social_text": false
         }
       }
@@ -765,7 +803,12 @@
             "data": {
               "id": "hobby-pc-video-games",
               "type": "hobby_pc_video_game",
-              "sort": [{ "by": "name", "order": "asc" }],
+              "sort": [
+                {
+                  "by": "name",
+                  "order": "asc"
+                }
+              ],
               "empty_text": "No games match the selected filters."
             }
           }
@@ -808,10 +851,18 @@
             "data": {
               "id": "resumes",
               "type": "resume",
-              "sort": [{ "by": "date.publish", "order": "desc" }],
+              "sort": [
+                {
+                  "by": "date.publish",
+                  "order": "desc"
+                }
+              ],
               "date_format": "M j, Y",
               "download_text": "Download",
-              "lang_labels": { "en": "English", "ro": "Romanian" }
+              "lang_labels": {
+                "en": "English",
+                "ro": "Romanian"
+              }
             }
           }
         ]

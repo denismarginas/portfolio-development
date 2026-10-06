@@ -18,6 +18,7 @@
   },
   "dependencies": [
     "svg",
-    "theme"
+    "theme",
+    "utility_filter"
   ]
 }

@@ -1,5 +1,9 @@
 (function () {
   const SCROLL_THRESHOLD = 200;
+  // logo component shape classes: circle at the top of the page, square once scrolled
+  const LOGO_SELECTOR = ".logo";
+  const LOGO_CLASS_TOP = "logo-shape-circle";
+  const LOGO_CLASS_SCROLLED = "logo-shape-square";
 
   function initHeaderScroll() {
     const header = document.querySelector("header");
@@ -9,9 +13,16 @@
       return;
     }
 
+    const logo = header.querySelector(LOGO_SELECTOR);
+
     const updateScrolled = () => {
       const isScrolled = window.scrollY > SCROLL_THRESHOLD;
       header.setAttribute("data-scrolled", isScrolled ? "true" : "false");
+
+      if (logo) {
+        logo.classList.toggle(LOGO_CLASS_TOP, !isScrolled);
+        logo.classList.toggle(LOGO_CLASS_SCROLLED, isScrolled);
+      }
     };
 
     updateScrolled();

@@ -8,9 +8,12 @@
  *   type           string  item file (default "resume" -> data_items_resume.json)
  *   lang           string|array  only these languages (settings.lang), default: all
  *   sort           array   utility_sort rules (default: date.publish desc)
+ *   filter_by      object  keep only items matching ALL entries (utility_filter), e.g.
+ *                          { "settings.lang": "en", "max_items": 1 } or { "_id": ["cv-3-english", "cv-3-romanian"] }
+ *   exclude_by     array   drop items matching ANY entry (utility_filter)
  *   max_items      int     limit (default: all)
  *   date_format    string  PlatformTextService::format_date format (default "M j, Y" -> "Sep 27, 2024")
- *   download_text  string  button text (default "Download")
+ *   download_text  string  aria-label/title of the icon-only download button (default "Download")
  *   lang_labels    object  { "en": "English", "ro": "Romanian" } badge text per settings.lang (default: upper-case code)
  *   empty_text     string  text when there are no resumes (default: nothing rendered)
  *   columns        int     fixed number of columns on desktop (default: automatic, cards >= 340px)
@@ -53,20 +56,20 @@ class resume_listing
         if (!is_array($items)) return [];
 
         $langs = array_filter(array_map('strtolower', (array) ($data['lang'] ?? [])));
-        $items = array_values(array_filter($items, fn ($item): bool =>
-            is_array($item)
-            && ($item['settings']['render'] ?? true) !== false
-            && (empty($langs) || in_array(strtolower((string) ($item['settings']['lang'] ?? '')), $langs, true))
-        ));
+        if (!empty($langs)) {
+            $items = array_filter($items, fn ($item): bool =>
+                is_array($item) && in_array(strtolower((string) ($item['settings']['lang'] ?? '')), $langs, true)
+            );
+        }
 
-        $items = PlatformComponentRenderer::value('utility_sort', [
+        $items = PlatformComponentRenderer::value('utility_filter', [
             'items' => $items,
-            'rules' => $data['sort'] ?? ['by' => 'date.publish', 'order' => 'desc'],
+            'filter_by' => $data['filter_by'] ?? [],
+            'exclude_by' => $data['exclude_by'] ?? [],
+            'sort' => $data['sort'] ?? [['by' => 'date.publish', 'order' => 'desc']],
+            'max_items' => $data['max_items'] ?? 0,
         ]);
-        if (!is_array($items)) return [];
-
-        $max = (int) ($data['max_items'] ?? 0);
-        return $max > 0 ? array_slice($items, 0, $max) : $items;
+        return is_array($items) ? $items : [];
     }
 
     private static function item(array $item, array $data): string
@@ -101,8 +104,11 @@ class resume_listing
 
         $downloadHtml = '';
         if ($pdf !== '') {
-            $downloadHtml = '<a class="btn btn-primary resume-card-download" href="' . self::e($pdf) . '" download>'
-                . '<span class="btn-text">' . self::e((string) ($data['download_text'] ?? 'Download')) . '</span></a>';
+            $label = self::e((string) ($data['download_text'] ?? 'Download') . ($title !== '' ? ' ' . $title : ''));
+            $downloadHtml = '<a class="btn btn-primary-small resume-card-download" href="' . self::e($pdf) . '" download'
+                . ' aria-label="' . $label . '" title="' . $label . '">'
+                . (string) PlatformComponentRenderer::render('svg', ['icon' => 'download', 'class' => 'resume-card-download-icon'])
+                . '</a>';
         }
 
         return PlatformTemplateRenderer::render(self::HTML_DIR . 'parts/item.html', [

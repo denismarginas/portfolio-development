@@ -9,10 +9,13 @@
  *   title      string  optional heading
  *   title_tag  string  "h3" (default) | "h2" | "h4" | "h5"
  *   variant    string  "card" (default, boxed like the contact page) | "plain" (no box, e.g. footer)
+ *   filter_by  object  keep only items matching ALL entries (utility_filter), e.g. { "display_footer": true }
+ *   exclude_by array   drop items matching ANY entry (utility_filter)
+ *   sort       array   utility_sort rules (default: file order)
  *   class, id  string  optional
  *
  * Item (data_items_social_link.json):
- *   settings.render, data.seo.title, data.external_link, data.svg,
+ *   settings.render, data.seo.title, data.external_link, data.svg, data.display_footer,
  *   data.visual_list.render, data.text_list.{ render, title, text, external_link }
  */
 class social_links
@@ -25,7 +28,13 @@ class social_links
         $type = trim((string) ($data['type'] ?? '')) ?: 'social_link';
         $items = PlatformDataService::get_all_items_from_file($type) ?? [];
         if (!is_array($items)) return '';
-        $items = array_values(array_filter($items, fn ($i) => is_array($i) && ($i['settings']['render'] ?? true) !== false));
+        $items = PlatformComponentRenderer::value('utility_filter', [
+            'items' => $items,
+            'filter_by' => $data['filter_by'] ?? [],
+            'exclude_by' => $data['exclude_by'] ?? [],
+            'sort' => $data['sort'] ?? null,
+        ]);
+        if (!is_array($items)) return '';
 
         $lists = array_values(array_intersect((array) ($data['lists'] ?? self::LISTS), self::LISTS));
 

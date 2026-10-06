@@ -126,7 +126,7 @@
 
   .resume-card-title {
     font-family: var(--dm-font-primary);
-    font-size: var(--dm-font-size-lg);
+    font-size: var(--dm-font-size-sm);
     font-weight: var(--dm-font-weight-bold);
     line-height: 1.25;
     color: var(--dm-color-white);
@@ -141,7 +141,7 @@
 
   .resume-card-description {
     font-family: var(--dm-font-primary);
-    font-size: var(--dm-font-size-md);
+    font-size: var(--dm-font-size-xs);
     color: var(--dm-color-primary-100);
   }
 
@@ -158,8 +158,6 @@
 
   .resume-card-lang {
     @include pill();
-    color: var(--dm-color-primary-900);
-    background-color: var(--dm-color-white);
   }
 
   .resume-card-date {
