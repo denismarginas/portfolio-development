@@ -78,6 +78,10 @@
       "filters_pc_video_games": {
         "singular": "Filter PC Video Games",
         "plural": "Filters PC Video Games"
+      },
+      "hobby": {
+        "singular": "Hobby",
+        "plural": "Hobbies"
       }
     }
   }

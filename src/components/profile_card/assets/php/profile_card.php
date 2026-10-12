@@ -22,8 +22,9 @@
  *   image_position  string  "left" (default) | "right" | "top" (stacked); on phones the image is always on top
  *   image_style     string  "circle" (portrait popping out of a circle, hover animation)
  *                           | "rounded" (default, rounded rectangle)
- *   title           string  heading (h2 with the title divider)
- *   title_tag       string  "h2" (default) | "h3" | "h4"
+ *   noise           bool    "circle" only: overlay_noise texture on the circle background (default false)
+ *   title           string | object  heading: "Contact Data"
+ *                   or { "text": "Contact Data", "tag": "h2", "class": "title-divider title-primary" }
  *   text            string|array  paragraph(s); <br>, <b>, <strong>, <i>, <em> are kept
  *   details         array   [{ label, value, link?, svg? (default "chevron-right"), tooltip? }]
  *                           tooltip = { "text": "...", "status": "warning" } (tooltip component on the value)
@@ -32,19 +33,16 @@
 class profile_card
 {
     private const ALLOWED_TAGS = '<br><b><strong><i><em>';
-    private const TITLE_TAGS = ['h2', 'h3', 'h4'];
 
     public static function render(array $data = []): string
     {
-        $title = trim((string) ($data['title'] ?? ''));
+        $titleData = title::normalize($data['title'] ?? null, $data, ['base_class' => 'profile-card-title']);
+        $title = is_scalar($titleData['text'] ?? $titleData['content'] ?? null) ? trim((string) ($titleData['text'] ?? $titleData['content'])) : '';
         $text = self::text($data['text'] ?? '');
         $details = self::details($data['details'] ?? []);
         $media = self::media($data, $title, self::style($data));
 
         if ($title === '' && $text === '' && $details === '' && $media === '') return '';
-
-        $tag = strtolower((string) ($data['title_tag'] ?? 'h2'));
-        if (!in_array($tag, self::TITLE_TAGS, true)) $tag = 'h2';
 
         $position = strtolower((string) ($data['image_position'] ?? 'left'));
         if (!in_array($position, ['left', 'right', 'top'], true)) $position = 'left';
@@ -59,7 +57,7 @@ class profile_card
             'image_position' => $position,
             'image_style' => $style,
             'media' => $media,
-            'title' => $title !== '' ? '<' . $tag . ' class="profile-card-title title-divider">' . self::e($title) . '</' . $tag . '>' : '',
+            'title' => (string) PlatformComponentRenderer::render('title', $titleData),
             'text' => $text,
             'details' => $details,
         ]);
@@ -85,7 +83,8 @@ class profile_card
 
         if ($style === 'circle') {
             // circle background + portrait clipped by the circle's bottom half (head pops out on top)
-            $img = '<span class="profile-card-circle"><span class="profile-card-circle-background"></span>'
+            $noise = self::flag($data['noise'] ?? false) ? (string) PlatformComponentRenderer::render('overlay_noise', []) : '';
+            $img = '<span class="profile-card-circle"><span class="profile-card-circle-background">' . $noise . '</span>'
                 . '<span class="profile-card-circle-clip">' . $img . '</span></span>';
         }
         return '<div class="profile-card-media">' . $img . '</div>';
@@ -145,5 +144,13 @@ class profile_card
     private static function e(string $value): string
     {
         return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+    }
+
+    /** true/false, also "true"/"false", "1"/"0", "yes"/"no", "on"/"off". */
+    private static function flag(mixed $value): bool
+    {
+        if (is_bool($value)) return $value;
+        if (is_int($value) || is_float($value)) return $value != 0;
+        return !in_array(strtolower(trim((string) $value)), ['false', '0', 'no', 'off', ''], true);
     }
 }

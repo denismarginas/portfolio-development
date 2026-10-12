@@ -40,16 +40,17 @@ function platform_menu(): array
             'children' => [
                 'compile'      => ['label' => $get('actions.compileScss', 'Compile SCSS'), 'icon' => 'compile', 'url' => '?page=render&tab=compile', 'desc' => 'Build CSS from component stylesheets.'],
                 'preview'      => ['label' => $get('actions.view', 'Live Preview'), 'icon' => 'view', 'url' => '?page=render&tab=preview', 'desc' => 'Preview any post rendered by the page constructor.'],
-                'render-html'  => ['label' => $get('actions.translate', 'HTML Bulk Render'), 'icon' => 'html', 'url' => '?page=render&tab=render-html', 'desc' => 'Render every post to static HTML files.'],
+                'render-html'  => ['label' => $get('actions.renderHtml', 'HTML Bulk Render'), 'icon' => 'html', 'url' => '?page=render&tab=render-html', 'desc' => 'Render every post to static HTML files.'],
             ],
         ],
         'generate'        => [
-            'label'    => $get('actions.translate', 'Generate'),
+            'label'    => $get('actions.generate', 'Generate'),
             'icon'     => 'generate',
             'url'      => '?page=generate&tab=translate',
             'desc'     => 'Generate site artifacts from content data.',
             'children' => [
-                'translate' => ['label' => $get('actions.translate', 'Translate'), 'icon' => 'update', 'url' => '?page=generate&tab=translate', 'desc' => 'Synchronise content data across languages.'],
+                'translate'  => ['label' => $get('actions.translate', 'Translate'), 'icon' => 'update', 'url' => '?page=generate&tab=translate', 'desc' => 'Synchronise content data across languages.'],
+                'thumbnails' => ['label' => $get('actions.thumbnails', 'Generate Thumbnails'), 'icon' => 'generate', 'url' => '?page=generate&tab=thumbnails', 'desc' => 'Build project thumbnails from the screen template.'],
             ],
         ],
         'settings'        => ['label' => $get('home.settings', 'Settings'), 'icon' => 'settings', 'url' => '?page=settings', 'desc' => $get('home.settingsDesc', 'Site, routing, languages and SEO configuration.')],
@@ -72,7 +73,7 @@ function platform_pages(): array
         'items'          => ['title' => $get('structureTypes.items', 'Items'), 'render' => 'platform_render_items_fragment', 'file' => 'components/items/index.php'],
         'settings'       => ['title' => $get('home.settings', 'Settings'), 'render' => 'platform_render_settings_fragment', 'file' => 'components/settings/index.php'],
         'render'         => ['title' => $get('actions.compileScss', 'Render'), 'render' => 'platform_render_render_fragment', 'file' => 'components/render/index.php'],
-        'generate'       => ['title' => $get('actions.translate', 'Generate'), 'render' => 'platform_render_generate_fragment', 'file' => 'components/generate/index.php'],
+        'generate'       => ['title' => $get('actions.generate', 'Generate'), 'render' => 'platform_render_generate_fragment', 'file' => 'components/generate/index.php'],
     ];
 }
 

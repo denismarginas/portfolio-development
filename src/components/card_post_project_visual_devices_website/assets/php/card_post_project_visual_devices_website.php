@@ -4,6 +4,7 @@ require_once __DIR__ . '/parts/project_device_render_conditions.php';
 require_once __DIR__ . '/parts/project_desktop_layout_style.php';
 require_once __DIR__ . '/parts/project_device_models.php';
 require_once __DIR__ . '/parts/project_device_blocks.php';
+require_once __DIR__ . '/../../../utility_project_web_screens/assets/php/utility_project_web_screens.php';
 
 /**
  * Laptop + phone mockup with the project's website screenshots.
@@ -14,11 +15,15 @@ require_once __DIR__ . '/parts/project_device_blocks.php';
  *   devices_conditions_render  bool    auto-pick models by type/year (default true)
  *   desktop_layout_style       bool    add top/center + bg classes to desktop screen (default true)
  *   phone_layout_style         bool    same, for the phone screen (default true)
- *   screen_path                string  default "web/overview/"
- *   screen_desktop             string  default "web_desktop_overview.webp"
- *   screen_phone               string  default "web_phone_overview.webp"
+ *   screen_desktop             string  optional fixed desktop screenshot, relative to screen_path
+ *   screen_phone               string  optional fixed phone screenshot, relative to screen_path
+ *   screen_path                string  base folder for screen_desktop / screen_phone (default "web/website/")
+ *                                      Without screen_desktop / screen_phone the cover of
+ *                                      web/website/desktop/ and web/website/phone/ is used: the "_0" image
+ *                                      (web_desktop_0.webp / web_phone_0.webp), else the first one
+ *                                      (utility_project_web_screens).
  *   link                       bool    wrap in <a> to the post (default true), false -> <div>
- *   render_media_image         string  render ONE device with this image instead of the overview
+ *   render_media_image         string  render ONE device with this image instead of the cover
  *                                      screenshots (path relative to src/content/img/projects/,
  *                                      or a full "src/..." path). Default null.
  *   render_media_device_type   string  "desktop" | "phone" - device used for render_media_image
@@ -29,9 +34,7 @@ require_once __DIR__ . '/parts/project_device_blocks.php';
  */
 class card_post_project_visual_devices_website
 {
-    private const DEFAULT_SCREEN_PATH = 'web/overview/';
-    private const DEFAULT_SCREEN_DESKTOP = 'web_desktop_overview.webp';
-    private const DEFAULT_SCREEN_PHONE = 'web_phone_overview.webp';
+    private const DEFAULT_SCREEN_PATH = 'web/website/';
 
     public static function render(array $data = []): string
     {
@@ -44,11 +47,12 @@ class card_post_project_visual_devices_website
 
         $models = project_device_models::resolve($data, $postData);
         $frames = project_device_models::frames($models);
-        $screens = self::resolve_screens($data, (string) ($postData['media']['path'] ?? ''));
 
-        // Single image on a single device (used by the web galleries)
+        // Single image on a single device (used by the web galleries), otherwise the cover screenshots
         $mediaImage = trim((string) ($data['render_media_image'] ?? ''));
-        if ($mediaImage !== '') {
+        if ($mediaImage === '') {
+            $screens = self::resolve_screens($data, (string) ($postData['media']['path'] ?? ''));
+        } else {
             $type = strtolower(trim((string) ($data['render_media_device_type'] ?? ''))) === 'phone' ? 'phone' : 'desktop';
             $path = str_starts_with($mediaImage, 'src/') ? $mediaImage : 'src/content/img/projects/' . ltrim($mediaImage, '/');
             $screens = ['desktop' => $type === 'desktop' ? $path : '', 'phone' => $type === 'phone' ? $path : ''];
@@ -62,7 +66,7 @@ class card_post_project_visual_devices_website
         }
 
         $asLink = self::flag($data, 'link');
-        $link = PlatformPathService::post_link((string) ($post['_id'] ?? '')) . '#webdevelopment';
+        $link = PlatformPathService::post_link((string) ($post['_id'] ?? ''));
 
         return PlatformTemplateRenderer::render(__DIR__ . '/../html/template.html', [
             'tag' => $asLink ? 'a' : 'div',
@@ -90,11 +94,15 @@ class card_post_project_visual_devices_website
         }
 
         $screenPath = rtrim((string) ($data['screen_path'] ?? self::DEFAULT_SCREEN_PATH), '/') . '/';
-        $base = 'src/content/img/projects/' . $mediaPath . '/' . $screenPath;
+        $base = utility_project_web_screens::PROJECTS_DIR . $mediaPath . '/' . $screenPath;
 
-        return [
-            'desktop' => $base . (string) ($data['screen_desktop'] ?? self::DEFAULT_SCREEN_DESKTOP),
-            'phone' => $base . (string) ($data['screen_phone'] ?? self::DEFAULT_SCREEN_PHONE),
-        ];
+        $screens = [];
+        foreach (utility_project_web_screens::DEVICES as $device) {
+            $fixed = trim((string) ($data['screen_' . $device] ?? ''));
+            $screens[$device] = $fixed !== ''
+                ? $base . ltrim($fixed, '/')
+                : utility_project_web_screens::first($mediaPath, $device);
+        }
+        return $screens;
     }
 }

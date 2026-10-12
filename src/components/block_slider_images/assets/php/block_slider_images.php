@@ -11,11 +11,15 @@
  *   show_dots           bool    dots under the slider (default false)
  *                               (arrows / counter / dots: utility_slider, only with more than one image)
  *   alt                 string  alt text of the images (default: post title)
+ *   videos              string | array  optional video path(s) added as slides after the images
+ *                               ("src/content/vid/..." or relative to src/content/vid/), rendered with
+ *                               project_block_video (thumbnail from data_items_video.json). Video slides play in
+ *                               place (no popup on click) and are part of the popup gallery of the image slides.
  *   class               string  optional extra class
  *   id                  string  optional id
  *
  * Images (jpg, jpeg, png, webp, gif, avif, svg) are sorted by natural file name order.
- * Renders nothing when the folder has no images.
+ * Renders nothing when there are neither images nor videos.
  */
 class block_slider_images
 {
@@ -29,14 +33,13 @@ class block_slider_images
         $post = is_array($data['post_current_data'] ?? null) ? $data['post_current_data'] : [];
 
         $dir = self::directory((string) ($data['img_array_path_dir'] ?? $data['path'] ?? ''), $post);
-        if ($dir === '') return '';
-
-        $images = self::images($dir);
-        $count = count($images);
+        $images = $dir !== '' ? self::images($dir) : [];
+        $videos = self::videos($data);
+        $count = count($images) + count($videos);
         if ($count === 0) return '';
 
         self::$instance++;
-        $group = 'block-slider-images-' . substr(md5(($post['_id'] ?? '') . '|' . $dir), 0, 8) . '-' . self::$instance;
+        $group = 'block-slider-images-' . substr(md5(($post['_id'] ?? '') . '|' . $dir . '|' . implode('|', $videos)), 0, 8) . '-' . self::$instance;
         $alt = trim((string) ($data['alt'] ?? ($post['data']['project']['title'] ?? $post['data']['seo']['title'] ?? '')));
 
         $htmlDir = dirname(__DIR__) . '/html/parts/';
@@ -53,6 +56,19 @@ class block_slider_images
                 ]),
             ]);
         }
+
+        $index = count($images);
+        $shared = array_intersect_key($data, array_flip(['post_current_data', 'global_content_path', 'global_img_path', 'global_vid_path']));
+        foreach ($videos as $src) {
+            $video = (string) PlatformComponentRenderer::render('project_block_video', array_merge($shared, ['src' => $src]));
+            if (trim($video) === '') { $count--; continue; }
+            $slides .= PlatformTemplateRenderer::render($htmlDir . 'slide_video.html', [
+                'index' => $index++,
+                'group' => $group,
+                'video' => $video,
+            ]);
+        }
+        if ($count === 0) return '';
 
         $classes = [];
         if ($count === 1) $classes[] = 'block-slider-images-single';
@@ -92,6 +108,18 @@ class block_slider_images
             if (is_dir(self::absolute($candidate))) return $candidate . '/';
         }
         return '';
+    }
+
+    /** @return string[] video paths from data.videos (string or array) */
+    private static function videos(array $data): array
+    {
+        $videos = $data['videos'] ?? [];
+        if (is_string($videos)) $videos = [$videos];
+        if (!is_array($videos)) return [];
+        return array_values(array_filter(array_map(
+            fn ($v) => is_scalar($v) ? trim(str_replace('\\', '/', (string) $v)) : '',
+            $videos
+        ), fn ($v) => $v !== ''));
     }
 
     /** @return string[] project-relative image paths, natural order */

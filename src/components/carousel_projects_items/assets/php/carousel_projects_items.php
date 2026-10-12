@@ -18,6 +18,7 @@ require_once __DIR__ . '/parts/carousel_projects_items_size.php';
  *   gap, gap_phone     string  space between items, e.g. "--dm-spacing-lg" (default --dm-spacing-sm)
  *   direction          string  "right" | "left" (default "right")
  *   speed              string  "slow" | "normal" | "fast" or a duration like "60s" (default "slow")
+ *   pause_on_hover     bool    stop the scrolling while the mouse is over it (default true)
  */
 class carousel_projects_items
 {
@@ -71,9 +72,18 @@ class carousel_projects_items
 
         return PlatformTemplateRenderer::render(__DIR__ . '/../html/template.html', [
             'direction' => $direction,
+            'pause_on_hover' => self::flag($data['pause_on_hover'] ?? true) ? 'true' : 'false',
             'visual' => htmlspecialchars($visual, ENT_QUOTES, 'UTF-8'),
             'style' => carousel_projects_items_size::style(array_merge($data, $template), $duration),
             'items' => $items,
         ]);
+    }
+
+    /** true/false, also "true"/"false", "1"/"0", "yes"/"no", "on"/"off". */
+    private static function flag(mixed $value): bool
+    {
+        if (is_bool($value)) return $value;
+        if (is_int($value) || is_float($value)) return $value != 0;
+        return !in_array(strtolower(trim((string) $value)), ['false', '0', 'no', 'off', ''], true);
     }
 }

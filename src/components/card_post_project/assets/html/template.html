@@ -1,11 +1,3 @@
-<div class="card card-outline card-post card-post-project" visual-type="{{ visual_type }}"{{ style_attr }}>
-    <div class="card-visual">
-        {{ visual }}
-    </div>
-    <div class="card-body">
-        <div class="card-meta">
-            <a class="card-title" href="{{ link }}">{{ title }}</a>
-            {{ description }}
-        </div>
-    </div>
+<div class="{{ card_class }}" visual-type="{{ visual_type }}"{{ style_attr }}>
+    {{ inner }}
 </div>

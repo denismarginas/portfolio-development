@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../../../../utility_project_web_screens/assets/php/utility_project_web_screens.php';
+
 class post_items_image extends post_items_value
 {
     public static function render_image_link(array $post, array $context, string $title, string $link): string
@@ -7,12 +9,18 @@ class post_items_image extends post_items_value
         $mediaPath = (string)self::value_at($post, $context['media_path_param'] ?? ['data', 'media', 'path']);
         if ($mediaPath === '') return '';
 
-        $dir = $context['global_img_path'] . '/' . $mediaPath . '/' . $context['img_path'];
-        $imageFile = self::resolve_image_file($dir, $context['img_filename']);
-        if ($imageFile === '') return '';
+        if ($context['img_path'] === '' && $context['img_filename'] === '') {
+            // default: the desktop cover ("_0" image of web/website/desktop)
+            $imagePath = utility_project_web_screens::first($mediaPath, 'desktop', $context['global_img_path']);
+        } else {
+            $dir = $context['global_img_path'] . '/' . $mediaPath . '/' . $context['img_path'];
+            $imageFile = self::resolve_image_file($dir, $context['img_filename']);
+            $imagePath = $imageFile !== '' ? $dir . $imageFile : '';
+        }
+        if ($imagePath === '') return '';
 
         $imageHtml = PlatformComponentRenderer::render('image', [
-            'path' => $dir . $imageFile,
+            'path' => $imagePath,
             'alt' => $title,
         ]);
         if ($imageHtml === '') return '';

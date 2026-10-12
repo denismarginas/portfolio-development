@@ -14,7 +14,7 @@ function platform_workflow_send_json(array $data, int $status = 200): void
     echo json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 }
 
-$allowedSections = ['render', 'compile_scss', 'live_preview', 'project_structure', 'page_structure', 'seo_project', 'seo_page', 'translation'];
+$allowedSections = ['render', 'compile_scss', 'live_preview', 'project_structure', 'page_structure', 'seo_project', 'seo_page', 'translation', 'thumbnails'];
 
 $section = (string) ($_GET['section'] ?? $_GET['card_type'] ?? '');
 

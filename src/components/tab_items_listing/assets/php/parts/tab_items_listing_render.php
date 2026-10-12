@@ -29,6 +29,9 @@ class tab_items_listing_render
 
             $itemId = (string) ($item['_id'] ?? $item['item_id'] ?? $item['post_id'] ?? '');
             if ($itemId === '') continue;
+            // Anchor of the item (card id + label href): data.seo.slug, else the _id.
+            $slug = trim((string) ($item['data']['seo']['slug'] ?? ''));
+            if ($slug !== '') $itemId = $slug;
 
             $labels .= tab_items_listing_label::render_label($itemId, $item, $data);
             $itemsHtml .= tab_items_listing_content::render_content($item, $data, $itemId);

@@ -33,7 +33,7 @@
         height: 85%;
       }
     }
-    >.screen {
+    > .screen {
       &::after {
         content: "";
         position: absolute;
@@ -56,17 +56,6 @@
       bottom: 6%;
       width: 25%;
       z-index: 3;
-    }
-
-    @media only screen and (max-width: $dm-screen-md) {
-      .device-layout-phone {
-        width: 38%;
-      }
-    }
-        @media only screen and (max-width: $dm-screen-sm) {
-      .device-layout-phone {
-        width: 30%;
-      }
     }
   }
   &:not(.desktop-and-phone-devices) {

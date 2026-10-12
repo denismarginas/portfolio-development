@@ -1,0 +1,98 @@
+[
+  {
+    "_id": "video-games",
+    "settings": {
+      "item_type": "hobby",
+      "render": true
+    },
+    "data": {
+      "title": "Video Games",
+      "feature_image": "src/content/img/hobby/hobby-video-games.webp",
+      "svg": "hobby-video-games"
+    }
+  },
+  {
+    "_id": "cycling",
+    "settings": {
+      "item_type": "hobby",
+      "render": true
+    },
+    "data": {
+      "title": "Cycling",
+      "feature_image": "src/content/img/hobby/hobby-cycling.webp",
+      "svg": "hobby-cycling"
+    }
+  },
+  {
+    "_id": "table-tennis",
+    "settings": {
+      "item_type": "hobby",
+      "render": true
+    },
+    "data": {
+      "title": "Table Tennis",
+      "feature_image": "src/content/img/hobby/hobby-ping-pong.webp",
+      "svg": "hobby-ping-pong"
+    }
+  },
+  {
+    "_id": "photo-editing",
+    "settings": {
+      "item_type": "hobby",
+      "render": true
+    },
+    "data": {
+      "title": "Photo Editing",
+      "feature_image": "src/content/img/hobby/hobby-photo-editing.webp",
+      "svg": "hobby-photo-editing"
+    }
+  },
+  {
+    "_id": "video-editing",
+    "settings": {
+      "item_type": "hobby",
+      "render": true
+    },
+    "data": {
+      "title": "Video Editing",
+      "feature_image": "src/content/img/hobby/hobby-video-editing.webp",
+      "svg": "hobby-video-editing"
+    }
+  },
+  {
+    "_id": "web-design",
+    "settings": {
+      "item_type": "hobby",
+      "render": true
+    },
+    "data": {
+      "title": "Web Design",
+      "feature_image": "src/content/img/hobby/hobby-web-design.webp",
+      "svg": "hobby-web-design"
+    }
+  },
+  {
+    "_id": "computer-hardware",
+    "settings": {
+      "item_type": "hobby",
+      "render": true
+    },
+    "data": {
+      "title": "Computer Hardware",
+      "feature_image": "src/content/img/hobby/hobby-computer-hardware.webp",
+      "svg": "hobby-computer-hardware"
+    }
+  },
+  {
+    "_id": "recording-cinematics",
+    "settings": {
+      "item_type": "hobby",
+      "render": true
+    },
+    "data": {
+      "title": "Recording Cinematics",
+      "feature_image": "src/content/img/hobby/hobby-recording-cinematics.webp",
+      "svg": "hobby-recording-cinematics"
+    }
+  }
+]

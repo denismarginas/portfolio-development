@@ -7,6 +7,7 @@
     "js": ["assets/js/check_js_init.js"]
   },
   "dependencies": [
+    "utility_post_thumbnail",
     "header",
     "footer",
     "page_content",

@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../../../utility_post_thumbnail/assets/php/utility_post_thumbnail.php';
+
 class page_constructor_seo
 {
     public static function implicit_seo_fields(): array
@@ -38,6 +40,28 @@ class page_constructor_seo
         }
 
         return $fields;
+    }
+
+    /**
+     * Shared-link image (og:image / twitter:image) of a post: data.media.thumbnail.default (utility_post_thumbnail).
+     * Absolute url when the site settings have "site_url" (needed by Facebook, LinkedIn ...), else relative.
+     */
+    public static function share_image_fields(mixed $post): string
+    {
+        if (!is_array($post) || empty($post)) return '';
+        $path = utility_post_thumbnail::get($post, 'default');
+        if ($path === '') return '';
+
+        $global = PlatformDataService::get_global_settings() ?? [];
+        $siteUrl = trim((string) ($global['site_url'] ?? ''));
+        $url = $siteUrl !== ''
+            ? rtrim($siteUrl, '/') . '/' . ltrim($path, '/')
+            : PlatformPathService::asset_relative_prefix() . ltrim($path, '/');
+        $url = htmlspecialchars($url, ENT_QUOTES, 'UTF-8');
+
+        return '<meta property="og:image" content="' . $url . '">'
+            . '<meta name="twitter:card" content="summary_large_image">'
+            . '<meta name="twitter:image" content="' . $url . '">';
     }
 
     public static function add_seo_to_html(array $seo_data, string $existing_html = ''): string

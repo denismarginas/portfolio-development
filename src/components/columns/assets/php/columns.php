@@ -18,6 +18,7 @@
  *               { "component": "text_block", "data": { ... } },
  *               { "component": "resume_listing", "data": { ... } }
  *           ] }
+ *           { "html": "<p>…</p>", "class": "my-column" }          // already rendered markup (from another component's PHP)
  *         ]
  *       }
  *     ]
@@ -82,6 +83,15 @@ class columns
         $html = '';
         foreach ($children as $child) {
             if (!is_array($child)) continue;
+
+            // Already rendered markup as one column (used by components that build their own column content).
+            if (array_key_exists('html', $child) && !isset($child['component'])) {
+                $inner = trim(is_string($child['html']) ? $child['html'] : '');
+                if ($inner === '') continue;
+                $class = is_scalar($child['class'] ?? null) ? trim((string) $child['class']) : '';
+                $html .= '<div class="column' . ($class !== '' ? ' ' . self::e($class) : '') . '">' . $inner . '</div>';
+                continue;
+            }
             $name = str_replace('-', '_', (string) ($child['component'] ?? ''));
             if ($name === '') continue;
 

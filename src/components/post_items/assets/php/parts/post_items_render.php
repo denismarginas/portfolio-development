@@ -24,8 +24,11 @@ class post_items_render extends post_items_item
         $excludeBy = $data['exclude_by'] ?? [];
         $filterBy = $data['filter_by'] ?? [];
 
+        $currentId = self::current_id($data);
+
         $posts = array_filter($posts, fn (array $post): bool =>
             ($post['settings']['render'] ?? true) !== false
+            && !($currentId !== '' && self::post_id($post) === $currentId)
             && !self::is_excluded($post, $excludeBy)
             && self::passes_filter($post, $filterBy)
         );
@@ -75,13 +78,29 @@ class post_items_render extends post_items_item
         return is_array($sorted) ? $sorted : $posts;
     }
 
+    /**
+     * "exclude_current": true -> _id of the page's own post (post_current_data), '' otherwise.
+     * Used e.g. for a "related projects" list on a project page that should not show the page itself.
+     */
+    public static function current_id(array $data): string
+    {
+        if (($data['exclude_current'] ?? false) !== true) return '';
+        $current = is_array($data['post_current_data'] ?? null) ? $data['post_current_data'] : [];
+        return self::post_id($current);
+    }
+
+    public static function post_id(array $post): string
+    {
+        return (string) ($post['post_id'] ?? $post['_id'] ?? '');
+    }
+
     public static function is_excluded(array $post, mixed $excludeBy): bool
     {
         $entries = is_array($excludeBy) ? $excludeBy : [$excludeBy];
         if (empty($entries)) return false;
 
         $context = [
-            'post_id' => (string) ($post['post_id'] ?? ''),
+            'post_id' => self::post_id($post),
             'data' => $post['data'] ?? [],
             'settings' => $post['settings'] ?? [],
             'img_base' => '',
@@ -117,7 +136,7 @@ class post_items_render extends post_items_item
         if (empty($entries)) return true;
 
         $context = [
-            'post_id' => (string) ($post['post_id'] ?? ''),
+            'post_id' => self::post_id($post),
             'data' => $post['data'] ?? [],
             'settings' => $post['settings'] ?? [],
             'img_base' => '',
@@ -149,6 +168,7 @@ class post_items_render extends post_items_item
     public static function path_token(string $path): string
     {
         if (str_starts_with($path, '@')) return $path;
+        if ($path === '_id' || $path === 'post_id') return '@_id';   // the post's own _id
         return (str_starts_with($path, 'data.') || str_starts_with($path, 'settings.'))
             ? '@' . $path
             : '@data.' . $path;
@@ -157,6 +177,13 @@ class post_items_render extends post_items_item
     /** A list matches when it contains $expected; anything else must be equal. */
     public static function matches(mixed $resolved, mixed $expected): bool
     {
+        // a list of expected values matches when ANY of them matches: { "_id": ["a", "b"] }
+        if (is_array($expected) && array_is_list($expected)) {
+            foreach ($expected as $one) {
+                if (self::matches($resolved, $one)) return true;
+            }
+            return false;
+        }
         if (is_array($resolved)) {
             return in_array((string) $expected, array_map('strval', $resolved), true);
         }
@@ -244,8 +271,9 @@ class post_items_render extends post_items_item
         $globalImgPath = $contentBase !== '' ? $contentBase . '/img/' . $postType : self::post_type_img_base($postType);
 
         return [
-            'img_path' => rtrim((string)($data['feature_image_path'] ?? 'web/overview/'), '/') . '/',
-            'img_filename' => (string)($data['feature_image_filename'] ?? 'web_desktop_overview'),
+            // both empty -> desktop cover from web/website/desktop (utility_project_web_screens)
+            'img_path' => isset($data['feature_image_path']) ? rtrim((string)$data['feature_image_path'], '/') . '/' : '',
+            'img_filename' => (string)($data['feature_image_filename'] ?? ''),
             'title_param' => $data['title'] ?? ['data', 'seo', 'title'],
             'media_path_param' => $data['media_path'] ?? ['data', 'media', 'path'],
             'global_img_path' => $globalImgPath,

@@ -13,5 +13,5 @@
     "scss": ["assets/scss/**"],
     "css": ["assets/css/**"]
   },
-  "dependencies": ["image", "theme"]
+  "dependencies": ["utility_project_web_screens", "image", "theme"]
 }

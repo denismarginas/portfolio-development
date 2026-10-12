@@ -18,6 +18,9 @@ require_once __DIR__ . '/parts/project_media_gallery_sources.php';
  *                               as a gallery (default false)
  *   multiple_galleries          bool, one list per gallery folder (default false = all in one list)
  *   grid_max                    max columns on big screens (default 4)
+ *   column_balancing            bool, balanced rows instead of grid_max columns (utility_grid_column_balancing,
+ *                               the old site's items-divisible-by-N patterns; default false). Turned on by
+ *                               project_visual_media_gallery_photo and project_visual_web_gallery (Web Media Content).
  *   device_params               object, extra params for card_post_project_visual_devices_website
  *   overlay_noise               bool, overlay_noise texture in every item
  *                               (default true for "devices", false for "images" / "videos")
@@ -61,6 +64,7 @@ class project_media_gallery
         }
 
         $gridMax = (int) ($data['grid_max'] ?? 4);
+        $balancing = self::flag($data, 'column_balancing', false);
         $overlay = self::flag($data, 'overlay_noise', $type === 'devices')
             ? (string) PlatformComponentRenderer::render('overlay_noise', [])
             : '';
@@ -78,7 +82,9 @@ class project_media_gallery
             if ($items['count'] === 0) continue;
 
             $lists .= PlatformTemplateRenderer::render(self::HTML_DIR . 'parts/list.html', [
-                'grid_attrs' => (string) PlatformComponentRenderer::value('utility_grid_listing', ['count' => $items['count'], 'max' => $gridMax]),
+                'grid_attrs' => $balancing
+                    ? (string) PlatformComponentRenderer::value('utility_grid_column_balancing', ['count' => $items['count']])
+                    : (string) PlatformComponentRenderer::value('utility_grid_listing', ['count' => $items['count'], 'max' => $gridMax]),
                 'source' => htmlspecialchars($source['name'], ENT_QUOTES, 'UTF-8'),
                 'items' => $items['html'],
             ]);

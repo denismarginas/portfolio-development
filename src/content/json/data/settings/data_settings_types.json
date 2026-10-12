@@ -109,6 +109,11 @@
       "label": "Forms",
       "file": "data_items_form.json",
       "routable": false
+    },
+    "hobby": {
+      "label": "Hobbies",
+      "file": "data_items_hobby.json",
+      "routable": false
     }
   }
 }

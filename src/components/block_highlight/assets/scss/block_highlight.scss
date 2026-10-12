@@ -1,0 +1,183 @@
+@import "theme";
+
+// One highlight in a single card (card-outline), 4 parts: header (accent bar + title),
+// text + media (side by side through the "columns" component: .columns.block-highlight-body), tags full width.
+// Post colors: --post-color-* (section_layout_aside or the theme defaults).
+
+.block-highlight {
+  gap: var(--dm-spacing-sm);
+  padding: var(--dm-spacing-sm);
+  box-sizing: border-box;
+  scroll-margin-top: var(--dm-spacing-xl);
+
+  // Header: post-colored accent bar + title, optional small label above.
+  > .block-highlight-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: calc(var(--dm-spacing-xs) + 4px);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      bottom: 2px;
+      left: 0;
+      width: 4px;
+      border-radius: 2px;
+      background-color: var(--post-color-primary, var(--dm-color-primary));
+    }
+
+    > .block-highlight-label {
+      font-size: var(--dm-font-size-xs);
+      font-weight: var(--dm-font-weight-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--post-color-primary, var(--dm-color-primary));
+    }
+
+    > .block-highlight-title {
+      margin: 0;
+      font-family: var(--dm-font-secondary);
+      font-size: var(--dm-font-size-xl);
+      font-weight: var(--dm-font-weight-semibold);
+      line-height: 1.25;
+
+      [mode="dark"] & {
+        color: var(--dm-color-white);
+      }
+
+      [mode="light"] & {
+        color: var(--dm-color-gray-dark);
+      }
+    }
+  }
+
+  // data.children (e.g. a post-items list of related projects)
+  > .block-highlight-children {
+    min-width: 0;
+  }
+
+  // Text + media columns: layout / gap / align come from the columns component (data.columns).
+  > .columns.block-highlight-body > .column {
+    gap: var(--dm-spacing-xs);
+  }
+
+  // Media: framed on a light tint of the post color, images fill the width.
+  .block-highlight-media {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dm-spacing-xs);
+    min-width: 0;
+    border-radius: var(--dm-radius-md);
+    background-color: rgb(
+      from var(--post-color-primary, var(--dm-color-primary)) r g b / 0.1
+    );
+
+    > .block-image.block-highlight-image {
+      width: 100%;
+      padding: 0;
+
+      > img.block-image-img {
+        width: 100%;
+        border-radius: var(--dm-radius-sm);
+      }
+    }
+
+    > .block-slider-images > .block-slider-images-viewport {
+      border-radius: var(--dm-radius-sm);
+    }
+
+    > .block-slider-images > .utility-slider-counter {
+      border-top-left-radius: var(--dm-radius-sm);
+    }
+
+    > .project-block-video {
+      border-radius: var(--dm-radius-sm);
+      overflow: hidden;
+    }
+  }
+
+  .block-highlight-content {
+    min-width: 0;
+  }
+
+  .block-highlight-text {
+    margin: 0;
+    font-family: var(--dm-font-primary);
+    font-size: var(--dm-font-size-md);
+    font-weight: var(--dm-font-weight-regular);
+    line-height: 1.7;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+
+    [mode="dark"] & {
+      color: rgb(from var(--dm-color-white) r g b / 0.85);
+    }
+
+    [mode="light"] & {
+      color: var(--dm-color-gray-dark);
+    }
+  }
+
+  // "Built with" chips: outlined in the post color.
+  .block-highlight-tags {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dm-spacing-xxs);
+    padding-top: var(--dm-spacing-xs);
+    border-top: 1px solid
+      rgb(from var(--post-color-primary, var(--dm-color-primary)) r g b / 0.3);
+
+    > .block-highlight-tags-title {
+      font-size: var(--dm-font-size-xs);
+      font-weight: var(--dm-font-weight-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    > .block-highlight-tags-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--dm-spacing-xxs);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  }
+
+  .block-highlight-tag {
+    padding: 5px 10px;
+    border: 1px solid
+      rgb(from var(--post-color-primary, var(--dm-color-primary)) r g b / 0.6);
+    border-radius: 999px;
+    font-size: var(--dm-font-size-sm);
+    line-height: 1.2;
+    background-color: rgb(
+      from var(--post-color-primary, var(--dm-color-primary)) r g b / 0.12
+    );
+
+    [mode="dark"] & {
+      color: var(--dm-color-white);
+    }
+
+    [mode="light"] & {
+      color: var(--dm-color-gray-dark);
+    }
+  }
+
+  @media (max-width: $dm-screen-sm) {
+    gap: var(--dm-spacing-sm);
+    padding: var(--dm-spacing-xs);
+
+    > .block-highlight-header > .block-highlight-title {
+      font-size: var(--dm-font-size-lg);
+    }
+
+    .block-highlight-media {
+      padding: var(--dm-spacing-xxs);
+    }
+  }
+}

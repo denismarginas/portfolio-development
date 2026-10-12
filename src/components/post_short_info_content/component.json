@@ -13,5 +13,5 @@
     "scss": ["assets/scss/**"],
     "css": ["assets/css/**"]
   },
-  "dependencies": ["post_short_info_visual", "utility_string_urlto", "image", "svg", "theme"]
+  "dependencies": ["post_short_info_visual", "utility_string_urlto", "utility_date", "image", "svg", "theme"]
 }

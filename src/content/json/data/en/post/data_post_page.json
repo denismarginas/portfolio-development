@@ -12,18 +12,11 @@
     },
     "content": [
       {
-        "component": "about",
+        "component": "utility_duplicate_content",
         "data": {
-          "variant": "compress"
+          "post_id": "home",
+          "post_type": "page"
         }
-      },
-      {
-        "component": "categories",
-        "data": []
-      },
-      {
-        "component": "work-experience",
-        "data": []
       }
     ]
   },
@@ -50,7 +43,7 @@
     "data": {
       "seo": {
         "title": "Home",
-        "description": "My name is Denis Ionut Marginas, I'm 25-year-old, and I've been working as a full-stack web developer and photo-video editor since 2019. Before entering the web development field, I worked as a freelance video editor, specializing in editing videos for video games.",
+        "description": "My name is Denis Ionuț Mărginaș and I have experience as a full-stack web developer. Since 2019 I have worked on presentation sites, online stores, web applications, SEO optimization and web design, after starting out as a freelance video editor for video games.",
         "keywords": "denis marginas home",
         "slug": "home",
         "index": true
@@ -58,18 +51,191 @@
     },
     "content": [
       {
-        "component": "about",
+        "component": "section",
+        "children": [
+          {
+            "component": "columns",
+            "data": {
+              "layout": {
+                "base": "100",
+                "lg": "40-60"
+              },
+              "gap": {
+                "base": "lg",
+                "lg": "xl"
+              },
+              "align": "center"
+            },
+            "children": [
+              {
+                "component": "portrait_experience",
+                "data": {
+                  "img": "personal-images/dm-personal-image-2.webp",
+                  "alt": "Denis Marginas",
+                  "graphic": "dots-graphic",
+                  "max_width": "420px"
+                }
+              },
+              {
+                "component": "column",
+                "children": [
+                  {
+                    "component": "text_block",
+                    "data": {
+                      "vars": {
+                        "age": {
+                          "component": "utility_age",
+                          "data": {
+                            "date": "09-09-1997"
+                          }
+                        }
+                      },
+                      "elements": [
+                        {
+                          "title": {
+                            "text": "About Me",
+                            "tag": "h2",
+                            "class": "title-divider title-primary font-secondary"
+                          }
+                        },
+                        {
+                          "paragraphs": [
+                            "My name is Denis Ionuț Mărginaș, I'm {{age}} years old, and I have experience as a full-stack web developer. I am passionate about technology and creativity, always seeking to expand my skills and expertise in web development, staying curious about the latest innovations."
+                          ]
+                        },
+                        {
+                          "buttons": [
+                            {
+                              "text": "More Details",
+                              "link": {
+                                "post_id": "about"
+                              },
+                              "svg": "about-me"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "section",
         "data": {
-          "variant": "compress"
-        }
+          "class": "bg-radial-primary"
+        },
+        "children": [
+          {
+            "component": "taxonomy_listing",
+            "data": {
+              "post_type": "project",
+              "taxonomy": "category",
+              "title": {
+                "text": "Projects",
+                "tag": "h2",
+                "class": "title-divider title-primary font-secondary"
+              },
+              "template": {
+                "component": "card_taxonomy",
+                "data": {
+                  "overlay": "design-elements/overlay-particles.webp"
+                }
+              }
+            }
+          }
+        ]
       },
       {
-        "component": "categories",
-        "data": []
-      },
-      {
-        "component": "work-experience",
-        "data": []
+        "component": "section",
+        "children": [
+          {
+            "component": "columns",
+            "data": {
+              "layout": {
+                "base": "100",
+                "lg": "50-50",
+                "md": "40-60"
+              },
+              "gap": {
+                "base": "lg",
+                "lg": "xl"
+              },
+              "align": "center"
+            },
+            "children": [
+              {
+                "component": "column",
+                "children": [
+                  {
+                    "component": "text_block",
+                    "data": {
+                      "elements": [
+                        {
+                          "title": {
+                            "text": "Work Experience",
+                            "tag": "h2",
+                            "class": "title-divider title-primary font-secondary"
+                          }
+                        },
+                        {
+                          "paragraphs": [
+                            "Since 2019, I have actively immersed myself in numerous web projects, collaborating with diverse companies to create a wide range of online solutions. Throughout this period, my expertise has encompassed the development of presentation sites, online stores, web applications, SEO optimization, as well as web design."
+                          ]
+                        },
+                        {
+                          "buttons": [
+                            {
+                              "text": "More Details",
+                              "link": {
+                                "post_id": "experience"
+                              },
+                              "svg": "employ"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "component": "projects_previews",
+                "data": {
+                  "screen": {
+                    "img": "design-elements/monitor-with-project.webp",
+                    "alt": "Monitor showing a website project"
+                  },
+                  "cards": [
+                    {
+                      "img": "projects/agromir-media/highlights/media-3d-tire-animation/3d-editing-blender-agromir-1.webp",
+                      "alt": "Agromir 3D tire animation in Blender"
+                    },
+                    {
+                      "img": "projects/agromir-media/highlights/media-video-editing/video-editing-agromir-1.webp",
+                      "alt": "Agromir video editing"
+                    },
+                    {
+                      "img": "projects/agromir-online-shop/highlights/seo-optimization/seo-optimization-1.webp",
+                      "alt": "Agromir SEO optimization"
+                    },
+                    {
+                      "img": "projects/reifendirekt/web/website/desktop/web_desktop_0.webp",
+                      "alt": "Reifendirekt website overview"
+                    },
+                    {
+                      "img": "projects/revelnail-avadores-media/highlights/media-photo-editing-banner/photo-editing-revelnail-1.webp",
+                      "alt": "Revelnail photo editing banner"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -78,7 +244,7 @@
     "data": {
       "seo": {
         "title": "About",
-        "description": "My name is Denis Ionut Marginas, I'm 25-year-old, and I've been working as a full-stack web developer and photo-video editor since 2019. Before entering the web development field, I worked as a freelance video editor, specializing in editing videos for video games.",
+        "description": "My name is Denis Ionuț Mărginaș and I have experience as a full-stack web developer. Before web development I focused on video editing for video games; in my free time I enjoy building computer hardware, gaming, cycling and tennis.",
         "keywords": "denis marginas about",
         "slug": "about",
         "index": false
@@ -86,20 +252,134 @@
     },
     "content": [
       {
-        "component": "about",
-        "data": {
-          "variant": "standard"
-        }
+        "component": "section",
+        "children": [
+          {
+            "component": "columns",
+            "data": {
+              "layout": {
+                "base": "100",
+                "lg": "30-70"
+              },
+              "gap": {
+                "base": "lg",
+                "lg": "xl"
+              },
+              "align": "center"
+            },
+            "children": [
+              {
+                "component": "portrait_about",
+                "data": {
+                  "img": "personal-images/dm-personal-image-1.webp",
+                  "alt": "Denis Marginas",
+                  "graphic": "hexagon-3d",
+                  "max_width": "420px"
+                }
+              },
+              {
+                "component": "column",
+                "children": [
+                  {
+                    "component": "text_block",
+                    "data": {
+                      "vars": {
+                        "age": {
+                          "component": "utility_age",
+                          "data": {
+                            "date": "09-09-1997"
+                          }
+                        }
+                      },
+                      "elements": [
+                        {
+                          "title": {
+                            "text": "About Me",
+                            "tag": "h2",
+                            "class": "title-divider title-primary font-secondary"
+                          }
+                        },
+                        {
+                          "paragraphs": [
+                            "My name is Denis Ionuț Mărginaș, I'm {{age}} years old, and I have experience as a full-stack web developer. I am passionate about technology and creativity, always seeking to expand my skills and expertise in web development, staying curious about the latest innovations.",
+                            "Before entering the web development industry, I focused on video editing, specifically for video games. My interest in cinematic executions and angles led to freelance opportunities where I honed my skills. With a strong background in Mathematics and Informatics, I eventually shifted my focus to web development, which has since become my main area of expertise. In my free time, I enjoy building computer hardware, playing video games, cycling, and playing tennis.",
+                            "Looking ahead, I aim to continue growing as a developer, stay updated with the latest technologies, and make a significant impact in the tech industry. When I’m not coding, I enjoy gaming and exploring new technologies that inspire my work."
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "component": "card_mini_icon_and_text",
+                    "data": {
+                      "variant": "row",
+                      "img": "design-elements/overlay-texture-textile.webp",
+                      "min_width": "240px",
+                      "items": [
+                        {
+                          "svg": "projects",
+                          "text": "Social Activity",
+                          "link": {
+                            "post_id": "social-activity"
+                          }
+                        },
+                        {
+                          "svg": "workstation",
+                          "text": "Personal Workstation",
+                          "link": {
+                            "post_id": "personal-workstation-build-1"
+                          }
+                        },
+                        {
+                          "svg": "employ",
+                          "text": "Employee Experience",
+                          "link": {
+                            "post_id": "employee-experience"
+                          }
+                        },
+                        {
+                          "svg": "resume",
+                          "text": "Education Experience",
+                          "link": {
+                            "post_id": "education-experience"
+                          }
+                        },
+                        {
+                          "svg": "about-me",
+                          "text": "Projects Experience",
+                          "link": {
+                            "post_id": "projects"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       },
       {
-        "component": "hobby-list",
-        "data": []
-      },
-      {
-        "component": "carousel-post-items",
+        "component": "section",
         "data": {
-          "variant": "compress"
-        }
+          "class": "bg-radial-primary"
+        },
+        "children": [
+          {
+            "component": "hobby_listing",
+            "data": {
+              "title": {
+                "text": "List of hobbies",
+                "tag": "h2",
+                "class": "title-divider title-primary font-secondary"
+              },
+              "type": "hobby",
+              "columns": 4,
+              "variant": "stack"
+            }
+          }
+        ]
       }
     ]
   },
@@ -140,7 +420,12 @@
               "img_alt": "Denis Marginas",
               "image_position": "left",
               "image_style": "circle",
-              "title": "Contact Data",
+              "noise": true,
+              "title": {
+                "text": "Contact Data",
+                "tag": "h2",
+                "class": "title-divider title-primary font-secondary"
+              },
               "text": [
                 "You can reach me by phone on WhatsApp or through my personal email address.",
                 "Contact details are provided in the section below."
@@ -193,7 +478,11 @@
                     "data": {
                       "elements": [
                         {
-                          "title": "Resumes"
+                          "title": {
+                            "text": "Resumes",
+                            "tag": "h2",
+                            "class": "title-divider title-secondary font-secondary"
+                          }
                         }
                       ]
                     }
@@ -266,10 +555,7 @@
                 "component": "social_links",
                 "data": {
                   "title": "Socials",
-                  "lists": [
-                    "visual",
-                    "text"
-                  ],
+                  "lists": ["visual", "text"],
                   "variant": "card"
                 }
               }
@@ -428,14 +714,20 @@
       },
       {
         "component": "section",
+        "data": {
+          "class": "bg-radial-primary"
+        },
         "children": [
           {
             "component": "taxonomy_listing",
             "data": {
               "post_type": "project",
               "taxonomy": "category",
-              "title_render": true,
-              "title": "Projects",
+              "title": {
+                "text": "Projects",
+                "tag": "h2",
+                "class": "title-divider title-primary font-secondary"
+              },
               "template": {
                 "component": "card_taxonomy",
                 "data": {
@@ -457,9 +749,7 @@
               },
               "filter": {
                 "taxonomy": {
-                  "tag": [
-                    "portfolio showcase"
-                  ]
+                  "tag": ["portfolio showcase"]
                 }
               }
             }
@@ -504,6 +794,7 @@
               },
               "direction": "right",
               "speed": "slow",
+              "pause_on_hover": false,
               "gap": "--dm-spacing-sm",
               "gap_phone": "--dm-spacing-xs"
             }
@@ -535,7 +826,10 @@
               ],
               "template": {
                 "component": "card_post_project_visual_devices_website",
-                "params": {},
+                "params": {
+                  "desktop_layout_style": false,
+                  "phone_layout_style": false
+                },
                 "width": 320,
                 "height": "auto",
                 "width_phone": 200,
@@ -543,6 +837,7 @@
               },
               "direction": "left",
               "speed": "slow",
+              "pause_on_hover": false,
               "gap": "--dm-spacing-lg",
               "gap_phone": "--dm-spacing-sm"
             }
@@ -582,6 +877,7 @@
               },
               "direction": "right",
               "speed": "slow",
+              "pause_on_hover": false,
               "gap": "--dm-spacing-sm",
               "gap_phone": "--dm-spacing-xs"
             }

@@ -5,7 +5,7 @@
   "post_types": ["project"],
   "assets": {
     "php": ["assets/php/card_post_project.php"],
-    "html": ["assets/html/template.html"],
+    "html": ["assets/html/template.html", "assets/html/parts/visual.html", "assets/html/parts/body.html"],
     "scss": ["assets/scss/card_post_project.scss"],
     "css": ["assets/css/**"]
   },
@@ -15,6 +15,7 @@
     "card_post_project_visual_media",
     "card_post_project_visual_default",
     "utility_appearance_colors",
+    "columns",
     "theme"
   ]
 }

@@ -79,7 +79,7 @@
     "_id": "social-link-google-site",
     "settings": {
       "item_type": "social_link",
-      "render": true
+      "render": false
     },
     "data": {
       "seo": {

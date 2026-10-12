@@ -1,44 +1,166 @@
 @import "theme";
 
-// Layout only: visual (post_short_info_visual) 30% + text (block_paragraph + block_tags) 70%,
-// stacked (100%) on small screens. The visual, text card and pills keep their own component styles.
+// Single card (card-outline): visual + text with tags, then the optional full-width text_extra.
+//   mode "wrap" (default): plain image floated left / right, the text flows next to it and under it.
+//   mode "columns": visual and text side by side through the "columns" component
+//     (.columns.project-block-visual-and-paragraph-columns; layout / gap / align from data.columns);
+//     the image has a fixed height (cropped with object-fit: cover) with overlay_noise on top.
 
 .project-block-visual-and-paragraph {
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
-  align-items: stretch;
-  gap: var(--dm-spacing-sm);
+  --pvp-image-height: 200px;
+  --pvp-image-height-stacked: 150px;
   width: 100%;
+  gap: var(--dm-spacing-sm);
+  padding: var(--dm-spacing-sm);
+  box-sizing: border-box;
 
-  // visual fills the row height instead of its fixed heights
-  > .post-short-info-visual.project-block-visual-and-paragraph-visual {
-    height: 100%;
-    min-height: 200px;
+  // Behind the visual image (both modes): the post color shows through transparent images and while loading.
+  img.project-block-visual-and-paragraph-img {
+    background-color: var(--post-color-primary);
   }
 
-  &.project-block-visual-and-paragraph-visual-right {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 3fr);
+  // ---- mode "wrap" -------------------------------------------------------------------------
+  &.project-block-visual-and-paragraph-mode-wrap {
+    // contains the floated visual
+    .project-block-visual-and-paragraph-content {
+      display: flow-root;
 
-    > .project-block-visual-and-paragraph-visual {
-      order: 2;
-    }
-  }
-
-  &.project-block-visual-and-paragraph-no-visual {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  @media (max-width: $dm-screen-md) {
-    &,
-    &.project-block-visual-and-paragraph-visual-right {
-      grid-template-columns: minmax(0, 1fr);
-      gap: var(--dm-spacing-xs);
-
-      > .post-short-info-visual.project-block-visual-and-paragraph-visual {
-        order: 0;
-        height: 180px;
-        min-height: 0;
+      > .block-tags {
+        margin-top: var(--dm-spacing-sm);
       }
     }
+
+    .project-block-visual-and-paragraph-image,
+    .post-short-info-visual.project-block-visual-and-paragraph-visual {
+      float: left;
+      width: 200px;
+      max-width: 100%;
+      margin: 0 var(--dm-spacing-sm) var(--dm-spacing-xs) 0;
+      border-radius: var(--dm-radius-sm);
+      overflow: hidden;
+    }
+
+    .project-block-visual-and-paragraph-image
+      > img.project-block-visual-and-paragraph-img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    // logo visual (no data.image): no own ratio, so a fixed height
+    .post-short-info-visual.project-block-visual-and-paragraph-visual {
+      height: 150px;
+    }
+
+    &.project-block-visual-and-paragraph-visual-right {
+      .project-block-visual-and-paragraph-image,
+      .post-short-info-visual.project-block-visual-and-paragraph-visual {
+        float: right;
+        margin: 0 0 var(--dm-spacing-xs) var(--dm-spacing-sm);
+      }
+    }
+
+    // sm screens and smaller: smaller image
+    @media (max-width: $dm-screen-sm) {
+      .project-block-visual-and-paragraph-image,
+      .post-short-info-visual.project-block-visual-and-paragraph-visual {
+        width: 150px;
+      }
+    }
+
+    // xs screens (320px and lower): no room for text next to the image - image on its own line
+    @media (max-width: $dm-screen-xs) {
+      .project-block-visual-and-paragraph-image,
+      .post-short-info-visual.project-block-visual-and-paragraph-visual,
+      &.project-block-visual-and-paragraph-visual-right
+        .project-block-visual-and-paragraph-image,
+      &.project-block-visual-and-paragraph-visual-right
+        .post-short-info-visual.project-block-visual-and-paragraph-visual {
+        float: none;
+        margin: 0 0 var(--dm-spacing-xs) 0;
+      }
+    }
+  }
+
+  // ---- mode "columns" ----------------------------------------------------------------------
+  // Visual from data.image: fixed height, the image covers it, overlay_noise on top.
+  &.project-block-visual-and-paragraph-mode-columns
+    .project-block-visual-and-paragraph-image {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: var(--pvp-image-height);
+    border-radius: var(--dm-radius-sm);
+
+    > img.project-block-visual-and-paragraph-img {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    > overlay.overlay-noise {
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+
+  // Visual without data.image: the post logo (post_short_info_visual), same fixed height.
+  &.project-block-visual-and-paragraph-mode-columns
+    .post-short-info-visual.project-block-visual-and-paragraph-visual {
+    height: var(--pvp-image-height);
+    border-radius: var(--dm-radius-sm);
+  }
+
+  &.project-block-visual-and-paragraph-mode-columns
+    .project-block-visual-and-paragraph-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dm-spacing-sm);
+  }
+
+  .project-block-visual-and-paragraph-text {
+    margin: 0;
+    font-family: var(--dm-font-primary);
+    font-size: var(--dm-font-size-md);
+    font-weight: var(--dm-font-weight-regular);
+    line-height: 1.7;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+
+    [mode="dark"] & {
+      color: rgb(from var(--dm-color-white) r g b / 0.85);
+    }
+
+    [mode="light"] & {
+      color: var(--dm-color-gray-dark);
+    }
+  }
+
+  // Stacked (default layout: one column below sm): small image at its own ratio, logo visual lower.
+  @media (max-width: $dm-screen-sm - 1px) {
+    &.project-block-visual-and-paragraph-mode-columns
+      .project-block-visual-and-paragraph-image {
+      width: min(100%, 200px);
+      height: auto;
+
+      > img.project-block-visual-and-paragraph-img {
+        position: static;
+        height: auto;
+      }
+    }
+
+    &.project-block-visual-and-paragraph-mode-columns
+      .post-short-info-visual.project-block-visual-and-paragraph-visual {
+      height: var(--pvp-image-height-stacked);
+    }
+  }
+
+  @media (max-width: $dm-screen-sm) {
+    padding: var(--dm-spacing-xs);
+    gap: var(--dm-spacing-xs);
   }
 }

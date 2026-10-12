@@ -1,0 +1,16 @@
+// Font family utilities: switch any element (title, text, button…) to one of the theme fonts.
+//   font-primary    var(--dm-font-primary)    (Rink, the default everywhere)
+//   font-secondary  var(--dm-font-secondary)  (Rink-Thin)
+//   font-tertiary   var(--dm-font-tertiary)   (Averox)
+// "!important" so they also win over component rules that set a font-family on the same element.
+$dm-font-families: (
+  'primary': var(--dm-font-primary),
+  'secondary': var(--dm-font-secondary),
+  'tertiary': var(--dm-font-tertiary),
+);
+
+@each $name, $value in $dm-font-families {
+  .font-#{$name} {
+    font-family: $value !important;
+  }
+}

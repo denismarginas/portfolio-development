@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/parts/project_media_finder.php';
+require_once __DIR__ . '/../../../utility_post_thumbnail/assets/php/utility_post_thumbnail.php';
 
 /**
  * Photo + logo card for "Visual Media Projects".
@@ -11,7 +12,7 @@ require_once __DIR__ . '/parts/project_media_finder.php';
  *                              (default "design-elements/overlay-texture-paper.webp")
  *   lazy               bool    lazy-load images (default true)
  *
- * Photo: see project_media_finder::photo(). Logo: data.media.logo.img
+ * Photo: data.media.thumbnail.media -> .default (utility_post_thumbnail), else project_media_finder::photo(). Logo: data.media.logo.img
  * (image) or data.media.logo.svg (svg icon). Nothing found -> ''.
  */
 class card_post_project_visual_media
@@ -28,7 +29,9 @@ class card_post_project_visual_media
         $postData = is_array($post['data'] ?? null) ? $post['data'] : [];
         $lazy = !array_key_exists('lazy', $data) || (bool) $data['lazy'];
 
-        $photo = self::image(project_media_finder::photo($postData), 'media-photo', $lazy);
+        $photoPath = utility_post_thumbnail::get($postData, 'media');
+        if ($photoPath === '') $photoPath = project_media_finder::photo($postData);
+        $photo = self::image($photoPath, 'media-photo', $lazy);
         $logo = self::logo($postData['media']['logo'] ?? [], $lazy);
         if ($photo === '' && $logo === '') {
             return '';
@@ -39,7 +42,7 @@ class card_post_project_visual_media
         $logoColor = self::color($colors['canvas_primary'] ?? '');
         $bgStyle = self::bg_style($color);
         $texture = (string) ($data['texture'] ?? self::DEFAULT_TEXTURE);
-        $link = PlatformPathService::post_link((string) ($post['_id'] ?? '')) . '#visualmedia';
+        $link = PlatformPathService::post_link((string) ($post['_id'] ?? ''));
 
         return PlatformTemplateRenderer::render(__DIR__ . '/../html/template.html', [
             'link' => htmlspecialchars($link, ENT_QUOTES, 'UTF-8'),

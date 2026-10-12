@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../../../../utility_project_web_screens/assets/php/utility_project_web_screens.php';
+
 /**
  * Finds the gallery folders and their files for project_media_gallery.
  * All paths are project-relative ("src/content/img/projects/...", "src/content/vid/projects/...").
@@ -50,17 +52,20 @@ class project_media_gallery_sources
         return $sources;
     }
 
-    /** @return string[] project-relative image paths, natural order */
+    /** @return string[] project-relative image paths, "_0" image first then natural order */
     public static function images(string $dir): array
     {
         return self::files($dir, self::EXTENSIONS);
     }
 
-    /** @return string[] project-relative paths of the files in $dir with one of $extensions, natural order */
+    /**
+     * @return string[] project-relative paths of the files in $dir with one of $extensions;
+     * the "_0" file first (web_desktop_0, web_phone_0, web_0 ...), then natural order (utility_project_web_screens::sort)
+     */
     private static function files(string $dir, array $extensions, array $exclude = [], string $rel = ''): array
     {
         $out = [];
-        foreach (self::entries($dir, 'is_file') as $file) {
+        foreach (utility_project_web_screens::sort(self::entries($dir, 'is_file')) as $file) {
             if (!in_array(strtolower(pathinfo($file, PATHINFO_EXTENSION)), $extensions, true)) continue;
             if ($exclude && (in_array(strtolower($file), $exclude, true) || in_array(strtolower($rel . $file), $exclude, true))) continue;
             $out[] = $dir . $file;

@@ -23,7 +23,7 @@ class video_listing
             $d = $video['data'] ?? [];
             $media = $d['media']['video'] ?? [];
             $videoSrc = $media['video'] ?? '';
-            $thumb = $media['video_thumbnail'] ?? '';
+            $thumb = self::thumbnail((string) ($media['video_thumbnail'] ?? ''));
             $appearance = $video['settings']['appearance'] ?? $d['appearance'] ?? [];
             $color = $appearance['colors']['primary'] ?? '#fff';
 
@@ -66,5 +66,21 @@ class video_listing
         }
 
         return PlatformTemplateRenderer::render(['items' => $itemsHtml]);
+    }
+
+    /**
+     * Item thumbnail (relative to src/content/img/, a "src/..." path or a url) -> url usable as
+     * background-image on any page (preview and dist); '' when the file is missing.
+     */
+    private static function thumbnail(string $path): string
+    {
+        $path = trim(str_replace('\\', '/', $path));
+        if ($path === '' || PlatformUrlService::is_external_url($path)) return $path;
+
+        $path = str_starts_with(ltrim($path, '/'), 'src/') ? ltrim($path, '/') : 'src/content/img/' . ltrim($path, '/');
+        $root = defined('ENGINE_PROJECT_ROOT') ? rtrim(ENGINE_PROJECT_ROOT, '/\\') . '/' : '';
+        if (!is_file($root . $path)) return '';
+
+        return rtrim(PlatformPathService::asset_relative_prefix(), '/') . '/' . $path;
     }
 }

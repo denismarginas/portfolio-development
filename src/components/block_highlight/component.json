@@ -1,0 +1,20 @@
+{
+  "name": "block_highlight",
+  "title": "Block Highlight",
+  "description": "One highlight of a post in a single card, in 4 parts: title (with #anchor id), then text + media (image, image slider and/or video from the post media folder, e.g. highlights/<name>/) side by side through the columns component (default 50-50 from md up, one column below; changeable with data.columns), then optional text_full (rest of a long text, full width), then the tags full width.",
+  "post_types": ["project", "page"],
+  "assets": {
+    "php": ["assets/php/block_highlight.php"],
+    "html": [
+      "assets/html/template.html",
+      "assets/html/parts/media.html",
+      "assets/html/parts/content.html",
+      "assets/html/parts/content_full.html",
+      "assets/html/parts/tags.html",
+      "assets/html/parts/tag.html"
+    ],
+    "scss": ["assets/scss/**"],
+    "css": ["assets/css/**"]
+  },
+  "dependencies": ["columns", "block_image", "block_slider_images", "project_block_video", "section", "theme"]
+}

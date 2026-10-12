@@ -24,6 +24,11 @@ if not defined PHP_EXE (
     if defined PHP_LOCAL set "PHP_EXE=%PHP_LOCAL%"
 )
 
+rem GD (image extension) is needed by the "Generate Thumbnails" tool.
+if defined PHP_LOCAL if exist "%REQUIRE_DIR%\enable-php-gd.bat" (
+    call "%REQUIRE_DIR%\enable-php-gd.bat" auto
+)
+
 if not defined PHP_EXE (
     for /f "delims=" %%P in ('where php 2^>nul') do if not defined PHP_EXE set "PHP_EXE=%%P"
 )

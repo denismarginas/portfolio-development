@@ -44,6 +44,7 @@
     height: 100%;
     object-fit: cover;
     object-position: top center;
+    background-color: var(--primary-color-post);
     opacity: 0;
     transition: var(--dm-transition);
     pointer-events: none;

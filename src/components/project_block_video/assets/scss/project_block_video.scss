@@ -8,13 +8,16 @@
   width: 100%;
 
   &.project-block-video-logo-thumbnail > .video-container > .thumbnail {
-    background-color: var(--post-color-canvas-primary, var(--dm-color-gray-dark));
+    background-color: var(
+      --post-color-canvas-primary,
+      var(--dm-color-gray-dark)
+    );
 
     > .project-block-video-logo {
       position: relative;
       z-index: 1;
       display: block;
-      width: 60%;
+      width: auto;
       max-width: 80%;
       height: auto;
       max-height: 80%;

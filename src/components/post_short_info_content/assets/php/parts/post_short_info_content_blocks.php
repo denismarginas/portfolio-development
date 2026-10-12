@@ -172,11 +172,32 @@ class post_short_info_content_blocks extends post_short_info_content_helpers
         $end = trim((string) ($d['date']['end'] ?? ''));
         if ($start === '' && $end === '') return '';
 
-        $format = fn(string $date) => PlatformTextService::format_date($date, 'm.Y');
-        $value = $start !== '' ? $format($start) : '';
-        $value .= ' - ' . ($end !== '' ? $format($end) : self::present_label());
+        // Same format as the job cards (Employee Experience): "Oct 2019 - Nov 2022"
+        $startLabel = $start !== '' ? self::date_label($start) : '';
+        $endLabel = self::is_date($end) ? self::date_label($end) : self::present_label();
 
-        return self::field('post-short-info-date', self::label('date'), self::esc(trim($value, ' -')));
+        $value = ($startLabel !== '' && $startLabel === $endLabel)
+            ? $startLabel
+            : implode(' - ', array_values(array_filter([$startLabel, $endLabel], fn ($v) => $v !== '')));
+
+        return self::field('post-short-info-date', self::label('date'), self::esc($value));
+    }
+
+    /** "2019-10-01" -> "Oct 2019" through the utility_date component. */
+    private static function date_label(string $date): string
+    {
+        $out = PlatformComponentRenderer::value('utility_date', [
+            'input' => $date,
+            'format' => 'yyyy-mm-dd',
+            'outputs' => ['label' => 'M Y'],
+        ]);
+        return is_array($out) ? trim((string) ($out['label'] ?? '')) : '';
+    }
+
+    /** A real date ("2022-11-01"), not empty and not a word like "present" / "in progress". */
+    private static function is_date(string $value): bool
+    {
+        return (bool) preg_match('/^\d{4}-\d{1,2}(-\d{1,2})?$/', $value);
     }
 
     protected static function block_tags(array $d): string

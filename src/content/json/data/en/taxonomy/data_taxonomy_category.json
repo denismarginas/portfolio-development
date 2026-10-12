@@ -43,6 +43,7 @@
               "id": "projects",
               "preview_toggle": true,
               "post_type": "project",
+              "exclude_by": ["settings.exclude_from_categories"],
               "sort": [
                 {
                   "by": "project.types",
@@ -59,6 +60,7 @@
               "id": "projects",
               "class": "gap-xs gap-sm-sm",
               "post_type": "project",
+              "exclude_by": ["settings.exclude_from_categories"],
               "sort": [
                 {
                   "by": "project.types",
@@ -128,7 +130,8 @@
               "filter_by": { "taxonomy.category": "Web Development Projects" },
               "filters_exclude": ["post-category", "post-media-platform"],
               "exclude_by": [
-                { "path": "taxonomy.category", "value": "Miscellaneous Projects" }
+                { "path": "taxonomy.category", "value": "Miscellaneous Projects" },
+                "settings.exclude_from_categories"
               ],
               "sort": { "by": "date.publish", "order": "desc" }
             }
@@ -143,7 +146,8 @@
                 "taxonomy.category": "Web Development Projects"
               },
               "exclude_by": [
-                { "path": "taxonomy.category", "value": "Miscellaneous Projects" }
+                { "path": "taxonomy.category", "value": "Miscellaneous Projects" },
+                "settings.exclude_from_categories"
               ],
               "sort": { "by": "date.publish", "order": "desc" },
               "template": {
@@ -155,10 +159,7 @@
                     "phone_device": "model-03",
                     "devices_conditions_render": false,
                     "desktop_layout_style": false,
-                    "phone_layout_style": false,
-                    "screen_path": "web/overview/",
-                    "screen_desktop": "web_desktop_overview.webp",
-                    "screen_phone": "web_phone_overview.webp"
+                    "phone_layout_style": false
                   }
                 }
               }
@@ -217,7 +218,8 @@
               "filter_by": { "taxonomy.category": "Visual Media Projects" },
               "filters_exclude": ["post-category", "post-web-platform", "post-web-technology"],
               "exclude_by": [
-                { "path": "taxonomy.category", "value": "Miscellaneous Projects" }
+                { "path": "taxonomy.category", "value": "Miscellaneous Projects" },
+                "settings.exclude_from_categories"
               ],
               "sort": { "by": "date.publish", "order": "desc" }
             }
@@ -232,7 +234,8 @@
                 "taxonomy.category": "Visual Media Projects"
               },
               "exclude_by": [
-                { "path": "taxonomy.category", "value": "Miscellaneous Projects" }
+                { "path": "taxonomy.category", "value": "Miscellaneous Projects" },
+                "settings.exclude_from_categories"
               ],
               "sort": { "by": "date.publish", "order": "desc" },
               "template": {
@@ -293,6 +296,7 @@
             "data": {
               "id": "projects",
               "post_type": "project",
+              "exclude_by": ["settings.exclude_from_categories"],
               "filter_by": { "taxonomy.category": "Miscellaneous Projects" },
               "filters_exclude": ["post-category"],
               "sort": { "by": "date.publish", "order": "desc" }
@@ -304,6 +308,7 @@
               "id": "projects",
               "class": "gap-xs gap-sm-sm",
               "post_type": "project",
+              "exclude_by": ["settings.exclude_from_categories"],
               "filter_by": {
                 "taxonomy.category": "Miscellaneous Projects"
               },
@@ -316,10 +321,7 @@
                     "phone_device": "model-03",
                     "devices_conditions_render": false,
                     "desktop_layout_style": false,
-                    "phone_layout_style": false,
-                    "screen_path": "web/overview/",
-                    "screen_desktop": "web_desktop_overview.webp",
-                    "screen_phone": "web_phone_overview.webp"
+                    "phone_layout_style": false
                   }
                 }
               }

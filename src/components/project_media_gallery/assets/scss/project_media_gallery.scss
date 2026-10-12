@@ -7,7 +7,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--dm-spacing-sm);
-  padding: var(--dm-spacing-sm);
   box-sizing: border-box;
   border-radius: var(--dm-radius-md);
 
@@ -42,7 +41,9 @@
   }
 
   // ---------- devices: desktop / phone mockups on the post color
-  &.project-media-gallery-devices > .project-media-gallery-list > .project-media-gallery-item {
+  &.project-media-gallery-devices
+    > .project-media-gallery-list
+    > .project-media-gallery-item {
     height: 200px;
     padding: var(--dm-spacing-xs);
     background-color: var(--post-color-primary, var(--dm-color-primary));
@@ -78,7 +79,9 @@
   }
 
   // ---------- images: plain images (e.g. web/media-website)
-  &.project-media-gallery-images > .project-media-gallery-list > .project-media-gallery-item {
+  &.project-media-gallery-images
+    > .project-media-gallery-list
+    > .project-media-gallery-item {
     min-height: 45px;
     padding: var(--dm-spacing-xs);
     background-color: color-mix(in srgb, var(--dm-color-gray) 20%, transparent);
@@ -98,7 +101,9 @@
   }
 
   // ---------- videos: video players on the post color (no popup)
-  &.project-media-gallery-videos > .project-media-gallery-list > .project-media-gallery-item {
+  &.project-media-gallery-videos
+    > .project-media-gallery-list
+    > .project-media-gallery-item {
     cursor: default;
     background-color: var(--post-color-primary, var(--dm-color-primary));
 
@@ -108,14 +113,15 @@
   }
 
   @media (max-width: $dm-screen-md) {
-    padding: var(--dm-spacing-xs);
     gap: var(--dm-spacing-xs);
 
     > .project-media-gallery-list {
       gap: var(--dm-spacing-xs);
     }
 
-    &.project-media-gallery-devices > .project-media-gallery-list > .project-media-gallery-item {
+    &.project-media-gallery-devices
+      > .project-media-gallery-list
+      > .project-media-gallery-item {
       height: 120px;
     }
   }

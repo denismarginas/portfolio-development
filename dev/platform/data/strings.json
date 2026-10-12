@@ -17,7 +17,10 @@
     "compileScss" : "Render",
     "editPosts"   : "Edit Posts",
     "view"        : "View",
-    "translate"   : "Generate Translations"
+    "translate"   : "Generate Translations",
+    "thumbnails"  : "Generate Thumbnails",
+    "generate"    : "Generate",
+    "renderHtml"  : "HTML Bulk Render"
   },
   "structureTypes"  : {
     "label"        : "Structure Types",

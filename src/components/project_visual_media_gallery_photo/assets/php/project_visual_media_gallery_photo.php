@@ -11,6 +11,8 @@
  *                      (default: "images" from media/, one list per folder, id "photo" - keeps the old #photo anchor)
  *   grid_max   int     default max columns (default 4)
  *
+ * Every gallery here gets "column_balancing": true (balanced rows) unless it sets it itself.
+ *
  * Title + galleries render only when there are images.
  */
 class project_visual_media_gallery_photo
@@ -36,7 +38,7 @@ class project_visual_media_gallery_photo
 
         return project_visual_web_gallery::part(
             (string) ($data['title'] ?? self::DEFAULT_TITLE),
-            project_visual_web_gallery::galleries($data, 'galleries', self::DEFAULT_GALLERIES),
+            project_visual_web_gallery::with_default(project_visual_web_gallery::galleries($data, 'galleries', self::DEFAULT_GALLERIES), 'column_balancing', true),
             $post,
             array_intersect_key($data, array_flip(self::PASSTHROUGH)),
             (int) ($data['grid_max'] ?? 4)

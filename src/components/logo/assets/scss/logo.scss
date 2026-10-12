@@ -24,7 +24,8 @@
     border-radius: var(--logo-size);
     border: 3px solid var(--dm-color-white);
     outline: 1px solid var(--dm-color-gray-light);
-    box-shadow: 1px 2px 5px color-mix(in srgb, var(--dm-color-black) 40%, transparent);
+    box-shadow: 1px 2px 5px
+      color-mix(in srgb, var(--dm-color-black) 40%, transparent);
     transition: var(--dm-transition);
     background: var(--dm-color-primary);
     background-image: linear-gradient(
@@ -54,7 +55,7 @@
       width: var(--logo-size);
       height: var(--logo-size);
       top: calc(var(--logo-size) * 0.08);
-      left: calc(var(--logo-size) * -0.06);
+      left: calc(var(--logo-size) * -0.08);
       filter: drop-shadow(0px 0px 2px var(--dm-color-black));
       transition: var(--dm-transition);
     }
@@ -73,14 +74,14 @@
       line-height: 1.2;
 
       [mode="dark"] & {
-        color: var(--dm-color-white);
+        color: var(--dm-color-primary-100);
 
         &.secondary {
           color: var(--dm-color-primary-300);
         }
       }
       [mode="light"] & {
-        color: var(--dm-color-black);
+        color: var(--dm-color-primary-800);
 
         &.secondary {
           color: var(--dm-color-primary-700);
@@ -99,6 +100,9 @@
       [mode="dark"] & {
         color: var(--dm-color-primary-100);
 
+        &.primary {
+          color: var(--dm-color-primary-200);
+        }
         &.secondary {
           color: var(--dm-color-primary-400);
         }
@@ -106,6 +110,9 @@
       [mode="light"] & {
         color: var(--dm-color-primary-800);
 
+        &.primary {
+          color: var(--dm-color-primary-700);
+        }
         &.secondary {
           color: var(--dm-color-primary-600);
         }

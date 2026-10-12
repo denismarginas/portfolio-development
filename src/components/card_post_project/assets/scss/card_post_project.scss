@@ -80,3 +80,40 @@
     }
   }
 }
+
+// data.columns: visual and text side by side (columns component inside the card)
+.card-post-project.card-post-project-columns {
+  > .columns.card-post-project-body-columns {
+    width: 100%;
+  }
+
+  .card-post-project-column-visual > .card-visual {
+    width: 100%;
+    display: flex;
+    border-radius: var(--dm-radius-md);
+    overflow: hidden;
+  }
+
+  .card-post-project-column-body > .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    > .card-meta {
+      display: flex;
+      flex-direction: column;
+      gap: var(--dm-spacing-xxs);
+      text-align: left;
+
+      > .card-title {
+        white-space: normal;
+      }
+
+      > .card-description {
+        white-space: normal;
+        overflow: visible;
+        line-height: 1.5;
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "card_mini_icon_and_text",
+  "title": "Card Mini Icon And Text",
+  "description": "Small card with an svg icon and a short text, optional link and background image. Variants: \"row\" (icon block + text, link tiles) and \"stack\" (centered icon over text on an image). Renders one card, or a grid of cards from \"items\".",
+  "assets": {
+    "php": [
+      "assets/php/card_mini_icon_and_text.php"
+    ],
+    "html": [
+      "assets/html/template.html"
+    ],
+    "scss": [
+      "assets/scss/**"
+    ],
+    "css": [
+      "assets/css/**"
+    ]
+  },
+  "dependencies": [
+    "image",
+    "svg",
+    "button",
+    "utility_grid_listing",
+    "theme"
+  ]
+}

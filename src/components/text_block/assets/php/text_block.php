@@ -5,8 +5,9 @@
  *
  * Usage:
  *   PlatformComponentRenderer::render('text_block', ['elements' => [
- *       ['title' => 'Section title'],
- *       ['subtitle' => 'Sub heading'],
+ *       ['title' => 'Section title'],                                // h2.title-divider.title-primary (title component)
+ *       ['title' => ['text' => 'Smaller', 'tag' => 'h3', 'class' => 'title-divider title-secondary']],
+ *       ['subtitle' => 'Sub heading'],                                // h3 (string or the same object as title)
  *       ['paragraphs' => ['First paragraph.', 'Second paragraph.']], // or 'paragraph'/'text'/'texts', string or array
  *       ['list' => ['Item one', 'Item two']],                        // simple (scalar-only) array -> <ul><li>
  *       ['buttons' => [['text' => '...', 'link' => '...', 'svg' => '...']]], // or 'btns', wrapped in a div
@@ -15,9 +16,22 @@
  *
  * Each element may also carry:
  *   'class'  -> extra class appended to the produced tag (p/ul/subtitle heading/buttons wrapper)
+ *   title / subtitle as object: { "text", "tag" (h1-h6), "class" }
+ *     title defaults:    h2, "title-divider title-primary"
+ *     subtitle defaults: h3, the element 'class'
+ *   (old flat 'title_tag' / 'title_class' / 'subtitle_tag' / 'subtitle_class' still work)
  *   'escape' -> set to false to output paragraph text raw (already-safe/rich text), defaults to true
  *
  * Elements render in the order given, so callers control ordering (e.g. title, then list, then paragraph again).
+ *
+ * Variables: "{{name}}" placeholders in any element text are replaced from data.vars, before escaping.
+ * A var is a plain value, or a utility component whose value() result is used:
+ *   "vars": {
+ *     "age": { "component": "utility_age", "data": { "date": "09-09-1997" } },
+ *     "city": "Baia Mare"
+ *   },
+ *   "elements": [ { "paragraphs": ["I'm {{age}} years old and I live in {{city}}."] } ]
+ * Unknown placeholders are left as they are.
  */
 class text_block
 {
@@ -26,6 +40,9 @@ class text_block
         $elements = $data['elements'] ?? [];
         if (!is_array($elements) || empty($elements)) return '';
 
+        $vars = self::resolve_vars($data['vars'] ?? []);
+        if (!empty($vars)) $elements = self::fill_vars($elements, $vars);
+
         $html = '';
         foreach ($elements as $element) {
             if (is_array($element)) $html .= self::render_element($element);
@@ -33,16 +50,61 @@ class text_block
         return $html;
     }
 
+    /** data.vars -> [ name => string ] (component vars resolved through their value()). */
+    private static function resolve_vars(mixed $vars): array
+    {
+        if (!is_array($vars)) return [];
+        $out = [];
+        foreach ($vars as $name => $var) {
+            $name = trim((string) $name);
+            if ($name === '') continue;
+
+            if (is_array($var) && isset($var['component'])) {
+                $component = str_replace('-', '_', trim((string) $var['component']));
+                $value = $component !== ''
+                    ? PlatformComponentRenderer::value($component, is_array($var['data'] ?? null) ? $var['data'] : [])
+                    : null;
+            } else {
+                $value = $var;
+            }
+
+            if (is_scalar($value)) $out[$name] = (string) $value;
+        }
+        return $out;
+    }
+
+    /** Replaces {{name}} in every string of the elements (recursively). */
+    private static function fill_vars(mixed $value, array $vars): mixed
+    {
+        if (is_array($value)) {
+            foreach ($value as $k => $v) $value[$k] = self::fill_vars($v, $vars);
+            return $value;
+        }
+        if (!is_string($value) || !str_contains($value, '{{')) return $value;
+
+        return preg_replace_callback(
+            '/\{\{\s*([A-Za-z0-9_\-]+)\s*\}\}/',
+            fn ($m) => array_key_exists($m[1], $vars) ? $vars[$m[1]] : $m[0],
+            $value
+        ) ?? $value;
+    }
+
     private static function render_element(array $element): string
     {
         $html = '';
 
         if (isset($element['title'])) {
-            $html .= self::render_heading((string) $element['title'], 'h2', 'title-divider');
+            $html .= self::render_heading($element['title'], [
+                'tag' => $element['title_tag'] ?? 'h2',
+                'class' => $element['title_class'] ?? null,
+            ]);
         }
 
         if (isset($element['subtitle'])) {
-            $html .= self::render_heading((string) $element['subtitle'], 'h3', (string) ($element['class'] ?? ''));
+            $html .= self::render_heading($element['subtitle'], [
+                'tag' => $element['subtitle_tag'] ?? 'h3',
+                'class' => $element['subtitle_class'] ?? (string) ($element['class'] ?? ''),
+            ]);
         }
 
         $text = $element['paragraphs'] ?? $element['paragraph'] ?? $element['texts'] ?? $element['text'] ?? null;
@@ -68,12 +130,17 @@ class text_block
         return $html;
     }
 
-    private static function render_heading(string $text, string $tag, string $class = ''): string
+    /**
+     * Heading through the "title" component.
+     *   $value     string | { text, tag, class, id }
+     *   $defaults  [ 'tag' => …, 'class' => … ] used when the object doesn't set them (class null = title default)
+     */
+    private static function render_heading(mixed $value, array $defaults): string
     {
-        $text = trim($text);
-        if ($text === '') return '';
-        $classAttr = $class !== '' ? ' class="' . htmlspecialchars($class, ENT_QUOTES, 'UTF-8') . '"' : '';
-        return '<' . $tag . $classAttr . '>' . htmlspecialchars($text, ENT_QUOTES, 'UTF-8') . '</' . $tag . '>';
+        $data = title::normalize($value);
+        if (!array_key_exists('tag', $data)) $data['tag'] = $defaults['tag'] ?? 'h2';
+        if (!array_key_exists('class', $data)) $data['class'] = $defaults['class'] ?? null;
+        return (string) PlatformComponentRenderer::render('title', $data);
     }
 
     private static function render_paragraphs(mixed $text, string $class, bool $escape): string

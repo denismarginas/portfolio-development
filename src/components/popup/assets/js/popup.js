@@ -52,6 +52,7 @@
 
         show(popup);
         if (options.gallery) initGallery(popup, body, parseInt(options.index, 10) || 0);
+        initVideos(body);
         return popup;
     }
 
@@ -90,6 +91,35 @@
         window.UtilitySlider.init(popup, { viewport: gallery, start: index, arrows: true, counter: true, dots: false });
     }
 
+    /**
+     * Copied video players (.video-container) come without their VideoControls listeners:
+     * reset them to the paused / thumbnail state and set them up again. Videos on the page are paused.
+     */
+    function initVideos(body) {
+        var players = body.querySelectorAll('.video-container');
+        if (!players.length) return;
+
+        Array.prototype.forEach.call(document.querySelectorAll('video'), function (video) {
+            if (!body.contains(video) && !video.paused) video.pause();
+        });
+
+        Array.prototype.forEach.call(players, function (player) {
+            player.removeAttribute('data-video-initialized');
+            player.classList.add('paused');
+            player.classList.remove('full-screen', 'scrubbing');
+            var thumbnail = player.querySelector('.thumbnail');
+            if (thumbnail) thumbnail.style.display = '';
+            var showPlay = player.querySelector('.show-play');
+            if (showPlay) showPlay.style.display = 'flex';
+            var showPause = player.querySelector('.show-pause');
+            if (showPause) showPause.style.display = 'none';
+            var controls = player.querySelector('.video-controls-container');
+            if (controls) controls.style.display = '';
+        });
+
+        if (window.VideoControls && typeof window.VideoControls.initAll === 'function') window.VideoControls.initAll();
+    }
+
     function destroyGallery(popup) {
         if (popup.utilitySlider) popup.utilitySlider.destroy();
         popup.classList.remove('popup-has-gallery');
@@ -103,6 +133,8 @@
             if (popup.hidden) return;
             if (e.keyCode === ESCAPE_KEY || e.key === 'Escape') closePopup(popup);
             if (!popup.utilitySlider) return;
+            // Arrow keys inside a video player seek the video (VideoControls), not the gallery.
+            if (document.activeElement && document.activeElement.closest && document.activeElement.closest('.video-container')) return;
             if (e.key === 'ArrowLeft') { e.preventDefault(); popup.utilitySlider.prev(); }
             if (e.key === 'ArrowRight') { e.preventDefault(); popup.utilitySlider.next(); }
         });
@@ -148,6 +180,9 @@
                 var members = Array.prototype.slice.call(document.querySelectorAll('[data-popup-group="' + group + '"]'));
                 var idx = members.indexOf(trigger);
                 var slidesHtml = members.map(function (m) {
+                    // Video slide (block_slider_images "videos"): the whole player, set up again in the popup.
+                    var player = m.querySelector('.video-container');
+                    if (player) return '<div class="popup-slide popup-slide-video">' + player.outerHTML + '</div>';
                     var img = m.tagName === 'IMG' ? m : m.querySelector('img');
                     return '<div class="popup-slide">' + (img ? img.outerHTML : m.innerHTML) + '</div>';
                 }).join('');

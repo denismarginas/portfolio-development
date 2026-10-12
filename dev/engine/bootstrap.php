@@ -29,6 +29,7 @@ require_once __DIR__ . '/PlatformBundleBuilder.php';
 require_once __DIR__ . '/PlatformWorkflowService.php';
 require_once __DIR__ . '/PlatformTranslationService.php';
 require_once __DIR__ . '/PlatformTranslationBuilder.php';
+require_once __DIR__ . '/PlatformThumbnailBuilder.php';
 
 PlatformConfig::init();
 PlatformDataService::init();

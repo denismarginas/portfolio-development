@@ -18,6 +18,7 @@
   },
   "dependencies": [
     "utility_grid_listing",
-    "card_taxonomy"
+    "card_taxonomy",
+    "title"
   ]
 }

@@ -59,7 +59,8 @@
       animation-direction: reverse;
     }
 
-    &:hover > .carousel-list {
+    // pause_on_hover (default true)
+    &:not([data-pause-on-hover="false"]):hover > .carousel-list {
       animation-play-state: paused;
     }
   }

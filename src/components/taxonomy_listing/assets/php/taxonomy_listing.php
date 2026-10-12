@@ -6,7 +6,8 @@ class taxonomy_listing
     {
         $postType = (string) ($data['post_type'] ?? '');
         $taxonomy = (string) ($data['taxonomy'] ?? 'category');
-        $titleRender = ($data['title_render'] ?? false) === true;
+        // "title": "Projects" | { "text", "tag", "class" }; "title_render": false hides it (old data: title_render true + title)
+        $titleRender = ($data['title_render'] ?? true) !== false;
         $templateCfg = is_array($data['template'] ?? null) ? $data['template'] : [];
         $cardComponent = str_replace('-', '_', (string) ($templateCfg['component'] ?? 'card_taxonomy'));
         $cardData = $templateCfg['data'] ?? [];
@@ -41,7 +42,7 @@ class taxonomy_listing
         if ($cards === '') return '';
 
 
-        $titleHtml = $titleRender ? '<h2 class="title-divider">' . htmlspecialchars((string) ($data['title'] ?? ''), ENT_QUOTES, 'UTF-8') . '</h2>' : '';
+        $titleHtml = $titleRender ? (string) PlatformComponentRenderer::render('title', title::normalize($data['title'] ?? null, $data)) : '';
 
         return PlatformTemplateRenderer::render([
             'title_html' => $titleHtml,

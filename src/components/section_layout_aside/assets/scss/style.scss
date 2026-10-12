@@ -28,7 +28,7 @@
   .section-layout-aside-aside {
     display: flex;
     flex-direction: column;
-    gap: var(--dm-spacing-sm);
+    gap: var(--dm-spacing-md);
     min-width: 0;
 
     @media (max-width: $dm-screen-md) {

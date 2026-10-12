@@ -22,14 +22,24 @@ class card_post_project_visual_default
 
         $postData = is_array($post['data'] ?? null) ? $post['data'] : [];
         $bgColor = (string) ($post['settings']['appearance']['colors']['canvas_primary'] ?? '');
+        $primaryColor = (string) ($post['settings']['appearance']['colors']['primary'] ?? '');
         $preview = project_default_preview::find($postData);
 
         return PlatformTemplateRenderer::render(__DIR__ . '/../html/template.html', [
             'link' => htmlspecialchars(PlatformPathService::post_link((string) ($post['_id'] ?? '')), ENT_QUOTES, 'UTF-8'),
-            'bg_style' => $bgColor !== '' ? ' style="background-color: ' . htmlspecialchars($bgColor, ENT_QUOTES, 'UTF-8') . ';"' : '',
+            'bg_style' => self::style($bgColor, $primaryColor),
             'visual_image' => self::logo($postData['media']['logo'] ?? []),
             'preview_image' => $preview !== '' ? self::image($preview, 'default-visual-preview') : '',
         ]);
+    }
+
+    /** background-color: canvas_primary; --primary-color-post: primary (used behind the preview image). */
+    private static function style(string $bgColor, string $primaryColor): string
+    {
+        $rules = [];
+        if ($bgColor !== '') $rules[] = 'background-color: ' . $bgColor . ';';
+        if ($primaryColor !== '') $rules[] = '--primary-color-post: ' . $primaryColor . ';';
+        return $rules ? ' style="' . htmlspecialchars(implode(' ', $rules), ENT_QUOTES, 'UTF-8') . '"' : '';
     }
 
     private static function logo(mixed $logo): string

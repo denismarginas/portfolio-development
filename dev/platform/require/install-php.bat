@@ -28,12 +28,13 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command ^
     "$iniSrc = Join-Path $targetDir 'php.ini-production';" ^
     "$iniDst = Join-Path $targetDir 'php.ini';" ^
     "if ((Test-Path $iniSrc) -and -not (Test-Path $iniDst)) {" ^
-    "  Write-Host 'Configuring php.ini (enabling extension_dir + openssl/curl/mbstring/fileinfo/zip)...';" ^
+    "  Write-Host 'Configuring php.ini (enabling extension_dir + openssl/curl/mbstring/fileinfo/gd/zip)...';" ^
     "  Copy-Item $iniSrc $iniDst;" ^
     "  Add-Content -Path $iniDst -Value '';" ^
     "  Add-Content -Path $iniDst -Value 'extension_dir = ext';" ^
     "  Add-Content -Path $iniDst -Value 'extension=curl';" ^
     "  Add-Content -Path $iniDst -Value 'extension=fileinfo';" ^
+    "  Add-Content -Path $iniDst -Value 'extension=gd';" ^
     "  Add-Content -Path $iniDst -Value 'extension=mbstring';" ^
     "  Add-Content -Path $iniDst -Value 'extension=openssl';" ^
     "  Add-Content -Path $iniDst -Value 'extension=zip';" ^

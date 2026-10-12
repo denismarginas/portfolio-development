@@ -20,6 +20,8 @@
     "image",
     "svg",
     "theme",
-    "tooltip"
+    "tooltip",
+    "title",
+    "overlay_noise"
   ]
 }

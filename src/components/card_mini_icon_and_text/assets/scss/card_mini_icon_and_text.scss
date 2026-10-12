@@ -1,0 +1,217 @@
+@import "theme";
+
+// Grid of mini cards (auto-fit mode; with "columns" the utility_grid_listing attributes drive the grid).
+.card-mini-listing {
+  @include reset-list();
+  display: grid;
+  gap: var(--dm-spacing-sm);
+
+  &.card-mini-listing-auto {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-mini-min-width, 220px)), 1fr));
+  }
+
+  > li {
+    display: flex;
+    min-width: 0;
+
+    > .card-mini {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: $dm-screen-md) {
+    gap: var(--dm-spacing-xs);
+  }
+}
+
+// Mini card: svg icon + short text (from experience_categories / section_hobby_list).
+.card.card-mini {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--dm-color-white);
+
+  [mode="light"] &,
+  [mode="dark"] & {
+    background-color: var(--dm-color-primary);
+    border-color: transparent;
+    color: var(--dm-color-white);
+  }
+
+  .card-mini-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    transition: var(--dm-transition);
+  }
+
+  .card-mini-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: var(--dm-transition);
+
+    > svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      @include svg-color(var(--dm-color-white));
+      transition: var(--dm-transition);
+    }
+  }
+
+  .card-mini-text {
+    min-width: 0;
+    font-weight: var(--dm-font-weight-bold);
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  // ROW: icon block with a slanted edge on the left, uppercase label on the right.
+  &.card-mini-row {
+    flex-direction: row;
+    align-items: center;
+    min-height: 88px;
+
+    .card-mini-bg {
+      opacity: 0.4;
+      mix-blend-mode: color-burn;
+    }
+
+    .card-mini-icon {
+      position: relative;
+      align-self: stretch;
+      width: 88px;
+      padding: var(--dm-spacing-sm);
+      box-sizing: border-box;
+      background-color: var(--dm-color-primary-700);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -16px;
+        width: 32px;
+        height: 100%;
+        background-color: inherit;
+        transform: skewX(-12deg);
+        z-index: -1;
+      }
+
+      > svg {
+        filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.4));
+      }
+    }
+
+    .card-mini-text {
+      padding: var(--dm-spacing-xs) var(--dm-spacing-sm) var(--dm-spacing-xs) var(--dm-spacing-md);
+      font-size: var(--dm-font-size-base);
+      font-style: italic;
+      text-transform: uppercase;
+    }
+
+    &:hover,
+    &:focus-visible {
+      .card-mini-icon > svg {
+        transform: scale(1.12);
+      }
+    }
+
+    @media (max-width: $dm-screen-sm) {
+      min-height: 72px;
+
+      .card-mini-icon {
+        width: 72px;
+        padding: var(--dm-spacing-xs) var(--dm-spacing-sm);
+      }
+      .card-mini-text {
+        font-size: var(--dm-font-size-md);
+      }
+    }
+  }
+
+  // STACK: icon in a circle above a centered label, on top of a darkened image.
+  &.card-mini-stack {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--dm-spacing-sm);
+    min-height: 200px;
+    padding: var(--dm-spacing-sm);
+    text-align: center;
+    border: 2px solid var(--dm-color-white);
+
+    [mode="light"] &,
+    [mode="dark"] & {
+      background-color: var(--dm-color-secondary);
+      border-color: var(--dm-color-white);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-color: var(--dm-color-secondary);
+      opacity: 0.6;
+      transition: var(--dm-transition);
+    }
+
+    .card-mini-bg {
+      z-index: -2;
+    }
+
+    .card-mini-icon {
+      width: 80px;
+      height: 80px;
+      padding: var(--dm-spacing-sm);
+      box-sizing: border-box;
+      border-radius: 50%;
+      background-color: color-mix(in srgb, var(--dm-color-gray-dark) 40%, transparent);
+    }
+
+    .card-mini-text {
+      font-size: var(--dm-font-size-lg);
+    }
+
+    &:hover,
+    &:focus-visible {
+      &::before {
+        opacity: 0.85;
+      }
+      .card-mini-bg {
+        transform: scale(1.06);
+      }
+      .card-mini-icon {
+        background-color: color-mix(in srgb, var(--dm-color-gray-dark) 80%, transparent);
+        filter: drop-shadow(5px 5px 6px var(--dm-color-gray));
+      }
+      .card-mini-text {
+        text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    @media (max-width: $dm-screen-sm) {
+      min-height: 150px;
+      gap: var(--dm-spacing-xs);
+
+      .card-mini-icon {
+        width: 56px;
+        height: 56px;
+        padding: var(--dm-spacing-xs);
+      }
+      .card-mini-text {
+        font-size: var(--dm-font-size-base);
+      }
+    }
+  }
+}

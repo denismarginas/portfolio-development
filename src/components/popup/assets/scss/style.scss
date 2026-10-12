@@ -101,6 +101,16 @@
         max-width: calc(100vw - var(--dm-spacing-xl) * 2);
         max-height: calc(100vh - var(--dm-spacing-xl) * 2);
       }
+
+      // Video slide: the whole player (video component), as big as the screen allows at 16:9.
+      .popup-slide-video > .video-container {
+        width: min(100%, calc((100vh - var(--dm-spacing-xl) * 2) * 16 / 9));
+
+        video {
+          width: 100%;
+          max-width: 100%;
+        }
+      }
     }
   }
 

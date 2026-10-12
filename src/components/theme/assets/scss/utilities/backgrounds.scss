@@ -1,0 +1,29 @@
+@import "theme";
+
+// Radial section background: the color exactly in the center, a shade darker towards the edges.
+// Follows the light / dark mode:
+//   light  primary-100 -> primary-200
+//   dark   primary-900 -> primary-950
+// Tweak per element with --dm-bg-radial-shape (default "ellipse at center")
+// and --dm-bg-radial-stop (where the edge color is reached, default 100%).
+// Named "bg-radial-*" (not "bg-*") because cards already use .bg-white / .bg-primary as their own modifiers.
+
+@mixin bg-radial($center, $edge) {
+  background-color: var(--dm-color-#{$center});
+  background-image: radial-gradient(
+    var(--dm-bg-radial-shape, ellipse at center),
+    var(--dm-color-#{$center}) 0%,
+    var(--dm-color-#{$edge}) var(--dm-bg-radial-stop, 100%)
+  );
+  background-repeat: no-repeat;
+  transition: var(--dm-transition);
+}
+
+.bg-radial-primary {
+  [mode="light"] & {
+    @include bg-radial("primary-200", "primary-100");
+  }
+  [mode="dark"] & {
+    @include bg-radial("primary-700", "primary-800");
+  }
+}

@@ -29,6 +29,13 @@
         return el;
     }
 
+    // A video that slides out of view stops playing.
+    function pauseVideos(slide) {
+        Array.prototype.forEach.call(slide.querySelectorAll('video'), function (video) {
+            if (!video.paused) video.pause();
+        });
+    }
+
     function init(root, opts) {
         opts = opts || {};
         if (!root) return null;
@@ -52,7 +59,10 @@
         function mark(index) {
             if (index === current) return;
             current = index;
-            for (var i = 0; i < count; i++) slides[i].classList.toggle('active', i === index);
+            for (var i = 0; i < count; i++) {
+                slides[i].classList.toggle('active', i === index);
+                if (i !== index) pauseVideos(slides[i]);
+            }
             for (var d = 0; d < dots.length; d++) dots[d].classList.toggle('active', d === index);
             if (counter) counter.textContent = (index + 1) + ' / ' + count;
             root.dispatchEvent(new CustomEvent('utility-slider:change', { detail: { index: index, count: count } }));
@@ -111,6 +121,8 @@
         }
 
         function onKey(event) {
+            // Arrow keys inside a video player seek the video (VideoControls), not the slider.
+            if (event.target && event.target.closest && event.target.closest('.video-container')) return;
             if (event.key === 'ArrowLeft') { event.preventDefault(); step(-1); }
             if (event.key === 'ArrowRight') { event.preventDefault(); step(1); }
         }
