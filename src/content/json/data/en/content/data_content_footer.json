@@ -10,7 +10,7 @@
             "source": {
               "item": "resume",
               "filter_by": {
-                "settings.lang": "en",
+                "lang": "en",
                 "max_items": 1
               },
               "sort": [
@@ -29,7 +29,7 @@
             "source": {
               "item": "resume",
               "filter_by": {
-                "settings.lang": "ro",
+                "lang": "ro",
                 "max_items": 1
               },
               "sort": [

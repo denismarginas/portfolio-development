@@ -1,87 +1,65 @@
 <?php
 
 /**
- * Thumbnails of a post (data.media.thumbnail):
+ * The single thumbnail of a post (data.media.thumbnail):
  *
- *   "thumbnail": {
- *     "default": "agromir/thumbnail/thumbnail_agromir.webp",        shared links (og:image), project cards, fallback
- *     "web":     "agromir/thumbnail/thumbnail_agromir_web.webp",    Web Development section
- *     "media":   "agromir/thumbnail/thumbnail_agromir_media.webp"   Visual Media section / visual-media card
- *   }
+ *   "thumbnail": { "default": "agromir-online-shop/thumbnail/thumbnail.webp" }
  *
- * Paths are relative to src/content/img/projects/ (or a full "src/..." path).
- * Old forms still work as "default": "thumbnail": "<path>" and "thumbnail_img": "<path>".
+ * Used for shared links (og:image), project cards and every project section.
+ * The path is relative to src/content/img/projects/ (or a full "src/..." path).
+ * Old forms still work: "thumbnail": "<path>" and "thumbnail_img": "<path>".
  *
- * When a key is not set, the generated file is used if it exists (platform: Generate > Generate Thumbnails):
- *   <media.path>/thumbnail/thumbnail_<media.path>.webp         default
- *   <media.path>/thumbnail/thumbnail_<media.path>_web.webp     web
- *   <media.path>/thumbnail/thumbnail_<media.path>_media.webp   media
+ * When it is not set, <media.path>/thumbnail/thumbnail.webp is used if it exists
+ * (the file made by the platform: Generate > Thumbnails).
  *
- *   utility_post_thumbnail::get($postData, 'web')            -> "src/content/img/projects/agromir/thumbnail/..." or ''
- *   utility_post_thumbnail::reference('@thumbnail.web', $postData)
+ *   utility_post_thumbnail::get($postData)                       -> "src/content/img/projects/<path>/thumbnail/thumbnail.webp" or ''
+ *   utility_post_thumbnail::reference('@thumbnail', $postData)   (also "@thumbnail.default")
  *
- * Only existing files are returned. Any key other than "default" falls back to "default".
- * $postData is the post's "data" object (or the whole post: its "data" is used).
+ * Only existing files are returned. $postData is the post's "data" object (or the whole post: its "data" is used).
  */
 class utility_post_thumbnail
 {
-    public const KEYS = ['default', 'web', 'media'];
     private const PROJECTS_DIR = 'src/content/img/projects/';
-    private const REFERENCE = '@thumbnail.';
+    private const REFERENCE = '@thumbnail';
 
-    /** Project-relative path of the thumbnail $key (falls back to "default" when $fallback), '' when none exists. */
-    public static function get(array $postData, string $key = 'default', bool $fallback = true): string
+    /** Project-relative path of the post thumbnail, '' when none exists. ($key is ignored: there is one thumbnail.) */
+    public static function get(array $postData, string $key = 'default'): string
     {
         $media = self::media($postData);
-        $key = strtolower(trim($key));
-
-        $path = self::existing(self::raw($media, $key));
-        if ($path === '') $path = self::existing(self::generated($media, $key));
-        if ($path === '' && $fallback && $key !== 'default') {
-            $path = self::existing(self::raw($media, 'default'));
-            if ($path === '') $path = self::existing(self::generated($media, 'default'));
-        }
+        $path = self::existing(self::raw($media));
+        if ($path === '') $path = self::existing(self::generated($media));
         return $path;
     }
 
-    /** True when $value is a "@thumbnail.<key>" reference. */
+    /** True when $value is a "@thumbnail" reference ("@thumbnail.<anything>" is read the same way). */
     public static function is_reference(string $value): bool
     {
         return str_starts_with(strtolower(trim($value)), self::REFERENCE);
     }
 
-    /** "@thumbnail.web" -> get($postData, 'web'); '' for anything else. */
+    /** "@thumbnail" -> get($postData); '' for anything else. */
     public static function reference(string $value, array $postData): string
     {
-        if (!self::is_reference($value)) return '';
-        return self::get($postData, substr(trim($value), strlen(self::REFERENCE)));
+        return self::is_reference($value) ? self::get($postData) : '';
     }
 
-    /** Raw (unchecked) value of $key, with the old string / thumbnail_img forms as "default". */
-    private static function raw(array $media, string $key): string
+    /** Raw (unchecked) thumbnail value: "thumbnail.default", the old "thumbnail" string or "thumbnail_img". */
+    private static function raw(array $media): string
     {
         $thumb = $media['thumbnail'] ?? null;
-
-        if (is_array($thumb)) {
-            $value = $thumb[$key] ?? '';
-            if (is_string($value) && trim($value) !== '') return trim($value);
-        } elseif ($key === 'default' && is_string($thumb) && trim($thumb) !== '') {
-            return trim($thumb);
+        if (is_array($thumb) && is_string($thumb['default'] ?? null) && trim($thumb['default']) !== '') {
+            return trim($thumb['default']);
         }
-
-        if ($key === 'default' && is_string($media['thumbnail_img'] ?? null)) {
-            return trim($media['thumbnail_img']);
-        }
+        if (is_string($thumb) && trim($thumb) !== '') return trim($thumb);
+        if (is_string($media['thumbnail_img'] ?? null)) return trim($media['thumbnail_img']);
         return '';
     }
 
-    /** Conventional name of a generated thumbnail, e.g. "zozo/thumbnail/thumbnail_zozo_web.webp". */
-    private static function generated(array $media, string $key): string
+    /** Conventional name of the generated thumbnail: "<media.path>/thumbnail/thumbnail.webp". */
+    private static function generated(array $media): string
     {
         $dir = trim(str_replace('\\', '/', (string) ($media['path'] ?? '')), '/');
-        if ($dir === '' || !in_array($key, self::KEYS, true)) return '';
-        $suffix = $key === 'default' ? '' : '_' . $key;
-        return $dir . '/thumbnail/thumbnail_' . str_replace('/', '_', $dir) . $suffix . '.webp';
+        return $dir === '' ? '' : $dir . '/thumbnail/thumbnail.webp';
     }
 
     private static function existing(string $relative): string

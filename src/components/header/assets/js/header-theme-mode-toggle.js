@@ -49,6 +49,11 @@
     toggle.setAttribute("data-mode", mode);
     syncIcons(toggle, mode);
 
+    // a double / triple click on the label would select the text next to it (e.g. the hero)
+    toggle.addEventListener("mousedown", (event) => {
+      if (event.detail > 1) event.preventDefault();
+    });
+
     input.addEventListener("change", () => {
       const next = input.checked ? "dark" : "light";
       applyMode(next);

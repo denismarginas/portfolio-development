@@ -51,24 +51,14 @@ class tab_items_listing_job_content
             ])
             : '';
 
-        $attributesHtml = '';
-        if (!empty($attributes)) {
-            $attributeSvg = PlatformComponentRenderer::render('svg', [
-                'icon' => 'chevron-right',
-                'class' => 'tab-items-listing-discipline-icon',
-            ]);
-            $items = '';
-            foreach ($attributes as $attribute) {
-                $items .= tab_items_listing_loader::load_education_partial('discipline_item.html', [
-                    'discipline' => htmlspecialchars((string) $attribute, ENT_QUOTES, 'UTF-8'),
-                    'svg' => $attributeSvg,
-                ]);
-            }
-            $attributesHtml = tab_items_listing_loader::load_education_partial('disciplines.html', [
-                'items' => $items,
-                'heading' => '',
-            ]);
-        }
+        $attributesHtml = !empty($attributes)
+            ? (string) PlatformComponentRenderer::render('icon_list', [
+                'items' => $attributes,
+                'layout' => 'inline',
+                'size' => 'base',
+                'class' => 'tab-items-listing-disciplines',
+            ])
+            : '';
 
         $worktimeHtml = tab_items_listing_job_worktime::render_worktime_types($workTimeTypes);
         $linksHtml = tab_items_listing_education::render_education_links($links, $data);

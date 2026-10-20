@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadTypes() {
     try {
-      const data = await apiJson('api/posts.php');
+      const data = await apiJson('api/posts.php?include_items=1');
       const types = data.types || [];
       postTypeSelect.innerHTML = '';
       if (!types.length) {
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const postType = postTypeSelect.value;
     if (!postType) return;
     try {
-      const data = await apiJson(`api/posts.php?post_type=${encodeURIComponent(postType)}`);
+      const data = await apiJson(`api/posts.php?post_type=${encodeURIComponent(postType)}&include_items=1`);
       postSelect.innerHTML = '';
       let defaultPost = previewDefaults._id || '';
       (data.posts || []).forEach((p) => {

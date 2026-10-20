@@ -69,25 +69,14 @@ class tab_items_listing_education_content
 
         $disciplinesHtml = '';
         if (!empty($disciplines)) {
-            $svgHtml = '';
-            if ($disciplinesSvg !== '') {
-                $svgHtml = PlatformComponentRenderer::render('svg', [
-                    'icon' => $disciplinesSvg,
-                    'class' => 'tab-items-listing-discipline-icon',
+            $disciplinesHtml = '<div class="tab-items-listing-heading">' . htmlspecialchars($heading, ENT_QUOTES, 'UTF-8') . '</div>'
+                . PlatformComponentRenderer::render('icon_list', [
+                    'items' => $disciplines,
+                    'svg' => $disciplinesSvg,
+                    'layout' => 'inline',
+                    'size' => 'base',
+                    'class' => 'tab-items-listing-disciplines',
                 ]);
-            }
-
-            $items = '';
-            foreach ($disciplines as $discipline) {
-                $items .= tab_items_listing_loader::load_education_partial('discipline_item.html', [
-                    'discipline' => htmlspecialchars((string) $discipline, ENT_QUOTES, 'UTF-8'),
-                    'svg' => $svgHtml,
-                ]);
-            }
-            $disciplinesHtml = tab_items_listing_loader::load_education_partial('disciplines.html', [
-                'items' => $items,
-                'heading' => htmlspecialchars($heading, ENT_QUOTES, 'UTF-8'),
-            ]);
         }
 
         $linksHtml = tab_items_listing_education::render_education_links($links, $data);

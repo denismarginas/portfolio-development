@@ -1,0 +1,18 @@
+@import "theme";
+
+// Workstation page wrapper: holds the item --post-color-* vars (style="") for the blocks inside.
+.block-workstation-containers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dm-spacing-xl);
+  width: 100%;
+
+  // theme colors -> item colors, so theme elements inside (buttons, links ...) use them too
+  --dm-color-primary: var(--post-color-primary);
+  --dm-color-secondary: var(--post-color-secondary);
+  --dm-color-tertiary: var(--post-color-canvas-primary);
+
+  @media (max-width: $dm-screen-md) {
+    gap: var(--dm-spacing-lg);
+  }
+}

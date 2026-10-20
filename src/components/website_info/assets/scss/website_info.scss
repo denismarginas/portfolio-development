@@ -2,16 +2,16 @@
 
 .website-info {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: var(--dm-spacing-xxs);
-  text-align: center;
+  justify-content: space-between;
+  gap: var(--dm-spacing-md);
+  flex-wrap: wrap;
 
   .website-info-dates {
     @include reset-list();
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     column-gap: var(--dm-spacing-md);
     row-gap: 0;
 

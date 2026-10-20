@@ -17,8 +17,6 @@
       "assets/html/parts/education/meta.html",
       "assets/html/parts/education/type.html",
       "assets/html/parts/education/profession.html",
-      "assets/html/parts/education/disciplines.html",
-      "assets/html/parts/education/discipline_item.html",
       "assets/html/parts/education/links.html",
       "assets/html/parts/education/links_container.html",
       "assets/html/parts/education/projects.html",
@@ -33,6 +31,7 @@
   },
   "dependencies": [
     "image",
+    "icon_list",
     "svg",
     "theme",
     "utility_sort",

@@ -1,7 +1,7 @@
 {
   "name": "hero",
   "title": "Hero",
-  "description": "Hero section with background image, title, description and layout variants.",
+  "description": "Hero section with background image or background video, noise overlay, title, description and layout variants.",
   "assets": {
     "php": [
       "assets/php/hero.php"
@@ -21,6 +21,8 @@
     ]
   },
   "dependencies": [
-    "animation_waves"
+    "animation_waves",
+    "video_background",
+    "overlay_noise"
   ]
 }

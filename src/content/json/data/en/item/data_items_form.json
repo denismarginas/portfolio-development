@@ -20,47 +20,81 @@
         {
           "name": "name",
           "type": "text",
-          "placeholder": "Name",
+          "placeholder": "Your Name",
           "external_name": "entry.372576771"
         },
         {
           "name": "email",
           "type": "email",
-          "placeholder": "Email",
+          "placeholder": "Your Email",
           "external_name": "entry.1216480420"
         },
         {
           "name": "phone",
           "type": "tel",
-          "placeholder": "Phone Number",
+          "placeholder": "Your Phone Number",
           "external_name": "entry.839463599"
         },
         {
           "name": "message",
           "type": "textarea",
-          "placeholder": "Message",
+          "placeholder": "Your Message",
           "external_name": "entry.401433199",
           "compose": "lines"
+        }
+      ],
+      "progress": [
+        {
+          "label": "About You",
+          "steps": [
+            "1"
+          ]
+        },
+        {
+          "label": "Subject",
+          "steps": [
+            "2"
+          ]
+        },
+        {
+          "label": "Details",
+          "steps": [
+            "3",
+            "4",
+            "5"
+          ]
         }
       ],
       "steps": [
         {
           "id": "1",
-          "banner": "projects/denismarginas/media/banners-ultra-wide/wallpaper-contact-02.webp",
+          "icon": "about-me",
+          "label": "About You",
           "fields": [
             {
               "name": "step-name",
               "type": "text",
-              "placeholder": "Name",
+              "placeholder": "Your Name",
+              "label": "Name",
               "target": "name",
-              "required": true
+              "required": true,
+              "width": "half"
             },
             {
               "name": "step-email",
               "type": "email",
-              "placeholder": "Email",
+              "placeholder": "Your Email",
+              "label": "Email",
               "target": "email",
-              "required": true
+              "required": true,
+              "width": "half"
+            },
+            {
+              "name": "step-phone",
+              "type": "tel",
+              "placeholder": "Your Phone Number (optional)",
+              "label": "Phone",
+              "target": "phone"
             }
           ],
           "buttons": [
@@ -121,7 +155,7 @@
             {
               "name": "step-message",
               "type": "textarea",
-              "placeholder": "Message",
+              "placeholder": "Your Message",
               "label": "Message",
               "target": "message",
               "required": true
@@ -190,9 +224,8 @@
               "text": "Previous Step"
             },
             {
-              "type": "next",
-              "text": "Next",
-              "step": "6"
+              "type": "submit",
+              "text": "Submit"
             }
           ]
         },
@@ -219,46 +252,15 @@
             {
               "name": "step-offer-details",
               "type": "textarea",
-              "placeholder": "Details Offer",
+              "placeholder": "Offer Details",
               "label": "Offer Details",
               "target": "message",
               "required": true
-            }
-          ],
-          "buttons": [
-            {
-              "type": "prev",
-              "text": "Previous Step"
             },
             {
-              "type": "next",
-              "text": "Next",
-              "step": "6"
-            }
-          ]
-        },
-        {
-          "id": "6",
-          "icon": "envelope",
-          "label": "Your Contact",
-          "fields": [
-            {
-              "name": "step-phone-number",
-              "type": "tel",
-              "placeholder": "Your Phone Number (Optional)",
-              "target": "phone"
-            },
-            {
-              "name": "step-your-contact",
+              "name": "step-company",
               "type": "text",
-              "placeholder": "Your Contact (Optional)",
-              "label": "Contact",
-              "target": "message"
-            },
-            {
-              "name": "step-your-company",
-              "type": "text",
-              "placeholder": "Your Company (Optional)",
+              "placeholder": "Company (optional)",
               "label": "Company",
               "target": "message"
             }
@@ -266,7 +268,7 @@
           "buttons": [
             {
               "type": "prev",
-              "text": "Go Back"
+              "text": "Previous Step"
             },
             {
               "type": "submit",

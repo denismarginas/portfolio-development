@@ -14,7 +14,7 @@ require_once __DIR__ . '/../../../utility_post_thumbnail/assets/php/utility_post
  *   {
  *     "component": "project_block_visual_and_paragraph",
  *     "data": {
- *       "image": "thumbnail/thumbnail_agromir_web.webp",
+ *       "image": "thumbnail/thumbnail.webp",
  *       "text": "Online shop made in Prestashop 1.7 ...",
  *       "tags": [
  *         { "text": "web", "link": "#web" },
@@ -27,11 +27,9 @@ require_once __DIR__ . '/../../../utility_post_thumbnail/assets/php/utility_post
  *   mode             string    "wrap" (default) | "columns"
  *   image            string    visual image, one of:
  *                                - a path relative to the post media folder (src/content/img/projects/<media.path>/)
- *                                  or a full "src/..." path, e.g. "thumbnail/thumbnail_agromir_web.webp"
- *                                - a thumbnail reference: "@thumbnail.default" | "@thumbnail.web" | "@thumbnail.media"
- *                                - empty: data.media.thumbnail.<thumbnail_section>, else .default (utility_post_thumbnail)
- *   thumbnail_section string   thumbnail key used when "image" is empty (set automatically to "web" / "media"
- *                              inside project_visual_web_gallery / project_visual_media_gallery; default "default")
+ *                                  or a full "src/..." path, e.g. "thumbnail/thumbnail.webp"
+ *                                - "@thumbnail": the post thumbnail
+ *                                - empty: the post thumbnail (utility_post_thumbnail)
  *                              No image found: the visual is post_short_info_visual (post logo on the canvas color).
  *   image_height     string    "columns" mode: height of the image while side by side (default "200px"; px, rem, em or vh)
  *   image_height_stacked string "columns" mode: height of the image while stacked, below sm (default "150px")
@@ -173,13 +171,13 @@ class project_block_visual_and_paragraph
         ]);
     }
 
-    /** data.image (path or "@thumbnail.<key>"), or the post thumbnail of data.thumbnail_section -> project path ('' when none). */
+    /** data.image (path or "@thumbnail"), or the post thumbnail -> project path ('' when none). */
     private static function image_source(array $data): string
     {
         $post = is_array($data['post_current_data'] ?? null) ? $data['post_current_data'] : [];
         $raw = trim((string) ($data['image'] ?? ''));
 
-        if ($raw === '') return utility_post_thumbnail::get($post, (string) ($data['thumbnail_section'] ?? 'default'));
+        if ($raw === '') return utility_post_thumbnail::get($post);
         if (utility_post_thumbnail::is_reference($raw)) return utility_post_thumbnail::reference($raw, $post);
         return self::image_path($raw, $post);
     }

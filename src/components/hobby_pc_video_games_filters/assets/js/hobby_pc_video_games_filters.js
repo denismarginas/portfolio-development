@@ -1,6 +1,6 @@
 /**
  * hobby_pc_video_games_filters: filters the <li data-item-id> items of <ul id="{data-target}">
- * using the JSON index printed inside the form. Sorting is done by filters_sort.
+ * using the JSON index printed inside the form. Filters + search words are kept in the URL (listing_toolbar.js). Sorting is done by filters_sort.
  * Display select (data-type="display"): "" / "default" hides items with data-display="false", "all" shows them.
  */
 (function () {
@@ -69,6 +69,7 @@
       if (amount) amount.textContent = shown;
       if (empty) empty.hidden = shown !== 0;
       list.setAttribute('data-results', shown);
+      if (window.listingToolbarUrl) window.listingToolbarUrl.save(form);
     }
 
     function toggle(button, target) {
@@ -88,6 +89,7 @@
     if (filtersBtn) filtersBtn.addEventListener('click', function () { toggle(filtersBtn, form.querySelector('.block-filters')); });
     if (queryBtn) queryBtn.addEventListener('click', function () { toggle(queryBtn, form.querySelector('.query-text')); });
 
+    if (window.listingToolbarUrl) window.listingToolbarUrl.restore(form);
     apply();
   }
 

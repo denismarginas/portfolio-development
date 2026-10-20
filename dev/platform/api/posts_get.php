@@ -53,9 +53,19 @@ function platform_handle_get_post(string $postId): void
     platform_send_json(['ok' => false, 'message' => 'Post not found'], 404);
 }
 
-function platform_handle_list_posts(string $postType): void
+/** Post types, plus the routable item types when the request has include_items=1 (Render > Live Preview). */
+function platform_listing_types(): array
 {
     $types = platform_get_post_types();
+    if (($_GET['include_items'] ?? '') === '1') {
+        $types = array_merge($types, platform_get_routable_item_types());
+    }
+    return $types;
+}
+
+function platform_handle_list_posts(string $postType): void
+{
+    $types = platform_listing_types();
     $file = '';
     $globalContentPath = '';
     $globalImgPath = '';
@@ -92,7 +102,7 @@ function platform_handle_list_posts(string $postType): void
 
 function platform_handle_list_types(): void
 {
-    $types = platform_get_post_types();
+    $types = platform_listing_types();
     $result = [];
     foreach ($types as $t) {
         $items = platform_read_data_file($t['file']);

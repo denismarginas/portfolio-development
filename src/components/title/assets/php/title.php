@@ -21,6 +21,7 @@
  *   class       string  title classes (default "title-divider title-primary"; "" = none). Theme classes:
  *                         title-primary    big responsive size (4xl -> 3xl -> xl -> lg)
  *                         title-secondary  smaller responsive size (3xl -> 2xl -> lg -> base)
+ *                         title-tertiary   small section size (lg -> base -> md)
  *                         title-divider    short primary-colored line under the text
  *   base_class  string  fixed component class kept in front of "class" (for components, e.g. "profile-card-title")
  *   id          string  optional

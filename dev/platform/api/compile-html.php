@@ -34,7 +34,7 @@ if (!empty($scssFlags['compile_scss_everytime'])) {
 $results = [];
 $count = 0;
 
-$types = platform_get_post_types();
+$types = array_merge(platform_get_post_types(), platform_get_routable_item_types());
 
 foreach ($types as $t) {
     $postType = $t['post_type'];
@@ -53,6 +53,7 @@ foreach ($types as $t) {
     foreach ($posts as $post) {
         $id = $post['_id'] ?? '';
         if (!$id) continue;
+        if (($t['kind'] ?? '') === 'item' && ($post['settings']['render'] ?? true) === false) continue;
 
         try {
             $postData = platform_normalize_preview_post($post);

@@ -1,0 +1,23 @@
+{
+  "name": "icon_list",
+  "title": "Icon List",
+  "description": "Simple text list with an svg icon before every item (default \"chevron-right\" in a primary-colored circle). Items are plain text (no links). Options: other icon (whole list or per item), \"inline\" layout (items in a wrapping row), \"plain\" icons (no circle), text size (\"sm\" / \"base\").",
+  "assets": {
+    "php": [
+      "assets/php/icon_list.php"
+    ],
+    "html": [
+      "assets/html/template.html"
+    ],
+    "scss": [
+      "assets/scss/**"
+    ],
+    "css": [
+      "assets/css/**"
+    ]
+  },
+  "dependencies": [
+    "svg",
+    "theme"
+  ]
+}

@@ -2,7 +2,6 @@
   {
     "_id": "video-games",
     "settings": {
-      "item_type": "hobby",
       "render": true
     },
     "data": {
@@ -14,7 +13,6 @@
   {
     "_id": "cycling",
     "settings": {
-      "item_type": "hobby",
       "render": true
     },
     "data": {
@@ -26,7 +24,6 @@
   {
     "_id": "table-tennis",
     "settings": {
-      "item_type": "hobby",
       "render": true
     },
     "data": {
@@ -38,43 +35,57 @@
   {
     "_id": "photo-editing",
     "settings": {
-      "item_type": "hobby",
       "render": true
     },
     "data": {
       "title": "Photo Editing",
       "feature_image": "src/content/img/hobby/hobby-photo-editing.webp",
-      "svg": "hobby-photo-editing"
+      "svg": "hobby-photo-editing",
+      "link": {
+        "_id": "projects",
+        "params": {
+          "project_types": "media-video"
+        }
+      }
     }
   },
   {
     "_id": "video-editing",
     "settings": {
-      "item_type": "hobby",
       "render": true
     },
     "data": {
       "title": "Video Editing",
       "feature_image": "src/content/img/hobby/hobby-video-editing.webp",
-      "svg": "hobby-video-editing"
+      "svg": "hobby-video-editing",
+      "link": {
+        "_id": "projects",
+        "params": {
+          "project_types": "media-image"
+        }
+      }
     }
   },
   {
     "_id": "web-design",
     "settings": {
-      "item_type": "hobby",
       "render": true
     },
     "data": {
       "title": "Web Design",
       "feature_image": "src/content/img/hobby/hobby-web-design.webp",
-      "svg": "hobby-web-design"
+      "svg": "hobby-web-design",
+      "link": {
+        "_id": "projects",
+        "params": {
+          "project_types": "web-design"
+        }
+      }
     }
   },
   {
     "_id": "computer-hardware",
     "settings": {
-      "item_type": "hobby",
       "render": true
     },
     "data": {
@@ -86,13 +97,16 @@
   {
     "_id": "recording-cinematics",
     "settings": {
-      "item_type": "hobby",
       "render": true
     },
     "data": {
       "title": "Recording Cinematics",
       "feature_image": "src/content/img/hobby/hobby-recording-cinematics.webp",
-      "svg": "hobby-recording-cinematics"
+      "svg": "hobby-recording-cinematics",
+      "link": {
+        "_id": "strikerproduction-media",
+        "anchor": "videoeditingvideogamesedits"
+      }
     }
   }
 ]

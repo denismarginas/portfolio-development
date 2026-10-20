@@ -453,40 +453,10 @@
     color: var(--dm-color-gray-light);
   }
 
+  // disciplines / attributes: global icon_list (inline, sm); only the width is set here
   .tab-items-listing-disciplines {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--dm-spacing-xs);
     width: calc(var(--dm-screen-md) - 150px);
     max-width: 100%;
-  }
-
-  .tab-items-listing-discipline {
-    display: flex;
-    align-items: center;
-    gap: var(--dm-spacing-xxs);
-    align-items: start;
-    font-size: var(--dm-font-size-sm);
-
-    .tab-items-listing-discipline-icon {
-      width: calc(var(--dm-font-size-sm) + (var(--dm-spacing-xxs) * 2));
-      height: calc(var(--dm-font-size-sm) + (var(--dm-spacing-xxs) * 2));
-      flex-shrink: 0;
-      padding: var(--dm-spacing-xxs);
-      object-fit: contain;
-      object-position: center;
-      border-radius: 50%;
-
-      [mode="dark"] & {
-        @include svg-color(var(--dm-color-white));
-        background-color: var(--dm-color-primary-700);
-      }
-      [mode="light"] & {
-        @include svg-color(var(--dm-color-white));
-        background-color: var(--dm-color-primary-400);
-      }
-    }
   }
 
   .tab-items-listing-links,

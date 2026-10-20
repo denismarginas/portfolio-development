@@ -147,7 +147,11 @@ header {
     .header-menu-utility {
       display: flex;
       align-items: center;
-      gap: var(--dm-spacing-xs);
+      gap: var(--dm-spacing-md);
+
+      @media (max-width: $dm-screen-lg) {
+        gap: var(--dm-spacing-xs);
+      }
     }
 
     @media (max-width: $dm-screen-lg) {

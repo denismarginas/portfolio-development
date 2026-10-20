@@ -1,7 +1,7 @@
 {
   "name": "filters_sort",
   "title": "Filters Sort",
-  "description": "Sort row (Sort by + Order selects) and its toggle button for a filters form. Reorders the <li> items of the linked listing (<ul id=\"{target}\">). Used by filters_post_projects and hobby_pc_video_games_filters.",
+  "description": "Sort row (Sort by + Order selects) and its toggle button for a filters form. Reorders the <li> items of the linked listing (<ul id=\"{target}\">). Columns auto-detected from the field count via utility_grid_listing (or utility_grid_column_balancing), also offered to the filters row (grid_attrs). Used by filters_post_projects and hobby_pc_video_games_filters.",
   "type": "utility",
   "assets": {
     "php": [
@@ -21,7 +21,10 @@
     ]
   },
   "dependencies": [
+    "listing_toolbar",
     "svg",
+    "utility_grid_listing",
+    "utility_grid_column_balancing",
     "theme"
   ]
 }

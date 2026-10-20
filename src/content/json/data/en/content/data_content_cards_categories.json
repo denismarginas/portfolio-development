@@ -1,8 +1,8 @@
 [
     {
         "type": "page",
-        "page": "social-activity",
-        "name": "Social Activity",
+        "page": "social-posts",
+        "name": "Social Posts",
         "svg": "projects",
         "background_img": "overlay-texture-textile.webp",
         "background_img_path": "/design-elements/"

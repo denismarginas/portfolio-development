@@ -4,6 +4,9 @@ trait PlatformComponentRendererLoader
 {
     public static function render(string $component_name, array $data = []): string
     {
+        // "render": false in a component's data = skip it (nothing rendered, its assets are not loaded)
+        if (($data['render'] ?? true) === false) return '';
+
         $config = self::get_component_config($component_name);
         if ($config === null) {
             return self::render_error('component_not_found', ['name' => $component_name]);

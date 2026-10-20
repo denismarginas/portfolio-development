@@ -19,8 +19,14 @@
  * card fields:
  *   svg      string  icon name from src/content/svg (without .svg)
  *   text     string  label
- *   link     string | { post_id }  optional; the card becomes an <a>
- *   target   string  optional link target (e.g. "_blank")
+ *   link     optional; the card becomes an <a>:
+ *              { "_id": "workstations" }                      internal page / project / category (also "post_id")
+ *              { "url": "https://example.com" }               external, opens in a new tab
+ *              { "url": "...", "target": "_self" }            link target can be set in the object too
+ *              { "_id": "projects", "params": { "project_types": "media-video" } }   + URL params (?project_types=...)
+ *              { "_id": "strikerproduction-media", "anchor": "videoeditingvideogamesedits" }   + #anchor
+ *              "https://..." or "#anchor"                     plain string, used as it is
+ *   target   string  optional link target (e.g. "_blank"); default "_blank" for { "url" } links
  *   img      string  optional background image (relative to src/content/img/ or a "src/..." path)
  *   variant  string  "row" (default): icon block left, text right | "stack": icon above text, centered, taller
  *   class    string  optional extra class
@@ -64,7 +70,7 @@ class card_mini_icon_and_text
         $attrs = '';
         if ($link !== '') {
             $attrs .= ' href="' . self::e($link) . '"';
-            $target = self::str($card['target'] ?? '');
+            $target = self::str($card['target'] ?? self::link_target($card['link'] ?? null));
             if ($target !== '') {
                 $attrs .= ' target="' . self::e($target) . '"' . ($target === '_blank' ? ' rel="noopener"' : '');
             }
@@ -120,8 +126,35 @@ class card_mini_icon_and_text
     private static function link(mixed $link): string
     {
         if (is_string($link)) return trim($link);
-        if (is_array($link)) return button::resolve_link(['link' => $link]);
-        return '';
+        if (!is_array($link)) return '';
+        $url = self::str($link['url'] ?? '');
+        $url = $url !== '' ? $url : button::resolve_link(['link' => $link]);
+        return $url === '' ? '' : self::with_params($url, $link['params'] ?? [], self::str($link['anchor'] ?? ''));
+    }
+
+    /** Adds { "key": "value" } as URL params (kept with existing ones, e.g. the preview ?_id=) and a #anchor. */
+    private static function with_params(string $url, mixed $params, string $anchor): string
+    {
+        $hash = '';
+        if (($pos = strpos($url, '#')) !== false) {
+            $hash = substr($url, $pos);
+            $url = substr($url, 0, $pos);
+        }
+        $query = [];
+        foreach (is_array($params) ? $params : [] as $key => $value) {
+            $value = self::str($value);
+            if (is_string($key) && $key !== '' && $value !== '') $query[$key] = $value;
+        }
+        if ($query) $url .= (str_contains($url, '?') ? '&' : '?') . http_build_query($query, '', '&', PHP_QUERY_RFC3986);
+        $anchor = ltrim($anchor, '#');
+        return $url . ($anchor !== '' ? '#' . rawurlencode($anchor) : $hash);
+    }
+
+    /** Target set in the link object, or "_blank" for external { "url" } links. */
+    private static function link_target(mixed $link): string
+    {
+        if (!is_array($link)) return '';
+        return self::str($link['target'] ?? (self::str($link['url'] ?? '') !== '' ? '_blank' : ''));
     }
 
     private static function str(mixed $value): string

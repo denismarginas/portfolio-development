@@ -13,6 +13,10 @@ header {
     align-items: center;
     cursor: pointer;
     border-radius: 100px;
+    // fast clicks are double / triple clicks: don't let them select text on the page
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 
     .header-theme-mode-toggle-input {
       position: absolute;

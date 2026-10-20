@@ -12,7 +12,7 @@ require_once __DIR__ . '/../../../utility_post_thumbnail/assets/php/utility_post
  *                              (default "design-elements/overlay-texture-paper.webp")
  *   lazy               bool    lazy-load images (default true)
  *
- * Photo: data.media.thumbnail.media -> .default (utility_post_thumbnail), else project_media_finder::photo(). Logo: data.media.logo.img
+ * Photo: the post thumbnail (utility_post_thumbnail), else project_media_finder::photo(). Logo: data.media.logo.img
  * (image) or data.media.logo.svg (svg icon). Nothing found -> ''.
  */
 class card_post_project_visual_media
@@ -29,7 +29,7 @@ class card_post_project_visual_media
         $postData = is_array($post['data'] ?? null) ? $post['data'] : [];
         $lazy = !array_key_exists('lazy', $data) || (bool) $data['lazy'];
 
-        $photoPath = utility_post_thumbnail::get($postData, 'media');
+        $photoPath = utility_post_thumbnail::get($postData);
         if ($photoPath === '') $photoPath = project_media_finder::photo($postData);
         $photo = self::image($photoPath, 'media-photo', $lazy);
         $logo = self::logo($postData['media']['logo'] ?? [], $lazy);

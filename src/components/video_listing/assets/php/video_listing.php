@@ -5,8 +5,14 @@ class video_listing
     public static function render(array $data = []): string
     {
         $template = $data['template'] ?? [];
+        // "description_collapse": true (default) = descriptions longer than "description_max" (default 300)
+        // characters are shortened with a Show More / Show Less button (text_collapse); false = full text
+        $descCollapse = !in_array($data['description_collapse'] ?? true, [false, 'false', 0, '0'], true);
+        $descMax = (int) ($data['description_max'] ?? 300);
         $comp = str_replace('-', '_', (string) ($template['component'] ?? 'video'));
         $filterTags = $data['filter']['taxonomy']['tag'] ?? null;
+        // "filter": {"_id": ["video-id-1", "video-id-2"]} = only these videos, in this order
+        $filterIds = $data['filter']['_id'] ?? null;
 
         $videos = PlatformDataService::get_all_items_from_file('video') ?? [];
         $videos = array_values(array_filter($videos, fn($v) => ($v['settings']['render'] ?? true) !== false));
@@ -16,6 +22,15 @@ class video_listing
                 $tags = $v['taxonomy']['tag'] ?? $v['data']['taxonomy']['tag'] ?? [];
                 return !empty(array_intersect($filterTags, (array) $tags));
             }));
+        }
+
+        if (is_array($filterIds) && !empty($filterIds)) {
+            $byId = [];
+            foreach ($videos as $v) $byId[(string) ($v['_id'] ?? '')] = $v;
+            $videos = [];
+            foreach ($filterIds as $id) {
+                if (isset($byId[(string) $id])) $videos[] = $byId[(string) $id];
+            }
         }
 
         $itemsHtml = '';
@@ -40,10 +55,22 @@ class video_listing
             $buttons = $d['media']['buttons'] ?? [];
 
             $textHtml = '<div class="video-text">';
-            $textHtml .= PlatformComponentRenderer::render('text_block', ['elements' => [
-                ['subtitle' => $title],
-                ['paragraph' => $desc, 'class' => 'video-description', 'escape' => false],
-            ]]);
+            if ($descCollapse) {
+                // long descriptions: first description_max - 3 characters + "..." and Show More / Show Less
+                $textHtml .= PlatformComponentRenderer::render('text_block', ['elements' => [
+                    ['subtitle' => $title],
+                ]]);
+                $textHtml .= PlatformComponentRenderer::render('text_collapse', [
+                    'text' => $desc,
+                    'max_chars' => $descMax,
+                    'class' => 'video-description',
+                ]);
+            } else {
+                $textHtml .= PlatformComponentRenderer::render('text_block', ['elements' => [
+                    ['subtitle' => $title],
+                    ['paragraph' => $desc, 'class' => 'video-description', 'escape' => false],
+                ]]);
+            }
             if (is_array($timeline) && !empty($timeline['list'])) {
                 $textHtml .= '<div class="video-timeline"><span>' . htmlspecialchars($timeline['text'] ?? '', ENT_QUOTES, 'UTF-8') . '</span><ul>';
                 foreach ($timeline['list'] as $tl) $textHtml .= '<li>' . htmlspecialchars((string) $tl, ENT_QUOTES, 'UTF-8') . '</li>';

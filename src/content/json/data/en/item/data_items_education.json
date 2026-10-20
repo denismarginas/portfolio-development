@@ -48,7 +48,7 @@
         "projects": [
           {
             "text": "Bachelor's Thesis",
-            "_id": "project-student-courses-bachelor-s-thesis",
+            "_id": "student-courses-bachelor-s-thesis-platform",
             "svg": "folder-open"
           }
         ]
@@ -56,8 +56,8 @@
       "media": {
         "path": "education",
         "logo": {
-          "img": "src/content/img/projects/education-university-utcnbm/logo/logo-technical-university-of-cluj-napoca-from-baia-mare-utcnbm.webp",
-          "img_min": "src/content/img/projects/education-university-utcnbm/logo/logo-technical-university-of-cluj-napoca-from-baia-mare-utcnbm-minimalist.webp",
+          "img": "src/content/img/projects/education-university-utcnbm-media/logo/logo-technical-university-of-cluj-napoca-from-baia-mare-utcnbm.webp",
+          "img_min": "src/content/img/projects/education-university-utcnbm-media/logo/logo-technical-university-of-cluj-napoca-from-baia-mare-utcnbm-minimalist.webp",
           "bg": "light"
         }
       },
@@ -71,7 +71,8 @@
       "taxonomy": {
         "tag": [
           "university",
-          "mathematics-informatics"
+          "mathematics",
+          "informatics"
         ],
         "category": [
           "Education"
@@ -128,8 +129,8 @@
       "media": {
         "path": "education",
         "logo": {
-          "img": "src/content/img/projects/education-high-school-er/logo/logo-high-school-emil-racovita.webp",
-          "img_min": "src/content/img/projects/education-high-school-er/logo/logo-high-school-emil-racovita-minimalist.webp",
+          "img": "src/content/img/projects/education-high-school-er-media/logo/logo-high-school-emil-racovita.webp",
+          "img_min": "src/content/img/projects/education-high-school-er-media/logo/logo-high-school-emil-racovita-minimalist.webp",
           "bg": "light"
         }
       },

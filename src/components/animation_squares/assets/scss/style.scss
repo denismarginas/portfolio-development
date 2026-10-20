@@ -16,8 +16,8 @@
     height: 20px;
     background-color: color-mix(
       in srgb,
-      var(--dm-color-primary-800) 20%,
-      transparent
+      var(--dm-color-primary-700) 20%,
+      var(--dm-color-transparent)
     );
     animation: animate-circles-bg 15s linear infinite;
     opacity: 0.1;

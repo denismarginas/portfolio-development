@@ -13,10 +13,15 @@
  *   class, id  string  optional
  *
  * Hobby item:
- *   { "_id": "cycling",
- *     "settings": { "item_type": "hobby", "render": true },
- *     "data": { "title": "Cycling", "feature_image": "src/content/img/hobby/hobby-cycling.webp", "svg": "hobby-cycling" } }
- *   optional data.link (string | { post_id }); settings.render = false hides it.
+ *   { "_id": "video-games",
+ *     "settings": { "render": true },
+ *     "data": { "title": "Video Games", "feature_image": "src/content/img/hobby/hobby-video-games.webp",
+ *               "svg": "hobby-video-games", "link": { "_id": "hobby-pc-video-games" } } }
+ *   data.link (optional, the card becomes a link):
+ *     { "_id": "workstations" }                internal page / project / category
+ *     { "url": "https://...", "target": "_blank" }  external (target defaults to "_blank")
+ *     optional "params": { "project_types": "media-video" } (-> ?project_types=media-video) and "anchor": "section-id"
+ *   settings.render = false hides the card.
  */
 class hobby_listing
 {

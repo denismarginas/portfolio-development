@@ -61,6 +61,17 @@ class PlatformPathService
                 }
             }
         }
+        foreach (($types['item'] ?? []) as $type => $config) {
+            if (($config['routable'] ?? false) !== true) continue;
+            $items = PlatformDataService::get_all_items_from_file($type);
+            if ($items) {
+                foreach ($items as $item) {
+                    if (($item['_id'] ?? '') === $slug) {
+                        return $config['root'] ?? '';
+                    }
+                }
+            }
+        }
         foreach (($types['taxonomy'] ?? []) as $type => $config) {
             $terms = PlatformDataService::get_data('taxonomy_' . $type);
             if ($terms) {

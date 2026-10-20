@@ -1,11 +1,16 @@
 @import "theme";
 
 // Sort row inside a filters form (<li class="block-sort">). Select look comes from the form.
+// Columns come from utility_grid_listing / utility_grid_column_balancing (filters_sort::grid_attrs);
+// without those attributes ("sort_grid_max": 0) it falls back to auto-fill columns.
 .filters-sort {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: var(--dm-spacing-xs);
   width: 100%;
+
+  &:not([data-grid-list-design]):not([data-grid-column-balancing]) {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
 
   > .filters-sort-field {
     display: flex;

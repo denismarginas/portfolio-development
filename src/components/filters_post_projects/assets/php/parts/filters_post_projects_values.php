@@ -7,13 +7,12 @@
  */
 class filters_post_projects_values
 {
-    private const DEFAULT_FILE = 'filters_projects';
     private const ONGOING = ['present', 'in progress', 'ongoing', 'now', 'current'];
 
     /** Filter definitions (+ "options") that apply to these posts. */
     public static function filters(array $data, array $posts): array
     {
-        $defs = PlatformDataService::get_all_items_from_file((string) ($data['filters'] ?? self::DEFAULT_FILE)) ?? [];
+        $defs = listing_toolbar::filters($data);
         $include = (array) ($data['filters_include'] ?? []);
         $exclude = (array) ($data['filters_exclude'] ?? []);
         $hideSingle = !array_key_exists('hide_single_option', $data) || (bool) $data['hide_single_option'];

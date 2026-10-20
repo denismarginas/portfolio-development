@@ -10,10 +10,6 @@
       "project": {
         "singular": "Project",
         "plural": "Projects"
-      },
-      "workstation": {
-        "singular": "Workstation",
-        "plural": "Workstations"
       }
     }
   },
@@ -24,10 +20,6 @@
       "category": {
         "singular": "Category",
         "plural": "Categories"
-      },
-      "tag": {
-        "singular": "Tag",
-        "plural": "Tags"
       }
     }
   },
@@ -51,9 +43,9 @@
         "singular": "Hobby PC Video Game",
         "plural": "Hobby PC Video Games"
       },
-      "social": {
-        "singular": "Social",
-        "plural": "Socials"
+      "social_post": {
+        "singular": "Social Post",
+        "plural": "Social Posts"
       },
       "social_link": {
         "singular": "Social Link",
@@ -71,17 +63,17 @@
         "singular": "Knowledge Item",
         "plural": "Knowledge Items"
       },
-      "filters_projects": {
-        "singular": "Filter Projects",
-        "plural": "Filters Projects"
-      },
-      "filters_pc_video_games": {
-        "singular": "Filter PC Video Games",
-        "plural": "Filters PC Video Games"
+      "listing_toolbar": {
+        "singular": "Listing Toolbar",
+        "plural": "Listing Toolbars"
       },
       "hobby": {
         "singular": "Hobby",
         "plural": "Hobbies"
+      },
+      "workstation": {
+        "singular": "Workstation",
+        "plural": "Workstations"
       }
     }
   }

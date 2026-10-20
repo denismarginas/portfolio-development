@@ -1,119 +1,105 @@
 {
-  "post": {
-    "page": {
-      "label": "Pages",
-      "file": "data_post_page.json",
-      "root": "/",
-      "structure": "page_structure",
-      "seo": "seo_page",
-      "routable": true,
-      "global_content_path": "src/content/",
-      "global_img_path": "src/content/img/pages",
-      "global_vid_path": "src/content/vid/pages"
+    "post": {
+        "page": {
+            "label": "Pages",
+            "file": "data_post_page.json",
+            "root": "/",
+            "structure": "page_structure",
+            "seo": "seo_page",
+            "routable": true,
+            "global_content_path": "src/content/",
+            "global_img_path": "src/content/img/pages",
+            "global_vid_path": "src/content/vid/pages"
+        },
+        "project": {
+            "label": "Projects",
+            "file": "data_post_project.json",
+            "root": "/project/",
+            "structure": "project_structure",
+            "seo": "seo_project",
+            "routable": false,
+            "global_content_path": "src/content/",
+            "global_img_path": "src/content/img/projects",
+            "global_vid_path": "src/content/vid/projects"
+        }
     },
-    "project": {
-      "label": "Projects",
-      "file": "data_post_project.json",
-      "root": "/project/",
-      "structure": "project_structure",
-      "seo": "seo_project",
-      "routable": true,
-      "global_content_path": "src/content/",
-      "global_img_path": "src/content/img/projects",
-      "global_vid_path": "src/content/vid/projects"
+    "taxonomy": {
+        "category": {
+            "label": "Categories",
+            "file": "data_taxonomy_category.json",
+            "root": "/category/",
+            "routable": true,
+            "post_types": [
+                "project"
+            ]
+        }
     },
-    "workstation": {
-      "label": "Workstations",
-      "file": "data_post_workstation.json",
-      "root": "/workstation/",
-      "structure": "page_structure",
-      "seo": "seo_page",
-      "routable": true,
-      "global_content_path": "src/content/",
-      "global_img_path": "src/content/img/workstations",
-      "global_vid_path": "src/content/vid/workstations"
+    "item": {
+        "job": {
+            "label": "Jobs",
+            "file": "data_items_job.json",
+            "routable": false
+        },
+        "education": {
+            "label": "Education",
+            "file": "data_items_education.json",
+            "routable": false
+        },
+        "hobby_pc_video_game": {
+            "label": "Hobby PC Video Games",
+            "file": "data_items_hobby_pc_video_game.json",
+            "routable": false
+        },
+        "social_post": {
+            "label": "Social Posts",
+            "file": "data_items_social_post.json",
+            "routable": false
+        },
+        "resume": {
+            "label": "Resumes",
+            "file": "data_items_resume.json",
+            "routable": false
+        },
+        "listing_toolbar": {
+            "label": "Listing Toolbars",
+            "file": "data_items_listing_toolbar.json",
+            "routable": false
+        },
+        "video": {
+            "label": "Videos",
+            "file": "data_items_video.json",
+            "routable": false
+        },
+        "knowledge_item": {
+            "label": "Knowledge Items",
+            "file": "data_items_knowledge_item.json",
+            "routable": false
+        },
+        "social_link": {
+            "label": "Social Links",
+            "file": "data_items_social_link.json",
+            "routable": false
+        },
+        "form": {
+            "label": "Forms",
+            "file": "data_items_form.json",
+            "routable": false
+        },
+        "hobby": {
+            "label": "Hobbies",
+            "file": "data_items_hobby.json",
+            "routable": false
+        },
+        "workstation": {
+            "label": "Workstations",
+            "file": "data_items_workstation.json",
+            "root": "/workstation/",
+            "structure": "page_structure",
+            "seo": "seo_page",
+            "routable": true,
+            "global_content_path": "src/content/",
+            "global_img_path": "src/content/img/workstation",
+            "global_vid_path": "src/content/vid/projects"
+        }
     }
-  },
-  "taxonomy": {
-    "category": {
-      "label": "Categories",
-      "file": "data_taxonomy_category.json",
-      "root": "/category/",
-      "routable": true,
-      "post_types": [
-        "project"
-      ]
-    },
-    "tag": {
-      "label": "Tags",
-      "file": "data_taxonomy_tag.json",
-      "root": "/tag/",
-      "routable": true,
-      "post_types": [
-        "project"
-      ]
-    }
-  },
-  "item": {
-    "job": {
-      "label": "Jobs",
-      "file": "data_items_job.json",
-      "routable": false
-    },
-    "education": {
-      "label": "Education",
-      "file": "data_items_education.json",
-      "routable": false
-    },
-    "hobby_pc_video_game": {
-      "label": "Hobby PC Video Games",
-      "file": "data_items_hobby_pc_video_game.json",
-      "routable": false
-    },
-    "social": {
-      "label": "Socials",
-      "file": "data_items_social.json",
-      "routable": false
-    },
-    "resume": {
-      "label": "Resumes",
-      "file": "data_items_resume.json",
-      "routable": false
-    },
-    "filters_projects": {
-      "label": "Filter Projects",
-      "file": "data_items_filters_projects.json",
-      "routable": false
-    },
-    "filters_pc_video_games": {
-      "label": "Filters PC Video Games",
-      "file": "data_items_filters_pc_video_games.json",
-      "routable": false
-    },
-    "video": {
-      "label": "Videos",
-      "file": "data_items_video.json",
-      "routable": false
-    },
-    "knowledge_item": {
-      "label": "Knowledge Items",
-      "file": "data_items_knowledge_item.json",
-      "routable": false
-    },
-    "social_link": {
-      "label": "Social Links",
-      "file": "data_items_social_link.json",
-      "routable": false
-    },
-    "form": {
-      "label": "Forms",
-      "file": "data_items_form.json",
-      "routable": false
-    },
-    "hobby": {
-      "label": "Hobbies",
-      "file": "data_items_hobby.json",
-      "routable": false
-    }
-  }
 }

@@ -29,7 +29,13 @@
         ],
         "data": {
           "variant": "sm",
-          "img": "backgrounds/bg-projects.webp",
+          "img": "backgrounds/bg-home.webp",
+          "video": {
+            "src": "categories/category_projects.webm",
+            "poster": "thumbnails/category_projects.webp",
+            "loop": true,
+            "overlay": 0.8
+          },
           "title": "@data.seo.title",
           "description": "@data.seo.description"
         }
@@ -41,6 +47,7 @@
             "component": "filters_post_projects",
             "data": {
               "id": "projects",
+              "toolbar": "projects",
               "preview_toggle": true,
               "post_type": "project",
               "exclude_by": ["settings.exclude_from_categories"],
@@ -58,7 +65,7 @@
             "component": "post-items",
             "data": {
               "id": "projects",
-              "class": "gap-xs gap-sm-sm",
+              "class": "gap-xs gap-sm-sm show-preview listing-5",
               "post_type": "project",
               "exclude_by": ["settings.exclude_from_categories"],
               "sort": [
@@ -100,7 +107,7 @@
       },
       "media": {
         "svg": "category-web-development",
-        "feature_img": "categories/category-photo-web-development-photo.webp"
+        "feature_img": "categories/category-cover-web-development.webp"
       }
     },
     "content": [
@@ -114,7 +121,13 @@
         ],
         "data": {
           "variant": "xs",
-          "img": "categories/category-photo-web-development-photo.webp",
+          "img": "categories/category-cover-web-development.webp",
+          "video": {
+            "src": "categories/category_web-development.webm",
+            "poster": "thumbnails/category_web_development.webp",
+            "loop": true,
+            "overlay": 0.8
+          },
           "title": "@data.seo.title",
           "description": "@data.seo.description"
         }
@@ -126,11 +139,16 @@
             "component": "filters_post_projects",
             "data": {
               "id": "projects",
+              "toolbar": "projects",
+              "preview_toggle": true,
               "post_type": "project",
               "filter_by": { "taxonomy.category": "Web Development Projects" },
               "filters_exclude": ["post-category", "post-media-platform"],
               "exclude_by": [
-                { "path": "taxonomy.category", "value": "Miscellaneous Projects" },
+                {
+                  "path": "taxonomy.category",
+                  "value": "Personal and Custom Projects"
+                },
                 "settings.exclude_from_categories"
               ],
               "sort": { "by": "date.publish", "order": "desc" }
@@ -140,13 +158,16 @@
             "component": "post-items",
             "data": {
               "id": "projects",
-              "class": "gap-xs gap-sm-sm",
+              "class": "gap-xs gap-sm-sm show-preview",
               "post_type": "project",
               "filter_by": {
                 "taxonomy.category": "Web Development Projects"
               },
               "exclude_by": [
-                { "path": "taxonomy.category", "value": "Miscellaneous Projects" },
+                {
+                  "path": "taxonomy.category",
+                  "value": "Personal and Custom Projects"
+                },
                 "settings.exclude_from_categories"
               ],
               "sort": { "by": "date.publish", "order": "desc" },
@@ -188,7 +209,7 @@
       },
       "media": {
         "svg": "category-visual-media",
-        "feature_img": "categories/category-photo-visual-media.webp"
+        "feature_img": "categories/category-cover-visual-media.webp"
       }
     },
     "content": [
@@ -202,7 +223,13 @@
         ],
         "data": {
           "variant": "xs",
-          "img": "categories/category-photo-visual-media.webp",
+          "img": "categories/category-cover-visual-media.webp",
+          "video": {
+            "src": "categories/category_visual_media_projects.webm",
+            "poster": "thumbnails/category_visual_media_projects.webp",
+            "loop": true,
+            "overlay": 0.8
+          },
           "title": "@data.seo.title",
           "description": "@data.seo.description"
         }
@@ -214,11 +241,20 @@
             "component": "filters_post_projects",
             "data": {
               "id": "projects",
+              "toolbar": "projects",
+              "preview_toggle": true,
               "post_type": "project",
               "filter_by": { "taxonomy.category": "Visual Media Projects" },
-              "filters_exclude": ["post-category", "post-web-platform", "post-web-technology"],
+              "filters_exclude": [
+                "post-category",
+                "post-web-platform",
+                "post-web-technology"
+              ],
               "exclude_by": [
-                { "path": "taxonomy.category", "value": "Miscellaneous Projects" },
+                {
+                  "path": "taxonomy.category",
+                  "value": "Personal and Custom Projects"
+                },
                 "settings.exclude_from_categories"
               ],
               "sort": { "by": "date.publish", "order": "desc" }
@@ -228,13 +264,16 @@
             "component": "post-items",
             "data": {
               "id": "projects",
-              "class": "gap-xs gap-sm-sm",
+              "class": "gap-xs gap-sm-sm show-preview",
               "post_type": "project",
               "filter_by": {
                 "taxonomy.category": "Visual Media Projects"
               },
               "exclude_by": [
-                { "path": "taxonomy.category", "value": "Miscellaneous Projects" },
+                {
+                  "path": "taxonomy.category",
+                  "value": "Personal and Custom Projects"
+                },
                 "settings.exclude_from_categories"
               ],
               "sort": { "by": "date.publish", "order": "desc" },
@@ -251,7 +290,7 @@
     ]
   },
   {
-    "_id": "miscellaneous-projects",
+    "_id": "personal-and-custom-projects",
     "data": {
       "settings": {
         "type": "taxonomy",
@@ -261,15 +300,15 @@
         "parent": "projects"
       },
       "seo": {
-        "title": "Miscellaneous Projects",
+        "title": "Personal and Custom Projects",
         "description": "A mix of non-profit initiatives, personal passion projects, and freelancing work, reflecting my diverse creative endeavors.",
-        "keywords": "denis marginas miscellaneous projects",
-        "slug": "miscellaneous-projects",
+        "keywords": "denis marginas personal and custom projects",
+        "slug": "personal-and-custom-projects",
         "index": false
       },
       "media": {
         "svg": "category-miscellaneous",
-        "feature_img": "categories/category-photo-miscellaneous.webp"
+        "feature_img": "categories/category-cover-personal-and-custom.webp"
       }
     },
     "content": [
@@ -283,7 +322,13 @@
         ],
         "data": {
           "variant": "xs",
-          "img": "categories/category-photo-miscellaneous.webp",
+          "img": "categories/category-cover-personal-and-custom.webp",
+          "video": {
+            "src": "categories/category_personal_and_custom_projects.webm",
+            "poster": "thumbnails/category_personal_and_custom_projects.webp",
+            "loop": true,
+            "overlay": 0.8
+          },
           "title": "@data.seo.title",
           "description": "@data.seo.description"
         }
@@ -295,9 +340,13 @@
             "component": "filters_post_projects",
             "data": {
               "id": "projects",
+              "toolbar": "projects",
+              "preview_toggle": true,
               "post_type": "project",
               "exclude_by": ["settings.exclude_from_categories"],
-              "filter_by": { "taxonomy.category": "Miscellaneous Projects" },
+              "filter_by": {
+                "taxonomy.category": "Personal and Custom Projects"
+              },
               "filters_exclude": ["post-category"],
               "sort": { "by": "date.publish", "order": "desc" }
             }
@@ -306,11 +355,11 @@
             "component": "post-items",
             "data": {
               "id": "projects",
-              "class": "gap-xs gap-sm-sm",
+              "class": "gap-xs gap-sm-sm show-preview",
               "post_type": "project",
               "exclude_by": ["settings.exclude_from_categories"],
               "filter_by": {
-                "taxonomy.category": "Miscellaneous Projects"
+                "taxonomy.category": "Personal and Custom Projects"
               },
               "sort": { "by": "date.publish", "order": "desc" },
               "template": {
@@ -325,6 +374,59 @@
                   }
                 }
               }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "workstations",
+    "data": {
+      "settings": {
+        "type": "taxonomy",
+        "taxonomy_type": "category",
+        "item_types": ["workstation"],
+        "render": true,
+        "listing": false
+      },
+      "seo": {
+        "title": "Workstations",
+        "description": "The computer setups behind my work, from the 2016 build that carried me through university, remote work and video editing to the one I use every day now: PC components, peripherals and desk accessories, with photos, specs and videos.",
+        "keywords": "denis marginas workstations, pc setup, desktop setup, pc build",
+        "slug": "workstations",
+        "index": false
+      },
+      "media": {
+        "svg": "workstation",
+        "feature_img": "backgrounds/bg-workstation.webp"
+      }
+    },
+    "content": [
+      {
+        "component": "hero",
+        "children": [
+          {
+            "component": "animation_squares",
+            "data": {}
+          }
+        ],
+        "data": {
+          "variant": "xs",
+          "img": "backgrounds/bg-workstation.webp",
+          "title": "@data.seo.title",
+          "description": "@data.seo.description"
+        }
+      },
+      {
+        "component": "section",
+        "children": [
+          {
+            "component": "block_workstation_listing",
+            "data": {
+              "id": "workstations",
+              "type": "workstation",
+              "columns": 2
             }
           }
         ]

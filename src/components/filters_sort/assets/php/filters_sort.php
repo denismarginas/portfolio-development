@@ -6,6 +6,7 @@
  *   filters_sort::render([...])         -> sort row HTML ("" when there are no fields)
  *   filters_sort::toggle_button($data)  -> sort icon button ("" when there are no fields)
  *   filters_sort::values($item, $data)  -> sort values for the JSON index ("_sort")
+ *   filters_sort::grid_attrs($count, $data, $prefix)  -> auto grid columns for a row of fields
  *
  * $data:
  *   target          string  id of the listing <ul> (required)
@@ -15,12 +16,20 @@
  *   sort_default    string  label of a first "keep the original order" option (e.g. "Default"); omit for none
  *   sort_expanded   bool    sort row open on load (default false)
  *   sort_by_label, sort_order_label   select labels (default "Sort by:", "Order:")
+ *   sort_column_balancing   bool    balanced, always full rows (default true, see grid_attrs)
+ *   sort_grid_max   int     max columns of the sort row instead of the balanced rows; 0 = auto-fill
  *
  * Default order labels: text A-Z / Z-A, number Low-High / High-Low, date Oldest / Newest.
  * Without "sort_default" the first field (and its order) is applied on load.
  */
 class filters_sort
 {
+    /** Fields in the sort row (Sort by + Order). */
+    private const FIELDS_COUNT = 2;
+
+    /** Default max columns for grid_attrs(). */
+    private const GRID_MAX = 4;
+
     private const ORDER_LABELS = [
         'text' => ['asc' => 'A-Z', 'desc' => 'Z-A'],
         'number' => ['asc' => 'Low-High', 'desc' => 'High-Low'],
@@ -50,6 +59,7 @@ class filters_sort
 
         return PlatformTemplateRenderer::render(__DIR__ . '/../html/template.html', [
             'target' => self::e($target),
+            'grid_attrs' => self::grid_attrs(self::FIELDS_COUNT, $data, 'sort'),
             'by_id' => self::e($target . '-sort-by'),
             'order_id' => self::e($target . '-sort-order'),
             'by_label' => self::e((string) ($data['sort_by_label'] ?? 'Sort by:')),
@@ -60,6 +70,30 @@ class filters_sort
             'desc_selected' => ($first['order'] ?? 'asc') === 'desc' ? ' selected' : '',
             'order_disabled' => $first === null ? ' disabled' : '',
         ]);
+    }
+
+    /**
+     * Auto grid columns for a row of $count fields (same as project_media_gallery), read from $data with $prefix
+     * ("filters" -> filters_grid_max / filters_column_balancing, "sort" -> sort_grid_max / sort_column_balancing):
+     *   default                    balanced rows via utility_grid_column_balancing (same as the project galleries):
+     *                              every row is filled, e.g. 5 fields -> one row of 5, or 2 + 3 below 1440px
+     *   {prefix}_grid_max          set it to use utility_grid_listing with that many max columns instead;
+     *                              0 = no attributes, the row keeps its auto-fill (min 180px) columns
+     *   {prefix}_column_balancing  false = use {prefix}_grid_max (default 4) instead of the balanced rows
+     */
+    public static function grid_attrs(int $count, array $data, string $prefix): string
+    {
+        if ($count <= 0) return '';
+
+        $balanced = $data[$prefix . '_column_balancing'] ?? !array_key_exists($prefix . '_grid_max', $data);
+        if ($balanced === true) {
+            return (string) PlatformComponentRenderer::value('utility_grid_column_balancing', ['count' => $count]);
+        }
+
+        $max = (int) ($data[$prefix . '_grid_max'] ?? self::GRID_MAX);
+        if ($max < 1) return '';
+
+        return (string) PlatformComponentRenderer::value('utility_grid_listing', ['count' => $count, 'max' => $max]);
     }
 
     public static function toggle_button(array $data = []): string

@@ -30,8 +30,6 @@ require_once __DIR__ . '/../../../utility_project_web_screens/assets/php/utility
  * The secondary (Web Media Content) galleries get "column_balancing": true (balanced rows) unless they set it.
  *
  * A title is rendered only when something below it has output (content or gallery images).
- * Components in content_section_primary get "thumbnail_section": "web" (unless they set it), so e.g.
- * project_block_visual_and_paragraph shows data.media.thumbnail.web by default.
  * Title ids ("webdevelopment", "webmediacontent") keep the old #anchors working.
  */
 class project_visual_web_gallery
@@ -82,7 +80,7 @@ class project_visual_web_gallery
         $gridMax = (int) ($data['grid_max'] ?? 4);
 
         $content = section::render_children(array_merge($shared, [
-            'children' => self::with_thumbnail_section(self::galleries($data, 'content_section_primary', []), 'web'),
+            'children' => self::galleries($data, 'content_section_primary', []),
         ]));
 
         $html = self::part(
@@ -128,18 +126,6 @@ class project_visual_web_gallery
             if (is_array($gallery) && !array_key_exists($key, $gallery)) $galleries[$i][$key] = $value;
         }
         return $galleries;
-    }
-
-    /** Adds data.thumbnail_section (utility_post_thumbnail key) to every child that does not set it. Also used by project_visual_media_gallery. */
-    public static function with_thumbnail_section(array $children, string $section): array
-    {
-        foreach ($children as $i => $child) {
-            if (!is_array($child)) continue;
-            $childData = is_array($child['data'] ?? null) ? $child['data'] : [];
-            if (!array_key_exists('thumbnail_section', $childData)) $childData['thumbnail_section'] = $section;
-            $children[$i]['data'] = $childData;
-        }
-        return $children;
     }
 
     /** List of gallery param sets; accepts an array or JSON text (post editor). */

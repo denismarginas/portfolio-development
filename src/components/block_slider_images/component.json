@@ -1,7 +1,7 @@
 {
   "name": "block_slider_images",
   "title": "Block Slider Images",
-  "description": "Image slider of a post (old slider_directory_images): every image in src/content/img/projects/<media.path>/<img_array_path_dir>. Sliding, arrows, \"i / N\" counter and optional dots come from utility_slider; slides open in the popup gallery (same slider). Optional videos (project_block_video) as extra slides that play in place and are part of the popup gallery.",
+  "description": "Image slider of a post (old slider_directory_images): every image in src/content/img/projects/<media.path>/<img_array_path_dir> (or <global_img_path>/..., or only the files listed in \"images\"). Sliding, arrows, \"i / N\" counter and optional dots come from utility_slider; slides open in the popup gallery (same slider). Optional videos (project_block_video) as extra slides that play in place and are part of the popup gallery.",
   "post_types": [
     "project"
   ],

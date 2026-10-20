@@ -83,6 +83,11 @@
       ],
       "taxonomy": {
         "tag": [
+          "front-end",
+          "back-end",
+          "photo",
+          "video",
+          "seo",
           "full-stack",
           "wordpress",
           "prestashop",
@@ -146,7 +151,7 @@
       "media": {
         "path": "projects",
         "logo": {
-          "img": "src/content/img/projects/netexromania/logo/logo.png",
+          "img": "src/content/img/projects/netexromania-web-maintenance/logo/logo.png",
           "bg": "light"
         }
       },
@@ -241,7 +246,7 @@
       "media": {
         "path": "projects",
         "logo": {
-          "img": "src/content/img/projects/enlivy/logo/logo.png",
+          "img": "src/content/img/projects/enlivy-media/logo/logo.png",
           "bg": "dark"
         }
       },
@@ -324,7 +329,7 @@
       "media": {
         "path": "projects",
         "logo": {
-          "img": "src/content/img/projects/yesagency/logo/logo.png",
+          "img": "src/content/img/projects/yesagency-media/logo/logo.png",
           "bg": "light"
         }
       },
@@ -408,7 +413,7 @@
       "media": {
         "path": "projects",
         "logo": {
-          "img": "src/content/img/projects/mentormarketingexperts/logo/logo-icon.webp",
+          "img": "src/content/img/projects/mentormarketingexperts-landing-page/logo/logo-icon.webp",
           "bg": "light"
         }
       },
@@ -426,9 +431,13 @@
       ],
       "taxonomy": {
         "tag": [
+          "front-end",
+          "back-end",
+          "seo",
           "wordpress",
           "elementor",
-          "web-design"
+          "php",
+          "javascript"
         ],
         "category": [
           "Experience"
@@ -486,7 +495,7 @@
       "media": {
         "path": "projects",
         "logo": {
-          "img": "src/content/img/projects/gigroup/logo/logo-icon.webp",
+          "img": "src/content/img/projects/gigroup-media/logo/logo-icon.webp",
           "bg": "light"
         }
       },

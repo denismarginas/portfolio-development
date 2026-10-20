@@ -8,7 +8,7 @@ class header_search_button extends header_theme_toggle
         $searchId = $mappings['search_post_id'] ?? 'search';
         $searchUrl = PlatformPathService::post_link($searchId);
 
-        $currentPostId = $data['post_current_data']['post_id'] ?? '';
+        $currentPostId = (string) ($data['post_current_data']['_id'] ?? $data['post_current_data']['post_id'] ?? '');
         $isActive = $currentPostId !== '' && $searchId === $currentPostId;
 
         return PlatformTemplateRenderer::render(__DIR__ . '/../../html/template_search_button.html', [

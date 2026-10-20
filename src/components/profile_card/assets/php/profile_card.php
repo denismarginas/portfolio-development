@@ -22,11 +22,13 @@
  *   image_position  string  "left" (default) | "right" | "top" (stacked); on phones the image is always on top
  *   image_style     string  "circle" (portrait popping out of a circle, hover animation)
  *                           | "rounded" (default, rounded rectangle)
+ *                           | "plain" (the image as it is: width auto, max-width 100%, no radius or shadow)
  *   noise           bool    "circle" only: overlay_noise texture on the circle background (default false)
  *   title           string | object  heading: "Contact Data"
  *                   or { "text": "Contact Data", "tag": "h2", "class": "title-divider title-primary" }
  *   text            string|array  paragraph(s); <br>, <b>, <strong>, <i>, <em> are kept
- *   details         array   [{ label, value, link?, svg? (default "chevron-right"), tooltip? }]
+ *   details         array   [{ label, value, link?, svg? (default "chevron-right", e.g. envelope / location / phone), tooltip? }]
+ *                           shown as rows: icon in a round badge, small label above the value
  *                           tooltip = { "text": "...", "status": "warning" } (tooltip component on the value)
  *   class, id       string  optional
  */
@@ -65,7 +67,8 @@ class profile_card
 
     private static function style(array $data): string
     {
-        return strtolower((string) ($data['image_style'] ?? 'rounded')) === 'circle' ? 'circle' : 'rounded';
+        $style = strtolower((string) ($data['image_style'] ?? 'rounded'));
+        return in_array($style, ['circle', 'plain'], true) ? $style : 'rounded';
     }
 
     private static function media(array $data, string $title, string $style): string
@@ -133,9 +136,12 @@ class profile_card
                 'class' => 'profile-card-detail-icon',
             ]);
 
-            $html .= '<li class="profile-card-detail">' . $icon
-                . '<b class="profile-card-detail-label">' . self::e($label) . '</b>'
-                . $valueHtml . '</li>';
+            // icon in a round badge, small label above the value
+            $html .= '<li class="profile-card-detail">'
+                . '<span class="profile-card-detail-badge">' . $icon . '</span>'
+                . '<span class="profile-card-detail-body">'
+                . ($label !== '' ? '<b class="profile-card-detail-label">' . self::e($label) . '</b>' : '')
+                . $valueHtml . '</span></li>';
         }
 
         return $html === '' ? '' : '<ul class="profile-card-details">' . $html . '</ul>';

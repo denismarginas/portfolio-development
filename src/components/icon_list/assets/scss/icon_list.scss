@@ -1,0 +1,73 @@
+@import "theme";
+
+// Text list with an icon before every item. Default: column, icon in a primary circle.
+.icon-list {
+  @include reset-list();
+  display: flex;
+  flex-direction: column;
+  gap: var(--dm-spacing-xs);
+  min-width: 0;
+
+  > .icon-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--dm-spacing-xxs);
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    font-size: var(--dm-font-size-md);
+    line-height: 1.4;
+
+    [mode="dark"] & {
+      color: var(--dm-color-gray-light);
+    }
+
+    [mode="light"] & {
+      color: var(--dm-color-gray);
+    }
+  }
+
+  .icon-list-text {
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    overflow-wrap: anywhere;
+  }
+
+  // badge (default): icon in a primary-colored circle, as tall as one text line
+  .icon-list-icon {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 1.4em;
+    height: 1.4em;
+    padding: 0.35em;
+    border-radius: 50%;
+    background-color: var(--dm-color-primary);
+    @include svg-color(var(--dm-color-white));
+  }
+
+  // "icon_style": "plain" - just the icon, in the primary color
+  &.icon-list-plain .icon-list-icon {
+    width: auto;
+    padding: 0.25em 0;
+    border-radius: 0;
+    background-color: transparent;
+    @include svg-color(var(--dm-color-primary));
+  }
+
+  // "layout": "inline" - items in a row that wraps
+  &.icon-list-inline {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: var(--dm-spacing-sm);
+  }
+
+  // "size": "sm" / "base" - text size (the icon is sized in em, so it follows)
+  &.icon-list-sm > .icon-list-item {
+    font-size: var(--dm-font-size-sm);
+  }
+
+  &.icon-list-base > .icon-list-item {
+    font-size: var(--dm-font-size-base);
+  }
+}

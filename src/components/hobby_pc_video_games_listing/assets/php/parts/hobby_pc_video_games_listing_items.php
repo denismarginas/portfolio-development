@@ -5,6 +5,11 @@
  * components always work on the same items).
  *
  * $data:
+ * Item shape (data_items_hobby_pc_video_game.json):
+ *   { "_id", "settings": { "render", "display" },
+ *     "data": { "name", "rank", "playtime_hours", "release_year", "tags": [...], "banner" } }
+ * The old flat shape ({ "name", "rank": "9", "playtime": "4320h+", "tags": "a, b", "display" }) still works.
+ *
  *   type          string  item file (default "hobby_pc_video_game" -> data_items_hobby_pc_video_game.json)
  *   items         array   items passed directly (skips the file)
  *   show_hidden   bool    also return items with "display": false (default false;
@@ -16,7 +21,15 @@
 class hobby_pc_video_games_listing_items
 {
     public const DEFAULT_TYPE = 'hobby_pc_video_game';
-    private const NUMBER_KEYS = ['rank', 'playtime'];
+    private const NUMBER_KEYS = ['rank', 'playtime', 'playtime_hours', 'release_year'];
+
+    /** Old flat keys <-> new data keys (sort "by": "playtime" keeps working). */
+    private const ALIASES = [
+        'playtime' => 'playtime_hours',
+        'playtime_hours' => 'playtime',
+        'release-date' => 'release_year',
+        'release_year' => 'release-date',
+    ];
 
     public static function find(array $data): array
     {
@@ -37,10 +50,24 @@ class hobby_pc_video_games_listing_items
         return $max > 0 ? array_slice($items, 0, $max) : $items;
     }
 
-    /** "display": false -> hidden by default (shown with Display: All). Missing = true. */
+    /** settings.display false -> hidden by default (shown with Display: All). Missing = true. */
     public static function is_hidden(array $item): bool
     {
-        return ($item['display'] ?? true) === false;
+        return ($item['settings']['display'] ?? $item['display'] ?? true) === false;
+    }
+
+    /** A game field: $item['data'][$key], then the old flat $item[$key] (+ aliases). */
+    public static function value(array $item, string $key): mixed
+    {
+        $keys = [$key];
+        if (isset(self::ALIASES[$key])) $keys[] = self::ALIASES[$key];
+        foreach ([$item['data'] ?? null, $item] as $source) {
+            if (!is_array($source)) continue;
+            foreach ($keys as $k) {
+                if (array_key_exists($k, $source) && $source[$k] !== null) return $source[$k];
+            }
+        }
+        return null;
     }
 
     public static function type(array $data): string
@@ -62,10 +89,10 @@ class hobby_pc_video_games_listing_items
         return preg_match('/-?\d+(?:[.,]\d+)?/', $value, $m) ? (float) str_replace(',', '.', $m[0]) : null;
     }
 
-    /** "ARPG, Singleplayer" -> ["ARPG", "Singleplayer"] */
+    /** ["ARPG", "Singleplayer"] (or "ARPG, Singleplayer") -> ["ARPG", "Singleplayer"] */
     public static function tags(array $item): array
     {
-        $tags = $item['tags'] ?? [];
+        $tags = self::value($item, 'tags') ?? [];
         if (is_string($tags)) $tags = explode(',', $tags);
         if (!is_array($tags)) return [];
         $tags = array_map(fn ($t) => trim((string) $t), array_filter($tags, 'is_scalar'));
@@ -96,14 +123,16 @@ class hobby_pc_video_games_listing_items
         $type = strtolower((string) ($rule['type'] ?? (in_array($key, self::NUMBER_KEYS, true) ? 'number' : 'text')));
 
         if ($type === 'number') {
-            $va = self::number($a[$key] ?? null);
-            $vb = self::number($b[$key] ?? null);
+            $va = self::number(self::value($a, $key));
+            $vb = self::number(self::value($b, $key));
             if ($va === null || $vb === null) return ($va === null) <=> ($vb === null); // empty last
             return $dir * ($va <=> $vb);
         }
 
-        $va = trim((string) (is_scalar($a[$key] ?? null) ? $a[$key] : ''));
-        $vb = trim((string) (is_scalar($b[$key] ?? null) ? $b[$key] : ''));
+        $va = self::value($a, $key);
+        $vb = self::value($b, $key);
+        $va = trim((string) (is_scalar($va) ? $va : ''));
+        $vb = trim((string) (is_scalar($vb) ? $vb : ''));
         if ($va === '' || $vb === '') return ($va === '') <=> ($vb === '');
         return $dir * strnatcasecmp($va, $vb);
     }

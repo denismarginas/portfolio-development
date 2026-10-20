@@ -1,6 +1,9 @@
 @import "theme";
 
 .profile-card {
+  // one full turn of the circle background (hover = twice as fast)
+  --profile-card-spin-duration: 60s;
+
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
   grid-template-areas: "media content";
@@ -46,6 +49,14 @@
       color-mix(in srgb, var(--dm-color-black) 25%, transparent);
   }
 
+  // Plain image: as it is, no radius or shadow
+  &[data-image-style="plain"] .profile-card-image {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+  }
+
   // Circle portrait: the photo sits in a circle and its top pops out of it
   .profile-card-circle {
     position: relative;
@@ -54,6 +65,9 @@
     aspect-ratio: unquote("4 / 5");
   }
 
+  // Slow endless rotation. Two layers turn at the same speed: the circle itself (always) and its gradient
+  // (::before, only while hovering), so on hover the gradient spins twice as fast without jumping.
+  // Speed: --profile-card-spin-duration (one full turn, default 60s).
   .profile-card-circle-background {
     position: absolute;
     left: 0;
@@ -61,25 +75,37 @@
     bottom: 0;
     aspect-ratio: 1;
     border-radius: 50%;
-    background-size: 130% 130%;
-    background-position: 0% 0%;
+    isolation: isolate;
     box-shadow: 0 10px 30px
       color-mix(in srgb, var(--dm-color-black) 25%, transparent);
     transition:
       transform 0.5s ease,
-      background-position 0.8s ease,
       box-shadow 0.5s ease;
+    animation: profile-card-spin var(--profile-card-spin-duration, 60s) linear infinite;
 
-    [mode="light"] & {
-      background: linear-gradient(
+    // the gradient
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: inherit;
+      background-size: 130% 130%;
+      background-position: 0% 0%;
+      transition: background-position 0.8s ease;
+      animation: profile-card-spin var(--profile-card-spin-duration, 60s) linear infinite paused;
+    }
+
+    [mode="light"] &::before {
+      background-image: linear-gradient(
         135deg,
         var(--dm-color-primary-300) 10%,
         var(--dm-color-primary-500) 70%,
         var(--dm-color-primary-600) 100%
       );
     }
-    [mode="dark"] & {
-      background: linear-gradient(
+    [mode="dark"] &::before {
+      background-image: linear-gradient(
         135deg,
         var(--dm-color-primary-500) 10%,
         var(--dm-color-primary-700) 70%,
@@ -131,9 +157,13 @@
   .profile-card-circle:hover {
     .profile-card-circle-background {
       transform: scale(1.04);
-      background-position: 100% 100%;
       box-shadow: 0 16px 40px
         color-mix(in srgb, var(--dm-color-black) 35%, transparent);
+
+      &::before {
+        background-position: 100% 100%;
+        animation-play-state: running; // + the circle's own rotation = twice as fast
+      }
 
       &::after {
         transform: rotate(5deg) scale(1.03);
@@ -159,32 +189,67 @@
     margin: 0;
   }
 
+  // Details: one row each, icon in a round badge + small label above the value
   .profile-card-details {
     @include reset-list();
     display: flex;
     flex-direction: column;
-    gap: var(--dm-spacing-xxs);
+    gap: var(--dm-spacing-xs);
   }
 
   .profile-card-detail {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    gap: 6px;
+    gap: var(--dm-spacing-xs);
+    min-width: 0;
+  }
 
-    > b {
-      font-weight: var(--dm-font-weight-bold);
-    }
+  .profile-card-detail-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgb(from var(--dm-color-primary) r g b / 0.12);
+    border: 1px solid rgb(from var(--dm-color-primary) r g b / 0.25);
+    transition: var(--dm-transition);
   }
 
   .profile-card-detail-icon {
-    width: 12px;
-    height: 12px;
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
     @include svg-color(var(--dm-color-primary));
   }
 
+  .profile-card-detail:hover .profile-card-detail-badge {
+    background-color: var(--dm-color-primary);
+
+    .profile-card-detail-icon {
+      @include svg-color(var(--dm-color-white));
+    }
+  }
+
+  .profile-card-detail-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .profile-card-detail-label {
+    font-size: var(--dm-font-size-xs);
+    font-weight: var(--dm-font-weight-semibold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.65;
+  }
+
   .profile-card-detail-value {
+    font-size: var(--dm-font-size-md);
     word-break: break-word;
   }
 
@@ -199,6 +264,11 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .profile-card-circle-background,
+    .profile-card-circle-background::before {
+      animation: none;
+    }
+
     .profile-card-circle-background,
     .profile-card-circle-background::after,
     .profile-card-circle .profile-card-image {
@@ -215,5 +285,14 @@
         "content";
       gap: var(--dm-spacing-lg);
     }
+  }
+}
+
+@keyframes profile-card-spin {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
   }
 }

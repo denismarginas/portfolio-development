@@ -22,10 +22,19 @@ if (!empty($scssFlags['compile_scss_everytime'])) {
 }
 
 $found = platform_find_preview_post($postId);
+$notFound = false;
 if (!$found['post']) {
+    // unknown _id: render the 404 page (routing mappings 404_post_id) like the live site would
+    $notFoundId = (string) (PlatformConfig::getRoutingMappings()['404_post_id'] ?? '404');
+    $found = $notFoundId !== '' ? platform_find_preview_post($notFoundId) : $found;
     http_response_code(404);
-    echo '<h1>Post not found: ' . htmlspecialchars($postId) . '</h1>';
-    exit;
+    if (!$found['post']) {
+        echo '<h1>Post not found: ' . htmlspecialchars($postId) . '</h1>';
+        exit;
+    }
+    // the page_not_found component shows what was requested
+    $GLOBALS['page_not_found_request'] = $postId;
+    $notFound = true;
 }
 
 $postData = platform_normalize_preview_post($found['post']);
@@ -81,6 +90,7 @@ $pageData = array_merge($structureData, [
 $GLOBALS['render_target'] = 'preview';
 echo PlatformComponentRenderer::render($pageStructureName, $pageData);
 
-if ($state['html_compile']) {
+// never write a dist file for an id that does not exist
+if ($state['html_compile'] && !$notFound) {
     platform_write_dist_html($pageData, $pageStructureName, $postId, $postType, $state['html_compile_folder'], $postConfig['root'] ?? '');
 }

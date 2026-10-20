@@ -1,6 +1,6 @@
 /**
  * filters_post_projects: filters the <li data-post-id> items of <ul id="{data-target}">
- * using the JSON index printed inside the form.
+ * using the JSON index printed inside the form. Filters + search words are kept in the URL (listing_toolbar.js).
  */
 (function () {
   function yearOf(value) {
@@ -61,6 +61,7 @@
 
       if (amount) amount.textContent = shown;
       list.setAttribute('data-results', shown);
+      if (window.listingToolbarUrl) window.listingToolbarUrl.save(form);
     }
 
     function toggle(button, target, attr) {
@@ -78,13 +79,41 @@
     var filtersBtn = form.querySelector('.toggle-filters');
     var queryBtn = form.querySelector('.toggle-query');
     var previewBtn = form.querySelector('.toggle-preview');
+    var searchBtn = form.querySelector('.toggle-search');
+    var searchBox = form.querySelector('.search-input');
     if (filtersBtn) filtersBtn.addEventListener('click', function () { toggle(filtersBtn, form.querySelector('.block-filters'), 'aria-expanded'); });
     if (queryBtn) queryBtn.addEventListener('click', function () { toggle(queryBtn, form.querySelector('.query-text'), 'aria-expanded'); });
+    if (searchBtn && searchBox) {
+      searchBtn.addEventListener('click', function () {
+        var open = toggle(searchBtn, searchBox, 'aria-expanded');
+        if (open) {
+          if (input) input.focus();
+        } else if (input && input.value) {
+          // closing the search also clears the keywords, so no hidden query keeps filtering the list
+          input.value = '';
+          apply();
+        }
+      });
+      if (input) input.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && !searchBox.hidden) {
+          event.preventDefault();
+          searchBtn.click();
+          searchBtn.focus();
+        }
+      });
+    }
+    if (previewBtn) {
+      // start state: pressed button or a listing already rendered with .show-preview
+      var previewOn = previewBtn.getAttribute('aria-pressed') === 'true' || list.classList.contains('show-preview');
+      previewBtn.setAttribute('aria-pressed', previewOn ? 'true' : 'false');
+      list.classList.toggle('show-preview', previewOn);
+    }
     if (previewBtn) previewBtn.addEventListener('click', function () {
       var on = toggle(previewBtn, null, 'aria-pressed');
       list.classList.toggle('show-preview', on);
     });
 
+    if (window.listingToolbarUrl) window.listingToolbarUrl.restore(form);
     apply();
   }
 

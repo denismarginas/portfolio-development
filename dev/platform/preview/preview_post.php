@@ -18,6 +18,17 @@ function platform_find_preview_post(string $postId): array
         }
     }
 
+    foreach (($types['item'] ?? []) as $typeKey => $config) {
+        if (($config['routable'] ?? false) !== true) continue;
+        $items = PlatformDataService::get_all_items_from_file($typeKey);
+        if ($items === null) continue;
+        foreach ($items as $item) {
+            if (($item['_id'] ?? '') === $postId) {
+                return ['post' => $item, 'type' => $typeKey, 'config' => $config];
+            }
+        }
+    }
+
     foreach (($types['taxonomy'] ?? []) as $typeKey => $config) {
         $terms = PlatformDataService::get_data('taxonomy_' . $typeKey);
         if ($terms === null) continue;

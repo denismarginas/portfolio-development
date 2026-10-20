@@ -69,7 +69,40 @@ function platform_get_item_types(): array
             'item_type' => $typeKey,
             'file' => $config['file'],
             'title' => $config['label'],
-            'routable' => $config['routable'] ?? false,
+            'routable' => ($config['routable'] ?? false) === true,
+            'root' => $config['root'] ?? '',
+            'structure' => $config['structure'] ?? '',
+            'seo' => $config['seo'] ?? '',
+            'global_content_path' => $config['global_content_path'] ?? '',
+            'global_img_path' => $config['global_img_path'] ?? '',
+            'global_vid_path' => $config['global_vid_path'] ?? '',
+        ];
+    }
+    return $result;
+}
+
+/**
+ * Item types with "routable": true, in the same shape as platform_get_post_types()
+ * ("post_type" = the item type key, plus "kind" => "item"), so they are rendered to
+ * their own pages (root, structure, seo, global paths) like posts.
+ */
+function platform_get_routable_item_types(): array
+{
+    $result = [];
+    foreach (platform_get_item_types() as $t) {
+        if (!$t['routable']) continue;
+        $result[] = [
+            'post_type' => $t['item_type'],
+            'kind' => 'item',
+            'file' => $t['file'],
+            'title' => $t['title'],
+            'root' => $t['root'],
+            'structure' => $t['structure'],
+            'seo' => $t['seo'],
+            'routable' => true,
+            'global_content_path' => $t['global_content_path'],
+            'global_img_path' => $t['global_img_path'],
+            'global_vid_path' => $t['global_vid_path'],
         ];
     }
     return $result;

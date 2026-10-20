@@ -54,6 +54,23 @@
       if (first && form.dataset.focus === 'true') first.focus({ preventScroll: true });
       form.dataset.focus = 'true';
       if (status) status.hidden = true;
+      updateProgress(id);
+    }
+
+    // step indicator: the entry holding the shown step is active, the ones before it are done
+    var progressItems = Array.prototype.slice.call(form.querySelectorAll('.form-progress-item'));
+    function updateProgress(id) {
+      var active = -1;
+      progressItems.forEach(function (item, i) {
+        if ((item.dataset.steps || '').split(' ').indexOf(String(id)) !== -1) active = i;
+      });
+      if (active === -1) return;
+      progressItems.forEach(function (item, i) {
+        item.classList.toggle('is-active', i === active);
+        item.classList.toggle('is-done', i < active);
+        if (i === active) item.setAttribute('aria-current', 'step');
+        else item.removeAttribute('aria-current');
+      });
     }
 
     function resolveStep(value) {

@@ -11,14 +11,15 @@
  * Each mask is a tilted white shape. Its tilt and rectangle are measured from the mask itself, a
  * screenshot is cover-fitted into that rectangle, tilted the same way and clipped by the mask.
  *
- * Output: src/content/img/projects/<media.path>/thumbnail/thumbnail_<media.path>[_web|_media].webp
- * (the names utility_post_thumbnail picks up automatically when media.thumbnail is not set).
+ * Output: one file per project, src/content/img/projects/<media.path>/thumbnail/thumbnail.webp
+ * (the name utility_post_thumbnail picks up automatically when media.thumbnail is not set).
+ * It uses the website screenshots (web/website/desktop + phone) when there are any, otherwise the media images.
  *
  * Needs the PHP GD extension with WebP support (extension=gd).
  */
 class PlatformThumbnailBuilder
 {
-    public const VARIANTS = ['default', 'web', 'media'];
+    public const VARIANTS = ['default'];   // a single thumbnail.webp per project
     private const SIZE = 400;
     private const LAYERS = ['xl', 'md', 'sm'];                  // back to front
     private const ANCHORS = ['xl' => [0.0, 0.0], 'md' => [0.5, 0.0], 'sm' => [0.5, 0.0]];
@@ -31,12 +32,8 @@ class PlatformThumbnailBuilder
     public static function settings(): array
     {
         $s = PlatformWorkflowService::section('thumbnails');
-        $variants = array_values(array_intersect(
-            array_map('trim', explode(',', (string) ($s['variants'] ?? 'default'))),
-            self::VARIANTS
-        ));
         return [
-            'variants'      => $variants ?: ['default'],
+            'variants'      => self::VARIANTS,
             'skip_existing' => self::truthy($s['skip_projects_with_thumbnail'] ?? true),
             'overwrite'     => self::truthy($s['overwrite'] ?? false),
             // overwrite only generated files heavier than this (e.g. to re-compress big ones)
@@ -371,10 +368,9 @@ class PlatformThumbnailBuilder
         return PlatformConfig::get('img_dir') . '/projects/' . $path;
     }
 
-    public static function output_file(string $path, string $variant): string
+    public static function output_file(string $path, string $variant = 'default'): string
     {
-        $suffix = $variant === 'default' ? '' : '_' . $variant;
-        return self::project_dir($path) . '/thumbnail/thumbnail_' . str_replace('/', '_', $path) . $suffix . '.webp';
+        return self::project_dir($path) . '/thumbnail/thumbnail.webp';
     }
 
     private static function relative(string $file): string

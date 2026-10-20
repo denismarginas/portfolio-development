@@ -1,12 +1,13 @@
 <?php
 
 /**
- * Reads filter values from game items using the filter's "json-path" ("['tags']").
+ * Reads filter values from game items using the filter's "json-path" ("['data']['tags']").
+ * A path not found on the item is also tried inside item['data'] ("['tags']" still works).
  *
- * Filter definition keys (data_items_filters_pc_video_games.json):
+ * Filter definition keys (data_items_listing_toolbar.json -> "pc-video-games" -> data.filters.items):
  *   _id, name, label, placeholder, type ("select"), style
  *   json-path         "['tags']"
- *   json-type         "string" | "list" (string split by json-separator) | "number" | "date" (year)
+ *   json-type         "string" | "list" (array, or string split by json-separator) | "number" | "date" (year)
  *   json-separator    list separator (default ",")
  *   json-array-key    key to read when the value is a list of objects
  *   json-search-mode  "=" (default), ">=", "<=" for number / date filters
@@ -14,18 +15,16 @@
  *   options-order     "asc" | "desc" | "none" (default: numbers/dates desc, text asc)
  *   option-prefix, option-suffix   text around each option label ("100" -> "100h+")
  *
- * Display filter ("type": "display", no json-path): toggles the games with "display": false.
+ * Display filter ("type": "display", no json-path): toggles the games with settings.display false.
  *   options  [{ "value": "default", "label": "Default" }, { "value": "all", "label": "All" }]
  *            "" / "default" = hide them, "all" = show them. Only shown when such games exist.
  */
 class hobby_pc_video_games_filters_values
 {
-    private const DEFAULT_FILE = 'filters_pc_video_games';
-
     /** Filter definitions (+ "options") that apply to these items. */
     public static function filters(array $data, array $items): array
     {
-        $defs = PlatformDataService::get_all_items_from_file((string) ($data['filters'] ?? self::DEFAULT_FILE)) ?? [];
+        $defs = listing_toolbar::filters($data);
         $include = (array) ($data['filters_include'] ?? []);
         $exclude = (array) ($data['filters_exclude'] ?? []);
         $hideSingle = !array_key_exists('hide_single_option', $data) || (bool) $data['hide_single_option'];
@@ -119,7 +118,7 @@ class hobby_pc_video_games_filters_values
             return in_array($selected, $values, true);
         }
 
-        $mode = (string) ($def['json-search-mode'] ?? $def['json-date-search-mode'] ?? '=');
+        $mode = listing_toolbar::mode($def, '=');
         $wanted = (float) $selected;
         foreach ($values as $v) {
             $v = (float) $v;
@@ -167,7 +166,7 @@ class hobby_pc_video_games_filters_values
 
     public static function mode(array $def): string
     {
-        return (string) ($def['json-search-mode'] ?? $def['json-date-search-mode'] ?? '');
+        return listing_toolbar::mode($def);
     }
 
     private static function any_match(array $def, array $items, string $option): bool
@@ -183,15 +182,18 @@ class hobby_pc_video_games_filters_values
         return floor($value) === $value ? (string) (int) $value : (string) $value;
     }
 
-    /** "['tags']" -> $item['tags'] */
+    /** "['data']['tags']" -> $item['data']['tags'] (falls back to $item['data'] + path) */
     private static function path(array $item, string $path): mixed
     {
         preg_match_all("/\\[['\"]?([^'\"\\]]+)['\"]?\\]/", $path, $m);
-        $value = $item;
-        foreach ($m[1] as $key) {
-            if (!is_array($value) || !array_key_exists($key, $value)) return null;
-            $value = $value[$key];
+        foreach ([$item, $item['data'] ?? null] as $source) {
+            $value = $source;
+            foreach ($m[1] as $key) {
+                if (!is_array($value) || !array_key_exists($key, $value)) { $value = null; break; }
+                $value = $value[$key];
+            }
+            if ($value !== null) return $value;
         }
-        return $value;
+        return null;
     }
 }

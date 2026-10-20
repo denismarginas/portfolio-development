@@ -23,7 +23,6 @@
  *   title_section_secondary   string  title of the photo part   (default "Photo Media Content", "" = no title)
  *   title_section_tertiary    string  title of the video part   (default "Video Media Content", "" = no title)
  *   content_section_primary   array   components rendered under the primary title. No text is generated here.
- *                                     They get "thumbnail_section": "media" (unless they set it).
  *   photo                     object  extra data for project_visual_media_gallery_photo (e.g. {"grid_max": 3})
  *   video                     object  extra data for project_visual_media_gallery_video (e.g. {"exclude": ["videos_1"]})
  *   show_photo / show_video   bool    default true
@@ -40,7 +39,7 @@ class project_visual_media_gallery
         $shared = array_intersect_key($data, array_flip(self::PASSTHROUGH));
 
         $primary = section::render_children(array_merge($shared, [
-            'children' => project_visual_web_gallery::with_thumbnail_section(project_visual_web_gallery::galleries($data, 'content_section_primary', []), 'media'),
+            'children' => project_visual_web_gallery::galleries($data, 'content_section_primary', []),
         ]));
         $photos = self::part($data, 'photo', 'title_section_secondary', project_visual_media_gallery_photo::DEFAULT_TITLE, $shared);
         $videos = self::part($data, 'video', 'title_section_tertiary', project_visual_media_gallery_video::DEFAULT_TITLE, $shared);

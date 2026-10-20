@@ -2,7 +2,8 @@
 
 // Responsive title sizes. Use on any heading (h1-h6), usually together with .title-divider.
 .title-primary,
-.title-secondary {
+.title-secondary,
+.title-tertiary {
   margin: 0;
   line-height: 1.2;
   overflow-wrap: break-word;
@@ -35,5 +36,17 @@
   }
   @media (max-width: $dm-screen-xs) {
     font-size: var(--dm-font-size-base);
+  }
+}
+
+// Small section title: never bigger than --dm-font-size-lg.
+.title-tertiary {
+  font-size: var(--dm-font-size-lg);
+
+  @media (max-width: $dm-screen-sm) {
+    font-size: var(--dm-font-size-base);
+  }
+  @media (max-width: $dm-screen-xs) {
+    font-size: var(--dm-font-size-md);
   }
 }

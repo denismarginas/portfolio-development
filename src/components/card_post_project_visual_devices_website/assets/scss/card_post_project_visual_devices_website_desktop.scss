@@ -2,10 +2,12 @@
 
 .dm-post-view.visual-devices-website {
   .device-layout-laptop {
-    filter: drop-shadow(6px 3px 6px color-mix(in srgb, var(--dm-color-black) 50%, transparent));
+    filter: drop-shadow(
+      2px 3px 4px color-mix(in srgb, var(--dm-color-black) 50%, transparent)
+    );
 
     &.desktop-model-01 {
-      >.screen {
+      > .screen {
         top: 1.4%;
         left: 1%;
         width: 98.5%;
@@ -14,7 +16,7 @@
     }
 
     &.desktop-model-02 {
-      >.screen {
+      > .screen {
         top: 5%;
         left: 11.5%;
         width: 78%;
@@ -23,7 +25,7 @@
     }
 
     &.desktop-model-03 {
-      >.screen {
+      > .screen {
         top: 2%;
         left: 2.1%;
         width: 96.5%;
@@ -31,7 +33,7 @@
       }
     }
 
-    >.screen {
+    > .screen {
       &::after {
         content: "";
         position: absolute;
@@ -46,6 +48,5 @@
         filter: blur(10px);
       }
     }
-
   }
 }

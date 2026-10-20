@@ -41,11 +41,20 @@
         "target_langs": "ro"
     },
     "thumbnails": {
-        "variants": "default",
         "skip_projects_with_thumbnail": true,
         "overwrite": false,
         "overwrite_if_bigger": false,
         "overwrite_bigger_than_kb": "19",
         "quality": "42"
+    },
+    "resumes": {
+        "output_folder": "resumes",
+        "width": "1000",
+        "thumbnail_width": "130",
+        "quality": "34",
+        "thumbnail_quality": "35",
+        "page": "1",
+        "skip_existing": true,
+        "update_json": true
     }
 }

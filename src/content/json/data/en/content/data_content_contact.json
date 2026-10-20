@@ -78,7 +78,7 @@
                 {
                     "name": "step-html-banner",
                     "type": "code",
-                    "content": "<?php echo renderImage($GLOBALS['urlPath'].'src/content/img/projects/denismarginas/media/banners-ultra-wide/wallpaper-contact-02.webp', false, 'banner'); ?>"
+                    "content": "<?php echo renderImage($GLOBALS['urlPath'].'src/content/img/projects/denismarginas-media/media/banners-ultra-wide/wallpaper-contact-02.webp', false, 'banner'); ?>"
                 },
                 {
                     "name": "step-name",
@@ -313,7 +313,7 @@
             {
                 "text": "CV Romanian",
                 "icon_svg": "resume",
-                "link": "src/content/pdf/cv/cv-2/dm-cv-2-romana-public-compressed.pdf"
+                "link": "src/content/pdf/cv/cv-2/dm-cv-2-romanian-public-compressed.pdf"
             },
             {
                 "text": "Contact Form",

@@ -63,6 +63,21 @@
     }
   }
 
+  // background video (data.video): dark tint in both modes, the hero text is always white
+  > .video-background {
+    z-index: 0;
+  }
+
+  [mode] & > .video-background {
+    --video-bg-tint: var(--dm-color-primary-950);
+  }
+
+  // noise texture (overlay_noise) over the background, under the text
+  > .overlay-noise {
+    z-index: 0;
+    pointer-events: none;
+  }
+
   > container-md {
     flex-direction: column;
     gap: var(--dm-spacing-md);

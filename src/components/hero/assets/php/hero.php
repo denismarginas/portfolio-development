@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * data:
+ *   variant|layout  string  xs | sm | md | lg | xl
+ *   img             string  background image (relative to src/content/img/)
+ *   video           object  optional background video (video_background data: src or video_id, start, end / duration,
+ *                           loop, audio, overlay, poster). Replaces the image; the image becomes the video poster.
+ *   title, description  string  text or "@data.path"
+ *   noise           bool    noise texture overlay (overlay_noise) rendered last (default true), false = none
+ */
 class hero
 {
     public static function render(array $data = []): string
@@ -13,7 +22,18 @@ class hero
 
         $bgHtml = '';
         $resolvedImg = self::resolve_image_src($imgPath, $data);
-        if ($resolvedImg !== '') {
+
+        // "video": video_background data (src or video_id, start, end / duration, loop, audio, overlay, poster ...).
+        // The poster defaults to the hero img, so the image shows until the video plays (and with reduced motion).
+        if (is_array($data['video'] ?? null)) {
+            $videoData = array_merge(['overlay' => 0.6], $data['video']);
+            if (!isset($videoData['poster']) && $resolvedImg !== '' && !PlatformUrlService::is_external_url($resolvedImg)) {
+                $videoData['poster'] = $resolvedImg;
+            }
+            $bgHtml = (string) PlatformComponentRenderer::render('video_background', $videoData);
+        }
+
+        if ($bgHtml === '' && $resolvedImg !== '') {
             $bgHtml = PlatformComponentRenderer::render('image', [
                 'src' => $resolvedImg,
                 'alt' => $title !== '' ? $title : '',
@@ -30,6 +50,7 @@ class hero
         }
 
         $childrenHtml = '';
+        $hasNoiseChild = false;
         $children = $data['children'] ?? [];
         if (!is_array($children)) {
             $children = [];
@@ -43,7 +64,16 @@ class hero
             if (!is_array($childData)) {
                 $childData = [];
             }
+            if (str_replace('-', '_', $childComponent) === 'overlay_noise') {
+                $hasNoiseChild = true;
+            }
             $childrenHtml .= PlatformComponentRenderer::render(str_replace('-', '_', $childComponent), $childData);
+        }
+
+        // noise texture as the last layer (like hero_home); "noise": false turns it off.
+        // Skipped when overlay_noise is already one of the children.
+        if (($data['noise'] ?? true) !== false && empty($hasNoiseChild)) {
+            $childrenHtml .= (string) PlatformComponentRenderer::render('overlay_noise', []);
         }
 
         return PlatformTemplateRenderer::render([

@@ -1,0 +1,26 @@
+@import "theme";
+
+// Grid of block_workstation_item_card: 3 columns (data.columns) > 2 on tablet > 1 on mobile.
+// ("display": "list" is the global icon_list.)
+.block-workstation-item-listing {
+  @include reset-list();
+  display: grid;
+  grid-template-columns: repeat(
+    var(--block-workstation-item-listing-columns, 3),
+    minmax(0, 1fr)
+  );
+  gap: var(--dm-spacing-xs);
+  min-width: 0;
+
+  @media (max-width: $dm-screen-md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: $dm-screen-xs) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  > li {
+    min-width: 0;
+  }
+}

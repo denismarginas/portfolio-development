@@ -49,6 +49,12 @@
     top: var(--dm-spacing-lg);
   }
 
+  // not sticky: the aside is as tall as the content column, so a sticky element inside it
+  // (e.g. anchor_index with "sticky": true) can follow the scroll
+  &:not(.section-layout-aside-sticky) .section-layout-aside-aside {
+    align-self: stretch;
+  }
+
   @media (max-width: $dm-screen-lg) {
     container,
     &[data-aside-position="left"] container {

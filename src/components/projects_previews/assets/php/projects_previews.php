@@ -14,7 +14,7 @@
  *
  * data:
  *   screen     object  { img, alt } monitor image shown on the right (optional)
- *   cards      array   [{ img, alt }] project screenshots, max 5 (each has its own 3D position: card-1 … card-5)
+ *   cards      array   [{ img, alt }] project screenshots, max 6 (each has its own 3D position: card-1 … card-6; card-6 sits in the middle, in front of all)
  *   glow       bool    soft primary-color glow behind the cards (default true, shown from 2 cards up)
  *   class, id  string  optional
  *
@@ -23,7 +23,7 @@
  */
 class projects_previews
 {
-    private const MAX_CARDS = 5;
+    private const MAX_CARDS = 6;
 
     public static function render(array $data = []): string
     {

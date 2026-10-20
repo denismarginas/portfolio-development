@@ -1,7 +1,7 @@
 {
   "name": "projects_previews",
   "title": "Projects Previews",
-  "description": "Decorative projects collage: up to 5 project screenshots tilted in 3D over a soft glow, next to a monitor image (home page, work experience).",
+  "description": "Decorative projects collage: up to 6 project screenshots tilted in 3D over a soft glow, next to a monitor image (home page, work experience).",
   "assets": {
     "php": [
       "assets/php/projects_previews.php"

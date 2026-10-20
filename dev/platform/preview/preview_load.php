@@ -53,6 +53,15 @@ function platform_load_preview_state(): array
                 ];
             }
         }
+        // Routable items (rendered to their own pages) have global paths too; a post type with the same key wins.
+        foreach (($types['item'] ?? []) as $typeKey => $config) {
+            if (($config['routable'] ?? false) !== true || isset($globalPaths[$typeKey])) continue;
+            $globalPaths[$typeKey] = [
+                'global_content_path' => $config['global_content_path'] ?? '',
+                'global_img_path' => $config['global_img_path'] ?? '',
+                'global_vid_path' => $config['global_vid_path'] ?? '',
+            ];
+        }
     }
 
     if (isset($_GET['debug_post_data']) && $_GET['debug_post_data'] === 'true') {

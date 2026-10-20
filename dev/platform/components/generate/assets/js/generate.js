@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const ALL = '__all__';
   const BIG = '__big__';
   const projectSelect = thumbsPanel.querySelector('[data-thumbs-project]');
-  const variantSelect = thumbsPanel.querySelector('[data-thumbs-variant]');
   const thumbsStatus = thumbsPanel.querySelector('[data-thumbs-status]');
   const thumbsResults = thumbsPanel.querySelector('[data-thumbs-results]');
   const warningsEl = thumbsPanel.querySelector('[data-thumbs-warnings]');
@@ -132,16 +131,16 @@ document.addEventListener('DOMContentLoaded', () => {
       data.projects.forEach((p) => add(p.path, projectLabel(p)));
       if (selected && [...projectSelect.options].some((o) => o.value === selected)) projectSelect.value = selected;
 
-      const vars = (data.settings.variants || []).join(', ');
-      thumbsStatus.textContent = `${data.projects.length} projects, ${missingProjects().length} without a thumbnail · params: ${vars}`;
+      thumbsStatus.textContent = `${data.projects.length} projects, ${missingProjects().length} without a thumbnail`;
       updateButtons();
     } catch (e) {
       thumbsStatus.textContent = 'Error loading projects: ' + e.message;
     }
   }
 
+  // one thumbnail.webp per project
   function chosenVariants() {
-    return variantSelect.value ? [variantSelect.value] : (state.settings.variants || ['default']);
+    return ['default'];
   }
 
   function chosenProjects() {
@@ -173,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const cap = document.createElement('figcaption');
     const title = document.createElement('strong');
-    title.textContent = `${r.path} · ${r.variant}`;
+    title.textContent = r.path;
     const info = document.createElement('span');
     info.textContent = ok
       ? (r.file || '') + (r.bytes ? ` · ${(r.bytes / 1024).toFixed(1)} KB` : '') + (r.replaced_kb ? ` (was ${r.replaced_kb} KB)` : '')
@@ -195,7 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
     generateBtn.disabled = running;
     previewBtn.disabled = running || [MISSING, ALL, BIG].includes(projectSelect.value);
     projectSelect.disabled = running;
-    variantSelect.disabled = running;
   }
 
   async function runPreview() {
@@ -204,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setRunning(true);
     try {
       for (const variant of chosenVariants()) {
-        thumbsStatus.textContent = `Preview ${projects[0].path} · ${variant}...`;
+        thumbsStatus.textContent = `Preview ${projects[0].path}...`;
         const r = await apiJson('api/generate-thumbnails.php', {
           method: 'POST',
           body: JSON.stringify({ path: projects[0].path, variant, preview: true }),
@@ -237,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let errors = 0;
     for (const job of jobs) {
       if (stopRequested) break;
-      thumbsStatus.textContent = `Generating ${done + 1}/${jobs.length} · ${job.path} · ${job.variant}`;
+      thumbsStatus.textContent = `Generating ${done + 1}/${jobs.length} · ${job.path}`;
       try {
         const r = await apiJson('api/generate-thumbnails.php', { method: 'POST', body: JSON.stringify(job) });
         if (r.skipped) skipped++;

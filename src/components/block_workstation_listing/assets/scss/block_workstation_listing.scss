@@ -1,0 +1,14 @@
+@import "theme";
+
+// Workstations grid (columns: utility_grid_listing)
+.block-workstation-listing {
+  gap: var(--dm-spacing-xl) var(--dm-spacing-lg);
+
+  > li {
+    min-width: 0;
+  }
+
+  @media (max-width: $dm-screen-md) {
+    gap: var(--dm-spacing-lg) var(--dm-spacing-sm);
+  }
+}

@@ -15,14 +15,16 @@ class filters_post_projects_render
 
     public static function form(array $data, string $target, array $filters, array $posts): string
     {
-        $texts = PlatformDataService::get_data('content_search_fields') ?? [];
-
         $expanded = ($data['filters_expanded'] ?? false) === true;
 
         $filtersHtml = '';
         foreach ($filters as $filter) {
             $filtersHtml .= self::filter($target, $filter);
         }
+
+        $searchToggle = ($data['search_toggle'] ?? true) !== false;
+        $searchOpen = !$searchToggle || ($data['search_expanded'] ?? true) !== false;
+        $searchId = $target . '-search';
 
         $sortData = self::sort_data($data, $target);
         $sortHtml = (string) filters_sort::render($sortData);
@@ -32,10 +34,14 @@ class filters_post_projects_render
             'form_id' => self::e($target . '-filters'),
             'filters_number' => (string) count($filters),
             'filters' => $filtersHtml,
+            'filters_grid' => filters_sort::grid_attrs(count($filters), $data, 'filters'),
             'filters_hidden' => ($filtersHtml === '' || !$expanded) ? ' hidden' : '',
             'filters_expanded' => $expanded ? 'true' : 'false',
-            'search_placeholder' => self::e((string) ($data['search_placeholder'] ?? $texts['button_placeholder'] ?? 'Search keywords...')),
-            'search_button' => self::e((string) ($data['search_button'] ?? $texts['button_text'] ?? 'Search')),
+            'search_id' => self::e($searchId),
+            'search_hidden' => $searchOpen ? '' : ' hidden',
+            'search_toggle' => $searchToggle ? self::search_button($searchId, $searchOpen) : '',
+            'search_placeholder' => self::e((string) ($data['search_placeholder'] ?? 'Search keywords...')),
+            'search_button' => self::e((string) ($data['search_button'] ?? 'Search')),
             'results_text' => self::results_text((string) ($data['results_text'] ?? 'Showing {n} results.'), count($posts)),
             'icon_filter' => self::icon('filter'),
             'icon_query' => self::icon('filter-query'),
@@ -63,7 +69,7 @@ class filters_post_projects_render
             'name' => self::e((string) ($filter['name'] ?? $filter['_id'])),
             'label' => self::e((string) ($filter['label'] ?? '')),
             'type' => self::e((string) ($filter['json-type'] ?? 'string')),
-            'mode' => self::e((string) ($filter['json-date-search-mode'] ?? '')),
+            'mode' => self::e(listing_toolbar::mode($filter)),
             'style' => $style,
             'options' => $options,
         ]);
@@ -122,13 +128,20 @@ class filters_post_projects_render
         return mb_strtolower(trim(preg_replace('/\s+/', ' ', implode(' ', array_filter($parts, 'is_string')))));
     }
 
-    /** Eye button that toggles .show-preview on the listing; only with "preview_toggle": true. */
+    /** Search icon button (always first, left) that shows / hides the .search-input to its right. */
+    private static function search_button(string $searchId, bool $open): string
+    {
+        return '<button type="button" class="icon toggle-search" aria-expanded="' . ($open ? 'true' : 'false') . '" aria-controls="' . self::e($searchId) . '" aria-label="Search">' . self::icon('search') . '</button>';
+    }
+
+    /** Eye button that toggles .show-preview on the listing; only with "preview_toggle": true. Pressed on load unless "preview_active": false. */
     private static function preview_button(array $data): string
     {
         if (($data['preview_toggle'] ?? false) !== true) {
             return '';
         }
-        return '<button type="button" class="icon toggle-preview" aria-pressed="false" aria-label="Preview images">' . self::icon('eye') . '</button>';
+        $active = ($data['preview_active'] ?? true) !== false;
+        return '<button type="button" class="icon toggle-preview" aria-pressed="' . ($active ? 'true' : 'false') . '" aria-label="Preview images">' . self::icon('eye') . '</button>';
     }
 
     private static function results_text(string $text, int $count): string

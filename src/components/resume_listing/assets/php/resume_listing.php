@@ -6,21 +6,23 @@
  * $data:
  *   id             string  id of the <ul> (default "resumes")
  *   type           string  item file (default "resume" -> data_items_resume.json)
- *   lang           string|array  only these languages (settings.lang), default: all
+ *   lang           string|array  only these languages (data.lang), default: all
  *   sort           array   utility_sort rules (default: date.publish desc)
  *   filter_by      object  keep only items matching ALL entries (utility_filter), e.g.
- *                          { "settings.lang": "en", "max_items": 1 } or { "_id": ["cv-3-english", "cv-3-romanian"] }
+ *                          { "lang": "en", "max_items": 1 }, { "model": 3 } or { "_id": ["cv-3-english", "cv-3-romanian"] }
  *   exclude_by     array   drop items matching ANY entry (utility_filter)
  *   max_items      int     limit (default: all)
  *   date_format    string  PlatformTextService::format_date format (default "M j, Y" -> "Sep 27, 2024")
  *   download_text  string  aria-label/title of the icon-only download button (default "Download")
- *   lang_labels    object  { "en": "English", "ro": "Romanian" } badge text per settings.lang (default: upper-case code)
+ *   lang_labels    object  { "en": "English", "ro": "Romanian" } badge text per data.lang (default: upper-case code)
  *   empty_text     string  text when there are no resumes (default: nothing rendered)
  *   columns        int     fixed number of columns on desktop (default: automatic, cards >= 340px)
  *
  * Item (data_items_resume.json):
- *   settings.render, settings.lang, data.seo.title, data.seo.description, data.date.publish,
- *   data.media.image.img (full image, popup), data.media.image.thumbnail, data.media.pdf
+ *   { "_id", "settings": { "render" },
+ *     "data": { "model": 3, "lang": "en", "seo": { "title", "description" }, "date": { "publish" },
+ *               "media": { "image" (full image, popup), "thumbnail", "pdf" } } }
+ *   The old keys (settings.lang, media.image.img, media.image.thumbnail) still work.
  */
 class resume_listing
 {
@@ -58,7 +60,7 @@ class resume_listing
         $langs = array_filter(array_map('strtolower', (array) ($data['lang'] ?? [])));
         if (!empty($langs)) {
             $items = array_filter($items, fn ($item): bool =>
-                is_array($item) && in_array(strtolower((string) ($item['settings']['lang'] ?? '')), $langs, true)
+                is_array($item) && in_array(self::lang($item), $langs, true)
             );
         }
 
@@ -78,10 +80,12 @@ class resume_listing
         $title = trim((string) ($d['seo']['title'] ?? ''));
         $description = trim((string) ($d['seo']['description'] ?? ''));
         $publish = trim((string) ($d['date']['publish'] ?? ''));
-        $lang = strtolower(trim((string) ($item['settings']['lang'] ?? '')));
-        $pdf = self::asset_url((string) ($d['media']['pdf'] ?? ''));
-        $img = (string) ($d['media']['image']['img'] ?? '');
-        $thumb = (string) ($d['media']['image']['thumbnail'] ?? '') ?: $img;
+        $lang = self::lang($item);
+        $media = is_array($d['media'] ?? null) ? $d['media'] : [];
+        $image = $media['image'] ?? '';
+        $pdf = self::asset_url((string) ($media['pdf'] ?? ''));
+        $img = is_array($image) ? (string) ($image['img'] ?? '') : (string) $image;
+        $thumb = (string) ($media['thumbnail'] ?? (is_array($image) ? ($image['thumbnail'] ?? '') : '')) ?: $img;
 
         if ($title === '' && $thumb === '' && $pdf === '') return '';
 
@@ -113,6 +117,7 @@ class resume_listing
 
         return PlatformTemplateRenderer::render(self::HTML_DIR . 'parts/item.html', [
             'item_id' => self::e(trim((string) ($item['_id'] ?? ''))),
+            'model' => self::e(trim((string) ($d['model'] ?? ''))),
             'lang' => self::e($lang),
             'preview' => self::preview($thumb, $img, $title),
             'title_html' => $titleHtml,
@@ -121,6 +126,12 @@ class resume_listing
             'date_html' => $dateHtml,
             'download_html' => $downloadHtml,
         ]);
+    }
+
+    /** data.lang (old: settings.lang), lower case. */
+    private static function lang(array $item): string
+    {
+        return strtolower(trim((string) ($item['data']['lang'] ?? $item['settings']['lang'] ?? '')));
     }
 
     /** Thumbnail + resume icon; click opens the full image in the popup. */

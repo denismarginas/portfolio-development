@@ -51,6 +51,7 @@ function platform_menu(): array
             'children' => [
                 'translate'  => ['label' => $get('actions.translate', 'Translate'), 'icon' => 'update', 'url' => '?page=generate&tab=translate', 'desc' => 'Synchronise content data across languages.'],
                 'thumbnails' => ['label' => $get('actions.thumbnails', 'Generate Thumbnails'), 'icon' => 'generate', 'url' => '?page=generate&tab=thumbnails', 'desc' => 'Build project thumbnails from the screen template.'],
+                'resumes'    => ['label' => $get('actions.resumes', 'Resume Images'), 'icon' => 'generate', 'url' => '?page=generate&tab=resumes', 'desc' => 'Render the resume PDFs to WebP images and thumbnails.'],
             ],
         ],
         'settings'        => ['label' => $get('home.settings', 'Settings'), 'icon' => 'settings', 'url' => '?page=settings', 'desc' => $get('home.settingsDesc', 'Site, routing, languages and SEO configuration.')],

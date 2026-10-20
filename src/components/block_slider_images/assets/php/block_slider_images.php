@@ -5,7 +5,9 @@
  *
  * data:
  *   img_array_path_dir  string  folder relative to the post media folder
- *                               (src/content/img/projects/<media.path>/), or a full "src/..." path
+ *                               (src/content/img/projects/<media.path>/ or <global_img_path>/<media.path>/,
+ *                               e.g. workstation items), relative to <global_img_path>/, or a full "src/..." path
+ *   images              array   optional: only these files of the folder, in this order (default: every image)
  *   show_numbers        bool    "i / N" counter (default true)
  *   show_arrows         bool    prev / next buttons (default true)
  *   show_dots           bool    dots under the slider (default false)
@@ -32,8 +34,8 @@ class block_slider_images
     {
         $post = is_array($data['post_current_data'] ?? null) ? $data['post_current_data'] : [];
 
-        $dir = self::directory((string) ($data['img_array_path_dir'] ?? $data['path'] ?? ''), $post);
-        $images = $dir !== '' ? self::images($dir) : [];
+        $dir = self::directory((string) ($data['img_array_path_dir'] ?? $data['path'] ?? ''), $post, (string) ($data['global_img_path'] ?? ''));
+        $images = $dir !== '' ? self::images($dir, $data['images'] ?? []) : [];
         $videos = self::videos($data);
         $count = count($images) + count($videos);
         if ($count === 0) return '';
@@ -90,7 +92,7 @@ class block_slider_images
     }
 
     /** Project-relative folder ("src/.../") or "" when it doesn't exist. */
-    private static function directory(string $path, array $post): string
+    private static function directory(string $path, array $post, string $globalImg = ''): string
     {
         $path = trim(str_replace('\\', '/', $path), '/');
         if ($path === '' || str_contains($path, '..')) return '';
@@ -100,9 +102,14 @@ class block_slider_images
         }
 
         $media = trim(str_replace('\\', '/', (string) ($post['data']['media']['path'] ?? '')), '/');
+        $globalImg = trim(str_replace('\\', '/', $globalImg), '/');
         $candidates = [];
         if ($media !== '') $candidates[] = self::PROJECTS_DIR . $media . '/' . $path;
         $candidates[] = self::PROJECTS_DIR . $path;
+        if ($globalImg !== '' && str_starts_with($globalImg, 'src/') && !str_contains($globalImg, '..')) {
+            if ($media !== '') $candidates[] = $globalImg . '/' . $media . '/' . $path;
+            $candidates[] = $globalImg . '/' . $path;
+        }
 
         foreach ($candidates as $candidate) {
             if (is_dir(self::absolute($candidate))) return $candidate . '/';
@@ -122,10 +129,21 @@ class block_slider_images
         ), fn ($v) => $v !== ''));
     }
 
-    /** @return string[] project-relative image paths, natural order */
-    private static function images(string $dir): array
+    /** @return string[] project-relative image paths: the files listed in $only (in that order), else every image, natural order */
+    private static function images(string $dir, mixed $only = []): array
     {
         $abs = self::absolute($dir);
+        if (is_string($only) && trim($only) !== '') $only = [$only];
+        if (is_array($only) && $only !== []) {
+            $list = [];
+            foreach ($only as $name) {
+                $name = is_scalar($name) ? trim(str_replace('\\', '/', (string) $name), '/') : '';
+                if ($name === '' || str_contains($name, '..')) continue;
+                if (!in_array(strtolower(pathinfo($name, PATHINFO_EXTENSION)), self::EXTENSIONS, true)) continue;
+                if (is_file($abs . '/' . $name)) $list[] = $dir . $name;
+            }
+            return $list;
+        }
         $names = array_values(array_filter(
             scandir($abs) ?: [],
             fn ($name) => $name[0] !== '.'

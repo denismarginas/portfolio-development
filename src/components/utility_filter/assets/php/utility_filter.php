@@ -5,7 +5,7 @@
  *
  *   PlatformComponentRenderer::value('utility_filter', [
  *       'items'     => $items,
- *       'filter_by' => ['settings.lang' => 'en', 'max_items' => 1],
+ *       'filter_by' => ['lang' => 'en', 'max_items' => 1],
  *       'sort'      => [['by' => 'date.publish', 'order' => 'desc']],
  *   ]);
  *

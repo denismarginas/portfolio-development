@@ -33,8 +33,33 @@
     },
     "content": [
       {
-        "component": "404",
-        "data": []
+        "component": "section",
+        "children": [
+          {
+            "component": "page_not_found",
+            "children": [{ "component": "overlay_noise", "data": {} }],
+            "data": {
+              "code": "404",
+              "title": "Page not found",
+              "text": "The page you are looking for does not exist, was moved or the link is broken. Try one of the links below.",
+              "path": true,
+              "path_label": "Requested address:",
+              "buttons": [
+                {
+                  "text": "Back to Home",
+                  "svg": "chevron-left",
+                  "link": { "post_id": "home" },
+                  "class": "btn btn-primary"
+                },
+                {
+                  "text": "Search",
+                  "svg": "search",
+                  "link": { "post_id": "search" }
+                }
+              ]
+            }
+          }
+        ]
       }
     ]
   },
@@ -50,6 +75,37 @@
       }
     },
     "content": [
+      {
+        "component": "hero_home",
+        "children": [{ "component": "overlay_noise", "data": {} }],
+        "data": {
+          "eyebrow": "Full-Stack Web Developer",
+          "title": "*Denis* Mărginaș",
+          "text": "Since 2019 I've built websites, online shops and web apps with WordPress, PrestaShop, PHP and JavaScript. Video editing has been both a side job and a hobby for me, so the design and visuals get the same care as the code.",
+          "buttons": [
+            {
+              "text": "View Projects",
+              "svg": "folder-open",
+              "link": { "post_id": "experience" },
+              "class": "btn btn-primary"
+            },
+            {
+              "text": "Contact Me",
+              "svg": "envelope",
+              "link": { "post_id": "contact" }
+            }
+          ],
+          "video": {
+            "video_id": "denismarginas-experience-highlights",
+            "start": 0,
+            "end": "auto",
+            "loop": true,
+            "audio": false,
+            "overlay": 0.7
+          },
+          "scroll": true
+        }
+      },
       {
         "component": "section",
         "children": [
@@ -68,12 +124,18 @@
             },
             "children": [
               {
-                "component": "portrait_experience",
+                "component": "portrait_home",
                 "data": {
                   "img": "personal-images/dm-personal-image-2.webp",
                   "alt": "Denis Marginas",
-                  "graphic": "dots-graphic",
-                  "max_width": "420px"
+                  "max_width": "440px",
+                  "chips": [
+                    { "svg": "php", "text": "PHP" },
+                    { "svg": "js", "text": "JS" },
+                    { "svg": "wordpress", "text": "WP" },
+                    { "svg": "prestashop", "text": "PS" },
+                    { "svg": "visuals", "text": "Visuals" }
+                  ]
                 }
               },
               {
@@ -223,12 +285,16 @@
                       "alt": "Agromir SEO optimization"
                     },
                     {
-                      "img": "projects/reifendirekt/web/website/desktop/web_desktop_0.webp",
+                      "img": "projects/reifendirekt-web-design/web/website/desktop/web_desktop_0.webp",
                       "alt": "Reifendirekt website overview"
                     },
                     {
                       "img": "projects/revelnail-avadores-media/highlights/media-photo-editing-banner/photo-editing-revelnail-1.webp",
                       "alt": "Revelnail photo editing banner"
+                    },
+                    {
+                      "img": "projects/module-sell-my-things-wordpress-plugin/highlights/module-sell-my-things-code/module-sell-my-things-code.webp",
+                      "alt": "Sell My Things WordPress plugin code"
                     }
                   ]
                 }
@@ -252,6 +318,21 @@
     },
     "content": [
       {
+        "component": "hero",
+        "children": [
+          {
+            "component": "animation_squares",
+            "data": {}
+          }
+        ],
+        "data": {
+          "variant": "xs",
+          "img": "backgrounds/bg-home.webp",
+          "title": "@data.seo.title",
+          "description": "@data.seo.description"
+        }
+      },
+      {
         "component": "section",
         "children": [
           {
@@ -265,7 +346,7 @@
                 "base": "lg",
                 "lg": "xl"
               },
-              "align": "center"
+              "align": "start"
             },
             "children": [
               {
@@ -273,7 +354,6 @@
                 "data": {
                   "img": "personal-images/dm-personal-image-1.webp",
                   "alt": "Denis Marginas",
-                  "graphic": "hexagon-3d",
                   "max_width": "420px"
                 }
               },
@@ -318,9 +398,9 @@
                       "items": [
                         {
                           "svg": "projects",
-                          "text": "Social Activity",
+                          "text": "Social Posts",
                           "link": {
-                            "post_id": "social-activity"
+                            "post_id": "social-posts"
                           }
                         },
                         {
@@ -432,12 +512,14 @@
               ],
               "details": [
                 {
-                  "label": "Email:",
+                  "label": "Email",
+                  "svg": "envelope",
                   "value": "denismarginas09@gmail.com",
                   "link": "mailto:denismarginas09@gmail.com"
                 },
                 {
-                  "label": "Address:",
+                  "label": "Address",
+                  "svg": "location",
                   "value": "Romania, Baia Mare",
                   "tooltip": {
                     "text": "For security reasons, the full address is not displayed. However, you can request the contact address by sending an email to the provided email address.",
@@ -445,7 +527,8 @@
                   }
                 },
                 {
-                  "label": "Phone:",
+                  "label": "Phone",
+                  "svg": "phone",
                   "value": "+40-74*******",
                   "tooltip": {
                     "text": "For security reasons, the phone number is not displayed. However, you can request the contact phone number by sending an email to the provided email address.",
@@ -518,7 +601,7 @@
                   "img": "personal-images/dm-desktop-working.webp",
                   "img_alt": "Denis Marginas working at his desk",
                   "image_position": "top",
-                  "image_style": "rounded",
+                  "image_style": "plain",
                   "text": [
                     "I am a skilled professional with expertise in web development and programming. With a strong foundation in various web platforms and programming languages, I possess the ability to create dynamic and user-friendly websites. My proficiency extends to page builders and web development programs, enabling me to design and customize web pages effectively.",
                     "I have experience working with a range of software and tools, including photo editing and video editing programs. My knowledge extends to streaming programs and other widely used applications, such as Microsoft Office and Google Suite.",
@@ -673,6 +756,49 @@
           {
             "component": "columns",
             "data": {
+              "id": "journey",
+              "layout": {
+                "base": "100"
+              },
+              "class": "pt-sm pb-sm"
+            },
+            "children": [
+              {
+                "component": "experience_timeline",
+                "data": {
+                  "types": ["job", "education"],
+                  "exclude_by": [
+                    {
+                      "path": "_id",
+                      "value": [
+                        "education_emil_racovita_high_school",
+                        "experience_enlivy",
+                        "experience_gi_group"
+                      ]
+                    }
+                  ],
+                  "tag_labels": {
+                    "wordpress": "WP",
+                    "prestashop": "PS",
+                    "javascript": "JS",
+                    "php": "PHP",
+                    "seo": "SEO"
+                  },
+                  "max_tags": 10,
+                  "titles": {
+                    "education_technical_university_cluj_napoca_baia_mare": "Technical University of Cluj-Napoca"
+                  },
+                  "links": {
+                    "job": "employee-experience",
+                    "education": "education-experience"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "component": "columns",
+            "data": {
               "layout": {
                 "base": "100",
                 "md": "60-40"
@@ -748,9 +874,10 @@
                 "component": "video"
               },
               "filter": {
-                "taxonomy": {
-                  "tag": ["portfolio showcase"]
-                }
+                "_id": [
+                  "denismarginas-experience-highlights",
+                  "denismarginas-portfolio-showcase"
+                ]
               }
             }
           }
@@ -770,7 +897,7 @@
               "exclude_by": [
                 {
                   "path": "taxonomy.category",
-                  "value": "Miscellaneous Projects"
+                  "value": "Personal and Custom Projects"
                 }
               ],
               "sort": [
@@ -810,7 +937,7 @@
               "exclude_by": [
                 {
                   "path": "taxonomy.category",
-                  "value": "Miscellaneous Projects"
+                  "value": "Personal and Custom Projects"
                 }
               ],
               "sort": [
@@ -853,7 +980,7 @@
               "exclude_by": [
                 {
                   "path": "taxonomy.category",
-                  "value": "Miscellaneous Projects"
+                  "value": "Personal and Custom Projects"
                 }
               ],
               "sort": [
@@ -908,7 +1035,7 @@
         ],
         "data": {
           "variant": "xs",
-          "img": "backgrounds/bg-employee.webp",
+          "img": "backgrounds/bg-home.webp",
           "title": "@data.seo.title",
           "description": "@data.seo.description"
         }
@@ -968,7 +1095,7 @@
         ],
         "data": {
           "variant": "xs",
-          "img": "backgrounds/bg-education.webp",
+          "img": "backgrounds/bg-home.webp",
           "title": "@data.seo.title",
           "description": "@data.seo.description"
         }
@@ -992,7 +1119,7 @@
     "data": {
       "seo": {
         "title": "Search",
-        "description": "Search items in the website.",
+        "description": "Search the pages, projects, categories and tags of my portfolio.",
         "keywords": "denis marginas search",
         "slug": "search",
         "index": false
@@ -1000,35 +1127,31 @@
     },
     "content": [
       {
-        "component": "search",
-        "data": []
-      }
-    ]
-  },
-  {
-    "_id": "workstations",
-    "data": {
-      "seo": {
-        "title": "Workstations",
-        "description": "Here you can check my list with workstations setups.",
-        "keywords": "denis marginas workstations",
-        "slug": "workstations",
-        "index": false
-      }
-    },
-    "content": [
-      {
         "component": "hero",
+        "children": [
+          {
+            "component": "animation_blurred_lines",
+            "data": {}
+          }
+        ],
         "data": {
-          "variant": "compress-squares",
-          "filename": "workstations",
+          "variant": "xs",
+          "img": "backgrounds/bg-home.webp",
           "title": "@data.seo.title",
           "description": "@data.seo.description"
         }
       },
       {
-        "component": "workstation-list",
-        "data": []
+        "component": "section",
+        "children": [
+          {
+            "component": "search",
+            "data": {
+              "toolbar": "search",
+              "description_max": 100
+            }
+          }
+        ]
       }
     ]
   },
@@ -1054,7 +1177,7 @@
         ],
         "data": {
           "variant": "xs",
-          "img": "backgrounds/bg-workstation.webp",
+          "img": "backgrounds/bg-hobby-video-games.webp",
           "title": "@data.seo.title",
           "description": "@data.seo.description"
         }
@@ -1067,31 +1190,7 @@
             "data": {
               "id": "hobby-pc-video-games",
               "type": "hobby_pc_video_game",
-              "filters": "filters_pc_video_games",
-              "filters_expanded": false,
-              "sort_fields": [
-                {
-                  "label": "Name",
-                  "by": "name",
-                  "type": "text",
-                  "order": "asc"
-                },
-                {
-                  "label": "Rank",
-                  "by": "rank",
-                  "type": "number",
-                  "order": "desc"
-                },
-                {
-                  "label": "Playtime",
-                  "by": "playtime",
-                  "type": "number",
-                  "order": "desc"
-                }
-              ],
-              "sort_expanded": false,
-              "search_placeholder": "Search games...",
-              "results_text": "Showing {n} games."
+              "toolbar": "pc-video-games"
             }
           },
           {
@@ -1166,24 +1265,74 @@
     ]
   },
   {
-    "_id": "social-activity",
+    "_id": "social-posts",
     "data": {
       "seo": {
-        "title": "Social Activity",
+        "title": "Social Posts",
         "description": "Dive into the world of a full-stack web developer and skilled photo-video editor. Explore the intersection of web development and visual storytelling on Denis Ionut Marginas's insightful blog.",
-        "keywords": "denis marginas social activity",
-        "slug": "social-activity",
+        "keywords": "denis marginas social posts",
+        "slug": "social-posts",
         "index": false
       }
     },
     "content": [
       {
-        "component": "blog-header",
-        "data": []
+        "component": "hero",
+        "children": [
+          {
+            "component": "animation_blurred_lines",
+            "data": {}
+          }
+        ],
+        "data": {
+          "variant": "xs",
+          "img": "backgrounds/bg-home.webp",
+          "title": "@data.seo.title"
+        }
       },
       {
-        "component": "blog-posts",
-        "data": []
+        "component": "section_layout_aside",
+        "data": {
+          "aside_position": "left",
+          "aside_width": "300px",
+          "aside_mobile": "top",
+          "aside_sticky": true,
+          "appearance_colors": false,
+          "class": "social-posts"
+        },
+        "children": [
+          {
+            "component": "layout_aside",
+            "children": [
+              {
+                "component": "block_social_profile",
+                "data": {
+                  "wallpaper": "src/content/img/projects/denismarginas-media/media/banner-linkedin/banner-linkedin-01.webp",
+                  "avatar": "src/content/img/projects/denismarginas-media/media/logo/logo3.webp",
+                  "title": "Denis Marginas",
+                  "description": "@data.seo.description",
+                  "layout": "stacked"
+                }
+              }
+            ]
+          },
+          {
+            "component": "layout_content",
+            "children": [
+              {
+                "component": "social_post_listing",
+                "data": {
+                  "author": {
+                    "name": "Denis Marginas",
+                    "avatar": "src/content/img/projects/denismarginas-media/media/logo/logo3.webp"
+                  },
+                  "index": true,
+                  "index_title": "Posts"
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   },

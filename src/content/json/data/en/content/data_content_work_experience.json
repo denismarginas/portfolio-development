@@ -10,23 +10,23 @@
         "cards": [
             {
                 "img_path": "projects",
-                "img-preview": "agromir/media-3d-tire-animation/3d-editing-blender-agromir-1.webp"
+                "img-preview": "agromir-media/highlights/media-3d-tire-animation/3d-editing-blender-agromir-1.webp"
             },
             {
                 "img_path": "projects",
-                "img-preview": "agromir/media-video-editing/video-editing-agromir-1.webp"
+                "img-preview": "agromir-media/highlights/media-video-editing/video-editing-agromir-1.webp"
             },
             {
                 "img_path": "projects",
-                "img-preview": "agromir/web/seo-optimization/seo-optimization-1.webp"
+                "img-preview": "agromir-online-shop/highlights/seo-optimization/seo-optimization-1.webp"
             },
             {
                 "img_path": "projects",
-                "img-preview": "reifendirekt/web/overview/web_desktop_overview.webp"
+                "img-preview": "reifendirekt-web-design/web/website/desktop/web_desktop_0.webp"
             },
             {
                 "img_path": "projects",
-                "img-preview": "revelnail-avadores/media-photo-editing-banner/photo-editing-revelnail-1.webp"
+                "img-preview": "revelnail-avadores-media/highlights/media-photo-editing-banner/photo-editing-revelnail-1.webp"
             }
         ]
     },

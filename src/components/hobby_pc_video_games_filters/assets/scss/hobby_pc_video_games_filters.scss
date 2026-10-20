@@ -23,9 +23,14 @@
     }
   }
 
+  // columns from utility_grid_listing / utility_grid_column_balancing (filters_sort::grid_attrs, by filter count);
+  // without those attributes ("filters_grid_max": 0) auto-fill columns
   .block-filters {
     display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+
+    &:not([data-grid-list-design]):not([data-grid-column-balancing]) {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
 
     &[hidden] {
       display: none !important;

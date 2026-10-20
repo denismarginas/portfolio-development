@@ -13,7 +13,12 @@
       "svg": "socials_youtube",
       "display_footer": true,
       "visual_list": { "render": true },
-      "text_list": { "render": false }
+      "text_list": {
+        "render": true,
+        "order": 3,
+        "title": "YouTube",
+        "text": "YouTube channel"
+      }
     }
   },
   {
@@ -30,11 +35,7 @@
       "svg": "socials_facebook",
       "display_footer": true,
       "visual_list": { "render": true },
-      "text_list": {
-        "render": true,
-        "title": "Facebook Page:",
-        "text": "facebook.com/denismarginas09"
-      }
+      "text_list": { "render": false }
     }
   },
   {
@@ -53,7 +54,8 @@
       "visual_list": { "render": true },
       "text_list": {
         "render": true,
-        "title": "Linkedin:",
+        "order": 2,
+        "title": "LinkedIn",
         "text": "linkedin.com/in/denismarginas09"
       }
     }
@@ -71,7 +73,7 @@
       "external_link": "https://x.com/DenisMarginas",
       "svg": "socials_x",
       "display_footer": true,
-      "visual_list": { "render": true },
+      "visual_list": { "render": false },
       "text_list": { "render": false }
     }
   },
@@ -89,12 +91,7 @@
       "svg": "socials-google-site",
       "display_footer": false,
       "visual_list": { "render": true },
-      "text_list": {
-        "render": true,
-        "title": "Google Site:",
-        "text": "sites.google.com/view/denis-marginas",
-        "external_link": "https://sites.google.com/view/denis-marginas/portfolio"
-      }
+      "text_list": { "render": false }
     }
   },
   {
@@ -113,7 +110,8 @@
       "visual_list": { "render": true },
       "text_list": {
         "render": true,
-        "title": "Github:",
+        "order": 1,
+        "title": "GitHub",
         "text": "github.com/denismarginas"
       }
     }
@@ -132,11 +130,7 @@
       "svg": "form",
       "display_footer": false,
       "visual_list": { "render": false },
-      "text_list": {
-        "render": true,
-        "title": "Google Form:",
-        "text": "forms.gle/vTHeLVkc1TwXCxBJA"
-      }
+      "text_list": { "render": false }
     }
   },
   {
@@ -153,11 +147,7 @@
       "svg": "github-pages",
       "display_footer": false,
       "visual_list": { "render": false },
-      "text_list": {
-        "render": true,
-        "title": "GitHub Pages:",
-        "text": "denismarginas.github.io"
-      }
+      "text_list": { "render": false }
     }
   }
 ]

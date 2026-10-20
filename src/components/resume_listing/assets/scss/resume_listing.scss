@@ -40,12 +40,23 @@
   min-width: 0;
   padding: var(--dm-spacing-xs);
   border-radius: var(--dm-radius-md);
-  background-color: var(--dm-color-primary-700);
-  box-shadow: 0 4px 16px color-mix(in srgb, var(--dm-color-black) 20%, transparent);
+  border: 1px solid transparent;
   transition: var(--dm-transition);
 
+  // Background: .bg-radial-primary (theme), follows light / dark mode.
+  // Hover: the edge color reaches further in.
   &:hover {
-    background-color: var(--dm-color-primary-800);
+    --dm-bg-radial-stop: 65%;
+  }
+
+  [mode="light"] & {
+    border-color: rgb(from var(--dm-color-primary-300) r g b / 0.5);
+    box-shadow: 0 4px 16px rgb(from var(--dm-color-black) r g b / 0.08);
+  }
+
+  [mode="dark"] & {
+    border-color: rgb(from var(--dm-color-white) r g b / 0.12);
+    box-shadow: 0 4px 16px rgb(from var(--dm-color-black) r g b / 0.3);
   }
 
   // Thumbnail (click = full image popup)
@@ -65,7 +76,9 @@
       height: 100%;
       object-fit: cover;
       object-position: top center;
-      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      transition:
+        transform 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
     }
 
     > .resume-card-icon {
@@ -78,7 +91,9 @@
       transform: translate(-50%, -50%) scale(0.7);
       transition: all 0.25s ease-in-out;
       pointer-events: none;
-      filter: drop-shadow(0 2px 6px color-mix(in srgb, var(--dm-color-black) 50%, transparent));
+      filter: drop-shadow(
+        0 2px 6px color-mix(in srgb, var(--dm-color-black) 50%, transparent)
+      );
       @include svg-color(var(--dm-color-white));
     }
 
@@ -86,7 +101,11 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-color: color-mix(in srgb, var(--dm-color-primary-900) 55%, transparent);
+      background-color: color-mix(
+        in srgb,
+        var(--dm-color-primary-900) 55%,
+        transparent
+      );
       opacity: 0;
       transition: var(--dm-transition);
       pointer-events: none;
@@ -129,26 +148,48 @@
     font-size: var(--dm-font-size-sm);
     font-weight: var(--dm-font-weight-bold);
     line-height: 1.25;
-    color: var(--dm-color-white);
     text-decoration: none;
     transition: var(--dm-transition);
 
     &:hover {
-      color: var(--dm-color-primary-200);
       text-decoration: underline;
+    }
+
+    [mode="light"] & {
+      color: var(--dm-color-primary-950);
+
+      &:hover {
+        color: var(--dm-color-primary-700);
+      }
+    }
+
+    [mode="dark"] & {
+      color: var(--dm-color-white);
+
+      &:hover {
+        color: var(--dm-color-primary-200);
+      }
     }
   }
 
   .resume-card-description {
     font-family: var(--dm-font-primary);
     font-size: var(--dm-font-size-xs);
-    color: var(--dm-color-primary-100);
+
+    [mode="light"] & {
+      color: var(--dm-color-gray-dark);
+    }
+
+    [mode="dark"] & {
+      color: var(--dm-color-primary-100);
+    }
   }
 
   .resume-card-meta {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: start;
     gap: var(--dm-spacing-xxs);
 
     &:empty {
@@ -163,7 +204,14 @@
   .resume-card-date {
     font-family: var(--dm-font-primary);
     font-size: var(--dm-font-size-sm);
-    color: var(--dm-color-primary-200);
+
+    [mode="light"] & {
+      color: var(--dm-color-primary-700);
+    }
+
+    [mode="dark"] & {
+      color: var(--dm-color-primary-200);
+    }
   }
 
   .resume-card-download {

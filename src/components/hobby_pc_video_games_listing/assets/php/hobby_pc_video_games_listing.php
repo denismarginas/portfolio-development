@@ -8,7 +8,7 @@ require_once __DIR__ . '/parts/hobby_pc_video_games_listing_items.php';
  * $data:
  *   id            string  id of the <ul> (hobby_pc_video_games_filters targets it), default "hobby-pc-video-games"
  *   type, items, sort, max_items   see hobby_pc_video_games_listing_items
- *   render_hidden bool    also render items with "display": false (default true). They get
+ *   render_hidden bool    also render items with settings.display false (default true). They get
  *                         data-display="false" + hidden, and are shown by the filters' Display: All.
  *   lazy          bool    lazy-load the banners (default true)
  *   empty_text    string  text when no games are shown (default "No games found.")
@@ -49,13 +49,13 @@ class hobby_pc_video_games_listing
 
     private static function item(array $item, array $icons, bool $lazy): string
     {
-        $name = trim((string) ($item['name'] ?? ''));
-        $rank = hobby_pc_video_games_listing_items::number($item['rank'] ?? null);
-        $playtime = hobby_pc_video_games_listing_items::number($item['playtime'] ?? null);
+        $name = trim((string) (hobby_pc_video_games_listing_items::value($item, 'name') ?? ''));
+        $rank = hobby_pc_video_games_listing_items::number(hobby_pc_video_games_listing_items::value($item, 'rank'));
+        $playtime = hobby_pc_video_games_listing_items::number(hobby_pc_video_games_listing_items::value($item, 'playtime_hours'));
         $tags = hobby_pc_video_games_listing_items::tags($item);
 
         $banner = '';
-        $src = trim((string) ($item['banner'] ?? ''));
+        $src = trim((string) (hobby_pc_video_games_listing_items::value($item, 'banner') ?? ''));
         if ($src !== '') {
             $banner = '<img class="hobby-pc-video-game-banner" src="' . self::e($src) . '" alt="' . self::e($name) . '" width="100" height="150"'
                 . ($lazy ? ' loading="lazy" decoding="async"' : '') . '>';
@@ -69,10 +69,9 @@ class hobby_pc_video_games_listing
         }
 
         $playtimeHtml = '';
-        $playtimeRaw = trim((string) ($item['playtime'] ?? ''));
-        if ($playtimeRaw !== '') {
+        if ($playtime !== null) {
             $playtimeHtml = '<div class="hobby-pc-video-game-playtime" title="Playtime">'
-                . $icons['playtime'] . '<span>' . self::e($playtimeRaw) . '</span></div>';
+                . $icons['playtime'] . '<span>' . self::e(self::number_text($playtime) . 'h+') . '</span></div>';
         }
 
         $tagsHtml = '';

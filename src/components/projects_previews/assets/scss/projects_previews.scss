@@ -1,165 +1,167 @@
 @import "theme";
 
-// Projects collage: tilted 3D cards over a glow + monitor image (from section_work_experience .projects-previews).
+// Projects collage: project screenshots floating in 3D in front of a monitor image.
+// The cards sit on planes parallel to the monitor's screen: .projects-previews-cards is a 3D plane fitted to the
+// screen in monitor-with-project.webp (turned 22deg, low camera), so every card shares the monitor's perspective.
+// Sizes use container units (1u = 1/1523 of the collage width), so the whole collage scales with its column.
 .projects-previews {
-  --pp-cards-height: 500px;
-  --pp-screen-height: 540px;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  justify-content: center;
+  container-type: inline-size;
   width: 100%;
-  min-width: 0;
-  overflow-x: clip;
+  max-width: 680px;
+  margin-inline: auto;
 
-  .projects-previews-cards {
+  .projects-previews-stage {
+    --u: calc(100cqw / 1523);
+
     position: relative;
-    width: 75%;
-    height: var(--pp-cards-height);
-    perspective: 1400px;
+    width: 100%;
+    aspect-ratio: 1523 / 1339;
+    perspective: calc(1374.5 * var(--u));
+    perspective-origin: 68.75% 70.05%;
+  }
+
+  // Monitor image, right side, full height (952 x 1339).
+  .projects-previews-screen {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 62.51%;
+    height: 100%;
+
+    > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+    }
+  }
+
+  // The screen plane; cards are positioned in it and lifted towards the viewer with --z.
+  .projects-previews-cards {
+    position: absolute;
+    left: 33.108%;
+    top: 9.346%;
+    width: 64.797%;
+    height: 68.232%;
     z-index: 1;
-    transition: var(--dm-transition);
+    transform: rotateY(-22.08deg);
+    transform-style: preserve-3d;
+    pointer-events: none;
   }
 
   .projects-previews-card {
     position: absolute;
-    width: auto;
+    display: block;
     height: auto;
-    max-width: 100%;
-    filter: saturate(0.7);
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
-    transform-style: preserve-3d;
+    max-width: none;
+    border-radius: calc(6 * var(--u));
+    box-shadow: 0 calc(18 * var(--u)) calc(40 * var(--u)) rgba(0, 0, 0, 0.5);
+    filter: saturate(0.8);
+    transform: translate3d(0, 0, calc(var(--z) * var(--u)));
+    animation: projects-previews-float var(--pp-duration, 9s) ease-in-out
+      var(--pp-delay, 0s) infinite;
     transition: filter 0.3s;
+    pointer-events: auto;
 
     &:hover {
-      filter: saturate(1);
+      filter: saturate(1.05);
     }
   }
 
-  .card-1 {
-    width: 40%;
-    left: 14%;
-    top: 34%;
-    transform: rotate3d(0, -1, -0.01, 55deg) translateZ(-30px);
-  }
-  .card-2 {
-    width: 60%;
-    left: 14%;
-    bottom: 8%;
-    transform: rotate3d(0, -1, -0.01, 55deg) translateZ(-20px);
+  // left / top / width in % of the screen plane, --z = distance in front of the screen.
+  .card-4 {
+    --z: 120;
+    --pp-delay: 0s;
+    width: 62%;
+    left: -30%;
+    top: 2%;
   }
   .card-3 {
-    width: 55%;
-    right: 0;
+    --z: 220;
+    --pp-delay: -2s;
+    width: 50%;
+    left: -2%;
     top: 30%;
-    transform: rotate3d(0, -1, -0.01, 55deg) translateZ(0);
   }
-  .card-4 {
-    width: 76%;
-    left: 22%;
-    top: 10%;
-    transform: rotate3d(0, -1, -0.01, 55deg) translateZ(20px);
+  .card-1 {
+    --z: 320;
+    --pp-delay: -4s;
+    width: 46%;
+    left: -41%;
+    top: 32%;
+  }
+  .card-2 {
+    --z: 420;
+    --pp-delay: -6s;
+    width: 52%;
+    left: -29%;
+    top: 62%;
   }
   .card-5 {
-    width: 50%;
-    right: 10%;
-    bottom: 12%;
-    transform: rotate3d(0, -1, -0.01, 55deg) translateZ(25px);
+    --z: 520;
+    --pp-delay: -7.5s;
+    width: 42%;
+    left: 6%;
+    top: 66%;
+  }
+  .card-6 {
+    --z: 620;
+    --pp-delay: -3s;
+    width: 46%;
+    left: 34%;
+    top: 60%;
   }
 
   .projects-previews-glow {
     position: absolute;
-    z-index: -1;
-    width: 60%;
-    height: 60%;
-    left: 40%;
-    top: 20%;
-    border-radius: 20%;
+    left: -60%;
+    top: 15%;
+    width: 110%;
+    height: 80%;
+    border-radius: 50%;
     background-color: var(--dm-color-primary);
-    opacity: 0.6;
-    filter: blur(56px);
+    opacity: 0.45;
+    filter: blur(calc(90 * var(--u)));
+    transform: translateZ(calc(60 * var(--u)));
+    animation: projects-previews-glow 9s ease-in-out infinite;
     pointer-events: none;
   }
 
-  .projects-previews-screen {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 65%;
-    margin-left: -35%;
-    transition: var(--dm-transition);
-
-    > img {
-      width: auto;
-      height: var(--pp-screen-height);
-      max-width: 100%;
-      object-fit: contain;
-      object-position: right;
-    }
-  }
-
-  // Only cards or only the screen: let the one block take the full width.
-  .projects-previews-cards:only-child {
-    width: 100%;
-  }
+  // Only the monitor: centered.
   .projects-previews-screen:only-child {
-    width: 100%;
-    margin-left: 0;
-    justify-content: center;
+    right: 50%;
+    transform: translateX(50%);
   }
 
-  @media (max-width: $dm-screen-2xl) {
-    --pp-cards-height: 450px;
-    --pp-screen-height: 500px;
-  }
-
-  @media (max-width: $dm-screen-xl) {
-    --pp-cards-height: 400px;
-    --pp-screen-height: 450px;
-  }
-
-  // Columns stack below lg: the collage gets the full row, shift it like on the old site.
-  @media (max-width: $dm-screen-lg) {
-    --pp-cards-height: 340px;
-    --pp-screen-height: 380px;
-
-    .projects-previews-cards {
-      width: 60%;
-      margin-left: -10%;
-    }
-    .projects-previews-screen {
-      width: 50%;
-      margin-left: -25%;
-    }
-  }
-
-  @media (max-width: $dm-screen-md) {
-    --pp-cards-height: 270px;
-    --pp-screen-height: 320px;
-
-    .projects-previews-cards {
-      width: 70%;
-      margin-left: -20%;
-    }
-  }
-
-  @media (max-width: $dm-screen-sm) {
-    --pp-cards-height: 220px;
-    --pp-screen-height: 260px;
-
-    .projects-previews-cards {
-      width: 80%;
-      margin-top: 5%;
-    }
+  @media (prefers-reduced-motion: reduce) {
+    .projects-previews-card,
     .projects-previews-glow {
-      filter: blur(25px);
+      animation: none;
     }
   }
+}
 
-  @media (max-width: $dm-screen-xs) {
-    --pp-cards-height: 180px;
-    --pp-screen-height: 220px;
+// Slow float: up, a little closer, back.
+@keyframes projects-previews-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, calc(var(--z) * var(--u)));
+  }
+  50% {
+    transform: translate3d(
+      0,
+      calc(-28 * var(--u)),
+      calc((var(--z) + 40) * var(--u))
+    );
+  }
+}
+
+@keyframes projects-previews-glow {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.55;
   }
 }

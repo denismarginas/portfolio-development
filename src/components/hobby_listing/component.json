@@ -1,7 +1,7 @@
 {
   "name": "hobby_listing",
   "title": "Hobby Listing",
-  "description": "Title + grid of hobby cards from the \"hobby\" items (data_items_hobby.json: title, feature_image, svg), rendered with card_mini_icon_and_text.",
+  "description": "Title + grid of hobby cards from the \"hobby\" items (data_items_hobby.json: title, feature_image, svg, optional link), rendered with card_mini_icon_and_text.",
   "assets": {
     "php": [
       "assets/php/hobby_listing.php"

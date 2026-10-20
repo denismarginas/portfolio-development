@@ -40,3 +40,10 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+// .listing-5: 5 columns from xl screens up (4 on lg, the default below)
+@media (min-width: $dm-screen-xl) {
+  .listing.listing-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

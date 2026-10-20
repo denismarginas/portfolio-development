@@ -30,30 +30,20 @@
     }
 
     .video-description {
-      font-size: var(--dm-font-size-md);
-      line-height: 1.5;
+      &,
+      ul,
+      ol,
+      li,
+      p,
+      span,
+      b {
+        font-size: var(--dm-font-size-md);
+        line-height: 1.5;
+      }
     }
-
-    .video-timeline {
-      display: flex;
-      flex-direction: column;
-      gap: var(--dm-spacing-xxs);
-
-      span {
-        font-size: var(--dm-font-size-sm);
-      }
-
-      ul {
-        margin: 0;
-        padding-left: 18px;
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-
-        li {
-          font-size: var(--dm-font-size-sm);
-        }
-      }
+    .text-collapse-toggle .text-collapse-label {
+      font-size: inherit;
+      line-height: inherit;
     }
   }
 

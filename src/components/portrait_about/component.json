@@ -1,7 +1,7 @@
 {
   "name": "portrait_about",
   "title": "Portrait About",
-  "description": "Portrait photo standing on a soft gradient panel, with a rotated svg graphic behind it (about page).",
+  "description": "Portrait photo (about page), optional max width.",
   "assets": {
     "php": [
       "assets/php/portrait_about.php"
@@ -18,7 +18,6 @@
   },
   "dependencies": [
     "image",
-    "svg",
     "theme"
   ]
 }

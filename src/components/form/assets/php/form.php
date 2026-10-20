@@ -17,8 +17,11 @@
  *   data.fields      final fields sent to the external form:
  *                    [{ name, type (text|email|tel|textarea), placeholder, external_name ("entry.123"), compose ("lines") }]
  *                    "default" type: shown as the form; "steps" type: hidden, filled from the steps
+ *   data.progress    optional step indicator above the steps ("steps" type):
+ *                    [{ label, steps: ["3", "4"] }] one dot per entry, active while one of its steps is shown
  *   data.steps       [{ id, banner (image) | icon (svg) + label, fields: [...], buttons: [...] }]
  *     step field     { name, type (text|email|tel|textarea|radio), placeholder, label, required,
+ *                      width ("half": two fields side by side from screen sm up, default full),
  *                      target (final field name), options (radio): [{ value, label, svg, step }] }
  *     button         { type: "next" | "prev" | "submit", text, step ("2" or "@<radio name>" = the chosen option's step) }
  */
@@ -59,6 +62,7 @@ class form
             'form_type' => $isSteps ? 'steps' : 'default',
             'external_type' => self::e((string) ($external['type'] ?? '')),
             'external_url' => self::e((string) ($external['url'] ?? '')),
+            'progress' => $isSteps ? self::progress($d['progress'] ?? []) : '',
             'final_fields' => $isSteps ? self::final_fields($fields) : '',
             'steps' => $stepsHtml,
             'submit_note' => self::e((string) ($external['submit_note'] ?? 'Thank you! Your message is ready to be sent.')),
@@ -78,6 +82,26 @@ class form
             if ($wanted === '' || ($item['_id'] ?? '') === $wanted) return $item;
         }
         return null;
+    }
+
+    /** Step indicator: numbered dots joined by a line; form.js marks the active / done ones. */
+    private static function progress(mixed $progress): string
+    {
+        if (!is_array($progress) || empty($progress)) return '';
+        $html = '';
+        $nr = 0;
+        foreach ($progress as $entry) {
+            if (!is_array($entry)) continue;
+            $steps = array_values(array_filter(array_map('strval', (array) ($entry['steps'] ?? []))));
+            if ($steps === []) continue;
+            $nr++;
+            $label = trim((string) ($entry['label'] ?? ''));
+            $html .= '<li class="form-progress-item' . ($nr === 1 ? ' is-active' : '') . '" data-steps="' . self::e(implode(' ', $steps)) . '"' . ($nr === 1 ? ' aria-current="step"' : '') . '>'
+                . '<span class="form-progress-number">' . $nr . '</span>'
+                . ($label !== '' ? '<span class="form-progress-label">' . self::e($label) . '</span>' : '')
+                . '</li>';
+        }
+        return $html === '' ? '' : '<ol class="form-progress" aria-label="Form steps">' . $html . '</ol>';
     }
 
     /** Hidden inputs filled by the JS from the steps (one per external field). */
@@ -169,7 +193,8 @@ class form
             : '<input class="form-control" type="' . (in_array($type, self::INPUT_TYPES, true) ? $type : 'text') . '"' . $common
                 . self::autocomplete($type, (string) ($field['target'] ?? $name)) . '>';
 
-        return '<div class="form-field" data-type="' . self::e($type) . '">' . $control . '</div>';
+        $width = strtolower((string) ($field['width'] ?? '')) === 'half' ? ' data-width="half"' : '';
+        return '<div class="form-field" data-type="' . self::e($type) . '"' . $width . '>' . $control . '</div>';
     }
 
     private static function radio(array $field, string $id, string $name, string $label, string $required, string $dataAttrs): string

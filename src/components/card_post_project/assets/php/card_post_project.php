@@ -23,7 +23,7 @@ class card_post_project
 {
     private const CATEGORY_WEBSITE = 'Web Development Projects';
     private const CATEGORY_MEDIA = 'Visual Media Projects';
-    private const CARD_CLASS = 'card card-outline card-post card-post-project';
+    private const CARD_CLASS = 'card-post-project';
     private const HTML_DIR = __DIR__ . '/../html/';
 
     public static function render(array $data = []): string

@@ -16,7 +16,6 @@ class hobby_pc_video_games_filters_render
 
     public static function form(array $data, string $target, array $filters, array $items): string
     {
-        $texts = PlatformDataService::get_data('content_search_fields') ?? [];
         $expanded = ($data['filters_expanded'] ?? false) === true;
 
         $filtersHtml = '';
@@ -32,14 +31,15 @@ class hobby_pc_video_games_filters_render
             'form_id' => self::e($target . '-filters'),
             'filters_number' => (string) count($filters),
             'filters' => $filtersHtml,
+            'filters_grid' => filters_sort::grid_attrs(count($filters), $data, 'filters'),
             'filters_hidden' => ($filtersHtml === '' || !$expanded) ? ' hidden' : '',
             'filters_expanded' => $expanded ? 'true' : 'false',
             'filters_button_hidden' => $filtersHtml === '' ? ' hidden' : '',
             'sort' => $sortHtml,
             'sort_hidden' => $sortHtml === '' ? ' hidden' : filters_sort::hidden_attr($sortData),
             'sort_button' => $sortHtml === '' ? '' : filters_sort::toggle_button($sortData),
-            'search_placeholder' => self::e((string) ($data['search_placeholder'] ?? $texts['button_placeholder'] ?? 'Search games...')),
-            'search_button' => self::e((string) ($data['search_button'] ?? $texts['button_text'] ?? 'Search')),
+            'search_placeholder' => self::e((string) ($data['search_placeholder'] ?? 'Search games...')),
+            'search_button' => self::e((string) ($data['search_button'] ?? 'Search')),
             'results_text' => self::results_text((string) ($data['results_text'] ?? 'Showing {n} games.'), count(array_filter($items, fn ($i) => !hobby_pc_video_games_listing_items::is_hidden($i)))),
             'icon_filter' => self::icon('filter'),
             'icon_query' => self::icon('filter-query'),
@@ -108,9 +108,9 @@ class hobby_pc_video_games_filters_render
     {
         $parts = [
             hobby_pc_video_games_listing_items::id($item),
-            (string) ($item['name'] ?? ''),
+            (string) (hobby_pc_video_games_listing_items::value($item, 'name') ?? ''),
             implode(' ', hobby_pc_video_games_listing_items::tags($item)),
-            (string) ($item['release-date'] ?? ''),
+            (string) (hobby_pc_video_games_listing_items::value($item, 'release_year') ?? ''),
         ];
         return mb_strtolower(trim(preg_replace('/\s+/', ' ', implode(' ', $parts))));
     }

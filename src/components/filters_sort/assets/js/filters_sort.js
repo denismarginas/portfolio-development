@@ -2,6 +2,7 @@
  * filters_sort: "Sort by" + "Order" selects that reorder the <li> items of <ul id="{data-target}">.
  * Values come from the form's JSON index (entry._sort[by]) when present, else from the item's
  * data attribute (by "playtime" -> data-playtime). "" in Sort by = original order.
+ * The chosen sort is kept in the URL (?sort=<label>&order=asc|desc, see listing_toolbar.js).
  */
 (function () {
   function datasetKey(by) {
@@ -102,6 +103,18 @@
     }
 
     onFieldChange();
+
+    // URL: ?sort=publish-date&order=desc (listing_toolbar.js)
+    var url = window.listingToolbarUrl;
+    if (url) {
+      var defaults = url.restoreSort(form, bySelect, orderSelect, onFieldChange, apply);
+      var saveUrl = function () { url.saveSort(bySelect, orderSelect, defaults); };
+      bySelect.addEventListener('change', saveUrl);
+      orderSelect.addEventListener('change', saveUrl);
+      if (form.tagName === 'FORM') {
+        form.addEventListener('reset', function () { setTimeout(saveUrl, 0); });
+      }
+    }
   }
 
   function start() {

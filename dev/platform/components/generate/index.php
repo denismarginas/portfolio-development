@@ -4,6 +4,7 @@ function platform_render_generate_fragment(string $tab = ''): string
 {
     platform_asset('css', 'components/generate/assets/css/generate.css');
     platform_asset('js', 'components/generate/assets/js/generate.js');
+    platform_asset('js', 'components/generate/assets/js/generate-resumes.js');
 
     $tabs = array_keys(platform_menu()['generate']['children']);
     $tab = in_array($tab, $tabs, true) ? $tab : 'translate';
@@ -56,17 +57,11 @@ function platform_render_generate_fragment(string $tab = ''): string
                 <div class="platform-card-header">
                     <h2 class="platform-card-title">Thumbnails</h2>
                 </div>
-                <p class="platform-description">Builds <code>thumbnail/thumbnail_&lt;project&gt;[_web|_media].webp</code> for render:true projects from the template in <code>dev/platform/assets/img/project_thumbnail</code>.</p>
+                <p class="platform-description">Builds one <code>thumbnail/thumbnail.webp</code> per render:true project (website screenshots when there are any, otherwise media images) from the template in <code>dev/platform/assets/img/project_thumbnail</code>.</p>
                 <div class="platform-generate-warnings" data-thumbs-warnings></div>
                 <div class="platform-generate-toolbar">
                     <select class="platform-input platform-generate-select" data-thumbs-project>
                         <option value="">Loading projects...</option>
-                    </select>
-                    <select class="platform-input platform-generate-select-sm" data-thumbs-variant>
-                        <option value="">Variants from params</option>
-                        <option value="default">default</option>
-                        <option value="web">web</option>
-                        <option value="media">media</option>
                     </select>
                     <button class="platform-button" type="button" data-thumbs-action="preview"><?php echo $icon('view'); ?>Preview</button>
                     <button class="platform-button" type="button" data-thumbs-action="generate"><?php echo $icon('generate'); ?>Generate</button>
@@ -75,6 +70,27 @@ function platform_render_generate_fragment(string $tab = ''): string
                 </div>
                 <div class="platform-generate-thumbs" data-thumbs-results></div>
                 <?php echo platform_render_vars('thumbnails', 'generate-thumbnails'); ?>
+            </div>
+        </section>
+
+        <section class="platform-generate-panel" data-generate-panel-resumes<?php echo $visible('resumes'); ?>>
+            <div class="platform-card">
+                <div class="platform-card-header">
+                    <h2 class="platform-card-title">Resume Images</h2>
+                </div>
+                <p class="platform-description">Renders page 1 of each resume PDF (<code>data.media.pdf</code> of the resume items) in the browser with pdf.js and saves <code>img/&lt;output_folder&gt;/&lt;_id&gt;/&lt;_id&gt;.webp</code> (<code>width</code> px, height auto) and <code>&lt;_id&gt;-thumbnail.webp</code> (<code>thumbnail_width</code> px), then points <code>media.image</code> / <code>media.thumbnail</code> of the item to them.</p>
+                <div class="platform-generate-warnings" data-resumes-warnings></div>
+                <div class="platform-generate-toolbar">
+                    <select class="platform-input platform-generate-select" data-resumes-select>
+                        <option value="">Loading resumes...</option>
+                    </select>
+                    <button class="platform-button" type="button" data-resumes-action="preview"><?php echo $icon('view'); ?>Preview</button>
+                    <button class="platform-button" type="button" data-resumes-action="generate"><?php echo $icon('generate'); ?>Generate</button>
+                    <button class="platform-button" type="button" data-resumes-action="stop" style="display:none"><?php echo $icon('close'); ?>Stop</button>
+                    <span class="platform-status" data-resumes-status>Idle</span>
+                </div>
+                <div class="platform-generate-thumbs" data-resumes-results></div>
+                <?php echo platform_render_vars('resumes', 'generate-resumes'); ?>
             </div>
         </section>
     </div>
