@@ -21,7 +21,7 @@ class project_desktop_layout_style
 
             if ($type === 'phone' && $width >= $height) {
                 $position = 'center';
-            } elseif ($type === 'desktop' && ($height > $width || ($aspectRatio >= 1 && $aspectRatio <= 1.6))) {
+            } elseif ($type === 'desktop' && ($height > $width || ($aspectRatio >= 1 && $aspectRatio <= 1.8))) {
                 $position = 'top';
             } else {
                 $position = $aspectRatio >= 0.7 ? 'center' : 'top';

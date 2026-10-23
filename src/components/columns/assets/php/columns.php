@@ -25,7 +25,7 @@
  *   }
  *
  * data:
- *   layout          string | object  "100" | "50-50" | "60-40" | "40-60" | "70-30" | "30-70" | "33-33-33"
+ *   layout          string | object  "100" | "50-50" | "60-40" | "40-60" | "70-30" | "30-70" | "75-25" | "25-75" | "80-20" | "20-80" | "33-33-33"
  *                   - string: that layout from "stack_below" up, one column ("100") below it
  *                   - object: per screen size, mobile-first; each value applies from that size up
  *                     until the next one: { "base": …, "xs": …, "sm": …, "md": …, "lg": …, "xl": …, "2xl": … }
@@ -41,7 +41,7 @@
  */
 class columns
 {
-    private const LAYOUTS = ['100', '50-50', '60-40', '40-60', '70-30', '30-70', '33-33-33'];
+    private const LAYOUTS = ['100', '50-50', '60-40', '40-60', '70-30', '30-70', '75-25', '25-75', '80-20', '20-80', '33-33-33'];
     private const BREAKPOINTS = ['base', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'];
     private const GAPS = ['0', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'];
     private const ALIGNS = ['start', 'center', 'end', 'stretch'];

@@ -1,7 +1,7 @@
 {
   "name": "link_list",
   "title": "Link List",
-  "description": "Titled list of links. Each link is static (page _id + anchor, or url) or a query on items / posts / taxonomy terms (utility_filter: filter_by, exclude_by, sort, max_items) that expands into one link per result. Used by the footer.",
+  "description": "Titled list of links. Each link is static (page _id + anchor, or url) or a query on items / posts / taxonomy terms (utility_filter: filter_by, exclude_by, sort, max_items) that expands into one link per result. Any link can open a component in the popup instead (\"popup\": { component, data, hash }). Used by the footer.",
   "assets": {
     "php": [
       "assets/php/link_list.php"
@@ -17,6 +17,7 @@
     ]
   },
   "dependencies": [
+    "popup",
     "svg",
     "theme",
     "utility_filter"

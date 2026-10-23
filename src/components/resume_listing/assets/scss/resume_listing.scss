@@ -24,6 +24,11 @@
       gap: var(--dm-spacing-xs);
     }
   }
+
+  // "columns": 1 -> always one card per row (also below xl), so the list fits narrow side columns
+  &[data-columns="1"] {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .resume-listing-empty {
@@ -214,9 +219,31 @@
     }
   }
 
-  .resume-card-download {
+  // View (popup) + Download, bottom of the card
+  .resume-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--dm-spacing-xxs);
     margin-top: auto;
+  }
+
+  .resume-view-trigger {
+    display: inline-flex;
+    cursor: pointer;
+
+    > template {
+      display: none;
+    }
+  }
+
+  .resume-card-view,
+  .resume-card-download {
     font-size: var(--dm-font-size-md);
+  }
+
+  .resume-card-view {
+    cursor: pointer;
   }
 
   @media (max-width: $dm-screen-xs) {
@@ -233,7 +260,7 @@
   }
 }
 
-// Full image inside the popup
+// Full image inside the popup (thumbnail click with "preview_popup": false)
 .popup .resume-card-full {
   display: block;
   max-width: 100%;

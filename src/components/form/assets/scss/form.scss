@@ -90,6 +90,26 @@
     &.is-done::before {
       background-color: var(--form-active);
     }
+
+    // full width: the first dot sits at the start, the last one at the end
+    &:first-child {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    &:last-child:not(:first-child) {
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    // lines touching the first / last dot (36px dot / 2 + 24px spacing = 42px from the edge)
+    &:nth-child(2)::before {
+      left: calc(-100% + 42px);
+    }
+
+    &:last-child:not(:first-child)::before {
+      right: 42px;
+    }
   }
 
   .form-progress-number {
@@ -149,13 +169,15 @@
     }
   }
 
-  // Step header: banner image or icon + label
+  // Step header: banner image or icon (in a round badge) + label
   .form-step-header {
     display: flex;
     align-items: center;
-    gap: var(--dm-spacing-xs);
-    padding: 0 0 var(--dm-spacing-xs);
-    border-bottom: 1px solid var(--form-line);
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: var(--dm-radius-sm);
+    border: 1px solid var(--form-line);
+    background-color: var(--form-option-bg);
     float: left; // lets <legend> sit inside the fieldset flow
     width: 100%;
 
@@ -166,7 +188,8 @@
     &.has-banner {
       float: none;
       padding: 0;
-      border-bottom: 0;
+      border: 0;
+      background: none;
     }
   }
 
@@ -180,15 +203,27 @@
     border: 1px solid var(--form-line);
   }
 
+  .form-step-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(from var(--form-active) r g b / 0.18);
+    border: 1px solid rgb(from var(--form-active) r g b / 0.35);
+  }
+
   .form-step-icon {
-    width: 36px;
-    height: 36px;
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
     @include svg-color(var(--form-accent));
   }
 
   .form-step-label {
-    font-size: var(--dm-font-size-lg);
+    font-size: var(--dm-font-size-md);
     font-weight: var(--dm-font-weight-bold);
     color: var(--form-text);
   }
@@ -365,4 +400,10 @@
     font-size: var(--dm-font-size-md);
     color: var(--form-text);
   }
+}
+
+// Inside columns with align "stretch" (e.g. contact page): the box fills the column height,
+// so it lines up with the column next to it and the page doesn't jump between steps.
+.columns[data-align="stretch"] > .column > .form-box {
+  flex: 1 1 auto;
 }

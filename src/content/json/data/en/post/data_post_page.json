@@ -168,11 +168,11 @@
                         {
                           "buttons": [
                             {
-                              "text": "More Details",
+                              "text": "Get to Know Me",
                               "link": {
                                 "post_id": "about"
                               },
-                              "svg": "about-me"
+                              "svg": "arrow-right"
                             }
                           ]
                         }
@@ -251,11 +251,11 @@
                         {
                           "buttons": [
                             {
-                              "text": "More Details",
+                              "text": "Explore My Experience",
                               "link": {
                                 "post_id": "experience"
                               },
-                              "svg": "employ"
+                              "svg": "arrow-right"
                             }
                           ]
                         }
@@ -328,6 +328,12 @@
         "data": {
           "variant": "xs",
           "img": "backgrounds/bg-home.webp",
+          "video": {
+            "src": "backgrounds/bg-home.webm",
+            "loop": true,
+            "audio": false,
+            "overlay": 0.6
+          },
           "title": "@data.seo.title",
           "description": "@data.seo.description"
         }
@@ -468,7 +474,7 @@
     "data": {
       "seo": {
         "title": "Contact",
-        "description": "You can reach me by phone on WhatsApp or through my personal email address. Contact details are provided in the section below.",
+        "description": "Have a project, a job offer or just a question? Reach me on WhatsApp, by email, or through the form below.",
         "keywords": "denis marginas contact",
         "slug": "contact",
         "index": false
@@ -486,6 +492,12 @@
         "data": {
           "variant": "sm",
           "img": "backgrounds/bg-home.webp",
+          "video": {
+            "src": "backgrounds/bg-home.webm",
+            "loop": true,
+            "audio": false,
+            "overlay": 0.6
+          },
           "title": "@data.seo.title",
           "description": "@data.seo.description"
         }
@@ -494,65 +506,138 @@
         "component": "section",
         "children": [
           {
-            "component": "profile_card",
+            "component": "columns",
             "data": {
-              "img": "personal-images/dm-personal-image-0.webp",
-              "img_alt": "Denis Marginas",
-              "image_position": "left",
-              "image_style": "circle",
-              "noise": true,
-              "title": {
-                "text": "Contact Data",
-                "tag": "h2",
-                "class": "title-divider title-primary font-secondary"
+              "layout": {
+                "base": "100",
+                "lg": "60-40"
               },
-              "text": [
-                "You can reach me by phone on WhatsApp or through my personal email address.",
-                "Contact details are provided in the section below."
-              ],
-              "details": [
-                {
-                  "label": "Email",
-                  "svg": "envelope",
-                  "value": "denismarginas09@gmail.com",
-                  "link": "mailto:denismarginas09@gmail.com"
-                },
-                {
-                  "label": "Address",
-                  "svg": "location",
-                  "value": "Romania, Baia Mare",
-                  "tooltip": {
-                    "text": "For security reasons, the full address is not displayed. However, you can request the contact address by sending an email to the provided email address.",
-                    "status": "info"
-                  }
-                },
-                {
-                  "label": "Phone",
-                  "svg": "phone",
-                  "value": "+40-74*******",
-                  "tooltip": {
-                    "text": "For security reasons, the phone number is not displayed. However, you can request the contact phone number by sending an email to the provided email address.",
-                    "status": "info"
-                  }
+              "gap": {
+                "base": "sm",
+                "md": "md",
+                "lg": "xl"
+              },
+              "align": "stretch",
+              "reverse_stacked": true,
+              "class": "contact-main"
+            },
+            "children": [
+              {
+                "component": "form",
+                "data": {
+                  "form": "contact-form",
+                  "popup": {
+                    "hash": "contact-form",
+                    "width": "720px"
+                  },
+                  "type": "form",
+                  "title_class": "font-secondary"
                 }
-              ]
-            }
+              },
+              {
+                "component": "column",
+                "children": [
+                  {
+                    "component": "profile_card",
+                    "data": {
+                      "class": "profile-card-boxed bg-radial-primary",
+                      "img": "personal-images/dm-personal-image-0.webp",
+                      "img_alt": "Denis Marginas",
+                      "image_position": "left",
+                      "image_style": "circle",
+                      "noise": true,
+                      "title": {
+                        "text": "Contact Details",
+                        "tag": "h3",
+                        "class": "title-divider font-secondary"
+                      },
+                      "text": [
+                        "Phone and full address are shared on request, just send me an email."
+                      ],
+                      "details": [
+                        {
+                          "label": "Email",
+                          "svg": "envelope",
+                          "value": "denismarginas09@gmail.com",
+                          "link": "mailto:denismarginas09@gmail.com"
+                        },
+                        {
+                          "label": "Address",
+                          "svg": "location",
+                          "value": "Romania, Baia Mare",
+                          "tooltip": {
+                            "text": "For security reasons, the full address is not displayed. However, you can request the contact address by sending an email to the provided email address.",
+                            "status": "info"
+                          }
+                        },
+                        {
+                          "label": "Phone",
+                          "svg": "phone",
+                          "value": "+40-74*******",
+                          "tooltip": {
+                            "text": "For security reasons, the phone number is not displayed. However, you can request the contact phone number by sending an email to the provided email address.",
+                            "status": "info"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "component": "social_links",
+                    "data": {
+                      "lists": ["visual"],
+                      "variant": "card"
+                    }
+                  }
+                ]
+              }
+            ]
           },
           {
             "component": "columns",
             "data": {
               "layout": {
                 "base": "100",
-                "lg": "50-50"
+                "md": "60-40",
+                "lg": "70-30"
               },
               "gap": {
                 "base": "sm",
                 "md": "md",
-                "xl": "xl"
+                "lg": "xl"
               },
-              "align": "start"
+              "align": "start",
+              "class": "contact-about"
             },
             "children": [
+              {
+                "component": "column",
+                "children": [
+                  {
+                    "component": "profile_card",
+                    "data": {
+                      "title": {
+                        "text": "How I Can Help",
+                        "tag": "h3",
+                        "class": "title-card title-divider font-secondary"
+                      },
+                      "text": [
+                        "I'm a web developer who builds dynamic, user-friendly websites, from custom code to page builders, across a range of platforms and languages.",
+                        "I also work with photo and video editing, streaming tools, and everyday suites like Microsoft Office and Google Workspace. I adapt quickly and enjoy turning ideas into finished, working projects."
+                      ]
+                    }
+                  },
+                  {
+                    "component": "profile_card",
+                    "data": {
+                      "img": "personal-images/dm-desktop-working.webp",
+                      "img_alt": "Denis Marginas working at his desk",
+                      "image_position": "top",
+                      "image_style": "rounded"
+                    }
+                  }
+                ]
+              },
               {
                 "component": "column",
                 "children": [
@@ -563,8 +648,8 @@
                         {
                           "title": {
                             "text": "Resumes",
-                            "tag": "h2",
-                            "class": "title-divider title-secondary font-secondary"
+                            "tag": "h3",
+                            "class": "title-card title-divider font-secondary"
                           }
                         }
                       ]
@@ -574,11 +659,12 @@
                     "component": "resume_listing",
                     "data": {
                       "id": "contact-resumes",
+                      "preview_popup": false,
                       "type": "resume",
                       "filter_by": {
                         "max_items": 2
                       },
-                      "columns": 2,
+                      "columns": 1,
                       "sort": [
                         {
                           "by": "date.publish",
@@ -594,53 +680,6 @@
                     }
                   }
                 ]
-              },
-              {
-                "component": "profile_card",
-                "data": {
-                  "img": "personal-images/dm-desktop-working.webp",
-                  "img_alt": "Denis Marginas working at his desk",
-                  "image_position": "top",
-                  "image_style": "plain",
-                  "text": [
-                    "I am a skilled professional with expertise in web development and programming. With a strong foundation in various web platforms and programming languages, I possess the ability to create dynamic and user-friendly websites. My proficiency extends to page builders and web development programs, enabling me to design and customize web pages effectively.",
-                    "I have experience working with a range of software and tools, including photo editing and video editing programs. My knowledge extends to streaming programs and other widely used applications, such as Microsoft Office and Google Suite.",
-                    "With a strong technical aptitude and adaptability, I am confident in my ability to contribute to innovative projects and deliver exceptional results. I am eager to leverage my skills and experiences to make a meaningful impact."
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            "component": "columns",
-            "data": {
-              "layout": {
-                "base": "100",
-                "md": "60-40",
-                "xl": "70-30"
-              },
-              "gap": {
-                "base": "sm",
-                "md": "md",
-                "xl": "xl"
-              },
-              "align": "start"
-            },
-            "children": [
-              {
-                "component": "form",
-                "data": {
-                  "form": "contact-form",
-                  "type": "form"
-                }
-              },
-              {
-                "component": "social_links",
-                "data": {
-                  "title": "Socials",
-                  "lists": ["visual", "text"],
-                  "variant": "card"
-                }
               }
             ]
           }
@@ -671,6 +710,12 @@
         "data": {
           "variant": "xs",
           "img": "backgrounds/bg-home.webp",
+          "video": {
+            "src": "backgrounds/bg-home.webm",
+            "loop": true,
+            "audio": false,
+            "overlay": 0.6
+          },
           "title": "@data.seo.title",
           "description": "@data.seo.description"
         }
@@ -1036,6 +1081,12 @@
         "data": {
           "variant": "xs",
           "img": "backgrounds/bg-home.webp",
+          "video": {
+            "src": "backgrounds/bg-home.webm",
+            "loop": true,
+            "audio": false,
+            "overlay": 0.6
+          },
           "title": "@data.seo.title",
           "description": "@data.seo.description"
         }
@@ -1096,6 +1147,12 @@
         "data": {
           "variant": "xs",
           "img": "backgrounds/bg-home.webp",
+          "video": {
+            "src": "backgrounds/bg-home.webm",
+            "loop": true,
+            "audio": false,
+            "overlay": 0.6
+          },
           "title": "@data.seo.title",
           "description": "@data.seo.description"
         }
@@ -1137,6 +1194,12 @@
         "data": {
           "variant": "xs",
           "img": "backgrounds/bg-home.webp",
+          "video": {
+            "src": "backgrounds/bg-home.webm",
+            "loop": true,
+            "audio": false,
+            "overlay": 0.6
+          },
           "title": "@data.seo.title",
           "description": "@data.seo.description"
         }
@@ -1234,6 +1297,12 @@
         "data": {
           "variant": "xs",
           "img": "backgrounds/bg-home.webp",
+          "video": {
+            "src": "backgrounds/bg-home.webm",
+            "loop": true,
+            "audio": false,
+            "overlay": 0.6
+          },
           "title": "@data.seo.title",
           "description": "@data.seo.description"
         }
@@ -1287,6 +1356,12 @@
         "data": {
           "variant": "xs",
           "img": "backgrounds/bg-home.webp",
+          "video": {
+            "src": "backgrounds/bg-home.webm",
+            "loop": true,
+            "audio": false,
+            "overlay": 0.6
+          },
           "title": "@data.seo.title"
         }
       },

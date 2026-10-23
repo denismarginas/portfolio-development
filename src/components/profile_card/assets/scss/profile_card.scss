@@ -288,6 +288,77 @@
   }
 }
 
+// Boxed card (e.g. the contact page aside): add the classes "profile-card-boxed bg-radial-primary".
+// Same frame as the social_links "card" variant, small portrait next to the content.
+.profile-card.profile-card-boxed {
+  padding: var(--dm-spacing-sm);
+  border-radius: var(--dm-radius-md);
+  border: 1px solid transparent;
+  gap: var(--dm-spacing-sm);
+  align-items: start;
+
+  [mode="light"] & {
+    border-color: rgb(from var(--dm-color-primary-300) r g b / 0.5);
+    box-shadow: 0 4px 16px rgb(from var(--dm-color-black) r g b / 0.08);
+  }
+
+  [mode="dark"] & {
+    border-color: rgb(from var(--dm-color-white) r g b / 0.12);
+    box-shadow: 0 4px 16px rgb(from var(--dm-color-black) r g b / 0.3);
+  }
+
+  .profile-card-title {
+    font-size: var(--dm-font-size-xl);
+  }
+
+  .profile-card-text {
+    margin: 0;
+    font-size: var(--dm-font-size-sm);
+    opacity: 0.8;
+  }
+
+  .profile-card-circle {
+    width: min(100%, 120px);
+  }
+
+  .profile-card-detail-value {
+    font-size: var(--dm-font-size-sm);
+  }
+
+  // From small screens up: portrait next to the title + text (header), details across the full width below
+  @media (min-width: 480px) {
+    &:has(.profile-card-media) {
+      grid-template-columns: 96px minmax(0, 1fr);
+      grid-template-areas:
+        "media title"
+        "media text"
+        "details details";
+      column-gap: var(--dm-spacing-sm);
+      row-gap: var(--dm-spacing-xxs);
+      align-items: center;
+
+      .profile-card-content {
+        display: contents;
+      }
+
+      .profile-card-title {
+        grid-area: title;
+        align-self: end;
+      }
+
+      .profile-card-text {
+        grid-area: text;
+        align-self: start;
+      }
+
+      .profile-card-details {
+        grid-area: details;
+        margin-top: var(--dm-spacing-xs);
+      }
+    }
+  }
+}
+
 @keyframes profile-card-spin {
   from {
     rotate: 0deg;

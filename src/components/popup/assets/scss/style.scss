@@ -136,3 +136,30 @@
 [data-popup="true"] {
   cursor: zoom-in;
 }
+
+// Trigger around a link / button: normal pointer; "inline" takes no box (links in lists, text)
+.popup-trigger:has(> a, > button) {
+  cursor: pointer;
+}
+
+.popup-trigger-inline {
+  display: contents;
+}
+
+.popup-trigger > template {
+  display: none;
+}
+
+// Panel (popup.php "panel": true): any html / component, scrolls when taller than the screen
+.popup .popup-panel {
+  width: min(var(--popup-panel-width, 640px), calc(100vw - var(--dm-spacing-xl) * 2));
+  max-width: 100%;
+  max-height: calc(100vh - var(--dm-spacing-xl) * 2);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  @media (max-width: $dm-screen-md) {
+    width: calc(100vw - var(--dm-spacing-lg) * 2);
+    max-height: calc(100vh - var(--dm-spacing-lg) * 2);
+  }
+}

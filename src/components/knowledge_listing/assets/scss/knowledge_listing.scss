@@ -7,14 +7,6 @@
   gap: var(--dm-spacing-sm);
   min-width: 0;
 
-  .knowledge-listing-title {
-    margin: 0;
-    font-family: var(--dm-font-secondary);
-    font-size: var(--dm-font-size-xl);
-    font-weight: var(--dm-font-weight-bold);
-    text-transform: uppercase;
-  }
-
   .knowledge-groups {
     display: flex;
     flex-direction: column;

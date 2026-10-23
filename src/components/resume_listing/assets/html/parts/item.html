@@ -1,4 +1,4 @@
-<li class="resume-card bg-radial-primary" data-item-id="{{ item_id }}" data-model="{{ model }}" data-lang="{{ lang }}">
+<li{{ id_attr }} class="resume-card bg-radial-primary" data-item-id="{{ item_id }}" data-model="{{ model }}" data-lang="{{ lang }}">
   {{ preview }}
   <div class="resume-card-content">
     {{ title_html }}
@@ -7,6 +7,6 @@
       {{ lang_html }}
       {{ date_html }}
     </div>
-    {{ download_html }}
+    {{ actions_html }}
   </div>
 </li>

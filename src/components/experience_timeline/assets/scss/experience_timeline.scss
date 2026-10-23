@@ -9,6 +9,8 @@
   --tl-card-max: 300px;
   --tl-line-width: 2px;
   --tl-brand: var(--dm-color-primary);
+  // site primary for the connectors and the year pills (cards keep their own --tl-brand)
+  --tl-accent: var(--dm-color-primary);
   --tl-job: var(--dm-color-info);
   --tl-education: var(--dm-color-success);
   --tl-progress: 0;
@@ -78,9 +80,9 @@
     transform: scaleY(var(--tl-progress));
     background-image: linear-gradient(
       to bottom,
-      var(--dm-color-success),
-      var(--dm-color-info) 40%,
-      var(--dm-color-primary-400)
+      var(--dm-color-primary-300),
+      var(--dm-color-primary) 40%,
+      var(--dm-color-primary-600)
     );
     will-change: transform;
   }
@@ -130,7 +132,7 @@
       position: absolute;
       top: 37px;
       height: 2px;
-      background-color: var(--tl-brand);
+      background-color: var(--tl-accent);
       opacity: 0.6;
       pointer-events: none;
     }
@@ -200,14 +202,14 @@
   }
 
   .experience-timeline-item.is-visible .experience-timeline-year {
-    border-color: var(--tl-brand);
-    box-shadow: 0 0 0 4px rgb(from var(--tl-brand) r g b / 0.15);
+    border-color: var(--tl-accent);
+    box-shadow: 0 0 0 4px rgb(from var(--tl-accent) r g b / 0.15);
   }
 
   .experience-timeline-item.is-current .experience-timeline-year {
     color: var(--dm-color-white);
-    background-color: var(--tl-brand);
-    border-color: var(--tl-brand);
+    background-color: var(--tl-accent);
+    border-color: var(--tl-accent);
   }
 
   // ---------- card ----------
@@ -407,11 +409,13 @@
     margin-left: auto;
     font-size: var(--dm-font-size-sm);
     font-weight: var(--dm-font-weight-bold);
-    color: var(--tl-text);
+    color: var(--dm-color-gray-light);
     text-decoration: none;
 
+    // text and arrow share one color (gray-light), both switch on hover
     > span {
       font-size: var(--dm-font-size-sm);
+      color: inherit;
     }
 
     .experience-timeline-link-icon {

@@ -13,7 +13,8 @@
  *   }
  *
  * data:
- *   title       string  heading (h2)
+ *   title       string  heading (h2, theme classes: title-card title-divider font-secondary)
+ *   title_class string  optional extra classes on the heading
  *   text        string|array  paragraph(s); <br>, <b>, <strong>, <i>, <em> are kept
  *   groups      array   [{ title, list: [...] }]
  *   icons       bool    show the knowledge icons (default true)
@@ -32,7 +33,7 @@ class knowledge_listing
     {
         $title = self::str($data['title'] ?? '');
         $html = [
-            'title' => $title !== '' ? '<h2 class="knowledge-listing-title">' . self::e($title) . '</h2>' : '',
+            'title' => $title !== '' ? '<h2 class="title-card title-divider font-secondary' . (self::str($data['title_class'] ?? '') !== '' ? ' ' . self::e(self::str($data['title_class'])) : '') . '">' . self::e($title) . '</h2>' : '',
             'text' => self::text($data['text'] ?? ''),
             'groups' => self::groups($data['groups'] ?? []),
             'icons' => ($data['icons'] ?? true) === false ? '' : self::icons($data),

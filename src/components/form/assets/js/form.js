@@ -6,6 +6,9 @@
  * Submit: every field of the visited steps fills its final field (data-target); a final field with
  * data-compose="lines" collects "Label: value" lines. For Google Forms a prefilled link
  * (…/viewform?usp=pp_url&entry.X=…) opens in a new tab and the status box shows a link to it.
+ *
+ * Forms added later are set up too: forms opened in the popup (popup:open event), or any other
+ * html through window.FormItem.initAll(container). Each form is set up only once.
  */
 (function () {
   function fieldsOf(scope) {
@@ -31,6 +34,9 @@
   }
 
   function init(form) {
+    if (form.dataset.formReady === 'true') return;
+    form.dataset.formReady = 'true';
+
     var steps = Array.prototype.slice.call(form.querySelectorAll('.form-step'));
     var status = form.querySelector('.form-status');
     var statusLink = form.querySelector('.form-status-link');
@@ -169,13 +175,20 @@
     });
   }
 
-  function start() {
-    document.querySelectorAll('form.form-item').forEach(init);
+  function initAll(scope) {
+    (scope || document).querySelectorAll('form.form-item').forEach(init);
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', start);
+    document.addEventListener('DOMContentLoaded', function () { initAll(); });
   } else {
-    start();
+    initAll();
   }
+
+  // forms inside the popup (copied from a <template>, so without listeners until set up here)
+  document.addEventListener('popup:open', function (event) {
+    if (event.detail && event.detail.body) initAll(event.detail.body);
+  });
+
+  window.FormItem = { init: init, initAll: initAll };
 })();

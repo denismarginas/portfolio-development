@@ -24,17 +24,6 @@ class page_constructor extends page_constructor_seo
         }
         $seoFields .= self::share_image_fields($data['post_current_data'] ?? null);
 
-        $compileAssets = $data['compile_assets'] ?? false;
-        if ($compileAssets) {
-            $urlPath = PlatformPathService::asset_relative_prefix();
-            $compiledPath = PlatformConfig::get('theme_compiled_path');
-            $assetTags = '<link rel="stylesheet" href="' . $urlPath . $compiledPath . '/css/bundle.css">'
-                       . '<script src="' . $urlPath . $compiledPath . '/js/bundle.js"></script>';
-        } else {
-            PlatformComponentRenderer::mark_used('theme');
-            $assetTags = PlatformComponentRenderer::get_component_asset_tags();
-        }
-
         $headerContent = PlatformComponentRenderer::render('header', $data);
 
         $mainContent = PlatformComponentRenderer::render('page_content', [
@@ -48,6 +37,10 @@ class page_constructor extends page_constructor_seo
         PlatformComponentRenderer::mark_used('animation_grid_background');
         $overlayNoise = PlatformComponentRenderer::render('overlay_noise');
         $animationGridBackground = PlatformComponentRenderer::render('animation_grid_background');
+
+        // Asset tags last: every component rendered above (header, content, footer, and what they
+        // render inside, e.g. a form in a footer popup) is marked as used by now, so its css / js loads.
+        $assetTags = self::asset_tags((bool) ($data['compile_assets'] ?? false));
 
         $themeModeInit = '';
         $themeModeInitPath = __DIR__ . '/../js/theme_mode_init.js';
@@ -67,5 +60,19 @@ class page_constructor extends page_constructor_seo
             'main_content' => $mainContent,
             'footer_content' => $footerContent,
         ]);
+    }
+
+    /** Production: the compiled bundle; dev: one tag per used component (+ dependencies). */
+    private static function asset_tags(bool $compiled): string
+    {
+        if ($compiled) {
+            $urlPath = PlatformPathService::asset_relative_prefix();
+            $compiledPath = PlatformConfig::get('theme_compiled_path');
+            return '<link rel="stylesheet" href="' . $urlPath . $compiledPath . '/css/bundle.css">'
+                . '<script src="' . $urlPath . $compiledPath . '/js/bundle.js"></script>';
+        }
+
+        PlatformComponentRenderer::mark_used('theme');
+        return PlatformComponentRenderer::get_component_asset_tags();
     }
 }

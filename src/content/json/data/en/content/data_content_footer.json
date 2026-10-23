@@ -7,46 +7,20 @@
         "links": [
           {
             "text": "CV English",
-            "source": {
-              "item": "resume",
-              "filter_by": {
-                "lang": "en",
-                "max_items": 1
-              },
-              "sort": [
-                {
-                  "by": "date.publish",
-                  "order": "desc"
-                }
-              ]
-            },
-            "link": "media.pdf",
-            "target": "_blank",
+            "_id": "personal-resumes",
+            "anchor": "cv-3-english",
             "svg": "resume"
           },
           {
             "text": "CV Romanian",
-            "source": {
-              "item": "resume",
-              "filter_by": {
-                "lang": "ro",
-                "max_items": 1
-              },
-              "sort": [
-                {
-                  "by": "date.publish",
-                  "order": "desc"
-                }
-              ]
-            },
-            "link": "media.pdf",
-            "target": "_blank",
+            "_id": "personal-resumes",
+            "anchor": "cv-3-romanian",
             "svg": "resume"
           },
           {
             "text": "Contact Form",
             "_id": "contact",
-            "anchor": "form-contact-form",
+            "anchor": "contact-form",
             "svg": "form"
           }
         ],

@@ -14,6 +14,12 @@
  *   max_items      int     limit (default: all)
  *   date_format    string  PlatformTextService::format_date format (default "M j, Y" -> "Sep 27, 2024")
  *   download_text  string  aria-label/title of the icon-only download button (default "Download")
+ *   preview_popup  bool    View button + thumbnail open the big view (resume_view) in the popup (default true);
+ *                          the URL hash #<item _id> (e.g. #cv-3-english) opens it on load (popup data-popup-hash);
+ *                          false: no View button, the thumbnail opens only the full image
+ *   view_text      string  aria-label/title of the icon-only view button (default "View")
+ *   open_text      string  "Open PDF" button text in the view popup (default "Open PDF")
+ *   download_label string  download button text in the view popup (default "Download PDF")
  *   lang_labels    object  { "en": "English", "ro": "Romanian" } badge text per data.lang (default: upper-case code)
  *   empty_text     string  text when there are no resumes (default: nothing rendered)
  *   columns        int     fixed number of columns on desktop (default: automatic, cards >= 340px)
@@ -94,16 +100,19 @@ class resume_listing
             : '<span class="resume-card-title">' . self::e($title) . '</span>';
 
         $dateHtml = '';
+        $dateText = '';
         if ($publish !== '') {
             $format = (string) ($data['date_format'] ?? 'M j, Y');
-            $dateHtml = '<time class="resume-card-date" datetime="' . self::e($publish) . '">'
-                . self::e(PlatformTextService::format_date($publish, $format)) . '</time>';
+            $dateText = (string) PlatformTextService::format_date($publish, $format);
+            $dateHtml = '<time class="resume-card-date" datetime="' . self::e($publish) . '">' . self::e($dateText) . '</time>';
         }
 
         $langHtml = '';
+        $langLabel = '';
         if ($lang !== '') {
             $labels = is_array($data['lang_labels'] ?? null) ? $data['lang_labels'] : [];
-            $langHtml = '<span class="resume-card-lang">' . self::e((string) ($labels[$lang] ?? strtoupper($lang))) . '</span>';
+            $langLabel = (string) ($labels[$lang] ?? strtoupper($lang));
+            $langHtml = '<span class="resume-card-lang">' . self::e($langLabel) . '</span>';
         }
 
         $downloadHtml = '';
@@ -115,16 +124,50 @@ class resume_listing
                 . '</a>';
         }
 
+        // big version of the card (resume_view), shown in the popup (View button + thumbnail click)
+        $viewHtml = '';
+        if (($data['preview_popup'] ?? true) !== false) {
+            $viewHtml = (string) PlatformComponentRenderer::render('resume_view', [
+                'image' => $img !== '' ? $img : $thumb,
+                'title' => $title,
+                'description' => $description,
+                'lang' => $langLabel,
+                'date' => $publish,
+                'date_text' => $dateText,
+                'pdf' => $pdf,
+                'download_label' => $data['download_label'] ?? 'Download PDF',
+                'open_text' => $data['open_text'] ?? 'Open PDF',
+            ]);
+        }
+
+        $viewButtonHtml = '';
+        if ($viewHtml !== '') {
+            $viewLabel = self::e((string) ($data['view_text'] ?? 'View') . ($title !== '' ? ' ' . $title : ''));
+            $viewButtonHtml = (string) PlatformComponentRenderer::render('popup', [
+                'trigger' => '<button type="button" class="btn btn-primary-small resume-card-view" aria-label="' . $viewLabel . '" title="' . $viewLabel . '">'
+                    . (string) PlatformComponentRenderer::render('svg', ['icon' => 'eye', 'class' => 'resume-card-view-icon'])
+                    . '</button>',
+                'content' => $viewHtml,
+                'class' => 'resume-view-trigger',
+                'hash' => trim((string) ($item['_id'] ?? '')),   // #cv-3-english in the URL opens this view
+            ]);
+        }
+
+        $actionsHtml = ($viewButtonHtml . $downloadHtml) !== ''
+            ? '<div class="resume-card-actions">' . $viewButtonHtml . $downloadHtml . '</div>'
+            : '';
+
         return PlatformTemplateRenderer::render(self::HTML_DIR . 'parts/item.html', [
             'item_id' => self::e(trim((string) ($item['_id'] ?? ''))),
+            'id_attr' => ($itemId = trim((string) ($item['_id'] ?? ''))) !== '' ? ' id="' . self::e($itemId) . '"' : '',
             'model' => self::e(trim((string) ($d['model'] ?? ''))),
             'lang' => self::e($lang),
-            'preview' => self::preview($thumb, $img, $title),
+            'preview' => self::preview($thumb, $img, $title, $viewHtml),
             'title_html' => $titleHtml,
             'description_html' => $description !== '' ? '<span class="resume-card-description">' . self::e($description) . '</span>' : '',
             'lang_html' => $langHtml,
             'date_html' => $dateHtml,
-            'download_html' => $downloadHtml,
+            'actions_html' => $actionsHtml,
         ]);
     }
 
@@ -134,8 +177,8 @@ class resume_listing
         return strtolower(trim((string) ($item['data']['lang'] ?? $item['settings']['lang'] ?? '')));
     }
 
-    /** Thumbnail + resume icon; click opens the full image in the popup. */
-    private static function preview(string $thumb, string $img, string $title): string
+    /** Thumbnail + resume icon; click opens the big view (same as the View button), or only the full image when preview_popup is false. */
+    private static function preview(string $thumb, string $img, string $title, string $viewHtml): string
     {
         if ($thumb === '') return '';
 
@@ -149,19 +192,22 @@ class resume_listing
 
         $thumbHtml .= (string) PlatformComponentRenderer::render('svg', ['icon' => 'resume', 'class' => 'resume-card-icon']);
 
-        $fullHtml = $img !== '' ? (string) PlatformComponentRenderer::render('image', [
-            'src' => $img,
-            'alt' => $title,
-            'class' => 'resume-card-full',
-        ]) : '';
+        $content = $viewHtml;
+        if ($content === '' && $img !== '') {
+            $content = (string) PlatformComponentRenderer::render('image', [
+                'src' => $img,
+                'alt' => $title,
+                'class' => 'resume-card-full',
+            ]);
+        }
 
-        if ($fullHtml === '') {
+        if ($content === '') {
             return '<div class="resume-card-preview">' . $thumbHtml . '</div>';
         }
 
         return (string) PlatformComponentRenderer::render('popup', [
             'trigger' => $thumbHtml,
-            'content' => $fullHtml,
+            'content' => $content,
             'class' => 'resume-card-preview',
         ]);
     }

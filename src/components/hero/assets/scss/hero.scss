@@ -8,12 +8,13 @@
   gap: var(--dm-spacing-md);
   position: relative;
   overflow: hidden;
-  background-color: var(--dm-color-black);
-  background-image: linear-gradient(
+  --hero-gradient: linear-gradient(
     var(--dm-color-black) -20%,
     var(--dm-color-primary-950) 20%,
     var(--dm-color-primary-700) 120%
   );
+  background-color: var(--dm-color-black);
+  background-image: var(--hero-gradient);
   min-height: 600px;
 
   &[data-layout="xs"] {
@@ -70,6 +71,12 @@
 
   [mode] & > .video-background {
     --video-bg-tint: var(--dm-color-primary-950);
+  }
+
+  // the hero gradient goes on the video tint layer (above the video), so it stays visible while it plays;
+  // its strength follows the video "overlay" value (--video-bg-overlay)
+  > .video-background .video-background-overlay {
+    background-image: var(--hero-gradient);
   }
 
   // noise texture (overlay_noise) over the background, under the text

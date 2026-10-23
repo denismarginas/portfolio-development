@@ -3,7 +3,8 @@
 // Responsive title sizes. Use on any heading (h1-h6), usually together with .title-divider.
 .title-primary,
 .title-secondary,
-.title-tertiary {
+.title-tertiary,
+.title-card {
   margin: 0;
   line-height: 1.2;
   overflow-wrap: break-word;
@@ -48,5 +49,14 @@
   }
   @media (max-width: $dm-screen-xs) {
     font-size: var(--dm-font-size-md);
+  }
+}
+
+// Card / block title: same size as the form and profile card titles (e.g. "Contact Form").
+.title-card {
+  font-size: var(--dm-font-size-xl);
+
+  @media (max-width: $dm-screen-xs) {
+    font-size: var(--dm-font-size-lg);
   }
 }

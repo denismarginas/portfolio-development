@@ -8,7 +8,11 @@
  *   type        string  item file (default "form" -> data_items_form.json)
  *   title       string  heading (default: the item's data.seo.title; "" hides it)
  *   title_tag   string  "h3" (default) | "h2" | "h4"
+ *   title_class string  extra classes on the heading, e.g. "font-secondary"
  *   class, id   string  optional
+ *   popup       object  optional, the form also opens in the popup by URL hash (it moves into the
+ *                       popup and back, nothing is copied): { "hash": "contact-form", "width": "720px" }
+ *                       -> a link to <page>#contact-form opens it (see popup::open_attrs)
  *
  * Item (data_items_form.json):
  *   data.seo.title
@@ -57,7 +61,8 @@ class form
         return PlatformTemplateRenderer::render(self::HTML_DIR . 'template.html', [
             'extra_class' => $class !== '' ? ' ' . self::e($class) : '',
             'id_attr' => $id !== '' ? ' id="' . self::e($id) . '"' : '',
-            'title' => $title !== '' ? '<' . $tag . ' class="form-title title-divider">' . self::e($title) . '</' . $tag . '>' : '',
+            'popup_attrs' => is_array($data['popup'] ?? null) ? popup::open_attrs($data['popup']) : '',
+            'title' => $title !== '' ? '<' . $tag . ' class="form-title title-divider' . (trim((string) ($data['title_class'] ?? '')) !== '' ? ' ' . self::e(trim((string) $data['title_class'])) : '') . '">' . self::e($title) . '</' . $tag . '>' : '',
             'form_id' => self::e($formId),
             'form_type' => $isSteps ? 'steps' : 'default',
             'external_type' => self::e((string) ($external['type'] ?? '')),
@@ -160,6 +165,7 @@ class form
         if ($icon === '' && $label === '') return '';
 
         $iconHtml = $icon !== '' ? (string) PlatformComponentRenderer::render('svg', ['icon' => $icon, 'class' => 'form-step-icon']) : '';
+        if (trim($iconHtml) !== '') $iconHtml = '<span class="form-step-badge">' . $iconHtml . '</span>';
         return '<legend class="form-step-header">' . $iconHtml . ($label !== '' ? '<span class="form-step-label">' . self::e($label) . '</span>' : '') . '</legend>';
     }
 

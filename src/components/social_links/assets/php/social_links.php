@@ -8,6 +8,7 @@
  *   lists      array   which lists to show, in order: "visual" (icon row) and/or "text" (default both)
  *   title      string  optional heading
  *   title_tag  string  "h3" (default) | "h2" | "h4" | "h5"
+ *   title_class string extra classes on the heading, e.g. "font-secondary"
  *   variant    string  "card" (default, boxed with .bg-radial-primary, follows light/dark mode) | "plain" (no box, e.g. footer)
  *   filter_by  object  keep only items matching ALL entries (utility_filter), e.g. { "display_footer": true }
  *   exclude_by array   drop items matching ANY entry (utility_filter)
@@ -58,7 +59,7 @@ class social_links
             'id_attr' => $id !== '' ? ' id="' . self::e($id) . '"' : '',
             'variant' => $variant,
             'variant_class' => $variant === 'card' ? ' bg-radial-primary' : '',
-            'title' => $title !== '' ? '<' . $tag . ' class="social-links-title">' . self::e($title) . '</' . $tag . '>' : '',
+            'title' => $title !== '' ? '<' . $tag . ' class="social-links-title' . (trim((string) ($data['title_class'] ?? '')) !== '' ? ' ' . self::e(trim((string) $data['title_class'])) : '') . '">' . self::e($title) . '</' . $tag . '>' : '',
             'visual' => $visual,
             'text' => $text,
         ]);

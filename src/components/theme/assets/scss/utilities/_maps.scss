@@ -102,6 +102,10 @@ $dm-grid-columns: (
   '40-60': (minmax(0, 2fr) minmax(0, 3fr)),
   '70-30': (minmax(0, 7fr) minmax(0, 3fr)),
   '30-70': (minmax(0, 3fr) minmax(0, 7fr)),
+  '75-25': (minmax(0, 3fr) minmax(0, 1fr)),
+  '25-75': (minmax(0, 1fr) minmax(0, 3fr)),
+  '80-20': (minmax(0, 4fr) minmax(0, 1fr)),
+  '20-80': (minmax(0, 1fr) minmax(0, 4fr)),
   '33-33-33': (minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr)),
 );
 

@@ -6,7 +6,7 @@
   justify-content: center;
   gap: var(--dm-spacing-xxs);
   width: fit-content;
-  padding: calc(var(--dm-spacing-xxs) * 0.3) calc(var(--dm-spacing-xxs) * 2.6);
+  padding: calc(var(--dm-spacing-xxs) * 2) calc(var(--dm-spacing-xxs) * 4);
   border: 2px solid transparent;
   border-radius: 100px;
   font-family: var(--dm-font-primary);
@@ -22,6 +22,11 @@
   box-shadow: none;
   -webkit-transition: var(--dm-transition);
   transition: var(--dm-transition);
+
+  // the label keeps the button's line-height (global span styles use 1.6, which made buttons taller)
+  > .btn-text {
+    line-height: inherit;
+  }
 
   svg {
     width: auto;

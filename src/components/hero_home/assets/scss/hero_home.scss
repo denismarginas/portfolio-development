@@ -66,6 +66,20 @@
     align-items: center;
     gap: var(--dm-spacing-sm);
     text-align: center;
+
+    // soft backdrop behind the text: primary-950 at 60% in the middle, fading out to transparent
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -20% -15%;
+      z-index: -1;
+      background-image: radial-gradient(
+        closest-side,
+        rgb(from var(--dm-color-primary-950) r g b / 0.6),
+        var(--dm-color-transparent)
+      );
+      pointer-events: none;
+    }
   }
 
   &[data-align="left"] .hero-home-inner {

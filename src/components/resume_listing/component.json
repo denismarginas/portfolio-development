@@ -1,7 +1,7 @@
 {
   "name": "resume_listing",
   "title": "Resume Listing",
-  "description": "Grid of resume cards from data_items_resume.json: thumbnail (click = full image popup), title (opens the PDF), description, language, publish date and a Download button.",
+  "description": "Grid of resume cards from data_items_resume.json (each <li> has the item _id as id): thumbnail and View button open resume_view in the popup (preview_popup: false turns it off), title opens the PDF, description, language, publish date and a Download button.",
   "assets": {
     "php": [
       "assets/php/resume_listing.php"
@@ -20,6 +20,7 @@
   "dependencies": [
     "image",
     "popup",
+    "resume_view",
     "svg",
     "theme",
     "utility_filter",

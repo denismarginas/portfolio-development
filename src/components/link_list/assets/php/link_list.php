@@ -29,6 +29,18 @@
  *   }
  *
  * Any link may also have "svg" (icon name from src/content/svg) and "class".
+ *
+ * Popup link - any link can open a component in the popup instead of navigating (popup component):
+ *   {
+ *     "text": "Contact Form", "_id": "contact", "anchor": "form-contact-form",   the normal link (fallback,
+ *                                                                               new tab, no JS, crawlers)
+ *     "popup": {
+ *       "component": "form", "data": { "form": "contact-form" },   what the popup shows
+ *       "hash": "contact-form",    optional: #contact-form in the URL opens it on any page
+ *       "width": "720px"           optional panel width (default 640px)
+ *     }
+ *   }
+ *   On the page the link points to (its #anchor exists there) the link just scrolls, no popup.
  */
 class link_list
 {
@@ -123,8 +135,26 @@ class link_list
             ? (string) PlatformComponentRenderer::render('svg', ['icon' => (string) $link['svg'], 'class' => 'link-list-icon'])
             : '';
 
-        return '<li><a class="link-list-link' . ($class !== '' ? ' ' . self::e($class) : '') . '"' . $attrs . '>'
-            . $icon . '<span class="link-list-text">' . self::e($text) . '</span></a></li>';
+        $html = '<a class="link-list-link' . ($class !== '' ? ' ' . self::e($class) : '') . '"' . $attrs . '>'
+            . $icon . '<span class="link-list-text">' . self::e($text) . '</span></a>';
+
+        return '<li>' . self::with_popup($html, $link['popup'] ?? null) . '</li>';
+    }
+
+    /** Link "popup": { component, data, hash, width } -> the link becomes the popup trigger. */
+    private static function with_popup(string $linkHtml, mixed $popup): string
+    {
+        if (!is_array($popup) || trim((string) ($popup['component'] ?? '')) === '') return $linkHtml;
+
+        $html = (string) PlatformComponentRenderer::render('popup', [
+            'trigger' => $linkHtml,
+            'content_component' => ['component' => $popup['component'], 'data' => $popup['data'] ?? []],
+            'hash' => $popup['hash'] ?? '',
+            'width' => $popup['width'] ?? '',
+            'panel' => true,
+            'inline' => true,
+        ]);
+        return $html !== '' ? $html : $linkHtml;
     }
 
     private static function href(array $link, ?array $result): string
