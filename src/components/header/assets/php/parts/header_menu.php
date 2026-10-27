@@ -17,10 +17,12 @@ class header_menu extends header_search_button
             if ($postId === '' || $text === '') continue;
 
             $submenuHtml = '';
+            $childActive = false;
             foreach (($item['submenu'] ?? []) as $subItem) {
                 $subId = $subItem['_id'] ?? '';
                 $subText = $subItem['text'] ?? '';
                 if ($subId === '' || $subText === '') continue;
+                if ($subId === $currentPostId) $childActive = true;
                 $submenuHtml .= PlatformTemplateRenderer::render(__DIR__ . '/../../html/template_menu_item.html', [
                     'active' => self::menu_active_attr($subId, $currentPostId),
                     'url' => PlatformPathService::post_link($subId),
@@ -30,7 +32,8 @@ class header_menu extends header_search_button
             }
 
             if ($submenuHtml !== '') {
-                $submenuHtml = '<ul class="header-submenu">' . $submenuHtml . '</ul>';
+                $items .= self::render_parent_item($item, $postId, $currentPostId, $submenuHtml, $childActive);
+                continue;
             }
 
             $items .= PlatformTemplateRenderer::render(__DIR__ . '/../../html/template_menu_item.html', [
@@ -51,6 +54,29 @@ class header_menu extends header_search_button
             'theme_toggle_html' => self::render_theme_toggle(),
             'menu_toggle_html' => self::render_menu_toggle(),
         ]);
+    }
+
+    /**
+     * Item with a submenu: the link keeps opening its page, the chevron button next to it opens the submenu
+     * (hover / focus / click on desktop, accordion in the mobile drawer; header-submenu.js).
+     * "is-current-parent" when the current page is one of its children (opens the accordion on mobile).
+     */
+    private static function render_parent_item(array $item, string $postId, string $currentPostId, string $submenuItems, bool $childActive): string
+    {
+        static $count = 0;
+        $count++;
+        $text = htmlspecialchars((string) $item['text']);
+        $submenuId = 'header-submenu-' . $count;
+        $chevron = PlatformComponentRenderer::render('svg', ['icon' => 'chevron-down', 'class' => 'header-submenu-toggle-icon']);
+        $active = self::menu_active_attr($postId, $currentPostId);
+
+        return '<li class="has-submenu' . ($childActive ? ' is-current-parent' : '') . '">'
+            . '<span class="header-menu-row">'
+            . '<a ' . $active . ' href="' . PlatformPathService::post_link($postId) . '">' . $text . '</a>'
+            . '<button type="button" class="header-submenu-toggle" aria-expanded="false" aria-controls="' . $submenuId . '" aria-label="' . $text . ' submenu">' . $chevron . '</button>'
+            . '</span>'
+            . '<ul class="header-submenu" id="' . $submenuId . '">' . $submenuItems . '</ul>'
+            . '</li>';
     }
 
     public static function menu_active_attr(string $postId, string $currentPostId): string

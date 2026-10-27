@@ -32,7 +32,7 @@
     > .block-highlight-label {
       font-size: var(--dm-font-size-xs);
       font-weight: var(--dm-font-weight-semibold);
-      letter-spacing: 0.08em;
+      letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--post-color-primary, var(--dm-color-primary));
     }
@@ -133,7 +133,7 @@
     > .block-highlight-tags-title {
       font-size: var(--dm-font-size-xs);
       font-weight: var(--dm-font-weight-semibold);
-      letter-spacing: 0.08em;
+      letter-spacing: 1px;
       text-transform: uppercase;
       opacity: 0.7;
     }
@@ -180,4 +180,101 @@
       padding: var(--dm-spacing-xxs);
     }
   }
+}
+
+// ---------- layout "case_study" (project_page): full-width section, media grid | text
+.block-highlight-case {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: var(--dm-spacing-xl);
+
+  &.block-highlight-case-flip > .block-highlight-case-media {
+    order: 2;
+  }
+
+  &.block-highlight-case-no-media {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 860px;
+  }
+
+  > .block-highlight-case-media {
+    min-width: 0;
+
+    > .media-grid {
+      --media-grid-gap: var(--dm-spacing-xs);
+      --media-grid-radius: 0;
+
+      > .media-grid-item {
+        border-radius: var(--dm-radius-sm);
+        background-color: var(--project-panel, rgb(from var(--dm-color-gray) r g b / 0.1));
+      }
+    }
+  }
+
+  // text side: block-paragraph-card (theme) with a title-card title-divider font-secondary heading;
+  // only the colors are set here
+  > .block-highlight-case-body {
+    min-width: 0;
+    align-self: stretch;
+    justify-content: center;
+    gap: var(--dm-spacing-xs);
+  }
+
+  .block-highlight-case-body > .block-highlight-case-title {
+    margin-bottom: var(--dm-spacing-xxs);
+    color: var(--project-ink, var(--dm-color-gray-dark));
+
+    [mode="dark"] & {
+      color: var(--project-ink, var(--dm-color-white));
+    }
+  }
+
+  .block-highlight-case-body > .block-highlight-case-text {
+    line-height: 1.7;
+    color: var(--project-muted, var(--dm-color-gray));
+  }
+
+  // tags as small chips
+  .block-highlight-tags {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dm-spacing-xs);
+    margin-top: var(--dm-spacing-xxs);
+    padding-top: var(--dm-spacing-xs);
+    border-top: 1px solid var(--project-line, rgb(from var(--dm-color-gray) r g b / 0.2));
+  }
+
+  // tags title: the theme text-label; tags: text-label chips
+  .block-highlight-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dm-spacing-xxs);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    > .block-highlight-tag {
+      @include text-label();
+      padding: var(--dm-spacing-xxs) var(--dm-spacing-xs);
+      border: 1px solid var(--project-line, rgb(from var(--dm-color-gray) r g b / 0.2));
+      border-radius: var(--dm-radius-sm);
+      background: none;
+    }
+  }
+
+  @media (max-width: $dm-screen-lg) {
+    grid-template-columns: minmax(0, 1fr);
+
+    &.block-highlight-case-flip > .block-highlight-case-media {
+      order: 0;
+    }
+  }
+}
+
+.block-highlight-case-children {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dm-spacing-sm);
+  margin-top: var(--dm-spacing-lg);
 }

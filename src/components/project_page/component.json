@@ -1,0 +1,29 @@
+{
+  "name": "project_page",
+  "title": "Project Page",
+  "description": "Whole project page (replaces section_layout_aside + project_feature_hero): project_hero, taxonomy_marquee, section_nav (links to the sections that rendered + scroll progress), then the sections built from the post data - overview, screens (website screenshots), brand (web media), gallery (photos), videos - and its children (case studies = block_highlight, related_projects, any component). Sets the post colors and the page palette (--project-*) for light and dark mode.",
+  "post_types": ["project"],
+  "assets": {
+    "php": ["assets/php/project_page.php"],
+    "html": ["assets/html/template.html"],
+    "scss": ["assets/scss/**"],
+    "css": ["assets/css/**"]
+  },
+  "dependencies": [
+    "project_hero",
+    "taxonomy_marquee",
+    "section_nav",
+    "project_overview",
+    "screens_viewer",
+    "media_bento_grid",
+    "media_gallery_filterable",
+    "video_playlist",
+    "block_highlight",
+    "related_projects",
+    "section",
+    "utility_project_media",
+    "utility_appearance_colors",
+    "transitions",
+    "theme"
+  ]
+}

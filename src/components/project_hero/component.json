@@ -1,0 +1,17 @@
+{
+  "name": "project_hero",
+  "title": "Project Hero",
+  "description": "Top of a project page: optional logo badge, eyebrow (type + date), the title as h1 (last word in the post color), the SEO description, two buttons, meta (website: Platform / Scope / Status) or stats (media: photos / videos / galleries), and a stage: \"website\" = the cover screenshots in a browser frame + phone, \"media\" = a gallery image in a window, a square frame and a video card that plays in the popup. Without screenshots or media the stage shows the thumbnail. Background: grid lines + a glow in the post color.",
+  "post_types": ["project"],
+  "assets": {
+    "php": ["assets/php/project_hero.php"],
+    "html": [
+      "assets/html/template.html",
+      "assets/html/parts/stage_website.html",
+      "assets/html/parts/stage_media.html"
+    ],
+    "scss": ["assets/scss/**"],
+    "css": ["assets/css/**"]
+  },
+  "dependencies": ["utility_project_media", "key_value_list", "button", "image", "svg", "popup", "project_block_video", "theme"]
+}

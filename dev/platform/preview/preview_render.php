@@ -32,6 +32,12 @@ function platform_render_body_sections(array $postData, string $globalContentPat
             'children' => $item['children'] ?? $item['data']['children'] ?? [],
         ]);
 
+        // site-wide transition rule (data_settings_transitions.json) for a top-level block without its own "transition"
+        if (!array_key_exists('transition', $componentData)) {
+            $rule = PlatformComponentRenderer::transition_rule($componentName);
+            if ($rule !== null) $componentData['transition'] = $rule;
+        }
+
         $bodyHtml .= PlatformComponentRenderer::render(str_replace('-', '_', $componentName), $componentData);
     }
 

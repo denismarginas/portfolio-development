@@ -126,6 +126,7 @@
               {
                 "component": "portrait_home",
                 "data": {
+                  "transition": { "effect": "fade slide-left", "duration": 900, "distance": "60px" },
                   "img": "personal-images/dm-personal-image-2.webp",
                   "alt": "Denis Marginas",
                   "max_width": "440px",
@@ -140,6 +141,7 @@
               },
               {
                 "component": "column",
+                "data": { "transition": { "effect": "fade slide-right", "duration": 900, "delay": 150, "distance": "60px" } },
                 "children": [
                   {
                     "component": "text_block",
@@ -194,6 +196,7 @@
           {
             "component": "taxonomy_listing",
             "data": {
+              "transition": { "effect": "fade slide-bottom", "duration": 800, "distance": "50px", "target": ".taxonomy-item", "stagger": 150 },
               "post_type": "project",
               "taxonomy": "category",
               "title": {
@@ -231,6 +234,7 @@
             "children": [
               {
                 "component": "column",
+                "data": { "transition": { "effect": "fade slide-left", "duration": 900, "distance": "60px" } },
                 "children": [
                   {
                     "component": "text_block",
@@ -267,6 +271,7 @@
               {
                 "component": "projects_previews",
                 "data": {
+                  "transition": { "effect": "fade slide-right", "duration": 900, "delay": 150, "distance": "60px" },
                   "screen": {
                     "img": "design-elements/monitor-with-project.webp",
                     "alt": "Monitor showing a website project"
@@ -399,7 +404,6 @@
                     "component": "card_mini_icon_and_text",
                     "data": {
                       "variant": "row",
-                      "img": "design-elements/overlay-texture-textile.webp",
                       "min_width": "240px",
                       "items": [
                         {
@@ -628,12 +632,12 @@
                     }
                   },
                   {
-                    "component": "profile_card",
+                    "component": "block_image",
                     "data": {
                       "img": "personal-images/dm-desktop-working.webp",
-                      "img_alt": "Denis Marginas working at his desk",
-                      "image_position": "top",
-                      "image_style": "rounded"
+                      "alt": "Denis Marginas working at his desk",
+                      "card": false,
+                      "popup": false
                     }
                   }
                 ]

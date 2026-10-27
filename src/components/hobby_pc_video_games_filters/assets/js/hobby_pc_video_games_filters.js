@@ -2,6 +2,7 @@
  * hobby_pc_video_games_filters: filters the <li data-item-id> items of <ul id="{data-target}">
  * using the JSON index printed inside the form. Filters + search words are kept in the URL (listing_toolbar.js). Sorting is done by filters_sort.
  * Display select (data-type="display"): "" / "default" hides items with data-display="false", "all" shows them.
+ * Toolbar / drawer / chips UI: window.filtersToolbar (filters_toolbar.js).
  */
 (function () {
   function toNumber(value) {
@@ -46,8 +47,17 @@
     var selects = Array.prototype.slice.call(form.querySelectorAll('select[data-filter]:not([data-type="display"])'));
     var displaySelect = form.querySelector('select[data-filter][data-type="display"]');
     var input = form.querySelector('.item-search');
-    var amount = form.querySelector('.query-amount');
     var empty = list.parentNode ? list.parentNode.querySelector('.hobby-pc-video-games-empty') : null;
+
+    var ui = window.filtersToolbar ? window.filtersToolbar.init(form, {
+      list: list,
+      input: input,
+      selects: Array.prototype.slice.call(form.querySelectorAll('select[data-filter]')),
+      views: {
+        // "Detailed cards": every card shows its hover details
+        details: function (value) { list.classList.toggle('show-details', value === 'yes'); }
+      }
+    }) : null;
 
     function apply() {
       var words = (input ? input.value : '').toLowerCase().split(/\s+/).filter(Boolean);
@@ -66,16 +76,10 @@
         if (visible) shown++;
       });
 
-      if (amount) amount.textContent = shown;
+      if (ui) ui.update(shown);
       if (empty) empty.hidden = shown !== 0;
       list.setAttribute('data-results', shown);
       if (window.listingToolbarUrl) window.listingToolbarUrl.save(form);
-    }
-
-    function toggle(button, target) {
-      var open = button.getAttribute('aria-expanded') !== 'true';
-      button.setAttribute('aria-expanded', open ? 'true' : 'false');
-      if (target) target.hidden = !open;
     }
 
     selects.forEach(function (select) { select.addEventListener('change', apply); });
@@ -83,11 +87,6 @@
     if (input) input.addEventListener('input', apply);
     form.addEventListener('submit', function (event) { event.preventDefault(); apply(); });
     form.addEventListener('reset', function () { setTimeout(apply, 0); });
-
-    var filtersBtn = form.querySelector('.toggle-filters');
-    var queryBtn = form.querySelector('.toggle-query');
-    if (filtersBtn) filtersBtn.addEventListener('click', function () { toggle(filtersBtn, form.querySelector('.block-filters')); });
-    if (queryBtn) queryBtn.addEventListener('click', function () { toggle(queryBtn, form.querySelector('.query-text')); });
 
     if (window.listingToolbarUrl) window.listingToolbarUrl.restore(form);
     apply();

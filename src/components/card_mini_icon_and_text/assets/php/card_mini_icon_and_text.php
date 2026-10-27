@@ -9,7 +9,6 @@
  *   { "component": "card_mini_icon_and_text",
  *     "data": {
  *       "variant": "row",
- *       "img": "design-elements/overlay-texture-textile.webp",
  *       "items": [
  *         { "svg": "employ", "text": "Employee Experience", "link": { "post_id": "employee-experience" } },
  *         { "svg": "resume", "text": "Education Experience", "link": { "post_id": "education-experience" } }
@@ -28,7 +27,9 @@
  *              "https://..." or "#anchor"                     plain string, used as it is
  *   target   string  optional link target (e.g. "_blank"); default "_blank" for { "url" } links
  *   img      string  optional background image (relative to src/content/img/ or a "src/..." path)
- *   variant  string  "row" (default): icon block left, text right | "stack": icon above text, centered, taller
+ *   variant  string  "row" (default): icon badge left, text, arrow right (links) | "stack": icon above text, centered, taller
+ *   noise    bool    overlay_noise texture on the card background (default true for "row", false for "stack")
+ *   Icons are sized by height (all icons in a listing share the same height, width follows the icon's ratio).
  *   class    string  optional extra class
  *
  * grid options (with "items"):
@@ -40,7 +41,7 @@
 class card_mini_icon_and_text
 {
     private const VARIANTS = ['row', 'stack'];
-    private const CARD_FIELDS = ['svg', 'text', 'link', 'target', 'img', 'variant'];
+    private const CARD_FIELDS = ['svg', 'text', 'link', 'target', 'img', 'variant', 'noise'];
 
     public static function render(array $data = []): string
     {
@@ -78,14 +79,22 @@ class card_mini_icon_and_text
 
         $class = self::str($card['class'] ?? '');
 
+        $noise = self::flag($card['noise'] ?? ($variant === 'row'))
+            ? (string) PlatformComponentRenderer::render('overlay_noise', [])
+            : '';
+
+        $arrow = $link !== '' && $variant === 'row'
+            ? '<span class="card-mini-arrow">' . trim((string) PlatformComponentRenderer::render('svg', ['icon' => 'chevron-right', 'class' => 'card-mini-arrow-svg'])) . '</span>'
+            : '';
+
         return PlatformTemplateRenderer::render(__DIR__ . '/../html/template.html', [
             'tag' => $link !== '' ? 'a' : 'div',
             'variant' => $variant,
             'extra_class' => ($imageHtml !== '' ? ' card-mini-has-image' : '') . ($class !== '' ? ' ' . self::e($class) : ''),
             'attrs' => $attrs,
-            'image' => $imageHtml,
+            'image' => $imageHtml . $noise,
             'icon' => $iconHtml !== '' ? '<span class="card-mini-icon">' . $iconHtml . '</span>' : '',
-            'text' => $text !== '' ? '<span class="card-mini-text">' . self::e($text) . '</span>' : '',
+            'text' => ($text !== '' ? '<span class="card-mini-text">' . self::e($text) . '</span>' : '') . $arrow,
         ]);
     }
 
@@ -155,6 +164,14 @@ class card_mini_icon_and_text
     {
         if (!is_array($link)) return '';
         return self::str($link['target'] ?? (self::str($link['url'] ?? '') !== '' ? '_blank' : ''));
+    }
+
+    /** true/false, also "true"/"false", "1"/"0", "yes"/"no", "on"/"off". */
+    private static function flag(mixed $value): bool
+    {
+        if (is_bool($value)) return $value;
+        if (is_int($value) || is_float($value)) return $value != 0;
+        return !in_array(strtolower(trim((string) $value)), ['false', '0', 'no', 'off', ''], true);
     }
 
     private static function str(mixed $value): string

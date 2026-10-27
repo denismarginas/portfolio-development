@@ -1,7 +1,7 @@
 {
   "name": "search",
   "title": "Search",
-  "description": "Search page listing: every routable page, project, item and taxonomy term (PlatformSearchIndexBuilder) rendered as a card (title linked to the page + description cut to 100 characters), all hidden until the visitor searches. Same toolbar as the other filters: keyword search (every word must match, case and accents ignored), filters, sort and texts from the \"search\" toolbar in data_items_listing_toolbar.json, sort (filters_sort), results count and a Show all button. The query is kept in the URL (?q=).",
+  "description": "Search page listing: every routable page, project, item and taxonomy term (PlatformSearchIndexBuilder) rendered as a card (title linked to the page + description cut to 100 characters), all hidden until the visitor searches. Same toolbar as the other filters (look and drawer from filters_toolbar): keyword search (every word must match, case and accents ignored), filters, sort and texts from the \"search\" toolbar in data_items_listing_toolbar.json, sort (filters_sort), results count and a Show all button. The query is kept in the URL (?q=).",
   "assets": {
     "php": [
       "assets/php/search.php"
@@ -24,6 +24,7 @@
   "dependencies": [
     "listing_toolbar",
     "filters_sort",
+    "filters_toolbar",
     "utility_grid_listing",
     "utility_grid_column_balancing",
     "svg",

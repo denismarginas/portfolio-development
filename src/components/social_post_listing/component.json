@@ -1,7 +1,7 @@
 {
   "name": "social_post_listing",
   "title": "Social Post Listing",
-  "description": "Feed of social posts (data_items_social_post.json), newest first: author avatar + name + date, the text (Show More / Show Less over 300 characters, links clickable), images (1-4 in a grid, opened in the popup gallery) or a video from data_items_video.json, and link buttons. With \"index\": true a narrow sticky anchor_index of the posts sits next to the feed for jumping to a post.",
+  "description": "Feed of social posts (data_items_social_post.json), newest first: author avatar + name + date, the text (Show More / Show Less over 300 characters, links clickable), images (media_grid: 1-4 in a grid, opened in the popup gallery) or a video from data_items_video.json, and link buttons. With \"index\": true a narrow sticky anchor_index of the posts sits next to the feed for jumping to a post.",
   "assets": {
     "php": [
       "assets/php/social_post_listing.php"
@@ -18,6 +18,7 @@
   },
   "dependencies": [
     "image",
+    "media_grid",
     "video",
     "button",
     "text_collapse",

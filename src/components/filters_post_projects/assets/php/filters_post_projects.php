@@ -21,15 +21,13 @@ require_once __DIR__ . '/parts/filters_post_projects_render.php';
  *   sort_fields         array   sort toggle fields (default Name = seo.title, Publish Date = date.publish); [] hides it
  *   sort_default        string  first Sort by option that keeps the listing's own order (default "Default")
  *   sort_expanded, sort_by_label, sort_order_label   see filters_sort
- *   filters_grid_max    int     max filter columns on big screens, auto-picked from the filter count like
- *                               project_media_gallery (default 4); 0 = old auto-fill columns
- *   filters_column_balancing  bool  balanced rows (utility_grid_column_balancing) instead of filters_grid_max
- *   sort_grid_max, sort_column_balancing   same for the sort row, see filters_sort
- *   filters_expanded    bool    filters row open on load (default false)
- *   search_toggle       bool    search icon button (first, left) that shows the search input to its right (default true);
- *                               false = search input always visible, no button
- *   search_expanded     bool    search input open on load (default true); false = starts closed
- *   search_placeholder, search_button, results_text ("{n}" = count)
+ *   filters_label, sort_label        drawer / button titles (default "Filters", "Sort")
+ *   search_placeholder, results_text ("{n}" = count)
+ *   results_clear, results_reset, results_apply ("{n}" = count), results_close, results_chips   UI texts
+ *
+ * UI: toolbar with the search input, a "Filters" button (badge = active filters) and the preview toggle;
+ * chips of the active filters under it; the Sort + Filters sections live in a <dialog> drawer
+ * (right side on desktop, bottom sheet on phones).
  */
 class filters_post_projects
 {

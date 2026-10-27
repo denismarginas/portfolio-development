@@ -3,6 +3,19 @@
 /**
  * HTML of the filter form + the JSON index the JS uses to match listing items
  * (<li data-post-id="…"> inside <ul id="{target}">).
+ *
+ * Toolbar, chips, results count and drawer come from filters_toolbar (shared with the other listings);
+ * this class adds the filters, the sort row and the "Card image" View choice.
+ * Layout: toolbar (search input, icon "Filters" button with the active-filter count),
+ * status row (results count, removable chips of the active filters, "Clear all"),
+ * and a <dialog> drawer with the View ("Card image: Logo | Preview", "Results count: Show | Hide"), Sort and Filters sections
+ * (right side on desktop, bottom sheet on phones).
+ *
+ * Texts (toolbar data or page data): filters_label ("Filters"), sort_label ("Sort"),
+ * view_label ("View"), preview_label ("Card image"), preview_off ("Logo"), preview_on ("Preview"),
+ * results_label ("Results count"), results_show ("Show"), results_hide ("Hide"),
+ * results_clear ("Clear all"), results_reset ("Reset"), results_apply ("Show {n} results"),
+ * results_close ("Close"), results_chips ("Active filters").
  */
 class filters_post_projects_render
 {
@@ -15,47 +28,43 @@ class filters_post_projects_render
 
     public static function form(array $data, string $target, array $filters, array $posts): string
     {
-        $expanded = ($data['filters_expanded'] ?? false) === true;
-
         $filtersHtml = '';
         foreach ($filters as $filter) {
             $filtersHtml .= self::filter($target, $filter);
         }
 
-        $searchToggle = ($data['search_toggle'] ?? true) !== false;
-        $searchOpen = !$searchToggle || ($data['search_expanded'] ?? true) !== false;
-        $searchId = $target . '-search';
-
         $sortData = self::sort_data($data, $target);
         $sortHtml = (string) filters_sort::render($sortData);
+        $count = count($posts);
+
+        $toolbar = filters_toolbar::render($data, [
+            'target' => $target,
+            'input' => [
+                'class' => 'post-search',
+                'name' => 'keywords',
+                'placeholder' => (string) ($data['search_placeholder'] ?? 'Search keywords...'),
+                'aria-label' => (string) ($data['search_placeholder'] ?? 'Search keywords...'),
+                'autocomplete' => 'off',
+            ],
+            'results_text' => filters_toolbar::results_text((string) ($data['results_text'] ?? 'Showing {n} results.'), $count),
+            'count' => $count,
+            'filters' => $filtersHtml,
+            'sort' => $sortHtml,
+            'view' => self::preview_button($data, $target),
+        ]);
 
         return PlatformTemplateRenderer::render(self::HTML_DIR . 'template.html', [
             'target' => self::e($target),
             'form_id' => self::e($target . '-filters'),
             'filters_number' => (string) count($filters),
-            'filters' => $filtersHtml,
-            'filters_grid' => filters_sort::grid_attrs(count($filters), $data, 'filters'),
-            'filters_hidden' => ($filtersHtml === '' || !$expanded) ? ' hidden' : '',
-            'filters_expanded' => $expanded ? 'true' : 'false',
-            'search_id' => self::e($searchId),
-            'search_hidden' => $searchOpen ? '' : ' hidden',
-            'search_toggle' => $searchToggle ? self::search_button($searchId, $searchOpen) : '',
-            'search_placeholder' => self::e((string) ($data['search_placeholder'] ?? 'Search keywords...')),
-            'search_button' => self::e((string) ($data['search_button'] ?? 'Search')),
-            'results_text' => self::results_text((string) ($data['results_text'] ?? 'Showing {n} results.'), count($posts)),
-            'icon_filter' => self::icon('filter'),
-            'icon_query' => self::icon('filter-query'),
-            'preview_button' => self::preview_button($data),
-            'sort' => $sortHtml,
-            'sort_hidden' => $sortHtml === '' ? ' hidden' : filters_sort::hidden_attr($sortData),
-            'sort_button' => $sortHtml === '' ? '' : filters_sort::toggle_button($sortData),
+            'toolbar' => $toolbar,
             'index' => self::index($filters, $posts, $sortHtml === '' ? null : $sortData),
         ]);
     }
 
     private static function filter(string $target, array $filter): string
     {
-        $placeholder = (string) ($filter['placeholder'] ?? '--select--');
+        $placeholder = filters_toolbar::placeholder($filter['placeholder'] ?? '');
         $style = isset($filter['style']) ? ' style="' . self::e((string) $filter['style']) . '"' : '';
 
         $options = '<option value="">' . self::e($placeholder) . '</option>';
@@ -67,7 +76,7 @@ class filters_post_projects_render
             'select_id' => self::e($target . '-' . $filter['_id']),
             'filter_id' => self::e((string) $filter['_id']),
             'name' => self::e((string) ($filter['name'] ?? $filter['_id'])),
-            'label' => self::e((string) ($filter['label'] ?? '')),
+            'label' => self::e(filters_toolbar::label((string) ($filter['label'] ?? ''))),
             'type' => self::e((string) ($filter['json-type'] ?? 'string')),
             'mode' => self::e(listing_toolbar::mode($filter)),
             'style' => $style,
@@ -82,7 +91,7 @@ class filters_post_projects_render
             'target' => $target,
             'sort_fields' => $data['sort_fields'] ?? self::DEFAULT_SORT_FIELDS,
             'sort_default' => $data['sort_default'] ?? 'Default',
-        ]);
+        ], filters_toolbar::sort_labels($data));
     }
 
     /** { "post-id": { "keywords": "...", "post-category": ["..."], "_sort": { "seo.title": "...", ... } } } */
@@ -128,32 +137,21 @@ class filters_post_projects_render
         return mb_strtolower(trim(preg_replace('/\s+/', ' ', implode(' ', array_filter($parts, 'is_string')))));
     }
 
-    /** Search icon button (always first, left) that shows / hides the .search-input to its right. */
-    private static function search_button(string $searchId, bool $open): string
-    {
-        return '<button type="button" class="icon toggle-search" aria-expanded="' . ($open ? 'true' : 'false') . '" aria-controls="' . self::e($searchId) . '" aria-label="Search">' . self::icon('search') . '</button>';
-    }
-
-    /** Eye button that toggles .show-preview on the listing; only with "preview_toggle": true. Pressed on load unless "preview_active": false. */
-    private static function preview_button(array $data): string
+    /**
+     * "Card image: Logo | Preview" choice (View section of the drawer). "Preview" adds .show-preview to the
+     * listing: default cards show the preview image instead of the project logo. Only with "preview_toggle": true;
+     * "Preview" is chosen at load unless "preview_active": false.
+     * Texts: preview_label ("Card image"), preview_off ("Logo"), preview_on ("Preview").
+     */
+    private static function preview_button(array $data, string $target): string
     {
         if (($data['preview_toggle'] ?? false) !== true) {
             return '';
         }
-        $active = ($data['preview_active'] ?? true) !== false;
-        return '<button type="button" class="icon toggle-preview" aria-pressed="' . ($active ? 'true' : 'false') . '" aria-label="Preview images">' . self::icon('eye') . '</button>';
-    }
-
-    private static function results_text(string $text, int $count): string
-    {
-        $parts = explode('{n}', self::e($text), 2);
-        $amount = '<span class="query-amount">' . $count . '</span>';
-        return count($parts) === 2 ? $parts[0] . $amount . $parts[1] : $parts[0] . ' ' . $amount;
-    }
-
-    private static function icon(string $name): string
-    {
-        return (string) PlatformComponentRenderer::render('svg', ['icon' => $name, 'class' => 'filters-icon']);
+        return filters_toolbar::segment('preview', $target, 'eye', (string) ($data['preview_label'] ?? 'Card image'), [
+            'logo' => (string) ($data['preview_off'] ?? 'Logo'),
+            'preview' => (string) ($data['preview_on'] ?? 'Preview'),
+        ], ($data['preview_active'] ?? true) !== false ? 'preview' : 'logo');
     }
 
     private static function e(string $value): string

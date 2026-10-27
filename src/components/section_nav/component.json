@@ -1,0 +1,14 @@
+{
+  "name": "section_nav",
+  "title": "Section Nav",
+  "description": "Secondary navbar that sticks under the site header: optional project logo (links to the top of the page), a row of links to the sections of the page (anchor_index - the section in view is marked, links to sections that are not on the page are hidden) and a scroll_progress line on its bottom edge. Scrolls sideways on small screens, keeping the current link in view.",
+  "post_types": ["project", "page"],
+  "assets": {
+    "php": ["assets/php/section_nav.php"],
+    "html": ["assets/html/template.html"],
+    "scss": ["assets/scss/**"],
+    "css": ["assets/css/**"],
+    "js": ["assets/js/section_nav.js"]
+  },
+  "dependencies": ["anchor_index", "scroll_progress", "image", "svg", "theme"]
+}

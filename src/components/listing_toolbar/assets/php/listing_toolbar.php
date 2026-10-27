@@ -10,7 +10,8 @@
  *       "search":  { "placeholder", "button", "label", "toggle", "expanded", "min_chars" },
  *       "filters": { "label", "expanded", "hide_single_option", "grid_max", "column_balancing", "items": [ filter definitions ] },
  *       "sort":    { "default", "expanded", "by_label", "order_label", "grid_max", "column_balancing", "fields": [ ... ] },
- *       "results": { "text" ("{n}" = count), "label", "hint", "no_results", "show_all" }
+ *       "results": { "text" ("{n}" = count), "label", "hint", "no_results", "show_all" },
+ *       "view":    { "label", "search" (search bar shown on load, default true), "sticky" (sticky toolbar on load, default false) }
  *     }
  *   }
  *
@@ -22,7 +23,7 @@
 class listing_toolbar
 {
     public const FILE = 'listing_toolbar';
-    private const GROUPS = ['search', 'filters', 'sort', 'results'];
+    private const GROUPS = ['search', 'filters', 'sort', 'results', 'view'];
     private const SPECIAL = [
         'filters.items' => 'filter_items',
         'filters.hide_single_option' => 'hide_single_option',

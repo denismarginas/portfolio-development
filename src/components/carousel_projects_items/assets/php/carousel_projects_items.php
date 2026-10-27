@@ -4,7 +4,7 @@ require_once __DIR__ . '/parts/carousel_projects_items_posts.php';
 require_once __DIR__ . '/parts/carousel_projects_items_size.php';
 
 /**
- * Infinite-loop carousel of project visuals.
+ * Infinite-loop carousel of project visuals (the loop itself is utility_carousel_loop).
  *
  * $data:
  *   post_type, filter_by, exclude_by, sort   same as post-items
@@ -31,7 +31,6 @@ class carousel_projects_items
     ];
     /** old name -> new name, kept working after the rename */
     private const ALIASES = ['card_post_project_visual_website' => 'card_post_project_visual_devices_website'];
-    private const SPEEDS = ['slow' => '80s', 'normal' => '50s', 'fast' => '30s'];
 
     public static function render(array $data = []): string
     {
@@ -45,37 +44,38 @@ class carousel_projects_items
         $visualParams = is_array($visualParams) ? $visualParams : [];
 
         $max = post_items_render::max_items($data['filter_by'] ?? null) ?? max(1, (int) ($data['max'] ?? 12));
-        $items = '';
-        $count = 0;
+        $items = [];
         foreach (carousel_projects_items_posts::find($data) as $post) {
-            if ($count >= $max) break;
+            if (count($items) >= $max) break;
             $html = PlatformComponentRenderer::render($visual, array_merge($visualParams, ['post_current_data' => $post]));
             if (trim($html) === '') continue;
 
-            $items .= PlatformTemplateRenderer::render(__DIR__ . '/../html/parts/item.html', [
-                'post_id' => htmlspecialchars((string) ($post['_id'] ?? ''), ENT_QUOTES, 'UTF-8'),
-                'style_attr' => (string) PlatformComponentRenderer::value('utility_appearance_colors', [
-                    'post_current_data' => $post,
-                    'output' => 'attribute',
-                ]),
-                'visual' => $html,
-            ]);
-            $count++;
+            $items[] = [
+                'html' => $html,
+                'attrs' => ' data-post-id="' . htmlspecialchars((string) ($post['_id'] ?? ''), ENT_QUOTES, 'UTF-8') . '"'
+                    . (string) PlatformComponentRenderer::value('utility_appearance_colors', [
+                        'post_current_data' => $post,
+                        'output' => 'attribute',
+                    ]),
+            ];
         }
-        if ($items === '') {
+        if ($items === []) {
             return '';
         }
 
-        $direction = ($data['direction'] ?? 'right') === 'left' ? 'left' : 'right';
-        $speed = (string) ($data['speed'] ?? 'slow');
-        $duration = self::SPEEDS[$speed] ?? (preg_match('/^\d+(\.\d+)?m?s$/', $speed) ? $speed : self::SPEEDS['slow']);
-
-        return PlatformTemplateRenderer::render(__DIR__ . '/../html/template.html', [
-            'direction' => $direction,
-            'pause_on_hover' => self::flag($data['pause_on_hover'] ?? true) ? 'true' : 'false',
-            'visual' => htmlspecialchars($visual, ENT_QUOTES, 'UTF-8'),
-            'style' => carousel_projects_items_size::style(array_merge($data, $template), $duration),
+        // the loop itself (duplicating, animation, direction, pause) is utility_carousel_loop
+        return (string) PlatformComponentRenderer::render('utility_carousel_loop', [
             'items' => $items,
+            'class' => 'carousel-projects-items',
+            'list_class' => 'carousel-list',
+            'item_class' => 'carousel-item',
+            'attrs' => ' data-visual="' . htmlspecialchars($visual, ENT_QUOTES, 'UTF-8') . '"',
+            'direction' => ($data['direction'] ?? 'right') === 'left' ? 'left' : 'right',
+            'speed' => $data['speed'] ?? 'slow',
+            'gap' => $template['gap'] ?? $data['gap'] ?? null,
+            'gap_phone' => $template['gap_phone'] ?? $data['gap_phone'] ?? null,
+            'pause_on_hover' => self::flag($data['pause_on_hover'] ?? true),
+            'style' => carousel_projects_items_size::declarations(array_merge($data, $template)),
         ]);
     }
 

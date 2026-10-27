@@ -1,0 +1,15 @@
+// Small uppercase label (kickers, counts, meta labels, chips, tags ...): the theme font, a fixed size and
+// px letter spacing. Color: --text-label-color, else the theme text gray of the mode.
+@mixin text-label() {
+  font-family: var(--dm-font-primary);
+  font-size: var(--dm-font-size-xs);
+  font-weight: var(--dm-font-weight-regular);
+  line-height: 1.2;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-label-color, var(--dm-color-gray));
+
+  [mode="dark"] & {
+    color: var(--text-label-color, var(--dm-color-gray-light));
+  }
+}

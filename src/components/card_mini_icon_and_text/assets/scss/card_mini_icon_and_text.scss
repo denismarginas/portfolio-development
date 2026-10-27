@@ -7,12 +7,16 @@
   gap: var(--dm-spacing-sm);
 
   &.card-mini-listing-auto {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-mini-min-width, 220px)), 1fr));
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, var(--card-mini-min-width, 220px)), 1fr)
+    );
   }
 
   > li {
     display: flex;
     min-width: 0;
+    container-type: inline-size;
   }
 
   > li > .card-mini {
@@ -24,12 +28,14 @@
   }
 }
 
-// Mini card: svg icon + short text (from experience_categories / section_hobby_list).
+// Mini card: svg icon + short text.
 // Sizes are variables: the variants and the phone sizes only change the variables.
+// Icons are sized by HEIGHT (width follows each icon's own ratio), so icons with
+// different viewBoxes look the same size next to each other.
 .card.card-mini {
-  --card-mini-icon-size: 88px;
-  --card-mini-icon-padding: var(--dm-spacing-sm);
-  --card-mini-text-size: var(--dm-font-size-md);
+  --card-mini-icon-height: 28px;
+  --card-mini-badge-size: 56px;
+  --card-mini-text-size: var(--dm-font-size-base);
 
   position: relative;
   isolation: isolate;
@@ -38,19 +44,11 @@
   padding: 0;
   overflow: hidden;
   text-decoration: none;
-  color: var(--dm-color-white);
-
-  [mode="light"] &,
-  [mode="dark"] & {
-    background-color: var(--dm-color-primary);
-    border-color: transparent;
-    color: var(--dm-color-white);
-  }
 
   .card-mini-bg {
     position: absolute;
     inset: 0;
-    z-index: -1;
+    z-index: -2;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -64,14 +62,13 @@
     justify-content: center;
     flex-shrink: 0;
     box-sizing: border-box;
-    width: var(--card-mini-icon-size);
-    padding: var(--card-mini-icon-padding);
     transition: var(--dm-transition);
 
     > svg {
       display: block;
-      width: 100%;
-      height: 100%;
+      width: auto;
+      height: var(--card-mini-icon-height);
+      max-width: 100%;
       @include svg-color(var(--dm-color-white));
       transition: var(--dm-transition);
     }
@@ -79,61 +76,166 @@
 
   .card-mini-text {
     min-width: 0;
-    color: var(--dm-color-white);
     font-size: var(--card-mini-text-size);
     font-weight: var(--dm-font-weight-bold);
     line-height: 1.25;
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
-  // ROW: icon block with a slanted edge on the left, uppercase label on the right.
+  // ROW: rounded icon badge, label, chevron on the right (links).
   &.card-mini-row {
-    --card-mini-text-size: var(--dm-font-size-base);
     flex-direction: row;
     align-items: center;
-    min-height: var(--card-mini-icon-size);
+    gap: var(--dm-spacing-sm);
+    padding: var(--dm-spacing-xs) var(--dm-spacing-sm) var(--dm-spacing-xs)
+      var(--dm-spacing-xs);
+    min-height: calc(var(--card-mini-badge-size) + 2 * var(--dm-spacing-xs));
+    border: 1px solid transparent;
+    border-radius: var(--dm-radius-md);
 
-    .card-mini-bg {
-      opacity: 0.4;
-      mix-blend-mode: color-burn;
+    // accent line on the left, grows on hover
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 3px;
+      height: 40%;
+      border-radius: 0 3px 3px 0;
+      transform: translateY(-50%);
+      transition: var(--dm-transition);
     }
 
     .card-mini-icon {
-      position: relative;
-      align-self: stretch;
-      background-color: var(--dm-color-primary-700);
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: -16px;
-        width: 32px;
-        height: 100%;
-        background-color: inherit;
-        transform: skewX(-12deg);
-        z-index: -1;
-      }
-
-      > svg {
-        filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.4));
-      }
+      width: var(--card-mini-badge-size);
+      height: var(--card-mini-badge-size);
+      padding: 0 6px;
+      border-radius: var(--dm-radius-md);
     }
 
     .card-mini-text {
-      padding: var(--dm-spacing-xs) var(--dm-spacing-sm) var(--dm-spacing-xs) var(--dm-spacing-md);
-      font-style: italic;
-      text-transform: uppercase;
+      flex: 1 1 auto;
     }
 
-    &:is(:hover, :focus-visible) .card-mini-icon > svg {
-      transform: scale(1.12);
+    .card-mini-arrow {
+      display: inline-flex;
+      flex-shrink: 0;
+      margin-left: auto;
+      opacity: 0.6;
+      transition: var(--dm-transition);
+
+      > svg {
+        display: block;
+        width: auto;
+        height: 14px;
+        transition: var(--dm-transition);
+      }
+    }
+
+    [mode="dark"] & {
+      background-color: var(--dm-color-primary-800);
+      background-image: linear-gradient(
+        135deg,
+        var(--dm-color-primary-700) 0%,
+        var(--dm-color-primary-900) 100%
+      );
+      border-color: rgb(from var(--dm-color-primary-500) r g b / 0.45);
+      color: var(--dm-color-primary-50);
+
+      &::before {
+        background-color: var(--dm-color-primary-300);
+      }
+      .card-mini-text {
+        color: var(--dm-color-primary-50);
+      }
+      .card-mini-icon {
+        background-color: var(--dm-color-primary-600);
+        box-shadow:
+          inset 0 1px 0 rgb(from var(--dm-color-white) r g b / 0.15),
+          0 2px 6px rgb(from var(--dm-color-black) r g b / 0.35);
+      }
+      .card-mini-arrow > svg {
+        @include svg-color(var(--dm-color-primary-100));
+      }
+    }
+
+    [mode="light"] & {
+      background-color: var(--dm-color-primary-100);
+      background-image: linear-gradient(
+        135deg,
+        var(--dm-color-white) 0%,
+        var(--dm-color-primary-100) 100%
+      );
+      border-color: rgb(from var(--dm-color-primary-300) r g b / 0.6);
+      color: var(--dm-color-primary-900);
+
+      &::before {
+        background-color: var(--dm-color-primary-500);
+      }
+      .card-mini-text {
+        color: var(--dm-color-primary-900);
+      }
+      .card-mini-icon {
+        background-color: var(--dm-color-primary-600);
+        box-shadow:
+          inset 0 1px 0 rgb(from var(--dm-color-white) r g b / 0.2),
+          0 2px 6px rgb(from var(--dm-color-black) r g b / 0.2);
+      }
+      .card-mini-arrow > svg {
+        @include svg-color(var(--dm-color-primary-700));
+      }
+    }
+
+    &:is(:hover, :focus-visible) {
+      transform: translateY(-2px);
+
+      &::before {
+        height: 70%;
+      }
+      > overlay.overlay-noise {
+        opacity: 0.5;
+      }
+      .card-mini-icon > svg {
+        transform: scale(1.1);
+      }
+      .card-mini-arrow {
+        opacity: 1;
+      }
+      .card-mini-arrow > svg {
+        transform: translateX(3px);
+      }
+
+      [mode="dark"] & {
+        border-color: var(--dm-color-primary-400);
+      }
+      [mode="light"] & {
+        border-color: var(--dm-color-primary-500);
+      }
+    }
+
+    // Narrow cards (listing in a tight column): compact badge, no arrow, so words never break.
+    @container (max-width: 260px) {
+      --card-mini-icon-height: 22px;
+      --card-mini-badge-size: 44px;
+      --card-mini-text-size: var(--dm-font-size-md);
+      gap: var(--dm-spacing-xs);
+      padding-right: var(--dm-spacing-xs);
+
+      .card-mini-icon {
+        padding: 0 4px;
+      }
+
+      .card-mini-arrow {
+        display: none;
+      }
     }
   }
 
   // STACK: icon in a circle above a centered label, on top of a darkened image.
   &.card-mini-stack {
-    --card-mini-icon-size: 100px;
+    --card-mini-icon-height: 52px;
+    --card-mini-badge-size: 100px;
     --card-mini-icon-shade: 50%;
     flex-direction: column;
     align-items: center;
@@ -142,12 +244,14 @@
     min-height: 200px;
     padding: var(--dm-spacing-sm);
     text-align: center;
+    color: var(--dm-color-white);
     border: 2px solid var(--dm-color-white);
 
     [mode="light"] &,
     [mode="dark"] & {
       background-color: var(--dm-color-secondary);
       border-color: var(--dm-color-white);
+      color: var(--dm-color-white);
     }
 
     &::before {
@@ -160,14 +264,19 @@
       transition: var(--dm-transition);
     }
 
-    .card-mini-bg {
-      z-index: -2;
+    .card-mini-text {
+      color: var(--dm-color-white);
     }
 
     .card-mini-icon {
-      height: var(--card-mini-icon-size);
+      width: var(--card-mini-badge-size);
+      height: var(--card-mini-badge-size);
       border-radius: 50%;
-      background-color: color-mix(in srgb, var(--dm-color-gray-dark) var(--card-mini-icon-shade), transparent);
+      background-color: color-mix(
+        in srgb,
+        var(--dm-color-gray-dark) var(--card-mini-icon-shade),
+        transparent
+      );
     }
 
     &:is(:hover, :focus-visible) {
@@ -191,14 +300,14 @@
   // Phones: smaller icons and text.
   @media (max-width: $dm-screen-sm) {
     &.card-mini-row {
-      --card-mini-icon-size: 72px;
-      --card-mini-icon-padding: var(--dm-spacing-xs) var(--dm-spacing-sm);
+      --card-mini-icon-height: 24px;
+      --card-mini-badge-size: 48px;
       --card-mini-text-size: var(--dm-font-size-md);
     }
 
     &.card-mini-stack {
-      --card-mini-icon-size: 56px;
-      --card-mini-icon-padding: var(--dm-spacing-xs);
+      --card-mini-icon-height: 30px;
+      --card-mini-badge-size: 56px;
       --card-mini-text-size: var(--dm-font-size-base);
       min-height: 150px;
       gap: var(--dm-spacing-xs);

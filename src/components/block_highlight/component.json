@@ -1,10 +1,15 @@
 {
   "name": "block_highlight",
   "title": "Block Highlight",
-  "description": "One highlight of a post in a single card, in 4 parts: title (with #anchor id), then text + media (image, image slider and/or video from the post media folder, e.g. highlights/<name>/) side by side through the columns component (default 50-50 from md up, one column below; changeable with data.columns), then optional text_full (rest of a long text, full width), then the tags full width.",
-  "post_types": ["project", "page"],
+  "description": "One highlight of a post in a single card, in 4 parts: title (with #anchor id), then text + media (image, image slider and/or video from the post media folder, e.g. highlights/<name>/) side by side through the columns component (default 50-50 from md up, one column below; changeable with data.columns), then optional text_full (rest of a long text, full width), then the tags full width. With \"layout\": \"case_study\" (project_page) it is a full-width section instead: a media_grid of its videos / images on one side, label + title + text + tags on the other.",
+  "post_types": [
+    "project",
+    "page"
+  ],
   "assets": {
-    "php": ["assets/php/block_highlight.php"],
+    "php": [
+      "assets/php/block_highlight.php"
+    ],
     "html": [
       "assets/html/template.html",
       "assets/html/parts/media.html",
@@ -13,8 +18,23 @@
       "assets/html/parts/tags.html",
       "assets/html/parts/tag.html"
     ],
-    "scss": ["assets/scss/**"],
-    "css": ["assets/css/**"]
+    "scss": [
+      "assets/scss/**"
+    ],
+    "css": [
+      "assets/css/**"
+    ]
   },
-  "dependencies": ["columns", "block_image", "block_slider_images", "project_block_video", "section", "theme"]
+  "dependencies": [
+    "columns",
+    "block_image",
+    "block_slider_images",
+    "project_block_video",
+    "media_grid",
+    "utility_project_web_screens",
+    "utility_project_media",
+    "block_paragraph_card",
+    "section",
+    "theme"
+  ]
 }

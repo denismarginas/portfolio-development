@@ -1,27 +1,6 @@
 <div class="search" data-search>
-  <form class="search-filters" id="{{ form_id }}" data-target="{{ target }}" data-min-chars="{{ min_chars }}" data-filters-number="{{ filters_number }}" role="search" action="" method="get">{{ hidden }}
-    <ul>
-      <li class="block-filters"{{ filters_grid }}{{ filters_hidden }}>
-        {{ filters }}
-      </li>
-      <li class="block-sort"{{ sort_hidden }}>
-        {{ sort }}
-      </li>
-      <li class="block-search">
-        <div class="search-input">
-          <label class="search-label" for="{{ input_id }}">{{ search_label }}</label>
-          <input id="{{ input_id }}" class="item-search" type="search" name="q" placeholder="{{ search_placeholder }}" autocomplete="off" spellcheck="false" enterkeyhint="search">
-          <button class="item-search-submit" type="submit">{{ icon_search }}<span class="item-search-submit-label">{{ search_button }}</span></button>
-        </div>
-        <div class="toggle-icons">
-          <button type="button" class="icon toggle-filters" aria-expanded="{{ filters_expanded }}" aria-label="{{ filters_label }}" title="{{ filters_label }}"{{ filters_button_hidden }}>{{ icon_filter }}</button>
-          {{ sort_button }}
-          <button type="button" class="icon toggle-query" aria-expanded="false" aria-label="{{ results_label }}" title="{{ results_label }}">{{ icon_query }}</button>
-          <button type="button" class="icon toggle-all" aria-pressed="false" aria-label="{{ show_all }}" title="{{ show_all }}">{{ icon_all }}<span class="toggle-all-label">{{ show_all }}</span></button>
-        </div>
-        <div class="query-text" hidden>{{ results_text }}</div>
-      </li>
-    </ul>
+  <form class="filters-toolbar search-filters" id="{{ form_id }}" data-target="{{ target }}" data-min-chars="{{ min_chars }}" data-filters-number="{{ filters_number }}" role="search" action="" method="get">{{ hidden }}
+    {{ toolbar }}
     <script type="application/json" class="filters-index">{{ index }}</script>
   </form>
   <p class="search-status" role="status" aria-live="polite" data-search-status data-label-hint="{{ hint }}" data-label-none="{{ no_results }}">{{ hint }}</p>

@@ -3,6 +3,7 @@
 /**
  * HTML of the filter form + the JSON index the JS uses to match listing items
  * (<li data-item-id="…"> inside <ul id="{target}">).
+ * Toolbar, chips, results count and drawer (View / Sort / Filters) come from filters_toolbar.
  */
 class hobby_pc_video_games_filters_render
 {
@@ -16,8 +17,6 @@ class hobby_pc_video_games_filters_render
 
     public static function form(array $data, string $target, array $filters, array $items): string
     {
-        $expanded = ($data['filters_expanded'] ?? false) === true;
-
         $filtersHtml = '';
         foreach ($filters as $filter) {
             $filtersHtml .= self::filter($target, $filter);
@@ -25,31 +24,52 @@ class hobby_pc_video_games_filters_render
 
         $sortData = self::sort_data($data, $target);
         $sortHtml = (string) filters_sort::render($sortData);
+        $count = count(array_filter($items, fn ($i) => !hobby_pc_video_games_listing_items::is_hidden($i)));
+        $placeholder = (string) ($data['search_placeholder'] ?? 'Search games...');
+
+        $toolbar = filters_toolbar::render($data, [
+            'target' => $target,
+            'input' => [
+                'class' => 'item-search',
+                'name' => 'keywords',
+                'placeholder' => $placeholder,
+                'aria-label' => $placeholder,
+                'autocomplete' => 'off',
+            ],
+            'results_text' => filters_toolbar::results_text((string) ($data['results_text'] ?? 'Showing {n} games.'), $count),
+            'count' => $count,
+            'filters' => $filtersHtml,
+            'sort' => $sortHtml,
+            'view' => self::details_toggle($data, $target),
+        ]);
 
         return PlatformTemplateRenderer::render(self::HTML_DIR . 'template.html', [
             'target' => self::e($target),
             'form_id' => self::e($target . '-filters'),
             'filters_number' => (string) count($filters),
-            'filters' => $filtersHtml,
-            'filters_grid' => filters_sort::grid_attrs(count($filters), $data, 'filters'),
-            'filters_hidden' => ($filtersHtml === '' || !$expanded) ? ' hidden' : '',
-            'filters_expanded' => $expanded ? 'true' : 'false',
-            'filters_button_hidden' => $filtersHtml === '' ? ' hidden' : '',
-            'sort' => $sortHtml,
-            'sort_hidden' => $sortHtml === '' ? ' hidden' : filters_sort::hidden_attr($sortData),
-            'sort_button' => $sortHtml === '' ? '' : filters_sort::toggle_button($sortData),
-            'search_placeholder' => self::e((string) ($data['search_placeholder'] ?? 'Search games...')),
-            'search_button' => self::e((string) ($data['search_button'] ?? 'Search')),
-            'results_text' => self::results_text((string) ($data['results_text'] ?? 'Showing {n} games.'), count(array_filter($items, fn ($i) => !hobby_pc_video_games_listing_items::is_hidden($i)))),
-            'icon_filter' => self::icon('filter'),
-            'icon_query' => self::icon('filter-query'),
+            'toolbar' => $toolbar,
             'index' => self::index($filters, $items),
         ]);
     }
 
+    /**
+     * "Detailed cards: Yes | No" (View section): Yes adds .show-details to the listing, so every card shows
+     * its hover details (rank, playtime, tags, name). Default from "view_details" (toolbar "view": { "details" }).
+     * Texts: view_details_label ("Detailed cards"), view_yes ("Yes"), view_no ("No").
+     */
+    private static function details_toggle(array $data, string $target): string
+    {
+        $text = static fn (string $key, string $default): string =>
+            is_scalar($data[$key] ?? null) && trim((string) $data[$key]) !== '' ? (string) $data[$key] : $default;
+        return filters_toolbar::segment('details', $target, 'eye', $text('view_details_label', 'Detailed cards'), [
+            'yes' => $text('view_yes', 'Yes'),
+            'no' => $text('view_no', 'No'),
+        ], ($data['view_details'] ?? false) === true ? 'yes' : 'no');
+    }
+
     private static function filter(string $target, array $filter): string
     {
-        $placeholder = (string) ($filter['placeholder'] ?? '--select--');
+        $placeholder = filters_toolbar::placeholder($filter['placeholder'] ?? '');
         $style = isset($filter['style']) ? ' style="' . self::e((string) $filter['style']) . '"' : '';
         $prefix = (string) ($filter['option-prefix'] ?? '');
         $suffix = (string) ($filter['option-suffix'] ?? '');
@@ -67,7 +87,7 @@ class hobby_pc_video_games_filters_render
             'select_id' => self::e($target . '-' . $filter['_id']),
             'filter_id' => self::e((string) $filter['_id']),
             'name' => self::e((string) ($filter['name'] ?? $filter['_id'])),
-            'label' => self::e((string) ($filter['label'] ?? '')),
+            'label' => self::e(filters_toolbar::label((string) ($filter['label'] ?? ''))),
             'type' => self::e($isDisplay ? 'display' : hobby_pc_video_games_filters_values::type($filter)),
             'mode' => self::e(hobby_pc_video_games_filters_values::mode($filter)),
             'style' => $style,
@@ -81,7 +101,7 @@ class hobby_pc_video_games_filters_render
         return array_merge($data, [
             'target' => $target,
             'sort_fields' => $data['sort_fields'] ?? self::DEFAULT_SORT_FIELDS,
-        ]);
+        ], filters_toolbar::sort_labels($data));
     }
 
     /** { "item-id": { "keywords": "...", "game-tags": ["..."], ... } } */
@@ -113,18 +133,6 @@ class hobby_pc_video_games_filters_render
             (string) (hobby_pc_video_games_listing_items::value($item, 'release_year') ?? ''),
         ];
         return mb_strtolower(trim(preg_replace('/\s+/', ' ', implode(' ', $parts))));
-    }
-
-    private static function results_text(string $text, int $count): string
-    {
-        $parts = explode('{n}', self::e($text), 2);
-        $amount = '<span class="query-amount">' . $count . '</span>';
-        return count($parts) === 2 ? $parts[0] . $amount . $parts[1] : $parts[0] . ' ' . $amount;
-    }
-
-    private static function icon(string $name): string
-    {
-        return (string) PlatformComponentRenderer::render('svg', ['icon' => $name, 'class' => 'filters-icon']);
     }
 
     private static function e(string $value): string

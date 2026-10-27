@@ -49,6 +49,15 @@
  *                           (e.g. a "post-items" list of related projects). They get post_current_data.
  *   class           string  optional extra class
  *
+ * Case study layout (project_page gives it to its block_highlight children):
+ *   layout          string  "case_study" = a full-width <section> instead of the card: media grid (media_grid -
+ *                           videos first, then image + slider images, max 4 cells - 3 when a video leads -,
+ *                           "+N" for the rest) on one side,
+ *                           label + title + text + tags on the other, children under both
+ *   flip            bool    media on the right (default false)
+ *   variant         string  section variant ("panel" ...)
+ *   label           string  small label above the title (default "Case study")
+ *
  * Renders nothing without a title, or when there is neither media, text, children output nor tags.
  *
  * Related projects example (the page's own project is left out by "exclude_current"):
@@ -78,6 +87,7 @@ class block_highlight
         if ($title === '') return '';
 
         $shared = array_intersect_key($data, array_flip(self::PASSTHROUGH));
+        if (($data['layout'] ?? '') === 'case_study') return self::case_study($data, $title, $shared);
 
         $mediaItems = self::media($data, $shared);
         $text = self::text((string) ($data['text'] ?? ''));
@@ -219,7 +229,7 @@ class block_highlight
         $title = trim((string) ($data['tags_title'] ?? ''));
 
         return PlatformTemplateRenderer::render(self::HTML_DIR . 'parts/tags.html', [
-            'tags_title' => $title !== '' ? '<span class="block-highlight-tags-title">' . self::esc($title) . '</span>' : '',
+            'tags_title' => $title !== '' ? '<span class="block-highlight-tags-title text-label">' . self::esc($title) . '</span>' : '',
             'tags' => $html,
         ]);
     }
@@ -239,6 +249,85 @@ class block_highlight
         );
 
         return trim(preg_replace('#^(\s*<br>)+|(<br>\s*)+$#', '', $html));
+    }
+
+    /** Case study: <section> with the media grid on one side, the text on the other (see "layout" above). */
+    private static function case_study(array $data, string $title, array $shared): string
+    {
+        $post = is_array($data['post_current_data'] ?? null) ? $data['post_current_data'] : [];
+        $media = self::case_media($data, $post, $shared, $title);
+        $text = self::text((string) ($data['text'] ?? ''));
+        $textFull = self::text((string) ($data['text_full'] ?? ''));
+        $tags = self::tags($data);
+        $children = self::children($data, $shared);
+        if ($media === '' && $text === '' && $textFull === '' && $tags === '' && $children === '') return '';
+
+        $tag = strtolower(trim((string) ($data['tag'] ?? 'h3')));
+        if (!in_array($tag, self::TAGS, true)) $tag = 'h3';
+        $id = array_key_exists('id', $data) ? trim((string) $data['id']) : preg_replace('/[^a-z0-9]/', '', strtolower($title));
+        $label = array_key_exists('label', $data) ? trim((string) $data['label']) : 'Case study';
+        if (class_exists('utility_project_media') && !array_key_exists('label', $data)) $label = utility_project_media::text('case_study_label', 'Case study');
+
+        $classes = ['block-highlight-case'];
+        if ($media === '') $classes[] = 'block-highlight-case-no-media';
+        if (($data['flip'] ?? false) === true) $classes[] = 'block-highlight-case-flip';
+
+        // text side: the theme paragraph card + card title (title-card title-divider font-secondary), label = text-label
+        $body = '<div class="block-highlight-case-body block-paragraph-card block-paragraph-card-fill">'
+            . ($label !== '' ? '<span class="block-highlight-case-label text-label">' . self::esc($label) . '</span>' : '')
+            . '<' . $tag . ' class="block-highlight-case-title title-card title-divider font-secondary">' . htmlspecialchars($title, ENT_QUOTES, 'UTF-8', false) . '</' . $tag . '>'
+            . ($text !== '' ? '<p class="block-highlight-case-text">' . $text . '</p>' : '')
+            . ($textFull !== '' ? '<p class="block-highlight-case-text">' . $textFull . '</p>' : '')
+            . $tags
+            . '</div>';
+
+        $html = '<div class="' . implode(' ', $classes) . '">'
+            . ($media !== '' ? '<div class="block-highlight-case-media">' . $media . '</div>' : '')
+            . $body
+            . '</div>'
+            . ($children !== '' ? '<div class="block-highlight-case-children">' . $children . '</div>' : '');
+
+        $extra = trim((string) ($data['class'] ?? ''));
+        return (string) PlatformComponentRenderer::render('section', [
+            'id' => $id,
+            'class' => trim('project-section block-highlight-case-section ' . $extra),
+            'variant' => $data['variant'] ?? '',
+            'children' => $html,
+        ]);
+    }
+
+    /** media_grid of the highlight: videos first, then data.image, then the slider folder images. */
+    private static function case_media(array $data, array $post, array $shared, string $title): string
+    {
+        $items = [];
+        $hasVideo = false;
+        foreach (self::videos($data['video'] ?? []) as $video) {
+            $player = (string) PlatformComponentRenderer::render('project_block_video', array_merge($shared, ['src' => $video]));
+            if (trim($player) !== '') {
+                $items[] = ['type' => 'video', 'html' => $player];
+                $hasVideo = true;
+            }
+        }
+
+        $mediaDir = 'src/content/img/projects/' . trim((string) ($post['data']['media']['path'] ?? ''), '/') . '/';
+        $image = trim(str_replace('\\', '/', (string) ($data['image'] ?? '')), '/');
+        if ($image !== '') $items[] = ['type' => 'image', 'src' => str_starts_with($image, 'src/') ? $image : $mediaDir . $image, 'alt' => $title];
+
+        $slider = trim(str_replace('\\', '/', (string) ($data['slider'] ?? '')), '/');
+        if ($slider !== '' && class_exists('utility_project_web_screens')) {
+            $dir = str_starts_with($slider, 'src/') ? $slider : $mediaDir . $slider;
+            foreach (utility_project_web_screens::images($dir . '/') as $src) $items[] = ['type' => 'image', 'src' => $src, 'alt' => $title];
+        }
+        if ($items === []) return '';
+
+        $id = preg_replace('/[^a-z0-9\-]/', '', strtolower((string) ($post['_id'] ?? 'post') . '-' . preg_replace('/[^a-z0-9]/', '', strtolower($title))));
+        return (string) PlatformComponentRenderer::render('media_grid', [
+            'items' => $items,
+            'group' => 'case-study-' . $id,
+            // a video first: one wide cell + two (a 2 x 2 grid would mix 16:9 and square cells)
+            'max' => $hasVideo ? 3 : 4,
+            'class' => 'block-highlight-case-grid',
+        ]);
     }
 
     private static function esc(string $value): string

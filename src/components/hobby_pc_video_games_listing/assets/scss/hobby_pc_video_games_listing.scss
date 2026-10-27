@@ -177,7 +177,13 @@
     .hobby-pc-video-game-banner {
       transform: scale(1.05);
     }
+  }
 
+  // hover look; also always on with .active on the card or "Detailed cards: Yes" (.show-details on the listing)
+  &:hover,
+  &:focus-within,
+  &.active,
+  .show-details > & {
     .hobby-pc-video-game-details {
       background-color: color-mix(in srgb, var(--dm-color-gray-dark) 30%, transparent);
 

@@ -2,14 +2,26 @@
 
 // Colors follow the light / dark mode like the header; text colors come from the theme.
 footer {
-  border-top: 1px solid color-mix(in srgb, var(--dm-color-primary) 35%, transparent);
+  position: relative;
+  border-top: 1px solid
+    color-mix(in srgb, var(--dm-color-primary) 35%, transparent);
   transition: var(--dm-transition);
 
-  [mode="dark"] & {
-    background-color: var(--dm-color-gray-dark);
-  }
-  [mode="light"] & {
-    background-color: var(--dm-color-white);
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    transition: var(--dm-transition);
+
+    [mode="dark"] & {
+      background-color: var(--dm-color-gray-dark);
+    }
+    [mode="light"] & {
+      background-color: var(--dm-color-white);
+    }
   }
 
   > container {
@@ -42,7 +54,8 @@ footer {
 
   .footer-bottom {
     padding-top: var(--dm-spacing-md);
-    border-top: 1px solid color-mix(in srgb, var(--dm-color-primary) 25%, transparent);
+    border-top: 1px solid
+      color-mix(in srgb, var(--dm-color-primary) 25%, transparent);
   }
 
   // Socials column: title like .link-list-title, smaller icons

@@ -13,10 +13,8 @@
  *                               and texts (default "search"); every key below set on the page wins over the toolbar
  *   filters_include, filters_exclude   only / skip these filter _ids
  *   hide_single_option  bool    hide filters with fewer than 2 options (default true)
- *   filters_expanded    bool    filters row open on load (default false)
  *   sort_fields         array   filters_sort fields (default Name A-Z / Z-A, "by": "title"); [] hides the sort toggle
  *   sort_default, sort_expanded, sort_by_label, sort_order_label, sort_grid_max, sort_column_balancing   see filters_sort
- *   filters_column_balancing, filters_grid_max   columns of the filters row, see filters_sort::grid_attrs
  *   description_max     int     card descriptions longer than this are cut to description_max - 3 characters + "..." (default 100)
  *   search_min_chars    int     shortest search that shows results (default 2)
  *
@@ -26,8 +24,9 @@
  *   options         fixed option values (default: every value found)
  *   option-labels   { "value": "Label" } (default for "type": the singular labels of data_types.json)
  *
- * Texts (toolbar): search.label, search.placeholder, search.button, filters.label, results.label,
- * results.text ({n}), results.hint, results.no_results ({query}), results.show_all.
+ * Texts (toolbar): search.label, search.placeholder, filters.label, results.text ({n}), results.hint,
+ * results.no_results ({query}), results.show_all; drawer / chips texts and the "Results count" View choice: see filters_toolbar.
+ * Toolbar, chips, results count and drawer (View / Sort / Filters) come from filters_toolbar.
  */
 class search
 {
@@ -50,12 +49,11 @@ class search
 
         $filtersHtml = '';
         foreach ($filters as $filter) $filtersHtml .= self::filter($target, $filter);
-        $expanded = ($data['filters_expanded'] ?? false) === true;
 
         $sortData = array_merge($data, [
             'target' => $target,
             'sort_fields' => $data['sort_fields'] ?? self::DEFAULT_SORT_FIELDS,
-        ]);
+        ], filters_toolbar::sort_labels($data));
         $sortHtml = (string) filters_sort::render($sortData);
 
         $items = '';
@@ -67,34 +65,39 @@ class search
             $index[$entry['id']] = $row;
         }
 
+        $showAll = $text('results_show_all', 'Show all');
+        $toolbar = filters_toolbar::render($data, [
+            'target' => $target,
+            'input' => [
+                'id' => $target . '-input',
+                'class' => 'item-search',
+                'name' => 'q',
+                'placeholder' => html_entity_decode($text('search_placeholder', 'Search keywords..'), ENT_QUOTES, 'UTF-8'),
+                'aria-label' => html_entity_decode($text('search_label', 'Search'), ENT_QUOTES, 'UTF-8'),
+                'autocomplete' => 'off',
+                'spellcheck' => 'false',
+                'enterkeyhint' => 'search',
+            ],
+            // "Show all: Yes | No" in the View section of the drawer: every card without a search
+            'view' => filters_toolbar::segment('all', $target, 'eye', html_entity_decode($showAll, ENT_QUOTES, 'UTF-8'), [
+                'yes' => html_entity_decode($text('view_yes', 'Yes'), ENT_QUOTES, 'UTF-8'),
+                'no' => html_entity_decode($text('view_no', 'No'), ENT_QUOTES, 'UTF-8'),
+            ], ($data['results_show_all_active'] ?? false) === true ? 'yes' : 'no'),
+            'results_text' => filters_toolbar::results_text(html_entity_decode($text('results_text', 'Showing {n} results.'), ENT_QUOTES, 'UTF-8'), 0),
+            'count' => 0,
+            'filters' => $filtersHtml,
+            'sort' => $sortHtml,
+        ]);
+
         return PlatformTemplateRenderer::render(self::HTML_DIR . 'template.html', [
             'target' => self::e($target),
             'form_id' => self::e($target . '-filters'),
-            'input_id' => self::e($target . '-input'),
             'min_chars' => (string) max(1, (int) ($data['search_min_chars'] ?? $data['min_chars'] ?? 2)),
             'hidden' => self::preview_hidden(),
             'filters_number' => (string) count($filters),
-            'filters' => $filtersHtml,
-            'filters_grid' => filters_sort::grid_attrs(count($filters), $data, 'filters'),
-            'filters_hidden' => ($filtersHtml === '' || !$expanded) ? ' hidden' : '',
-            'filters_expanded' => $expanded ? 'true' : 'false',
-            'filters_button_hidden' => $filtersHtml === '' ? ' hidden' : '',
-            'sort' => $sortHtml,
-            'sort_hidden' => $sortHtml === '' ? ' hidden' : filters_sort::hidden_attr($sortData),
-            'sort_button' => $sortHtml === '' ? '' : filters_sort::toggle_button($sortData),
-            'search_label' => $text('search_label', 'Search'),
-            'search_placeholder' => $text('search_placeholder', 'Search keywords..'),
-            'search_button' => $text('search_button', 'Search'),
-            'filters_label' => $text('filters_label', 'Filters'),
-            'results_label' => $text('results_label', 'Results'),
-            'show_all' => $text('results_show_all', 'Show all'),
-            'results_text' => self::results_text($text('results_text', 'Showing {n} results.')),
-            'hint' => $text('results_hint', 'Type at least 2 characters to search, or press Show all.'),
+            'toolbar' => $toolbar,
+            'hint' => $text('results_hint', 'Type at least 2 characters to search, or turn on Show all in Filters.'),
             'no_results' => $text('results_no_results', 'No results for "{query}".'),
-            'icon_search' => self::icon('search'),
-            'icon_filter' => self::icon('filter'),
-            'icon_query' => self::icon('filter-query'),
-            'icon_all' => self::icon('eye'),
             'index' => self::json($index),
             'items' => $items,
         ]);
@@ -164,7 +167,7 @@ class search
 
     private static function filter(string $target, array $filter): string
     {
-        $options = '<option value="">' . self::e((string) ($filter['placeholder'] ?? '--select--')) . '</option>';
+        $options = '<option value="">' . self::e(filters_toolbar::placeholder($filter['placeholder'] ?? '')) . '</option>';
         foreach ($filter['options'] as $value => $label) {
             $options .= '<option value="' . self::e((string) $value) . '">' . self::e($label) . '</option>';
         }
@@ -172,7 +175,7 @@ class search
             'select_id' => self::e($target . '-' . $filter['_id']),
             'filter_id' => self::e((string) $filter['_id']),
             'name' => self::e((string) ($filter['name'] ?? $filter['_id'])),
-            'label' => self::e((string) ($filter['label'] ?? '')),
+            'label' => self::e(filters_toolbar::label((string) ($filter['label'] ?? ''))),
             'options' => $options,
         ]);
     }
@@ -226,18 +229,6 @@ class search
             ]);
         }
         return trim((string) preg_replace('/\s+/u', ' ', $text));
-    }
-
-    private static function results_text(string $text): string
-    {
-        $amount = '<span class="query-amount">0</span>';
-        $parts = explode('{n}', $text, 2);
-        return count($parts) === 2 ? $parts[0] . $amount . $parts[1] : $text . ' ' . $amount;
-    }
-
-    private static function icon(string $name): string
-    {
-        return (string) PlatformComponentRenderer::render('svg', ['icon' => $name, 'class' => 'filters-icon']);
     }
 
     private static function json(array $data): string

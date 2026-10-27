@@ -26,49 +26,8 @@
     display: none !important;
   }
 
-  // Show More / Show Less button: post colors, transparent primary background, 1px primary border
+  // Show More / Show Less button: the theme .btn-soft (elements/buttons.scss)
   > .text-collapse-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--dm-spacing-xxs);
-    padding: 6px 12px;
-    border: 1px solid var(--post-color-primary, var(--dm-color-primary));
-    border-radius: var(--dm-radius-sm);
-    background-color: rgb(
-      from var(--post-color-primary, var(--dm-color-primary)) r g b / 0.1
-    );
-    color: var(--post-color-secondary, var(--dm-color-white));
-    font-family: var(--dm-font-primary);
-    font-size: var(--dm-font-size-xs);
-    font-weight: var(--dm-font-weight-semibold);
-    line-height: 1.2;
-    cursor: pointer;
-    transition: var(--dm-transition);
-
-    > .text-collapse-toggle-icon {
-      @include svg-color(currentColor);
-      flex: 0 0 auto;
-      width: auto;
-      height: var(--dm-font-size-xs);
-    }
-
-    > .text-collapse-label {
-      font-size: inherit;
-      font-weight: inherit;
-      line-height: inherit;
-      color: inherit;
-    }
-
-    &:hover,
-    &:focus-visible,
-    &[aria-expanded="true"] {
-      background-color: rgb(
-        from var(--post-color-primary, var(--dm-color-primary)) r g b / 0.2
-      );
-    }
-
-    [mode="light"] & {
-      color: var(--post-color-primary, var(--dm-color-primary));
-    }
+    flex: 0 0 auto;
   }
 }

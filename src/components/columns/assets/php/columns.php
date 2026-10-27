@@ -14,6 +14,7 @@
  *         },
  *         "children": [
  *           { "component": "form", "data": { ... } },               // one component = one column
+ *           (any child: "transition": "fade slide-left" in its data -> data-transition on its <div class="column">)
  *           { "component": "column", "children": [                 // "column" = several components in one column
  *               { "component": "text_block", "data": { ... } },
  *               { "component": "resume_listing", "data": { ... } }
@@ -81,6 +82,7 @@ class columns
         $passthrough = array_intersect_key($data, array_flip(self::PASSTHROUGH));
 
         $html = '';
+        $index = 0;
         foreach ($children as $child) {
             if (!is_array($child)) continue;
 
@@ -95,15 +97,35 @@ class columns
             $name = str_replace('-', '_', (string) ($child['component'] ?? ''));
             if ($name === '') continue;
 
+            // "transition" goes on this <div class="column"> (not on the component inside it).
+            // Without one: the site-wide rule of "column" (column group) or of the component
+            // (data_settings_transitions.json); a rule's "stagger" = extra delay per column, so a row comes in one by one.
+            $explicit = array_key_exists('transition', $child['data'] ?? []) || array_key_exists('transition', $child);
+            if ($explicit) {
+                $transition = $child['data']['transition'] ?? $child['transition'] ?? null;
+            } else {
+                $transition = PlatformComponentRenderer::transition_rule($name === 'column' ? 'column' : $name);
+                if (is_array($transition) && isset($transition['stagger'])) {
+                    $transition['delay'] = (int) ($transition['delay'] ?? 0) + $index * (int) $transition['stagger'];
+                    unset($transition['stagger']);
+                }
+            }
+            unset($child['transition']);
+            // the column animates as a whole: nothing inside it gets its own rule on top
+            $child['data']['transition'] = false;
+            $index++;
+
             $blocks = $name === 'column'
                 ? (array) ($child['children'] ?? $child['data']['children'] ?? [])
                 : [$child];
 
-            $inner = trim((string) section::render_children(array_merge($passthrough, ['children' => $blocks])));
+            $animated = $transition !== null && $transition !== false;
+            $inner = trim((string) section::render_children(array_merge($passthrough, ['children' => $blocks], $animated ? ['transition_rules' => false] : [])));
             if ($inner === '') continue;
 
             $class = $name === 'column' && is_scalar($child['data']['class'] ?? null) ? trim((string) $child['data']['class']) : '';
-            $html .= '<div class="column' . ($class !== '' ? ' ' . self::e($class) : '') . '">' . $inner . '</div>';
+            $attrs = $transition !== null ? PlatformComponentRenderer::transition_attrs($transition) : '';
+            $html .= '<div class="column' . ($class !== '' ? ' ' . self::e($class) : '') . '"' . $attrs . '>' . $inner . '</div>';
         }
         return $html;
     }

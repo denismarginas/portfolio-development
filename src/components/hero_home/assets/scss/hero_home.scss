@@ -27,6 +27,8 @@
     --hh-accent-from: var(--dm-color-primary-500);
     --hh-accent-to: var(--dm-color-primary-900);
     --hh-line: rgb(from var(--dm-color-primary-900) r g b / 0.2);
+    // soft light glow behind the dark text
+    --hh-backdrop: rgb(from var(--dm-color-white) r g b / 0.75);
   }
 
   [mode="dark"] & {
@@ -36,6 +38,8 @@
     --hh-accent-from: var(--dm-color-primary-100);
     --hh-accent-to: var(--dm-color-primary-400);
     --hh-line: rgb(from var(--dm-color-white) r g b / 0.25);
+    // soft dark shade behind the light text
+    --hh-backdrop: rgb(from var(--dm-color-primary-950) r g b / 0.6);
   }
 
   // fade into the page at the bottom
@@ -67,7 +71,8 @@
     gap: var(--dm-spacing-sm);
     text-align: center;
 
-    // soft backdrop behind the text: primary-950 at 60% in the middle, fading out to transparent
+    // soft backdrop behind the text, fading out to transparent:
+    // dark mode primary-950 at 60%, light mode white at 75% (--hh-backdrop)
     &::before {
       content: "";
       position: absolute;
@@ -75,7 +80,7 @@
       z-index: -1;
       background-image: radial-gradient(
         closest-side,
-        rgb(from var(--dm-color-primary-950) r g b / 0.6),
+        var(--hh-backdrop),
         var(--dm-color-transparent)
       );
       pointer-events: none;

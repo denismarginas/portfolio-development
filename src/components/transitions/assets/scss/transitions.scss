@@ -1,0 +1,26 @@
+@import "theme";
+
+// transitions: the only CSS is hiding the elements that wait for their entrance animation.
+// html.tx-js is added by transitions.js (not added without JS or with prefers-reduced-motion),
+// .tx-ready once the element holds its first frame. The animations themselves are Web Animations
+// (transitions.js), so no transform / transition / opacity rules are set on the elements here.
+html.tx-js [data-transition]:not(.tx-ready) {
+  visibility: hidden;
+}
+
+// only while a sideways slide waits or plays (transitions.js): no horizontal scrollbar from an element starting off screen.
+// clip (not hidden) keeps position: sticky working.
+html.tx-sliding,
+html.tx-sliding body {
+  overflow-x: clip;
+}
+
+// wrapper rendered by the "transitions" component
+.transitions {
+  display: block;
+
+  // "contents": true -> no box of its own (e.g. directly inside a grid / columns), children animate
+  &.transitions-contents {
+    display: contents;
+  }
+}

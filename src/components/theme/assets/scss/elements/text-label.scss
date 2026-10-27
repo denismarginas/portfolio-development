@@ -1,0 +1,14 @@
+@import "theme";
+
+// Small uppercase label, e.g. <span class="text-label">Client</span> (mixin: mixins/_text_label.scss).
+//   text-label-sm  a step bigger (--dm-font-size-sm)
+// Two classes so it wins over the global [mode] p / span / a text rules.
+.text-label,
+[mode] .text-label {
+  @include text-label();
+}
+
+.text-label.text-label-sm,
+[mode] .text-label.text-label-sm {
+  font-size: var(--dm-font-size-sm);
+}

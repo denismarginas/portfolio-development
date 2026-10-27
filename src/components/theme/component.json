@@ -9,5 +9,5 @@
     "scss": ["assets/scss/**"],
     "fonts": ["assets/fonts/**"]
   },
-  "dependencies": []
+  "dependencies": ["transitions"]
 }

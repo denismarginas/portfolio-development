@@ -50,18 +50,6 @@ header {
     padding-block: 0;
   }
 
-  [mode="dark"] & {
-    background-color: var(--dm-color-gray-dark);
-    transition:
-      var(--dm-transition),
-      background-color 0.1s ease-in-out;
-  }
-  [mode="light"] & {
-    background-color: var(--dm-color-white);
-    transition:
-      var(--dm-transition),
-      background-color 0.1s ease-in-out;
-  }
   @media (max-width: $dm-screen-xs) {
     position: relative;
   }

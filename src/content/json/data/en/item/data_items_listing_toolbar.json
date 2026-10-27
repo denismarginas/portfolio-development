@@ -123,6 +123,10 @@
       },
       "results": {
         "text": "Showing {n} results."
+      },
+      "view": {
+        "search": true,
+        "sticky": true
       }
     }
   },
@@ -204,6 +208,9 @@
             "json-path": "['data']['release_year']",
             "json-type": "date"
           }
+        ],
+        "exclude": [
+          "game-release-date"
         ]
       },
       "sort": {
@@ -231,6 +238,9 @@
       },
       "results": {
         "text": "Showing {n} games."
+      },
+      "view": {
+        "details": false
       }
     }
   },
@@ -273,7 +283,7 @@
       "results": {
         "label": "Results",
         "text": "Showing {n} results.",
-        "hint": "Type at least 2 characters to search the pages, projects and categories, or press Show all.",
+        "hint": "Type at least 2 characters to search the pages, projects and categories, or turn on Show all in Filters.",
         "no_results": "No results for “{query}”.",
         "show_all": "Show all"
       }

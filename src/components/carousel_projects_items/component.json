@@ -1,19 +1,15 @@
 {
   "name": "carousel_projects_items",
   "title": "Carousel Projects Items",
-  "description": "One infinite-loop carousel of project visuals (card_post_project_visual_default / _media / _devices_website / _devices_media). Posts picked like post-items (post_type, filter_by, exclude_by, sort, max).",
+  "description": "One infinite-loop carousel of project visuals (card_post_project_visual_default / _media / _devices_website / _devices_media) on the utility_carousel_loop engine. Posts picked like post-items (post_type, filter_by, exclude_by, sort, max).",
   "post_types": ["project"],
   "assets": {
     "php": ["assets/php/carousel_projects_items.php"],
-    "html": [
-      "assets/html/template.html",
-      "assets/html/parts/item.html"
-    ],
     "scss": ["assets/scss/**"],
-    "css": ["assets/css/**"],
-    "js": ["assets/js/carousel_projects_items.js"]
+    "css": ["assets/css/**"]
   },
   "dependencies": [
+    "utility_carousel_loop",
     "post_items",
     "utility_sort",
     "card_post_project_visual_default",

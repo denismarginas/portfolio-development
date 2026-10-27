@@ -17,7 +17,7 @@
             "root": "/project/",
             "structure": "project_structure",
             "seo": "seo_project",
-            "routable": false,
+            "routable": true,
             "global_content_path": "src/content/",
             "global_img_path": "src/content/img/projects",
             "global_vid_path": "src/content/vid/projects"

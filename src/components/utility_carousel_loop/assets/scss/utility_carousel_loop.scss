@@ -1,0 +1,59 @@
+@import "theme";
+
+// Infinite-loop row (utility_carousel_loop). The JS doubles the items and sets data-animated;
+// the list then moves by one full set (half its width + half a gap) and starts over.
+// Without the animation (no JS / reduced motion) the items wrap, centered.
+// Item sizes are up to the component using it (e.g. carousel_projects_items, taxonomy_marquee).
+
+.carousel-loop {
+  --carousel-gap: var(--dm-spacing-sm);
+  --carousel-gap-current: var(--carousel-gap);
+  --carousel-duration: 80s;
+
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+
+  > .carousel-loop-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--carousel-gap-current);
+
+    > .carousel-loop-item {
+      flex: 0 0 auto;
+    }
+  }
+
+  &[data-animated="true"] {
+    > .carousel-loop-list {
+      width: max-content;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      animation: carousel-loop-scroll var(--carousel-duration) linear infinite;
+    }
+
+    &[data-direction="right"] > .carousel-loop-list {
+      animation-direction: reverse;
+    }
+
+    // pause_on_hover (default true)
+    &:not([data-pause-on-hover="false"]):hover > .carousel-loop-list {
+      animation-play-state: paused;
+    }
+  }
+
+  @media only screen and (max-width: $dm-screen-sm) {
+    --carousel-gap-current: var(--carousel-gap-phone, var(--carousel-gap));
+  }
+}
+
+@keyframes carousel-loop-scroll {
+  to {
+    // half the list + half a gap = exactly one set of items
+    transform: translateX(calc(-50% - var(--carousel-gap-current) / 2));
+  }
+}

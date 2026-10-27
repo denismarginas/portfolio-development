@@ -1,6 +1,8 @@
 /**
  * filters_post_projects: filters the <li data-post-id> items of <ul id="{data-target}">
  * using the JSON index printed inside the form. Filters + search words are kept in the URL (listing_toolbar.js).
+ * Toolbar / drawer / chips UI: window.filtersToolbar (filters_toolbar.js); "Card image" View choice adds
+ * .show-preview to the listing.
  */
 (function () {
   function yearOf(value) {
@@ -43,7 +45,15 @@
     var items = Array.prototype.slice.call(list.querySelectorAll('li[data-post-id]'));
     var selects = Array.prototype.slice.call(form.querySelectorAll('select[data-filter]'));
     var input = form.querySelector('.post-search');
-    var amount = form.querySelector('.query-amount');
+
+    var ui = window.filtersToolbar ? window.filtersToolbar.init(form, {
+      list: list,
+      input: input,
+      selects: selects,
+      views: {
+        preview: function (value) { list.classList.toggle('show-preview', value === 'preview'); }
+      }
+    }) : null;
 
     function apply() {
       var words = (input ? input.value : '').toLowerCase().split(/\s+/).filter(Boolean);
@@ -59,59 +69,15 @@
         if (visible) shown++;
       });
 
-      if (amount) amount.textContent = shown;
       list.setAttribute('data-results', shown);
+      if (ui) ui.update(shown);
       if (window.listingToolbarUrl) window.listingToolbarUrl.save(form);
-    }
-
-    function toggle(button, target, attr) {
-      var open = button.getAttribute(attr) !== 'true';
-      button.setAttribute(attr, open ? 'true' : 'false');
-      if (target) target.hidden = !open;
-      return open;
     }
 
     selects.forEach(function (select) { select.addEventListener('change', apply); });
     if (input) input.addEventListener('input', apply);
     form.addEventListener('submit', function (event) { event.preventDefault(); apply(); });
     form.addEventListener('reset', function () { setTimeout(apply, 0); });
-
-    var filtersBtn = form.querySelector('.toggle-filters');
-    var queryBtn = form.querySelector('.toggle-query');
-    var previewBtn = form.querySelector('.toggle-preview');
-    var searchBtn = form.querySelector('.toggle-search');
-    var searchBox = form.querySelector('.search-input');
-    if (filtersBtn) filtersBtn.addEventListener('click', function () { toggle(filtersBtn, form.querySelector('.block-filters'), 'aria-expanded'); });
-    if (queryBtn) queryBtn.addEventListener('click', function () { toggle(queryBtn, form.querySelector('.query-text'), 'aria-expanded'); });
-    if (searchBtn && searchBox) {
-      searchBtn.addEventListener('click', function () {
-        var open = toggle(searchBtn, searchBox, 'aria-expanded');
-        if (open) {
-          if (input) input.focus();
-        } else if (input && input.value) {
-          // closing the search also clears the keywords, so no hidden query keeps filtering the list
-          input.value = '';
-          apply();
-        }
-      });
-      if (input) input.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && !searchBox.hidden) {
-          event.preventDefault();
-          searchBtn.click();
-          searchBtn.focus();
-        }
-      });
-    }
-    if (previewBtn) {
-      // start state: pressed button or a listing already rendered with .show-preview
-      var previewOn = previewBtn.getAttribute('aria-pressed') === 'true' || list.classList.contains('show-preview');
-      previewBtn.setAttribute('aria-pressed', previewOn ? 'true' : 'false');
-      list.classList.toggle('show-preview', previewOn);
-    }
-    if (previewBtn) previewBtn.addEventListener('click', function () {
-      var on = toggle(previewBtn, null, 'aria-pressed');
-      list.classList.toggle('show-preview', on);
-    });
 
     if (window.listingToolbarUrl) window.listingToolbarUrl.restore(form);
     apply();

@@ -208,7 +208,7 @@
       "media": {
         "path": "aatoysfurnitures-presentation-website",
         "logo": {
-          "img": "aatoysfurnitures-presentation-website/logo/logo.png"
+          "img": "aatoysfurnitures-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -345,7 +345,7 @@
       "media": {
         "path": "acvaticbebeclub-presentation-website",
         "logo": {
-          "img": "acvaticbebeclub-presentation-website/logo/logo.png"
+          "img": "acvaticbebeclub-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -545,131 +545,35 @@
     },
     "content": [
       {
-        "component": "section_layout_aside",
+        "component": "project_page",
         "data": {
-          "aside_position": "right",
-          "aside_sticky": false,
-          "aside_mobile": "top"
+          "overview": {
+            "text": "Online shop made in Prestashop 1.7 for tools, machine parts and agricultural and industrial equipment. I heavily customized the theme through HTML, CSS and JavaScript, and products that cannot be ordered online get two buttons: one to call and one to request details by email. The contact form was built by editing TPL, HTML and CSS around Contact Form 7. Products were imported by CSV from the previous WordPress site, and the shop stays permanently connected to the eMAG marketplace through an API feed module."
+          }
         },
         "children": [
           {
-            "component": "layout_content",
-            "children": [
-              {
-                "component": "project_feature_hero"
+            "component": "related_projects",
+            "data": {
+              "title": "Related Project",
+              "id": "related",
+              "post_type": "project",
+              "filter_by": {
+                "_id": ["agramix-online-shop", "agramix-media"]
               },
-              {
-                "component": "project_visual_web_gallery",
-                "data": {
-                  "title_section_primary": "Web Development",
-                  "content_section_primary": [
-                    {
-                      "component": "project_block_visual_and_paragraph",
-                      "data": {
-                        "text": "Online shop made in Prestashop 1.7 for tools, machine parts and agricultural and industrial equipment. I heavily customized the theme through HTML, CSS and JavaScript, and products that cannot be ordered online get two buttons: one to call and one to request details by email. The contact form was built by editing TPL, HTML and CSS around Contact Form 7. Products were imported by CSV from the previous WordPress site, and the shop stays permanently connected to the eMAG marketplace through an API feed module.",
-                        "tags": [
-                          {
-                            "text": "web",
-                            "link": "#web"
-                          },
-                          {
-                            "text": "media-web",
-                            "link": "#media-web"
-                          }
-                        ]
-                      }
-                    }
-                  ],
-                  "title_section_secondary": "Web Media Content"
+              "sort": [
+                {
+                  "by": "taxonomy.category",
+                  "value": "Visual Media Projects",
+                  "position": "first"
+                },
+                {
+                  "by": "date.publish",
+                  "order": "desc"
                 }
-              },
-              {
-                "component": "block_highlight",
-                "data": {
-                  "title": "Related Project",
-                  "id": "related-project",
-                  "children": [
-                    {
-                      "component": "post-items",
-                      "data": {
-                        "class": "cols-100 gap-md show-preview",
-                        "post_type": "project",
-                        "filter_by": {
-                          "_id": ["agramix-online-shop", "agramix-media"]
-                        },
-                        "exclude_current": true,
-                        "sort": [
-                          {
-                            "by": "taxonomy.category",
-                            "value": "Visual Media Projects",
-                            "position": "first"
-                          },
-                          {
-                            "by": "date.publish",
-                            "order": "desc"
-                          }
-                        ],
-                        "template": {
-                          "component": "card_post_project",
-                          "params": {
-                            "card_class": "card-post-project",
-                            "visual_component": "card_post_project_visual_default",
-                            "title_length": 0,
-                            "description": true,
-                            "description_length": 0,
-                            "columns": {
-                              "layout": {
-                                "base": "100",
-                                "sm": "50-50",
-                                "md": "30-70",
-                                "lg": "40-60",
-                                "xl": "30-70"
-                              },
-                              "gap": "sm",
-                              "align": "start"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            "component": "layout_aside",
-            "children": [
-              {
-                "component": "post_short_info"
-              },
-              {
-                "component": "anchor_index",
-                "data": {
-                  "title": "Sections",
-                  "sticky": true,
-                  "class": "post-short-info-content card-outline",
-                  "items": [
-                    {
-                      "id": "web",
-                      "text": "Web Preview"
-                    },
-                    {
-                      "id": "web-content",
-                      "text": "Web Content"
-                    },
-                    {
-                      "id": "media-web",
-                      "text": "Media Content"
-                    },
-                    {
-                      "id": "related-project",
-                      "text": "Related Project"
-                    }
-                  ]
-                }
-              }
-            ]
+              ],
+              "exclude_current": true
+            }
           }
         ]
       }
@@ -1298,169 +1202,61 @@
     },
     "content": [
       {
-        "component": "section_layout_aside",
+        "component": "project_page",
         "data": {
-          "aside_position": "right",
-          "aside_sticky": false,
-          "aside_mobile": "top"
+          "overview": {
+            "text": "165 photos and 8 videos made for Agromir's products and social media: product banners and promotional images, short video ads presenting the product range, and a 3D tire animation made in Blender and rendered with Eevee."
+          }
         },
         "children": [
           {
-            "component": "layout_content",
-            "children": [
-              {
-                "component": "project_feature_hero"
-              },
-              {
-                "component": "project_visual_media_gallery",
-                "data": {
-                  "title_section_primary": "Visual Media",
-                  "title_section_secondary": "Photo Content",
-                  "title_section_tertiary": "Video Content",
-                  "content_section_primary": [
-                    {
-                      "component": "project_block_visual_and_paragraph",
-                      "data": {
-                        "text": "165 photos and 8 videos made for Agromir's products and social media: product banners and promotional images, short video ads presenting the product range, and a 3D tire animation made in Blender and rendered with Eevee.",
-                        "image": "thumbnail/thumbnail.webp",
-                        "tags": [
-                          {
-                            "text": "photo",
-                            "link": "#photo"
-                          },
-                          {
-                            "text": "video",
-                            "link": "#video"
-                          }
-                        ],
-                        "show_visual": true
-                      }
-                    }
-                  ]
-                }
-              },
-              {
-                "component": "block_highlight",
-                "data": {
-                  "title": "Video Advertisement - Minimalist Products Showcase",
-                  "slider": "highlights/media-video-editing/",
-                  "video": "src/content/vid/projects/agromir-media/videos_1/agromir_7_advertisement.webm",
-                  "text": "Video advertisement made from scratch to present product categories or services in a short, minimalist way. Using this video template, I created four videos for four different companies, adapting the products, colors and branding for each one of them.",
-                  "tags_title": "Software used",
-                  "tags": [
-                    "SV",
-                    "Photopea",
-                    "Topaz Video Enhance",
-                    "Gigapixel AI"
-                  ]
-                }
-              },
-              {
-                "component": "block_highlight",
-                "data": {
-                  "title": "3d - Tire Animation",
-                  "slider": "highlights/media-3d-tire-animation/",
-                  "video": "src/content/vid/projects/agromir-media/videos_2/agromir_5_advertisement.webm",
-                  "text": "A simple yet dynamic animation created in Blender, featuring a free 3D car tire model that gracefully falls from the top to the ground. The scene is rendered with Eevee for fast, high-quality visuals and enhanced with smooth camera movement, gradually closing in on the falling object to create a cinematic effect—perfect for a video advertisement.",
-                  "tags": ["Blender", "Eevee"],
-                  "tags_title": "Software used"
-                }
-              },
-              {
-                "component": "block_highlight",
-                "data": {
-                  "title": "Related Projects",
-                  "id": "related-project",
-                  "children": [
-                    {
-                      "component": "post-items",
-                      "data": {
-                        "class": "cols-100 gap-md show-preview",
-                        "post_type": "project",
-                        "filter_by": {
-                          "_id": [
-                            "agromir-sh-online-shop",
-                            "agromir-online-shop",
-                            "agromir-media"
-                          ]
-                        },
-                        "exclude_current": true,
-                        "sort": [
-                          {
-                            "by": "taxonomy.category",
-                            "value": "Visual Media Projects",
-                            "position": "first"
-                          },
-                          {
-                            "by": "date.publish",
-                            "order": "desc"
-                          }
-                        ],
-                        "template": {
-                          "component": "card_post_project",
-                          "params": {
-                            "card_class": "card-post-project",
-                            "visual_component": "card_post_project_visual_default",
-                            "title_length": 0,
-                            "description": true,
-                            "description_length": 0,
-                            "columns": {
-                              "layout": {
-                                "base": "100",
-                                "sm": "50-50",
-                                "md": "30-70",
-                                "lg": "40-60",
-                                "xl": "30-70"
-                              },
-                              "gap": "sm",
-                              "align": "start"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
+            "component": "block_highlight",
+            "data": {
+              "title": "Video Advertisement - Minimalist Products Showcase",
+              "slider": "highlights/media-video-editing/",
+              "video": "src/content/vid/projects/agromir-media/videos_1/agromir_7_advertisement.webm",
+              "text": "Video advertisement made from scratch to present product categories or services in a short, minimalist way. Using this video template, I created four videos for four different companies, adapting the products, colors and branding for each one of them.",
+              "tags_title": "Software used",
+              "tags": ["SV", "Photopea", "Topaz Video Enhance", "Gigapixel AI"]
+            }
           },
           {
-            "component": "layout_aside",
-            "children": [
-              {
-                "component": "post_short_info"
+            "component": "block_highlight",
+            "data": {
+              "title": "3d - Tire Animation",
+              "slider": "highlights/media-3d-tire-animation/",
+              "video": "src/content/vid/projects/agromir-media/videos_2/agromir_5_advertisement.webm",
+              "text": "A simple yet dynamic animation created in Blender, featuring a free 3D car tire model that gracefully falls from the top to the ground. The scene is rendered with Eevee for fast, high-quality visuals and enhanced with smooth camera movement, gradually closing in on the falling object to create a cinematic effect—perfect for a video advertisement.",
+              "tags": ["Blender", "Eevee"],
+              "tags_title": "Software used"
+            }
+          },
+          {
+            "component": "related_projects",
+            "data": {
+              "title": "Related Projects",
+              "id": "related",
+              "post_type": "project",
+              "filter_by": {
+                "_id": [
+                  "agromir-sh-online-shop",
+                  "agromir-online-shop",
+                  "agromir-media"
+                ]
               },
-              {
-                "component": "anchor_index",
-                "data": {
-                  "title": "Sections",
-                  "sticky": true,
-                  "class": "post-short-info-content card-outline",
-                  "items": [
-                    {
-                      "id": "photo",
-                      "text": "Photo Content"
-                    },
-                    {
-                      "id": "video",
-                      "text": "Video Content"
-                    },
-                    {
-                      "id": "videoadvertisementminimalistproductsshowcase",
-                      "text": "Video Advertisement - Minimalist Products Showcase"
-                    },
-                    {
-                      "id": "3dtireanimation",
-                      "text": "3d - Tire Animation"
-                    },
-                    {
-                      "id": "related-project",
-                      "text": "Related Projects"
-                    }
-                  ]
+              "sort": [
+                {
+                  "by": "taxonomy.category",
+                  "value": "Visual Media Projects",
+                  "position": "first"
+                },
+                {
+                  "by": "date.publish",
+                  "order": "desc"
                 }
-              }
-            ]
+              ],
+              "exclude_current": true
+            }
           }
         ]
       }
@@ -1574,7 +1370,7 @@
       "media": {
         "path": "agromir-sh-online-shop",
         "logo": {
-          "img": "agromir-sh-online-shop/logo/logo.png"
+          "img": "agromir-sh-online-shop/logo/logo.webp"
         },
         "thumbnail": {
           "default": "agromir-sh-online-shop/thumbnail/thumbnail.webp"
@@ -1804,7 +1600,7 @@
       "media": {
         "path": "amorino-online-shop",
         "logo": {
-          "img": "amorino-online-shop/logo/logo.png"
+          "img": "amorino-online-shop/logo/logo.webp"
         },
         "platforms": [
           {
@@ -1946,7 +1742,7 @@
       "media": {
         "path": "augustinnailtrainer-media",
         "logo": {
-          "img": "augustinnailtrainer-media/logo/logo.png"
+          "img": "augustinnailtrainer-media/logo/logo.webp"
         },
         "platforms": [],
         "urls": [
@@ -2099,7 +1895,7 @@
       "media": {
         "path": "axacompany-presentation-website",
         "logo": {
-          "img": "axacompany-presentation-website/logo/logo.png"
+          "img": "axacompany-presentation-website/logo/logo.webp"
         },
         "platforms": []
       },
@@ -2276,7 +2072,7 @@
       "media": {
         "path": "boneamed-presentation-website",
         "logo": {
-          "img": "boneamed-presentation-website/logo/logo.png"
+          "img": "boneamed-presentation-website/logo/logo.webp"
         },
         "platforms": []
       },
@@ -2611,7 +2407,7 @@
       "media": {
         "path": "brisascents-online-shop",
         "logo": {
-          "img": "brisascents-online-shop/logo/logo.png"
+          "img": "brisascents-online-shop/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -2705,7 +2501,7 @@
       "media": {
         "path": "busvip-media",
         "logo": {
-          "img": "busvip-media/logo/logo.png"
+          "img": "busvip-media/logo/logo.webp"
         },
         "platforms": [
           {
@@ -2936,7 +2732,7 @@
       "media": {
         "path": "cadredidactice-presentation-website",
         "logo": {
-          "img": "cadredidactice-presentation-website/logo/logo.png"
+          "img": "cadredidactice-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -3168,7 +2964,7 @@
       "media": {
         "path": "cafeagano-online-shop",
         "logo": {
-          "img": "cafeagano-online-shop/logo/logo.png"
+          "img": "cafeagano-online-shop/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -3313,7 +3109,7 @@
       "media": {
         "path": "carconcordia-presentation-website",
         "logo": {
-          "img": "carconcordia-presentation-website/logo/logo.png"
+          "img": "carconcordia-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -3459,7 +3255,7 @@
       "media": {
         "path": "casadarius-presentation-website",
         "logo": {
-          "img": "casadarius-presentation-website/logo/logo.png"
+          "img": "casadarius-presentation-website/logo/logo.webp"
         },
         "thumbnail": {
           "default": "casadarius-presentation-website/thumbnail/thumbnail.webp"
@@ -4199,7 +3995,7 @@
       "media": {
         "path": "cekan-web-design",
         "logo": {
-          "img": "cekan-web-design/logo/logo.png"
+          "img": "cekan-web-design/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -4360,7 +4156,7 @@
       "media": {
         "path": "ceramicevo-online-shop",
         "logo": {
-          "img": "ceramicevo-online-shop/logo/logo.png"
+          "img": "ceramicevo-online-shop/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -4527,7 +4323,7 @@
       "media": {
         "path": "copiatoarealbaiulia-presentation-website",
         "logo": {
-          "img": "copiatoarealbaiulia-presentation-website/logo/logo.png"
+          "img": "copiatoarealbaiulia-presentation-website/logo/logo.webp"
         },
         "platforms": [
           {
@@ -4717,7 +4513,7 @@
       "media": {
         "path": "covoarealex-online-shop",
         "logo": {
-          "img": "covoarealex-online-shop/logo/logo.png"
+          "img": "covoarealex-online-shop/logo/logo.webp"
         },
         "platforms": []
       },
@@ -4838,7 +4634,7 @@
       "media": {
         "path": "dabo-sm-bm-media",
         "logo": {
-          "img": "dabo-sm-bm-media/logo/logo.png"
+          "img": "dabo-sm-bm-media/logo/logo.webp"
         },
         "platforms": [
           {
@@ -4989,7 +4785,7 @@
       "media": {
         "path": "denismarginas-google-site-presentation-website",
         "logo": {
-          "img": "denismarginas-google-site-presentation-website/logo/logo.png"
+          "img": "denismarginas-google-site-presentation-website/logo/logo.webp"
         },
         "thumbnail": {
           "default": "denismarginas-google-site-presentation-website/thumbnail/thumbnail.webp"
@@ -5124,7 +4920,7 @@
       "media": {
         "path": "denismarginas-media",
         "logo": {
-          "img": "denismarginas-media/logo/logo.png"
+          "img": "denismarginas-media/logo/logo.webp"
         },
         "thumbnail": {
           "default": "denismarginas-media/thumbnail/thumbnail.webp"
@@ -5361,7 +5157,7 @@
       "media": {
         "path": "denismarginas-github-pages-presentation-website",
         "logo": {
-          "img": "denismarginas-github-pages-presentation-website/logo/logo.png"
+          "img": "denismarginas-github-pages-presentation-website/logo/logo.webp"
         },
         "thumbnail": {
           "default": "denismarginas-github-pages-presentation-website/thumbnail/thumbnail.webp"
@@ -5502,7 +5298,7 @@
       "media": {
         "path": "dsautocenter-media",
         "logo": {
-          "img": "dsautocenter-media/logo/logo.png"
+          "img": "dsautocenter-media/logo/logo.webp"
         },
         "platforms": [
           {
@@ -5715,7 +5511,7 @@
       "media": {
         "path": "freymobdesign-online-shop",
         "logo": {
-          "img": "freymobdesign-online-shop/logo/logo.png"
+          "img": "freymobdesign-online-shop/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -5809,7 +5605,7 @@
       "media": {
         "path": "gamadametal-media",
         "logo": {
-          "img": "gamadametal-media/logo/logo.png"
+          "img": "gamadametal-media/logo/logo.webp"
         },
         "platforms": [],
         "urls": [
@@ -5915,7 +5711,7 @@
       "media": {
         "path": "hartkeepyouthaton-media",
         "logo": {
-          "img": "hartkeepyouthaton-media/logo/logo.png"
+          "img": "hartkeepyouthaton-media/logo/logo.webp"
         },
         "platforms": [
           {
@@ -6103,7 +5899,7 @@
       "media": {
         "path": "ilnicelectric-presentation-website",
         "logo": {
-          "img": "ilnicelectric-presentation-website/logo/logo.png"
+          "img": "ilnicelectric-presentation-website/logo/logo.webp"
         },
         "platforms": []
       },
@@ -6283,7 +6079,7 @@
       "media": {
         "path": "ambalajelavplast-online-shop",
         "logo": {
-          "img": "ambalajelavplast-online-shop/logo/logo.png"
+          "img": "ambalajelavplast-online-shop/logo/logo.webp"
         },
         "platforms": [
           {
@@ -6529,7 +6325,7 @@
       "media": {
         "path": "lavmag-online-shop",
         "logo": {
-          "img": "lavmag-online-shop/logo/logo.png"
+          "img": "lavmag-online-shop/logo/logo.webp"
         },
         "platforms": [
           {
@@ -6773,7 +6569,7 @@
       "media": {
         "path": "marasafety-online-shop",
         "logo": {
-          "img": "marasafety-online-shop/logo/logo.png"
+          "img": "marasafety-online-shop/logo/logo.webp"
         },
         "thumbnail": {
           "default": "marasafety-online-shop/thumbnail/thumbnail.webp"
@@ -6951,7 +6747,7 @@
       "media": {
         "path": "masiniinratebaiamare-presentation-website",
         "logo": {
-          "img": "masiniinratebaiamare-presentation-website/logo/logo.png"
+          "img": "masiniinratebaiamare-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -7118,7 +6914,7 @@
       "media": {
         "path": "medicalortovit-web-content",
         "logo": {
-          "img": "medicalortovit-web-content/logo/logo.png"
+          "img": "medicalortovit-web-content/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -7259,7 +7055,7 @@
       "media": {
         "path": "mewi-web-maintenance",
         "logo": {
-          "img": "mewi-web-maintenance/logo/logo.png"
+          "img": "mewi-web-maintenance/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -7470,7 +7266,7 @@
       "media": {
         "path": "mobilasimexplus-online-shop",
         "logo": {
-          "img": "mobilasimexplus-online-shop/logo/logo.png"
+          "img": "mobilasimexplus-online-shop/logo/logo.webp"
         },
         "thumbnail": {
           "default": "mobilasimexplus-online-shop/thumbnail/thumbnail.webp"
@@ -7638,7 +7434,7 @@
       "media": {
         "path": "mycreativedesign-media",
         "logo": {
-          "img": "mycreativedesign-media/logo/logo.png"
+          "img": "mycreativedesign-media/logo/logo.webp"
         },
         "platforms": [
           {
@@ -7789,7 +7585,7 @@
       "media": {
         "path": "netexromania-web-maintenance",
         "logo": {
-          "img": "netexromania-web-maintenance/logo/logo.png"
+          "img": "netexromania-web-maintenance/logo/logo.webp"
         },
         "thumbnail": {
           "default": "netexromania-web-maintenance/thumbnail/thumbnail.webp"
@@ -8000,7 +7796,7 @@
       "media": {
         "path": "petri-presentation-website",
         "logo": {
-          "img": "petri-presentation-website/logo/logo.png"
+          "img": "petri-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -8663,7 +8459,7 @@
       "media": {
         "path": "prismanord-online-shop",
         "logo": {
-          "img": "prismanord-online-shop/logo/logo.png"
+          "img": "prismanord-online-shop/logo/logo.webp"
         },
         "platforms": [
           {
@@ -8893,7 +8689,7 @@
       "media": {
         "path": "promotiimars-contest-application",
         "logo": {
-          "img": "promotiimars-contest-application/logo/logo.png"
+          "img": "promotiimars-contest-application/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -9141,7 +8937,7 @@
       "media": {
         "path": "purstyle-web-maintenance",
         "logo": {
-          "img": "purstyle-web-maintenance/logo/logo.png"
+          "img": "purstyle-web-maintenance/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -9276,7 +9072,7 @@
       "media": {
         "path": "reifendirekt-web-design",
         "logo": {
-          "img": "reifendirekt-web-design/logo/logo.png"
+          "img": "reifendirekt-web-design/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -9503,7 +9299,7 @@
       "media": {
         "path": "resurseeducationale-online-shop",
         "logo": {
-          "img": "resurseeducationale-online-shop/logo/logo.png"
+          "img": "resurseeducationale-online-shop/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -9768,7 +9564,7 @@
       "media": {
         "path": "revelnail-avadores-online-shop",
         "logo": {
-          "img": "revelnail-avadores-online-shop/logo/logo.png"
+          "img": "revelnail-avadores-online-shop/logo/logo.webp"
         },
         "thumbnail": {
           "default": "revelnail-avadores-online-shop/thumbnail/thumbnail.webp"
@@ -10273,7 +10069,7 @@
       "media": {
         "path": "revistaeducatie-presentation-website",
         "logo": {
-          "img": "revistaeducatie-presentation-website/logo/logo.png"
+          "img": "revistaeducatie-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -10453,7 +10249,7 @@
       "media": {
         "path": "roundselfie-media",
         "logo": {
-          "img": "roundselfie-media/logo/logo.png"
+          "img": "roundselfie-media/logo/logo.webp"
         },
         "platforms": [],
         "urls": [
@@ -10602,7 +10398,7 @@
       "media": {
         "path": "royalcompass-presentation-website",
         "logo": {
-          "img": "royalcompass-presentation-website/logo/logo.png"
+          "img": "royalcompass-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -10696,7 +10492,7 @@
       "media": {
         "path": "spalatorieautomatabaiamare-media",
         "logo": {
-          "img": "spalatorieautomatabaiamare-media/logo/logo.png"
+          "img": "spalatorieautomatabaiamare-media/logo/logo.webp"
         },
         "platforms": [],
         "urls": [
@@ -10801,7 +10597,7 @@
       "media": {
         "path": "specialevents-media",
         "logo": {
-          "img": "specialevents-media/logo/logo.png"
+          "img": "specialevents-media/logo/logo.webp"
         },
         "platforms": [
           {
@@ -10913,7 +10709,7 @@
       "media": {
         "path": "speed-sm-media",
         "logo": {
-          "img": "speed-sm-media/logo/logo.png"
+          "img": "speed-sm-media/logo/logo.webp"
         },
         "platforms": [
           {
@@ -11025,7 +10821,7 @@
       "media": {
         "path": "strikerproduction-media",
         "logo": {
-          "img": "strikerproduction-media/logo/logo.png"
+          "img": "strikerproduction-media/logo/logo.webp"
         },
         "thumbnail": {
           "default": "strikerproduction-media/thumbnail/thumbnail.webp"
@@ -11260,7 +11056,7 @@
                             "strikerproduction-demand-media",
                             "strikerproduction-google-site-presentation-website",
                             "strikerproduction-killfeed-generator-content-generator",
-                            "strikerproduction-rust-killfeed-generator-content-generator"
+                            "strikerproduction-killfeed-generator-rust-content-generator"
                           ]
                         },
                         "exclude_current": true,
@@ -11378,7 +11174,7 @@
       "media": {
         "path": "strikerproduction-demand-media",
         "logo": {
-          "img": "strikerproduction-demand-media/logo/logo.png"
+          "img": "strikerproduction-demand-media/logo/logo.webp"
         },
         "thumbnail": {
           "default": "strikerproduction-demand-media/thumbnail/thumbnail.webp"
@@ -11527,7 +11323,7 @@
                             "strikerproduction-demand-media",
                             "strikerproduction-google-site-presentation-website",
                             "strikerproduction-killfeed-generator-content-generator",
-                            "strikerproduction-rust-killfeed-generator-content-generator"
+                            "strikerproduction-killfeed-generator-rust-content-generator"
                           ]
                         },
                         "exclude_current": true,
@@ -12856,7 +12652,7 @@
       "media": {
         "path": "strikerproduction-google-site-presentation-website",
         "logo": {
-          "img": "strikerproduction-google-site-presentation-website/logo/logo.png"
+          "img": "strikerproduction-google-site-presentation-website/logo/logo.webp"
         },
         "thumbnail": {
           "default": "strikerproduction-google-site-presentation-website/thumbnail/thumbnail.webp"
@@ -13006,7 +12802,7 @@
                             "strikerproduction-demand-media",
                             "strikerproduction-google-site-presentation-website",
                             "strikerproduction-killfeed-generator-content-generator",
-                            "strikerproduction-rust-killfeed-generator-content-generator"
+                            "strikerproduction-killfeed-generator-rust-content-generator"
                           ]
                         },
                         "exclude_current": true,
@@ -13087,7 +12883,7 @@
     ]
   },
   {
-    "_id": "strikerproduction-rust-killfeed-generator-content-generator",
+    "_id": "strikerproduction-killfeed-generator-rust-content-generator",
     "settings": {
       "render": true,
       "exclude_from_categories": true,
@@ -13105,7 +12901,7 @@
       "seo": {
         "title": "Rust KillFeed Generator",
         "description": "Static web tool that generates Rust kill feed overlays for video editing, hosted on GitHub Pages.",
-        "slug": "strikerproduction-rust-killfeed-generator-content-generator",
+        "slug": "strikerproduction-killfeed-generator-rust-content-generator",
         "index": false
       },
       "date": {
@@ -13165,12 +12961,12 @@
         "delivery_status": true
       },
       "media": {
-        "path": "strikerproduction-rust-killfeed-generator-content-generator",
+        "path": "strikerproduction-killfeed-generator-rust-content-generator",
         "logo": {
-          "img": "strikerproduction-rust-killfeed-generator-content-generator/logo/logo.png"
+          "img": "strikerproduction-killfeed-generator-rust-content-generator/logo/logo.webp"
         },
         "thumbnail": {
-          "default": "strikerproduction-rust-killfeed-generator-content-generator/thumbnail/thumbnail.webp"
+          "default": "strikerproduction-killfeed-generator-rust-content-generator/thumbnail/thumbnail.webp"
         },
         "urls": [
           {
@@ -13238,7 +13034,7 @@
                         "post_type": "project",
                         "filter_by": {
                           "_id": [
-                            "strikerproduction-rust-killfeed-generator-content-generator",
+                            "strikerproduction-killfeed-generator-rust-content-generator",
                             "strikerproduction-killfeed-generator-content-generator",
                             "strikerproduction-google-site-presentation-website",
                             "strikerproduction-media"
@@ -13404,7 +13200,7 @@
       "media": {
         "path": "superbrain-presentation-website",
         "logo": {
-          "img": "superbrain-presentation-website/logo/logo.png"
+          "img": "superbrain-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -13579,7 +13375,7 @@
       "media": {
         "path": "tinib-online-shop",
         "logo": {
-          "img": "tinib-online-shop/logo/logo.png"
+          "img": "tinib-online-shop/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -13723,7 +13519,7 @@
       "media": {
         "path": "promotionalcampaignstndc-contest-application",
         "logo": {
-          "img": "promotionalcampaignstndc-contest-application/logo/logo.png"
+          "img": "promotionalcampaignstndc-contest-application/logo/logo.webp"
         },
         "thumbnail": {
           "default": "promotionalcampaignstndc-contest-application/thumbnail/thumbnail.webp"
@@ -13900,7 +13696,7 @@
       "media": {
         "path": "transportosian-media",
         "logo": {
-          "img": "transportosian-media/logo/logo.png"
+          "img": "transportosian-media/logo/logo.webp"
         },
         "platforms": [
           {
@@ -14098,7 +13894,7 @@
       "media": {
         "path": "vreaualpin-web-maintenance",
         "logo": {
-          "img": "vreaualpin-web-maintenance/logo/logo.png"
+          "img": "vreaualpin-web-maintenance/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -14218,7 +14014,7 @@
       "media": {
         "path": "vseconstruct-media",
         "logo": {
-          "img": "vseconstruct-media/logo/logo.png"
+          "img": "vseconstruct-media/logo/logo.webp"
         },
         "platforms": [],
         "urls": [
@@ -14376,7 +14172,7 @@
       "media": {
         "path": "woodworkart-presentation-website",
         "logo": {
-          "img": "woodworkart-presentation-website/logo/logo.png"
+          "img": "woodworkart-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -14528,7 +14324,7 @@
       "media": {
         "path": "remodelingmv-presentation-website",
         "logo": {
-          "img": "remodelingmv-presentation-website/logo/logo.png"
+          "img": "remodelingmv-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -14702,7 +14498,7 @@
       "media": {
         "path": "philadelphiarugcleaning-presentation-website",
         "logo": {
-          "img": "philadelphiarugcleaning-presentation-website/logo/logo.png"
+          "img": "philadelphiarugcleaning-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -14880,7 +14676,7 @@
       "media": {
         "path": "logistic-brain-presentation-website",
         "logo": {
-          "img": "logistic-brain-presentation-website/logo/logo.png"
+          "img": "logistic-brain-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -15062,7 +14858,7 @@
       "media": {
         "path": "merkaz-nadlan-presentation-website",
         "logo": {
-          "img": "merkaz-nadlan-presentation-website/logo/logo.png"
+          "img": "merkaz-nadlan-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -15232,7 +15028,7 @@
       "media": {
         "path": "troni-landing-page",
         "logo": {
-          "img": "troni-landing-page/logo/logo.png"
+          "img": "troni-landing-page/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -15376,7 +15172,7 @@
       "media": {
         "path": "mscardetailing-presentation-website",
         "logo": {
-          "img": "mscardetailing-presentation-website/logo/logo.png"
+          "img": "mscardetailing-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -15554,7 +15350,7 @@
       "media": {
         "path": "gla-presentation-website",
         "logo": {
-          "img": "gla-presentation-website/logo/logo.png"
+          "img": "gla-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -15732,7 +15528,7 @@
       "media": {
         "path": "earldom-presentation-website",
         "logo": {
-          "img": "earldom-presentation-website/logo/logo.png"
+          "img": "earldom-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -15906,7 +15702,7 @@
       "media": {
         "path": "sosdeepcleaning-presentation-website",
         "logo": {
-          "img": "sosdeepcleaning-presentation-website/logo/logo.png"
+          "img": "sosdeepcleaning-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -16095,7 +15891,7 @@
       "media": {
         "path": "familyfirst-online-shop",
         "logo": {
-          "img": "familyfirst-online-shop/logo/logo.png"
+          "img": "familyfirst-online-shop/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -16294,7 +16090,7 @@
       "media": {
         "path": "symbol-buildcon-landing-page",
         "logo": {
-          "img": "symbol-buildcon-landing-page/logo/logo.png"
+          "img": "symbol-buildcon-landing-page/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -16488,7 +16284,7 @@
       "media": {
         "path": "ryllo-landing-page",
         "logo": {
-          "img": "ryllo-landing-page/logo/logo.png"
+          "img": "ryllo-landing-page/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -16636,7 +16432,7 @@
       "media": {
         "path": "maromsteelline-web-content",
         "logo": {
-          "img": "maromsteelline-web-content/logo/logo.png"
+          "img": "maromsteelline-web-content/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -16802,7 +16598,7 @@
       "media": {
         "path": "ypages-web-design",
         "logo": {
-          "img": "ypages-web-design/logo/logo.png"
+          "img": "ypages-web-design/logo/logo.webp"
         },
         "urls": [
           {
@@ -17012,7 +16808,7 @@
       "media": {
         "path": "edlaparis-booking-application",
         "logo": {
-          "img": "edlaparis-booking-application/logo/logo.png"
+          "img": "edlaparis-booking-application/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -17178,7 +16974,7 @@
       "media": {
         "path": "sdb-landing-page",
         "logo": {
-          "img": "sdb-landing-page/logo/logo.png"
+          "img": "sdb-landing-page/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -17340,7 +17136,7 @@
       "media": {
         "path": "bullionhouse-online-shop",
         "logo": {
-          "img": "bullionhouse-online-shop/logo/logo.png"
+          "img": "bullionhouse-online-shop/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -17547,7 +17343,7 @@
       "media": {
         "path": "lironpinkhas-presentation-website",
         "logo": {
-          "img": "lironpinkhas-presentation-website/logo/logo.png"
+          "img": "lironpinkhas-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -17683,7 +17479,7 @@
       "media": {
         "path": "colorplay-presentation-website",
         "logo": {
-          "img": "colorplay-presentation-website/logo/logo.png"
+          "img": "colorplay-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -17839,7 +17635,7 @@
       "media": {
         "path": "barantech-presentation-website",
         "logo": {
-          "img": "barantech-presentation-website/logo/logo.png"
+          "img": "barantech-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -18067,7 +17863,7 @@
       "media": {
         "path": "offmarket-online-shop",
         "logo": {
-          "img": "offmarket-online-shop/logo/logo.png"
+          "img": "offmarket-online-shop/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -18244,7 +18040,7 @@
       "media": {
         "path": "chezpepe-presentation-website",
         "logo": {
-          "img": "chezpepe-presentation-website/logo/logo.png"
+          "img": "chezpepe-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -18384,7 +18180,7 @@
       "media": {
         "path": "uppura-presentation-website",
         "logo": {
-          "img": "uppura-presentation-website/logo/logo.png"
+          "img": "uppura-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -18528,7 +18324,7 @@
       "media": {
         "path": "solveo-presentation-website",
         "logo": {
-          "img": "solveo-presentation-website/logo/logo.png"
+          "img": "solveo-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -18702,7 +18498,7 @@
       "media": {
         "path": "symbol-podcasts-presentation-website",
         "logo": {
-          "img": "symbol-podcasts-presentation-website/logo/logo.png"
+          "img": "symbol-podcasts-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -18896,7 +18692,7 @@
       "media": {
         "path": "ideas-rip-presentation-website",
         "logo": {
-          "img": "ideas-rip-presentation-website/logo/logo.png"
+          "img": "ideas-rip-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -19062,7 +18858,7 @@
       "media": {
         "path": "prc-cardio-optic-presentation-website",
         "logo": {
-          "img": "prc-cardio-optic-presentation-website/logo/logo.png"
+          "img": "prc-cardio-optic-presentation-website/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -19202,7 +18998,7 @@
       "media": {
         "path": "yourdistribution-online-shop",
         "logo": {
-          "img": "yourdistribution-online-shop/logo/logo.png"
+          "img": "yourdistribution-online-shop/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -22360,7 +22156,7 @@
       "media": {
         "path": "mentormarketingexperts-landing-page",
         "logo": {
-          "img": "mentormarketingexperts-landing-page/logo/logo.png"
+          "img": "mentormarketingexperts-landing-page/logo/logo.webp"
         }
       },
       "taxonomy": {
@@ -26320,7 +26116,7 @@
                         "post_type": "project",
                         "filter_by": {
                           "_id": [
-                            "strikerproduction-rust-killfeed-generator-content-generator",
+                            "strikerproduction-killfeed-generator-rust-content-generator",
                             "strikerproduction-killfeed-generator-content-generator",
                             "strikerproduction-google-site-presentation-website",
                             "strikerproduction-media"

@@ -1,0 +1,62 @@
+@import "theme";
+
+// Cards of the old design (card_post_project) inside a project_page section:
+// text left-aligned next to the visual, colors from the page palette.
+.related-projects {
+  .related-projects-listing {
+    align-items: stretch;
+
+    // phones: one card per row whatever the balanced pattern says
+    @media (max-width: $dm-screen-sm) {
+      &[data-grid-column-balancing] {
+        grid-template-columns: minmax(0, 1fr);
+
+        > li:nth-child(n) {
+          grid-column: auto;
+        }
+      }
+    }
+  }
+
+  // the visual column never wider than 360px (one project = a full-width card), the text takes the rest
+  @media (min-width: $dm-screen-sm) {
+    .card-post-project .card-post-project-body-columns {
+      grid-template-columns: minmax(0, min(40%, 360px)) minmax(0, 1fr);
+    }
+  }
+
+  .card-post-project {
+    height: 100%;
+    padding: var(--dm-spacing-xs);
+    border: 1px solid var(--project-line, rgb(from var(--dm-color-gray) r g b / 0.3));
+    border-radius: var(--dm-radius-md);
+    background-color: var(--project-surface, transparent);
+    transition: border-color 0.3s, transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+
+    &:hover {
+      border-color: var(--post-color-primary, var(--project-accent));
+      transform: translateY(-3px);
+    }
+
+    .card-body > .card-meta {
+      gap: 6px;
+      text-align: left;
+
+      > .card-title {
+        font-size: var(--dm-font-size-lg);
+        white-space: normal;
+        color: var(--project-ink, var(--dm-color-gray-dark));
+
+        &:hover {
+          color: var(--post-color-primary, var(--project-accent));
+        }
+      }
+
+      > .card-description {
+        white-space: normal;
+        line-height: 1.5;
+        color: var(--project-muted, var(--dm-color-gray));
+      }
+    }
+  }
+}

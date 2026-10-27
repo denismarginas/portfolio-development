@@ -24,8 +24,14 @@
   transition: var(--dm-transition);
 
   // the label keeps the button's line-height (global span styles use 1.6, which made buttons taller)
-  > .btn-text {
+  // and the button's color: the global "[mode] span" color is more specific than the variant colors,
+  // so without this the label stayed gray on hover (e.g. .btn-outline). ".btn > .btn-text" (0,2,0) wins.
+  // filter: none -> the ".btn-text" button variant below must not dim the label on hover.
+  > .btn-text,
+  > span {
+    color: inherit;
     line-height: inherit;
+    filter: none;
   }
 
   svg {
@@ -200,11 +206,113 @@
 }
 
 .btn-sm {
-  padding: 4px var(--dm-spacing-xs);
+  padding: var(--dm-spacing-xxs) var(--dm-spacing-xs);
   font-size: var(--dm-font-size-sm);
 }
 
 .btn-lg {
-  padding: 10px var(--dm-spacing-lg);
+  padding: var(--dm-spacing-xs) var(--dm-spacing-lg);
   font-size: var(--dm-font-size-lg);
+}
+
+// Accent button in the post color (--post-color-primary, e.g. inside project_page), arrow icons follow the text.
+// Colors are set for both modes too: the theme "[mode] a" text color would win over a single class.
+.btn-accent {
+  [mode="dark"] &,
+  [mode="light"] &,
+  & {
+    color: var(--post-color-secondary, var(--dm-color-white));
+    background-color: var(--post-color-primary, var(--dm-color-primary));
+    border-color: var(--post-color-primary, var(--dm-color-primary));
+
+    &:hover {
+      color: var(--post-color-secondary, var(--dm-color-white));
+      filter: brightness(1.08);
+    }
+  }
+}
+
+// Outlined button that fills with the text color on hover (--project-* inside project_page).
+.btn-ghost {
+  background-color: transparent;
+  // 2px like .btn, so it lines up with .btn-accent / .btn-primary next to it
+  border: 2px solid var(--project-line-strong, var(--dm-color-gray-light));
+
+  [mode="light"] &,
+  & {
+    color: var(--project-ink, var(--dm-color-gray-dark));
+
+    &:hover {
+      color: var(--project-bg, var(--dm-color-white));
+      background-color: var(--project-ink, var(--dm-color-gray-dark));
+      border-color: var(--project-ink, var(--dm-color-gray-dark));
+    }
+  }
+
+  [mode="dark"] & {
+    color: var(--project-ink, var(--dm-color-white));
+
+    &:hover {
+      color: var(--project-bg, var(--dm-color-gray-dark));
+      background-color: var(--project-ink, var(--dm-color-white));
+      border-color: var(--project-ink, var(--dm-color-white));
+    }
+  }
+}
+
+// Soft button in the post colors: transparent primary background, 1px primary border, small semibold text,
+// optional icon before the label (the text_collapse "Show More" look). Works on its own (no .btn needed):
+//   <button class="btn-soft"><svg ...></svg><span>More details</span></button>
+.btn-soft {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--dm-spacing-xxs);
+  width: fit-content;
+  padding: var(--dm-spacing-xxs) var(--dm-spacing-xs);
+  border: 1px solid var(--post-color-primary, var(--dm-color-primary));
+  border-radius: var(--dm-radius-sm);
+  background-color: rgb(from var(--post-color-primary, var(--dm-color-primary)) r g b / 0.1);
+  font-family: var(--dm-font-primary);
+  font-size: var(--dm-font-size-xs);
+  font-weight: var(--dm-font-weight-semibold);
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--dm-transition);
+
+  &,
+  [mode="dark"] & {
+    color: var(--post-color-secondary, var(--dm-color-white));
+  }
+
+  [mode="light"] & {
+    color: var(--post-color-primary, var(--dm-color-primary));
+  }
+
+  > svg {
+    @include svg-color(currentColor);
+    flex: 0 0 auto;
+    width: auto;
+    height: var(--dm-font-size-xs);
+  }
+
+  // [mode] too: the global "[mode] span" text color must not win
+  > span,
+  [mode] & > span {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+
+  &:hover,
+  &:focus-visible,
+  &[aria-expanded="true"] {
+    background-color: rgb(from var(--post-color-primary, var(--dm-color-primary)) r g b / 0.2);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--post-color-primary, var(--dm-color-primary));
+    outline-offset: 2px;
+  }
 }

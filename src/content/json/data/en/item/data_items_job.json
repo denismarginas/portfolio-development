@@ -151,7 +151,7 @@
       "media": {
         "path": "projects",
         "logo": {
-          "img": "src/content/img/projects/netexromania-web-maintenance/logo/logo.png",
+          "img": "src/content/img/projects/netexromania-web-maintenance/logo/logo.webp",
           "bg": "light"
         }
       },
@@ -246,7 +246,7 @@
       "media": {
         "path": "projects",
         "logo": {
-          "img": "src/content/img/projects/enlivy-media/logo/logo.png",
+          "img": "src/content/img/projects/enlivy-media/logo/logo.webp",
           "bg": "dark"
         }
       },
@@ -329,7 +329,7 @@
       "media": {
         "path": "projects",
         "logo": {
-          "img": "src/content/img/projects/yesagency-media/logo/logo.png",
+          "img": "src/content/img/projects/yesagency-media/logo/logo.webp",
           "bg": "light"
         }
       },

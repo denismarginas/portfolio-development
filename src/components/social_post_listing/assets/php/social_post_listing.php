@@ -146,19 +146,20 @@ class social_post_listing
         return str_replace(["\r\n", "\n"], '<br>', $html);
     }
 
-    /** 1-4 images in a grid; every image opens the popup gallery of its post. */
+    /** 1-4 images in a grid (media_grid); every image opens the popup gallery of its post. */
     private static function images(array $images, string $group): string
     {
-        $cells = '';
-        $count = 0;
+        $items = [];
         foreach ($images as $src) {
-            if (!is_string($src) || ($src = trim($src)) === '') continue;
-            $img = (string) PlatformComponentRenderer::render('image', ['src' => $src, 'alt' => '', 'class' => 'social-post-img', 'lazy' => true]);
-            if (trim($img) === '') continue;
-            $cells .= '<div class="social-post-gallery-item" data-popup="true" data-popup-group="' . self::e($group) . '">' . $img . '</div>';
-            $count++;
+            if (is_string($src) && ($src = trim($src)) !== '') $items[] = ['type' => 'image', 'src' => $src, 'alt' => ''];
         }
-        return $count > 0 ? '<div class="social-post-gallery" data-count="' . min($count, 4) . '">' . $cells . '</div>' : '';
+        return (string) PlatformComponentRenderer::render('media_grid', [
+            'items' => $items,
+            'group' => $group,
+            'max' => 4,
+            'image_class' => 'social-post-img',
+            'class' => 'social-post-gallery',
+        ]);
     }
 
     /** Video item (data_items_video.json) by _id -> video player with its thumbnail. */

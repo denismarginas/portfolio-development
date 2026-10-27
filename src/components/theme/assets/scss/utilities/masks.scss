@@ -1,0 +1,32 @@
+// Fade-out edges with a mask (e.g. a scrolling band or a list that scrolls).
+//   mask-fade-x       left + right        mask-fade-y       top + bottom
+//   mask-fade-left    mask-fade-right     mask-fade-top     mask-fade-bottom
+// Fade size: --mask-fade (default 10%; any length, e.g. style="--mask-fade: 48px").
+// One mask per element: with two classes the last one in this file wins (use mask-fade-x / -y for two edges).
+$dm-mask-fades: (
+  'x': (90deg, both),
+  'y': (180deg, both),
+  'left': (90deg, start),
+  'right': (90deg, end),
+  'top': (180deg, start),
+  'bottom': (180deg, end),
+);
+
+@each $name, $config in $dm-mask-fades {
+  $angle: nth($config, 1);
+  $edge: nth($config, 2);
+  $gradient: null;
+
+  @if $edge == both {
+    $gradient: linear-gradient($angle, transparent, #000 var(--mask-fade, 10%), #000 calc(100% - var(--mask-fade, 10%)), transparent);
+  } @else if $edge == start {
+    $gradient: linear-gradient($angle, transparent, #000 var(--mask-fade, 10%));
+  } @else {
+    $gradient: linear-gradient($angle, #000 calc(100% - var(--mask-fade, 10%)), transparent);
+  }
+
+  .mask-fade-#{$name} {
+    -webkit-mask-image: $gradient;
+    mask-image: $gradient;
+  }
+}

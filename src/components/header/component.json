@@ -20,6 +20,7 @@
     "js": [
       "assets/js/header-scroll.js",
       "assets/js/header-menu-navbar-toggle.js",
+      "assets/js/header-submenu.js",
       "assets/js/header-theme-mode-toggle.js"
     ]
   },

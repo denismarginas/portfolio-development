@@ -11,3 +11,41 @@
     }
   }
 }
+
+// variant "panel": tinted band (project_page sets --section-panel-bg to its own panel color)
+.content-section-panel {
+  background-color: var(--section-panel-bg, rgb(from var(--dm-color-gray) r g b / 0.08));
+}
+
+// variant "dark": dark band in both modes
+.content-section-dark {
+  background-color: var(--section-dark-bg, var(--dm-color-black));
+}
+
+// variant "glow": follows the light / dark mode (like the project hero): the page background with grid lines
+// and a glow in the post color, fading out at the top and bottom.
+// Colors: --section-glow-bg / --section-glow-color / --section-glow-line (project_page sets its own).
+.content-section-glow {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--section-glow-bg, var(--dm-color-white));
+
+  [mode="dark"] & {
+    background-color: var(--section-glow-bg, var(--dm-color-gray-dark));
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.55;
+    background:
+      radial-gradient(55% 60% at 22% 55%, color-mix(in srgb, var(--section-glow-color, var(--post-color-primary, var(--dm-color-primary))) 20%, transparent), transparent 70%),
+      repeating-linear-gradient(90deg, var(--section-glow-line, rgb(from var(--dm-color-gray) r g b / 0.2)) 0 1px, transparent 1px 96px),
+      repeating-linear-gradient(0deg, var(--section-glow-line, rgb(from var(--dm-color-gray) r g b / 0.2)) 0 1px, transparent 1px 96px);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%);
+  }
+}

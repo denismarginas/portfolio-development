@@ -17,16 +17,9 @@ header {
 
       li {
         position: relative;
-        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        &:hover > .header-submenu,
-        &:focus-within > .header-submenu {
-          display: flex;
-          opacity: 1;
-          transition: var(--dm-transition);
-        }
 
         a {
           display: inline-flex;
@@ -95,9 +88,106 @@ header {
       }
     }
 
+    // ---------- parent item: link + chevron button ----------
+    .header-menu-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .header-submenu-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+
+      > svg {
+        display: block;
+        width: 11px;
+        height: auto;
+        transition: transform 0.25s ease-in-out;
+        @include svg-color(currentColor);
+      }
+
+      [mode="dark"] & {
+        color: var(--dm-color-white);
+      }
+      [mode="light"] & {
+        color: var(--dm-color-gray-dark);
+      }
+
+      &:hover {
+        background-color: color-mix(in srgb, var(--dm-color-primary) 20%, transparent);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--dm-link);
+        outline-offset: 1px;
+      }
+    }
+
+    // chevron points up while the submenu is open
+    li.has-submenu.is-open > .header-menu-row > .header-submenu-toggle > svg {
+      transform: rotate(180deg);
+    }
+
+    // a child page is open: the parent link gets the active underline too
+    li.is-current-parent > .header-menu-row > a::after {
+      background-color: var(--dm-color-primary);
+      transform: scaleX(1);
+    }
+
+    // ---------- desktop dropdown: hover or chevron click (.is-open) ----------
+    @media (min-width: #{$dm-screen-lg + 1px}) {
+      .header-submenu {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(6px);
+        pointer-events: none;
+        transition:
+          opacity 0.18s ease-in-out,
+          transform 0.18s ease-in-out,
+          visibility 0s linear 0.18s;
+      }
+
+      li.has-submenu.is-open > .header-submenu {
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+        transition:
+          opacity 0.18s ease-in-out,
+          transform 0.18s ease-in-out,
+          visibility 0s;
+      }
+
+      @media (hover: hover) {
+        li.has-submenu:hover > .header-submenu {
+          visibility: visible;
+          opacity: 1;
+          transform: none;
+          pointer-events: auto;
+          transition:
+            opacity 0.18s ease-in-out,
+            transform 0.18s ease-in-out,
+            visibility 0s;
+        }
+
+        li.has-submenu:hover > .header-menu-row > .header-submenu-toggle > svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
     .header-submenu {
-      display: none;
-      opacity: 0;
+      display: flex;
       position: absolute;
       top: 100%;
       left: 0;
@@ -227,20 +317,30 @@ header {
         text-align: center;
       }
 
+      // accordion: closed until the chevron opens it (.is-open)
       .header-submenu {
         position: relative;
         top: 0;
-        opacity: 1;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
         box-shadow: none;
         border: none;
         padding: 0px;
         margin: 0px;
-        transition: all 0.15s ease-in-out;
+        transition:
+          max-height 0.3s ease-in-out,
+          opacity 0.2s ease-in-out;
 
         [mode="dark"] &,
         [mode="light"] & {
           background-color: unset;
         }
+      }
+
+      li.has-submenu.is-open > .header-submenu {
+        max-height: 400px;
+        opacity: 1;
       }
     }
     @media (max-width: $dm-screen-sm) {
